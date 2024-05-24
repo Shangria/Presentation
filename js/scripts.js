@@ -437,9 +437,37 @@ $('.presentation-menu').scroll(function () {
 /**
  * Redirect on click
  */
-$('#requestDemo').on('click', function () {
-  window.open('https://miningdatasolutions.com/assetProfile_May_9.html');
+
+$(document).ready(function() {
+  $("#requestDemo").click(function () {
+    $("#modalDemo").css("display", "flex").hide().fadeIn(500);
+  });
+
+  function closeModal() {
+    $("#modalDemo").fadeOut(500, function() {
+      $(this).css("display", "none"); // Возврат к display:none после завершения fadeOut
+    });
+  }
+
+  $(".modal-demo-content-close").click(function () {
+    closeModal()
+  });
+
+  $("#sendMessageBtn").click(function() {
+    closeModal();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).hasClass('modal-demo')) {
+      closeModal()
+    }
+  });
 });
+
+
+/*$('#requestDemo').on('click', function () {
+  window.open('https://miningdatasolutions.com/assetProfile_May_9.html');
+});*/
 
 /**
  * Redirect on click
