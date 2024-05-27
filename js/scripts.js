@@ -350,7 +350,6 @@ $(document).ready(function () {
    * Toggle active state on slide item
    */
   $('#comprehensive-slider .comprehensive-slide-item').on('click', function () {
-    $('#comprehensive-slider .comprehensive-slide-item').not(this).removeClass('swiper-slide-checked');
     $(this).toggleClass('swiper-slide-checked');
 
     $('#btnSegmentsNext').removeAttr('disabled');

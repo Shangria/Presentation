@@ -1,0 +1,6 @@
+@import "../css/selects.css";
+@import "../css/modal-demo.css";
+@import "../css/common-styles.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
