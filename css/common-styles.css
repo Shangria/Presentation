@@ -188,17 +188,17 @@
 }
 
 .section.section-select-target .main {
-    padding: 60px 60px 55px 60px;
+    padding: 6dvh 60px 6dvh 60px;
 }
 
 .section.section-select-target .title,
 .section.section-modules .title {
-    margin-bottom: 0;
     font-weight: 400;
-    font-size: 52px;
-    line-height: 101px;
+    font-size: min(7dvh,52px);
+    line-height: 1;
     text-align: center;
     z-index: 2;
+    margin-bottom: 5dvh;
 }
 
 /*
@@ -436,10 +436,10 @@
 }
 
 .section.section-modules .main {
-    padding: 55px 60px 55px 60px;
+    padding: 6dvh 60px 6dvh 60px;
     background: url('../images/gradient.png');
-    background-size: calc(100% + 700px);
-    background-position-x: -325px;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 }
 

@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         additionalTextOptionsSelect.innerHTML = optionalSelectContent[value].additionalTextBottom;
+        additionalTextOptionsSelect.classList.add('show-additional-text')
     });
 });
 
