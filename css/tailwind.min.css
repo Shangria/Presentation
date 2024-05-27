@@ -2296,9 +2296,6 @@ scrollbar-color:#d9d9d9 #0000
 	height:24px;
 	cursor:pointer
 }
-.additional-text-options {
-	display:none
-}
 .step-form-box-right .dropdown-toggle,.step-form-box-right .menu-title {
 	position:relative;
 	width:100%;

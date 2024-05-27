@@ -27,12 +27,20 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 	/>
+
+	<!-- Include Choices CSS -->
+	<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+	/>
+
 	<link rel="stylesheet" type="text/css" href="./css/jquery_ui_1.13.2.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/tailwind.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/variables.css">
 	<link rel="stylesheet" type="text/css" href="./css/button.css">
 	<link rel="stylesheet" type="text/css" href="./css/reset.css">
 	<link rel="stylesheet" type="text/css" href="./css/modal-demo.css">
+	<link rel="stylesheet" type="text/css" href="./css/selects.css">
 	<link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 
@@ -621,16 +629,168 @@
 
 		<div class="swiper-slide">
 			<section class="section section-modules flex flex-nowrap">
+				<div class="section-back">
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clip-path="url(#clip0_332_23416)">
+							<path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+								  stroke-linejoin="round" />
+						</g>
+						<defs>
+							<clipPath id="clip0_332_23416">
+								<rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)" />
+							</clipPath>
+						</defs>
+					</svg>
+				</div>
+				<div class="section-close">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clip-path="url(#clip0_1_1170)">
+							<path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								  stroke-linejoin="round" />
+							<path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								  stroke-linejoin="round" />
+						</g>
+						<defs>
+							<clipPath id="clip0_1_1170">
+								<rect width="24" height="24" fill="currentColor" />
+							</clipPath>
+						</defs>
+					</svg>
+				</div>
 
+				<div class="presentation-menu animate__animated">
+					<!-- Do not delete this block. It's being used in js -->
+				</div>
+				<div class="main relative flex flex-col animate__animated">
+					<h2 class="title">Packages and Modules</h2>
+					<div class="package flex flex-nowrap flex-grow">
+						<div class="package-info">
+							<div class="package-info--img relative">
+								<img src="./images/slides/key-mine-personnel-and-workforce.jpeg" alt="key mine personnel">
+							</div>
+							<h3><!-- Do not delete this block. It's being used in js --></h3>
+							<p><!-- Do not delete this block. It's being used in js --></p>
+						</div>
+						<div class="package-list w-full flex flex-col">
+							<div class="accordion">
+								<!-- Do not delete this block. It's being used in js -->
+							</div>
+						</div>
+
+						<div class="selects-box-container">
+							<div class="selects-box">
+								<div class="select-box regions-select-box">
+									<div class="select-title-box  flex items-center">
+										<img class="mr-2" src="./images/request-invoice/region-img.svg"
+											 alt="Select your region"/>
+										<span class="font-semibold  text-white  text-[14px] lg:text-[22px]">1. Select your region(s):</span>
+									</div>
+
+									<div id="regionsSelect" class="regions-select-wrap">
+										<div class="select-choices-inner" id="selectedItems">Global</div>
+										<div class="regions-item-box" id="regionsItemBox">
+											<label class="regions-item-label hover:font-semibold ease-in choose">
+												<input data-regions-input type="checkbox" value="global" name="Global"
+													   checked>
+												<span class="checkmark"></span>
+												Global
+											</label>
+											<label class="regions-item-label hover:font-semibold ease-in">
+												<input data-regions-input type="checkbox" value="Oceania"
+													   name="Oceania">
+												<span class="checkmark"></span>
+												Oceania
+											</label>
+											<label class="regions-item-label hover:font-semibold ease-in">
+												<input data-regions-input type="checkbox" value="USA" name="USA">
+												<span class="checkmark"></span>
+												USA
+											</label>
+											<label class="regions-item-label hover:font-semibold ease-in">
+												<input data-regions-input type="checkbox" value="Canada" name="Canada">
+												<span class="checkmark"></span>
+												Canada
+											</label>
+											<label class="regions-item-label hover:font-semibold ease-in">
+												<input data-regions-input type="checkbox" value="LatinAmerica"
+													   name="Latin America">
+												<span class="checkmark"></span>
+												Latin America
+											</label>
+											<label class="regions-item-label hover:font-semibold ease-in">
+												<input data-regions-input type="checkbox" value="Africa" name="Africa">
+												<span class="checkmark"></span>
+												Africa
+											</label>
+											<label class="regions-item-label hover:font-semibold ease-in">
+												<input data-regions-input type="checkbox" value="EuropeAsia"
+													   name="Europe+Asia">
+												<span class="checkmark"></span>
+												Europe + Asia
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="select-box package-select-box">
+									<div class="select-title-box  flex items-center relative">
+
+										<button class="package-select-info-img absolute right-0 lg:hidden"
+												id="packageSelectInfo">
+											<img src="./src/images/step-form/info.svg" alt="info"/>
+										</button>
+										<img class="mr-2" src="./images/request-invoice/package-img.svg"
+											 alt="Select you package"/>
+										<span class="font-semibold text-white   text-[14px] lg:text-[22px]">2. Select you package:</span>
+									</div>
+
+									<div class="package-select-wrap">
+										<select id="optionsSelect">
+											<option value="" class="hidden" disabled selected>Choose package</option>
+										</select>
+									</div>
+
+									<div class="text-[11px] lg:text-[12px] additional-text-options"
+										 id="additionalTextOptionsSelect"></div>
+								</div>
+
+								<div class="select-box licences-select-box">
+									<div class="select-title-box flex items-center">
+										<img class="mr-2" src="./images/request-invoice/licence-img.svg"
+											 alt="Select you package"/>
+										<span class="font-semibold text-white text-[14px] lg:text-[22px]">3. Select  License quantity:</span>
+									</div>
+
+
+									<div class="licences-select-wrap">
+										<select id="licencesSelect"></select>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="total-counter">
+								Total: $<span id="totalCounter"></span> USD
+							</div>
+							<button type="button" class="btn btn-rounded btn-blue btn-next uppercase"
+									id="requestInvoicePackage">Request invoice
+							</button>
+						</div>
+
+					</div>
+				</div>
 			</section>
 		</div>
 	</div>
 </div>
 
+<!-- Include Choices JavaScript (latest) -->
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" async></script>
 <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js" async></script>
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/jquery_ui_1.13.2.js"></script>
+<script type="module" src="./js/request-invoice.js"></script>
 <script src="./js/scripts.js" async></script>
 
 </body>

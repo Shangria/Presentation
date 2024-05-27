@@ -264,6 +264,7 @@ $(document).ready(function () {
     allowSlideNext: true,
     allowSlidePrev: true,
     effect: 'fade',
+    initialSlide:4,
     fadeEffect: {
       crossFade: true,
     },
@@ -349,14 +350,17 @@ $(document).ready(function () {
    * Toggle active state on slide item
    */
   $('#comprehensive-slider .comprehensive-slide-item').on('click', function () {
+    $('#comprehensive-slider .comprehensive-slide-item').not(this).removeClass('swiper-slide-checked');
     $(this).toggleClass('swiper-slide-checked');
 
     $('#btnSegmentsNext').removeAttr('disabled');
+
 
     const key = $(this).attr('data-id');
     const indexOf = selectedSegments.indexOf(key);
 
     if (indexOf >= 0) {
+
       selectedSegments.splice(indexOf, 1);
       suggestedModules = [];
       otherAvailableModules = [];
@@ -472,8 +476,12 @@ $(document).ready(function() {
 /**
  * Redirect on click
  */
-$('#requestInvoice').on('click', function () {
+/*$('#requestInvoice').on('click', function () {
   window.open('https://miningdatasolutions.com/may-9.html');
+});*/
+
+$('#requestInvoice').on('click', function () {
+
 });
 
 /**
