@@ -192,7 +192,8 @@
 }
 
 .section.section-select-target .title,
-.section.section-modules .title {
+.section.section-modules .title,
+.section.section-subscription .title{
     font-weight: 400;
     font-size: min(7dvh,52px);
     line-height: 1;
@@ -200,6 +201,12 @@
     z-index: 2;
     margin-bottom: 5dvh;
 }
+
+.section.section-subscription .title{
+    text-align: left;
+    margin-bottom: 3dvh;
+}
+
 
 /*
 

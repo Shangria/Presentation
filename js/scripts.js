@@ -264,7 +264,7 @@ $(document).ready(function () {
     allowSlideNext: true,
     allowSlidePrev: true,
     effect: 'fade',
-    initialSlide:4,
+    initialSlide:5,
     fadeEffect: {
       crossFade: true,
     },

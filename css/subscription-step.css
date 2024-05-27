@@ -1,0 +1,130 @@
+.subscription-step {
+    padding: 6dvh 165px;
+    width: 100%;
+    color: var(--color-white);
+}
+
+.subscription-details-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 2dvh;
+}
+
+.subscription-box-details {
+    margin-bottom: 3dvh;
+}
+
+.subscription-box-details label:not(:last-child) {
+    margin-bottom: 2dvh;
+}
+
+.subscription-box-details label input {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    height: 6.5dvh;
+    max-height: 64px;
+    font-size: 16px;
+    width: 100%;
+    padding: 1dvh 20px;
+}
+
+.subscription-details-columns {
+    display: flex;
+    max-width: 920px;
+    width: 100%;
+    gap: 40px;
+}
+
+.subscription-details-column {
+    width: 50%;
+}
+
+.subscription-box-details-second {
+    padding-top: 45px;
+    margin-bottom: 5.7dvh;
+}
+
+.subscription-box-details-space {
+    margin-bottom: 0;
+}
+
+.subscription-payment-box-details-box {
+    position: relative;
+}
+
+.subscription-payment-box-details-box .error-message {
+    bottom: -20px;
+}
+
+
+
+.radio-item input[type='radio'] {
+    display: none;
+}
+
+.subscription-payment-box-details-box .radio-item label {
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #FFFFFF33;
+    border-radius: 35px;
+    padding: 1dvh 22px;
+    font-size: 18px;
+    transition: .3s ease-in-out;
+    margin-bottom: 1.2dvh;
+}
+
+.subscription-payment-box-details-box .radio-item label:before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 8px 0 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 11px;
+    border: 2px solid #5E6377;
+    background-color: transparent;
+}
+
+.subscription-payment-box-details-box .radio-item input[type=radio]:checked + label {
+    border: 1px solid #27AE60;
+}
+
+
+.subscription-payment-box-details-box .radio-item input[type=radio]:checked + label:before {
+    border: 2px solid #27AE60;
+}
+
+
+.subscription-payment-box-details-box .radio-item label:after {
+    content: " ";
+    border-radius: 11px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 19px;
+    left: 26px;
+    display: block;
+    background: #5E6377;
+}
+
+.subscription-payment-box-details-box .radio-item input[type=radio]:checked + label:after {
+    content: " ";
+    border-radius: 11px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 19px;
+    left: 26px;
+    display: block;
+    background: #27AE60;
+    border: 2px solid #27AE60;;
+}
+
+.subscription-box-accepted{
+    position: relative;
+}
