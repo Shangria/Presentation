@@ -1,4 +1,3 @@
-
 import {
     basePercent,
     basePriceValues,
@@ -8,19 +7,112 @@ import {
     regionsIngLength
 } from "./request-invoice.js";
 
+//determine segments and modules
+function findSegmentById(segments, name) {
+    return segments.find(s => s.id === name);
+}
+
+function getServicesFromSelectedSegments(segments, allServices) {
+    debugger
+    let result = [];
+    for (let segment of segments) {
+        for (let service of segment.services) {
+            if (!result.includes(service)) {
+
+                allServices.map(serviceItem=>{
+                    if(serviceItem.name === service){
+                        const chooseModule={
+                            name: serviceItem.name,
+                            price: serviceItem.price,
+                            description: '',
+                            checked: false
+                        };
+                        result.push(chooseModule);
+                    }
+                })
+
+            }
+        }
+    }
+    return result;
+}
+
+function getAvailableServices(allServices, suggestedServices) {
+    const suggestedServicesNames = suggestedServices.map(serviceName => serviceName);
+
+    const result = allServices.filter(service => !suggestedServicesNames.includes(service.name));
+
+    return result;
+}
+
+//
+
+//show modals
+$(document).ready(function () {
+    $("#requestDemo").click(function () {
+        $("#modalDemo").css("display", "flex").hide().fadeIn(500);
+    });
+
+    function closeModal() {
+        $("#modalDemo").fadeOut(500, function () {
+            $(this).css("display", "none");
+        });
+    }
+
+    $(".modal-demo-content-close").click(function () {
+        closeModal();
+    });
+
+    $("#sendMessageBtn").click(function () {
+        closeModal();
+    });
+
+    $(window).click(function (event) {
+        if ($(event.target).hasClass('modal-demo')) {
+            closeModal();
+        }
+    });
+});
+
+$(document).ready(function () {
+    $("#termsOfUseOpen").click(function () {
+        $("#termsOfUseModal").css("display", "flex").hide().fadeIn(500);
+    });
+
+    function closeModal() {
+        $("#termsOfUseModal").fadeOut(500, function () {
+            $(this).css("display", "none");
+        });
+    }
+
+    $("#termsOfUseClose").click(function () {
+        closeModal();
+    });
+
+
+    $(window).click(function (event) {
+        if ($(event.target).hasClass('modal-terms-of-use-box')) {
+            closeModal();
+        }
+    });
+});
+
+//
+
+
 function setupDropdownToggle(element) {
     element.addEventListener('click', (event) => {
         const checkBox = event.target.closest('.check-box-label');
         const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container');
 
 
-        if (!checkBox && dropDownButton ) {
+        if (!checkBox && dropDownButton) {
             const dropdownBox = dropDownButton.closest('.dropdown-box');
             if (dropdownBox) {
                 const root = dropdownBox.closest('.optional-content');
                 const isSelectedOptionsContainer = !!dropdownBox.closest('#selectedOptionsContainer');
                 const isMobile = window.innerWidth < 1024;
-                
+
                 document.querySelectorAll('.dropdown-box').forEach(box => {
                     const drop = box.querySelector('.dropdown-menu');
 
@@ -30,16 +122,16 @@ function setupDropdownToggle(element) {
 
                         const dropHeight = drop.scrollHeight;
                         drop.style.maxHeight = `${dropHeight}px`;
-                        
-                        setTimeout(() => { 
+
+                        setTimeout(() => {
                             if (root.scrollTop > box.offsetTop - 90) { // if the drop is outside of overflow        
-                                const scrollVal = isSelectedOptionsContainer ? 
+                                const scrollVal = isSelectedOptionsContainer ?
                                     root.scrollTop - (root.scrollTop - box.offsetTop) - (isMobile ? 60 : 90) : // add a root title height value
                                     root.scrollTop - (root.scrollTop - box.offsetTop);
 
-                                root.scrollTo({ top: scrollVal, behavior: "smooth" });                                
+                                root.scrollTo({top: scrollVal, behavior: "smooth"});
                             }
-                         }, 400);                        
+                        }, 400);
                     } else {
                         box.classList.add('closing');
                         drop.removeAttribute('style');
@@ -102,79 +194,4 @@ function calculateTotal(currentPackageSelect) {
 }
 
 
-//determine position of licenses select
-document.addEventListener('DOMContentLoaded',  () =>{
-    const dropdown = document.querySelector('.licences-select-wrap');
-    const dropdownContent = document.querySelector('.licences-select-wrap .choices__list--dropdown');
-
-    dropdown.addEventListener('click', function (event) {
-        const dropdownRect = dropdown.getBoundingClientRect();
-
-        const spaceBelow = window.innerHeight - dropdownRect.bottom;
-
-        if (spaceBelow < 130) {
-            dropdownContent.style.bottom = `107%`;
-            dropdownContent.style.top = 'auto';
-        } else {
-            dropdownContent.style.top = '107%';
-            dropdownContent.style.bottom = 'auto';
-        }
-
-        dropdownContent.classList.toggle('show');
-    });
-});
-
-
-    //toggle terms modal
-window.addEventListener('DOMContentLoaded', () => {
-    const termsOfUse = document.getElementById('termsOfUse');
-    const termsOfUseModal = document.getElementById('termsOfUseModal');
-    const termsOfUseClose = document.getElementById('termsOfUseClose');
-
-
-    termsOfUse.addEventListener('click', (event) => {
-        termsOfUseModal.classList.add("terms-of-use-modal-toggle")
-
-    });
-
-    termsOfUseClose.addEventListener('click', () => {
-        termsOfUseModal.classList.remove("terms-of-use-modal-toggle")
-
-    });
-
-});
-
-
-window.addEventListener('DOMContentLoaded', () => {
-    const sendMessageBtn = document.getElementById('sendMessageBtn');
-    const successfulModal = document.getElementById('successfulModal');
-    const successfulModalClose = document.getElementById('successfulModalClose');
-    const app = document.getElementById('app');
-    const header = document.querySelector('header');
-
-
-    sendMessageBtn.addEventListener('click', (event) => {
-        const isValidForm = validateContactForm();
-        const isValidEmail = validateEmailContact();
-
-        if (isValidForm && isValidEmail) {
-            clearContactInputs();
-            successfulModal.classList.add("successful-modal-toggle");
-            app.classList.add('has-blur');
-            /*     app.classList.add('has-blur', '!overflow-hidden');
-                 header.style.right="0"*/
-        }
-    });
-
-    successfulModalClose.addEventListener('click', () => {
-        successfulModal.classList.remove("successful-modal-toggle");
-        app.classList.remove('has-blur');
-        /*      app.classList.remove('has-blur', '!overflow-hidden');
-              header.style.right="17px"*/
-    });
-});
-
-
-
-
-export {setupDropdownToggle, calculateTotal, adjustContainerHeight};
+export {setupDropdownToggle, calculateTotal, findSegmentById, getServicesFromSelectedSegments, getAvailableServices};

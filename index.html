@@ -45,6 +45,7 @@
 
 <div class="h-dvh swiper main-content" id="page-slider">
 	<div class="swiper-wrapper">
+		<!-- slide1 -->
 		<div class="swiper-slide">
 			<section class="section section-start">
 				<div class="main relative">
@@ -71,6 +72,7 @@
 			</section>
 		</div>
 
+		<!-- slide2 -->
 		<div class="swiper-slide">
 			<section class="section section-select-target">
 				<div class="main relative flex flex-col">
@@ -106,7 +108,7 @@
 					<h2 class="title animate__animated">Select your target segment</h2>
 					<div class="swiper grow w-full animate__animated animate__slow" id="comprehensive-slider">
 						<div class="swiper-wrapper">
-							<div class="comprehensive-slide-item" data-id="Mining">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="mining" data-id="Mining">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/key-mine-personnel-and-workforce.jpeg"
@@ -144,7 +146,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="comprehensive-slide-item" data-id="Backfilling">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="backfilling" data-id="Backfilling">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/heavy-mobile-equipment.jpeg"
@@ -182,45 +184,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="comprehensive-slide-item" data-id="Comminution">
-								<div class="swiper-slide-inner">
-									<img
-											src="./images/slides/commodity-production.jpeg"
-											alt="Geology, Mineral Reserves and Resources"
-											class="w-full object-cover h-full"
-									/>
-									<img
-											src="./images/icons/slide-checked.svg"
-											alt="slide-checked"
-											class="absolute slide-checked"
-									>
-									<svg
-											width="8"
-											height="6"
-											viewBox="0 0 8 6"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-											class="absolute"
-									>
-										<path d="M1 3L3 5L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-									</svg>
-									<div class="content absolute z-[1]">
-										<p class="text-white">Comminution</p>
-									</div>
-									<div class="content hidden-content absolute z-[1]">
-										<h5>Key Mine Personnel and Workforce</h5>
-										<ol>
-											<li>More than 7,000 key decision makers at mine sites and consultants</li>
-											<li>General and Engineering Managers</li>
-											<li>Mine and Operation Managers</li>
-											<li>Mine and Plant Maintenance Managers</li>
-											<li>Processing Managers</li>
-											<li>Procurement Staff and more...</li>
-										</ol>
-									</div>
-								</div>
-							</div>
-							<div class="comprehensive-slide-item" data-id="Mineral Processing">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="mineralProcessing"  data-id="Mineral Processing">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/mining-operations.jpeg"
@@ -258,7 +222,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="comprehensive-slide-item" data-id="Milling Equipment">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="millingEquipment"  data-id="Milling Equipment">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/reserves-and-resources.jpeg"
@@ -296,7 +260,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="comprehensive-slide-item" data-id="Mobile Equipment">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="mobileEquipment"  data-id="Mobile Equipment">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/comminution-crushers-and-mills.jpeg"
@@ -334,7 +298,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="comprehensive-slide-item" data-id="Conveyors">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="conveyors"  data-id="Conveyors">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/mineral-processing.jpeg"
@@ -372,7 +336,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="comprehensive-slide-item" data-id="Pipelines">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="pipelines"  data-id="Pipelines">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/project-costs-and-returns.jpeg"
@@ -410,7 +374,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="comprehensive-slide-item" data-id="Project Consulting">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="projectConsulting"  data-id="Project Consulting">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/project-development-timeline.jpeg"
@@ -448,7 +412,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="comprehensive-slide-item" data-id="Lodging">
+							<div class="comprehensive-slide-item" data-segment-item data-segment="lodging"  data-id="Lodging">
 								<div class="swiper-slide-inner">
 									<img
 											src="./images/slides/water-supply-and-consumption.jpeg"
@@ -529,11 +493,11 @@
 			</section>
 		</div>
 
+		<!-- slide3 -->
 		<div class="swiper-slide">
 			<section class="section section-modules flex flex-nowrap">
 
 				<div id="modalDemo" class="modal-demo modal-wrap">
-
 					<div class="modal-demo-content">
 						<div class="modal-demo-content-close section-close">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -624,6 +588,7 @@
 			</section>
 		</div>
 
+		<!-- slide4 -->
 		<div class="swiper-slide">
 			<section class="section section-modules flex flex-nowrap">
 				<div class="section-back">
@@ -734,7 +699,7 @@
 
 										<button class="package-select-info-img absolute right-0 lg:hidden"
 												id="packageSelectInfo">
-											<img src="./src/images/step-form/info.svg" alt="info"/>
+											<img src="./images/request-invoice/info.svg" alt="info"/>
 										</button>
 										<img class="mr-2" src="./images/request-invoice/package-img.svg"
 											 alt="Select you package"/>
@@ -779,6 +744,7 @@
 			</section>
 		</div>
 
+		<!-- slide5 -->
 		<div class="swiper-slide">
 			<section class="section section-subscription flex flex-nowrap">
 				<div class="section-back">
@@ -1177,9 +1143,14 @@
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/jquery_ui_1.13.2.js"></script>
 <script type="module" src="./js/data-store.js"></script>
-<script type="module" src="./js/request-invoice.js"></script>
+<script type="module" src="./js/sliders.js"></script>
 <script type="module" src="./js/helpers.js"></script>
-<script src="./js/scripts.js" async></script>
+<script type="module" src="./js/validation-form.js"></script>
+<script type="module" src="./js/request-invoice.js"></script>
+<script type="module" src="./js/packages-modules.js"></script>
+
+
+<!-- <script src="./js/scripts.js" async></script> -->
 
 </body>
 </html>
