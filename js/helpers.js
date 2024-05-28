@@ -13,33 +13,34 @@ function findSegmentById(segments, name) {
 }
 
 function getServicesFromSelectedSegments(segments, allServices) {
-    debugger
     let result = [];
+    let seenNames = new Set();
+
+    // Собираем все имена услуг, которые встречаются в сегментах
+    let selectedServices = new Set();
     for (let segment of segments) {
-        for (let service of segment.services) {
-            if (!result.includes(service)) {
+        for (let serviceName of segment.services) {
+            selectedServices.add(serviceName);
+        }
+    }
 
-                allServices.map(serviceItem=>{
-                    if(serviceItem.name === service){
-                        const chooseModule={
-                            name: serviceItem.name,
-                            price: serviceItem.price,
-                            description: '',
-                            checked: false
-                        };
-                        result.push(chooseModule);
-                    }
-                })
-
-            }
+    // Фильтруем все услуги, добавляя в результат только те, которые выбраны в segments и ещё не встречались
+    for (let serviceItem of allServices) {
+        if (selectedServices.has(serviceItem.name) && !seenNames.has(serviceItem.name)) {
+            seenNames.add(serviceItem.name);
+            result.push({
+                name: serviceItem.name,
+                price: serviceItem.price,
+                description: '',
+                checked: false
+            });
         }
     }
     return result;
 }
 
 function getAvailableServices(allServices, suggestedServices) {
-    const suggestedServicesNames = suggestedServices.map(serviceName => serviceName);
-
+    const suggestedServicesNames = suggestedServices.map(serviceName => serviceName.name);
     const result = allServices.filter(service => !suggestedServicesNames.includes(service.name));
 
     return result;
