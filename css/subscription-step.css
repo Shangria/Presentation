@@ -20,14 +20,25 @@
 }
 
 .subscription-box-details label input {
-    border-radius: 16px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.05);
-    height: 6.5dvh;
-    max-height: 64px;
+    height: 5dvh;
+    max-height: 52px;
     font-size: 16px;
     width: 100%;
     padding: 1dvh 20px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid transparent;
 }
+
+.subscription-box-details label input:hover,
+.subscription-box-details label input:focus {
+    border: 1px solid #02a1d3;
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
+}
+
 
 .subscription-details-columns {
     display: flex;
@@ -42,7 +53,6 @@
 
 .subscription-box-details-second {
     padding-top: 45px;
-    margin-bottom: 5.7dvh;
 }
 
 .subscription-box-details-space {
@@ -51,13 +61,12 @@
 
 .subscription-payment-box-details-box {
     position: relative;
+    margin-bottom: 1dvh;
 }
 
 .subscription-payment-box-details-box .error-message {
     bottom: -20px;
 }
-
-
 
 .radio-item input[type='radio'] {
     display: none;

@@ -69,7 +69,7 @@
 .laptop-shadow {
     width: 100%;
     height: 155px;
-    top: 260px;
+    top: 135px;
     left: 50%;
     -webkit-transform: translateX(-35%);
     -ms-transform: translateX(-35%);
@@ -764,4 +764,26 @@
 }
 .comprehensive-coverage .afterActive {
     transform-origin:left center
+}
+
+/*scroll styles*/
+.terms-of-use-modal-inner,
+.presentation-menu{
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #D9D9D9;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #D9D9D9;
+    }
+    scrollbar-width: thin; /* 'auto' или 'thin' */
+    scrollbar-color: #D9D9D9 transparent;
 }
