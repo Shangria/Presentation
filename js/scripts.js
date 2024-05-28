@@ -448,7 +448,7 @@ $(document).ready(function() {
 
   function closeModal() {
     $("#modalDemo").fadeOut(500, function() {
-      $(this).css("display", "none"); // Возврат к display:none после завершения fadeOut
+      $(this).css("display", "none");
     });
   }
 
@@ -462,6 +462,29 @@ $(document).ready(function() {
 
   $(window).click(function (event) {
     if ($(event.target).hasClass('modal-demo')) {
+      closeModal()
+    }
+  });
+});
+
+$(document).ready(function() {
+  $("#termsOfUseOpen").click(function () {
+    $("#termsOfUseModal").css("display", "flex").hide().fadeIn(500);
+  });
+
+  function closeModal() {
+    $("#termsOfUseModal").fadeOut(500, function() {
+      $(this).css("display", "none");
+    });
+  }
+
+  $("#termsOfUseClose").click(function () {
+    closeModal()
+  });
+
+
+  $(window).click(function (event) {
+    if ($(event.target).hasClass('modal-terms-of-use-box')) {
       closeModal()
     }
   });

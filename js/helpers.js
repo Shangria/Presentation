@@ -102,46 +102,6 @@ function calculateTotal(currentPackageSelect) {
 }
 
 
-
-function adjustContainerHeight() {
-    const activeStep = document.querySelector('.step-form-step.active');
-    const container = document.querySelector('.step-form-box');
-
-    if (!activeStep || !container) {
-        return;
-    }
-
-
-    if (activeStep && window.innerHeight<1061 || (window.innerHeight>=1061 && window.innerWidth<=1024) ) {
-        container.style.maxHeight = `${window.innerHeight}px`;
-    }
-
-
-    if(activeStep && window.innerWidth>=1024 && window.innerHeight>=1061){
-        container.style.maxHeight = `839px`;
-    }
-
-}
-
-document.addEventListener('DOMContentLoaded', adjustContainerHeight);
-window.addEventListener('resize', adjustContainerHeight);
-window.addEventListener('orientationchange', adjustContainerHeight);
-
-
-const optionsDetails = document.getElementById('optionsDetails');
-const disabledContainer = document.getElementById('disabledContainer');
-
-    optionsDetails.addEventListener("scroll",()=>{
-        const atBottom = optionsDetails.scrollTop + optionsDetails.clientHeight >= optionsDetails.scrollHeight - 1;
-
-        if(optionsDetails.scrollTop>2 && !atBottom) {
-            disabledContainer.classList.add('shadow-bottom')
-        } else if (atBottom){
-            disabledContainer.classList.remove('shadow-bottom')
-        }
-    })
-
-
 //determine position of licenses select
 document.addEventListener('DOMContentLoaded',  () =>{
     const dropdown = document.querySelector('.licences-select-wrap');
@@ -170,16 +130,16 @@ window.addEventListener('DOMContentLoaded', () => {
     const termsOfUse = document.getElementById('termsOfUse');
     const termsOfUseModal = document.getElementById('termsOfUseModal');
     const termsOfUseClose = document.getElementById('termsOfUseClose');
-    const app = document.getElementById('app');
+
 
     termsOfUse.addEventListener('click', (event) => {
         termsOfUseModal.classList.add("terms-of-use-modal-toggle")
-        app.classList.add('has-blur');
+
     });
 
     termsOfUseClose.addEventListener('click', () => {
         termsOfUseModal.classList.remove("terms-of-use-modal-toggle")
-        app.classList.remove('has-blur');
+
     });
 
 });
