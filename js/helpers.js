@@ -6,17 +6,23 @@ import {
     newSumOfPackage,
     regionsIngLength
 } from "./request-invoice.js";
+import {store} from "./data-store.js";
 
 //determine segments and modules
 function findSegmentById(segments, name) {
     return segments.find(s => s.id === name);
 }
 
+
+function findServiceByName(services, name) {
+    return store.allServices.find(s => s.name === name);
+}
+
 function getServicesFromSelectedSegments(segments, allServices) {
     let result = [];
     let seenNames = new Set();
 
-    // Собираем все имена услуг, которые встречаются в сегментах
+    // Collect all service names that occur in segments
     let selectedServices = new Set();
     for (let segment of segments) {
         for (let serviceName of segment.services) {
@@ -24,14 +30,17 @@ function getServicesFromSelectedSegments(segments, allServices) {
         }
     }
 
-    // Фильтруем все услуги, добавляя в результат только те, которые выбраны в segments и ещё не встречались
+    // Filter all services, adding to the result only those that are selected in segments and have not yet been encountered
     for (let serviceItem of allServices) {
         if (selectedServices.has(serviceItem.name) && !seenNames.has(serviceItem.name)) {
             seenNames.add(serviceItem.name);
             result.push({
                 name: serviceItem.name,
                 price: serviceItem.price,
-                description: '',
+                iconImg:serviceItem.iconImg,
+                img:serviceItem.img,
+                description: serviceItem.description,
+                overviewDescription: serviceItem.overviewDescription,
                 checked: false
             });
         }
@@ -44,6 +53,22 @@ function getAvailableServices(allServices, suggestedServices) {
     const result = allServices.filter(service => !suggestedServicesNames.includes(service.name));
 
     return result;
+}
+
+function determineDefaultState(allTargetSegments, allServices, chooseSegments){
+    let result=''
+    for (let allTargetSegment of allTargetSegments){
+
+        if(chooseSegments.length>1){
+            result="Research Package"
+        }
+        
+        if(chooseSegments.includes(allTargetSegment.id)){
+            result=allTargetSegment.defaultSelected
+        }
+    }
+
+    return result
 }
 
 //
@@ -195,4 +220,4 @@ function calculateTotal(currentPackageSelect) {
 }
 
 
-export {setupDropdownToggle, calculateTotal, findSegmentById, getServicesFromSelectedSegments, getAvailableServices};
+export {setupDropdownToggle, calculateTotal, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, findServiceByName, determineDefaultState};
