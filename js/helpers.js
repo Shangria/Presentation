@@ -10,7 +10,7 @@ import {store} from "./data-store.js";
 
 //determine segments and modules
 function findSegmentById(segments, name) {
-    return segments.find(s => s.id === name);
+    return segments.find(s => s.name === name);
 }
 
 
@@ -62,8 +62,8 @@ function determineDefaultState(allTargetSegments, allServices, chooseSegments){
         if(chooseSegments.length>1){
             result="Research Package"
         }
-        
-        if(chooseSegments.includes(allTargetSegment.id)){
+
+        if(chooseSegments.includes(allTargetSegment.name)){
             result=allTargetSegment.defaultSelected
         }
     }
@@ -128,14 +128,11 @@ $(document).ready(function () {
 
 function setupDropdownToggle(element) {
     element.addEventListener('click', (event) => {
-        const checkBox = event.target.closest('.check-box-label');
         const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container');
 
-
-        if (!checkBox && dropDownButton) {
             const dropdownBox = dropDownButton.closest('.dropdown-box');
             if (dropdownBox) {
-                const root = dropdownBox.closest('.optional-content');
+                const root = dropdownBox.closest('.accordion-panel');
                 const isSelectedOptionsContainer = !!dropdownBox.closest('#selectedOptionsContainer');
                 const isMobile = window.innerWidth < 1024;
 
@@ -167,9 +164,62 @@ function setupDropdownToggle(element) {
                     }
                 });
             }
-        }
+
     });
 }
+
+
+function dropdownTogglePanel(){
+
+    const dropdownToggleList = document.querySelectorAll(".dropdown-toggle");
+    console.log(dropdownToggleList)
+    dropdownToggleList.forEach(dropdownToggle => {
+        dropdownToggle.addEventListener('click', (event) => {
+
+            const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container');
+
+            const dropdownBox = dropDownButton.closest('.dropdown-box');
+            if (dropdownBox) {
+                const root = dropdownBox.closest('.accordion-panel');
+                const isSelectedOptionsContainer = !!dropdownBox.closest('#selectedOptionsContainer');
+                const isMobile = window.innerWidth < 1024;
+
+                document.querySelectorAll('.dropdown-box').forEach(box => {
+                    const drop = box.querySelector('.dropdown-menu');
+
+                    if (box === dropdownBox) {
+                        box.classList.remove('closing');
+                        box.classList.add('drop-down-item-open');
+
+                        const dropHeight = drop.scrollHeight;
+                        drop.style.maxHeight = `${dropHeight}px`;
+
+                        setTimeout(() => {
+                            if (root.scrollTop > box.offsetTop - 90) { // if the drop is outside of overflow
+                                const scrollVal = isSelectedOptionsContainer ?
+                                    root.scrollTop - (root.scrollTop - box.offsetTop) - (isMobile ? 60 : 90) : // add a root title height value
+                                    root.scrollTop - (root.scrollTop - box.offsetTop);
+
+                                root.scrollTo({ top: scrollVal, behavior: "smooth" });
+                            }
+                        }, 400);
+                    } else {
+                        box.classList.add('closing');
+                        drop.removeAttribute('style');
+                        setTimeout(() => {
+                            box.classList.remove('drop-down-item-open');
+                        }, 10);
+                    }
+                });
+            }
+        });
+    });
+}
+
+
+
+
+
 
 function calculateTotal(currentPackageSelect) {
     let total = 0;
@@ -220,4 +270,4 @@ function calculateTotal(currentPackageSelect) {
 }
 
 
-export {setupDropdownToggle, calculateTotal, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, findServiceByName, determineDefaultState};
+export {setupDropdownToggle, calculateTotal, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, findServiceByName, determineDefaultState, dropdownTogglePanel};

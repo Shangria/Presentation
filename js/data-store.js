@@ -4,55 +4,46 @@ export let store = {
     targetSegments: [
         {
             name: 'Mining',
-            id: 'mining',
             defaultSelected: 'Mining Contracts',
             services: ['Research Package', 'Mining Operations', 'Key Mine Personnel', 'Mining Contracts', 'Project Timeline',]
         },
         {
             name: 'Backfilling',
-            id: 'backfilling',
             defaultSelected: 'Key Mine Personnel',
             services: ['Research Package', 'Mining Operations', 'Key Mine Personnel', 'Mining Contracts', 'Project Timeline']
         },
         {
             name: 'Mineral Processing',
-            id: 'mineralProcessing',
             defaultSelected: 'Mineral Processing',
             services: ['Research Package', 'Mineral Processing', 'Key Mine Personnel', 'Project Timeline']
         },
         {
             name: 'Milling Equipment',
-            id: 'millingEquipment',
             defaultSelected: 'Crushing & Grinding',
             services: ['Research Package', 'Crushing & Grinding', 'Key Mine Personnel', 'Project Timeline']
         },
         {
             name: 'Mobile Equipment',
-            id: 'mobileEquipment',
             defaultSelected: 'Heavy Mobile Equipment',
             services: ['Research Package', 'Crushing & Grinding', 'Heavy Mobile Equipment', 'Project Timeline']
         },
         {
             name: 'Conveyors',
-            id: 'conveyors',
             defaultSelected: 'Conveyors',
             services: ['Research Package', 'Conveyors', 'Key Mine Personnel', 'Project Timeline']
         },
         {
             name: 'Pipelines',
-            id: 'pipelines',
             defaultSelected: 'Water Supply & Pipelines',
             services: ['Research Package', 'Water Supply & Pipelines', 'Key Mine Personnel', 'Project Timeline']
         },
         {
             name: 'Project Consulting',
-            id: 'projectConsulting',
             defaultSelected: 'Project Costs & Returns',
             services: ['Research Package', 'Key Mine Personnel', 'Production Costs', 'Project Costs & Returns', 'Mining Contracts']
         },
         {
             name: 'Lodging',
-            id: 'lodging',
             defaultSelected: 'Remote Camps',
             services: ['Research Package', 'Remote Camps', 'Key Mine Personnel',]
         },
@@ -174,49 +165,111 @@ export let store = {
 //added module description
 {
     findServiceByName(store.allServices, 'Research Package')
-        .description = `<ul>
-        <li>Search by Name, Location, Mine Type, Development Stage, Deposit Type, Commodity</li>
-        <li>Mine Owners - direct and indirect (via JV or subsidiary)</li>
-        <li>Office Address and Phone number</li>
-        <li>Deposit Type and Geology</li>
-        <li>Reserves and Resources</li>
-        <li>Commodity Production</li>
-        <li>Commodity Production</li>
-        <li>Mine Financials</li>
-        <li>Corporate Filings</li>
-    </ul>`;
+        .description = `<ul class="dropdown-menu">
+                            <li class="dropdown-item">Search by Name, Location, Mine Type, Development Stage, Deposit Type, Commodity</li>
+                            <li class="dropdown-item">Mine Owners - direct and indirect (via JV or subsidiary)</li>
+                            <li class="dropdown-item">Office Address and Phone number</li>
+                            <li class="dropdown-item">Deposit Type and Geology</li>
+                            <li class="dropdown-item">Reserves and Resources</li>
+                            <li class="dropdown-item">Commodity Production</li>
+                            <li class="dropdown-item">Commodity Production</li>
+                            <li class="dropdown-item">Mine Financials</li>
+                            <li class="dropdown-item">Corporate Filings</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Mining Operations')
-        .description = `<ul>
-        <li>Mining Methods and Technologies</li>
-        <li>Mining Scale, tpd</li>
-        <li>Material Mined and Milled</li>
-        <li>Mining and Milling Capacity and Rate</li>
-        <li>Hoist Shaft Depth</li>
-        <li>Backfill Type</li>
-        <li>Mine Financials</li>
-        <li>Corporate Filings</li>
-        <li>Search by Mining Methods and Backfill Types</li>
-    </ul>`;
+        .description = `<ul class="dropdown-menu" >
+                            <li class="dropdown-item">Mining Methods and Technologies</li>
+                            <li class="dropdown-item">Mining Scale, tpd</li>
+                            <li class="dropdown-item">Material Mined and Milled</li>
+                            <li class="dropdown-item">Mining and Milling Capacity and Rate</li>
+                            <li class="dropdown-item">Hoist Shaft Depth</li>
+                            <li class="dropdown-item">Backfill Type</li>
+                            <li class="dropdown-item">Mine Financials</li>
+                            <li class="dropdown-item">Corporate Filings</li>
+                            <li class="dropdown-item">Search by Mining Methods and Backfill Types</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Key Mine Personnel')
-        .description = `<ul><li>8,000 decision makers and consultants</li><li>General and Engineering Managers</li><li>Mine and Operation Managers</li><li>Mine and Plant Maintenance Managers</li><li>Processing Managers</li><li>Procurement Staff and more…</li><li>Search by job category, job title, consulting company</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">8,000 decision makers and consultants</li>
+                            <li class="dropdown-item">General and Engineering Managers</li>
+                            <li class="dropdown-item">Mine and Operation Managers</li>
+                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
+                            <li class="dropdown-item">Processing Managers</li>
+                            <li class="dropdown-item">Procurement Staff and more…</li>
+                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Mining Contracts')
-        .description = `<ul><li>1,000 mines and projects with awarded and unawarded contracts</li><li>General and Engineering Managers</li><li>Contract Type (e.g. EPCM, mining, hauling, etc.)</li><li>Contract duration</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">1,000 mines and projects with awarded and unawarded contracts</li>
+                            <li class="dropdown-item">General and Engineering Managers</li>
+                            <li class="dropdown-item">Contract Type (e.g. EPCM, mining, hauling, etc.)</li>
+                            <li class="dropdown-item">Contract duration</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Project Timeline')
-        .description = `<ul><li>Current Development Stage</li><li>Construction start date</li><li>Production start date</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">Current Development Stage</li>
+                            <li class="dropdown-item">Construction start date</li>
+                            <li class="dropdown-item">Production start date</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Crushing & Grinding')
-        .description = `<ul><li>1,200 mines and projects with crushers and mills data</li><li>Comminution summary</li><li>Mill size, model, installed power</li><li>Comminution Flowsheet Diagrams</li><li>Search by Crushers and Mills Type and Model</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">1,200 mines and projects with crushers and mills data</li>
+                            <li class="dropdown-item">Comminution summary</li>
+                            <li class="dropdown-item">Mill size, model, installed power</li>
+                            <li class="dropdown-item">Comminution Flowsheet Diagrams</li>
+                            <li class="dropdown-item">Search by Crushers and Mills Type and Model</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Mineral Processing')
-        .description = `<ul><li>120 Processing Technologies</li><li>Mineral Processing Summary</li><li>Reagents</li><li>Recovery Rates</li><li>Flowsheet Diagrams</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">120 Processing Technologies</li>
+                            <li class="dropdown-item">Mineral Processing Summary</li>
+                            <li class="dropdown-item">Reagents</li>
+                            <li class="dropdown-item">Recovery Rates</li>
+                            <li class="dropdown-item">Flowsheet Diagrams</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Water Supply & Pipelines')
-        .description = `<ul><li>120 Processing Technologies</li><li>Mineral Processing Summary</li><li>Reagents</li><li>Recovery Rates</li><li>Flowsheet Diagrams</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">120 Processing Technologies</li>
+                            <li class="dropdown-item">Mineral Processing Summary</li>
+                            <li class="dropdown-item">Reagents</li>
+                            <li class="dropdown-item">Recovery Rates</li>
+                            <li class="dropdown-item">Flowsheet Diagrams</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Heavy Mobile Equipment Conveyors')
-        .description = `<ul><li>1,400 mines and projects with HME fleet data</li><li>2,000 models</li><li>62,000 units</li><li>Electric trucks and shovels</li><li>Autonomous trucks and drills</li><li>Search equipment by Type and Model</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">1,400 mines and projects with HME fleet data</li>
+                            <li class="dropdown-item">2,000 models</li>
+                            <li class="dropdown-item">62,000 units</li>
+                            <li class="dropdown-item">Electric trucks and shovels</li>
+                            <li class="dropdown-item">Autonomous trucks and drills</li>
+                            <li class="dropdown-item">Search equipment by Type and Model</li>
+                         </ul>`;
     findServiceByName(store.allServices, 'Production Costs')
-        .description = `<ul><li>1,100 mines and projects with reported production costs</li><li>Cash Costs</li><li>Total Cash Costs</li><li>AISC</li><li>All-in Costs</li><li>Mine &amp; Mill Operating Costs ($/t mined or milled)</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">1,100 mines and projects with reported production costs</li>
+                            <li class="dropdown-item">Cash Costs</li><li>Total Cash Costs</li>
+                            <li class="dropdown-item">AISC</li><li>All-in Costs</li>
+                            <li class="dropdown-item">Mine &amp; Mill Operating Costs ($/t mined or milled)</li>
+                         </ul>`;
     findServiceByName(store.allServices, 'Project Costs & Returns')
-        .description = `<ul><li>600 projects at PEA, PFS and FS stages</li><li>CapEx</li><li>OpEx</li><li>Revenue</li><li>Cash Flow</li><li>Net Present Value (NPV)</li><li>Interntal Rate of Return (IRR)</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">600 projects at PEA, PFS and FS stages</li>
+                            <li class="dropdown-item">CapEx</li>
+                            <li class="dropdown-item">OpEx</li>
+                            <li class="dropdown-item">Revenue</li>
+                            <li class="dropdown-item">Cash Flow</li>
+                            <li class="dropdown-item">Net Present Value (NPV)</li>
+                            <li class="dropdown-item">Interntal Rate of Return (IRR)</li>
+                         </ul>`;
     findServiceByName(store.allServices, 'Remote Camps')
-        .description = `<ul><li>460 mines and projects with remote camps</li><li>Camp size (e.g. person, beds or rooms)</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">460 mines and projects with remote camps</li>
+                            <li class="dropdown-item">Camp size (e.g. person, beds or rooms)</li>
+                        </ul>`;
     findServiceByName(store.allServices, 'Mapper & Coordinates')
-        .description = `<ul><li>Plot search results on Google Map</li><li>Measure distance to infrastructure</li><li>Download Coordinates</li></ul>`;
+        .description = `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">Plot search results on Google Map</li>
+                            <li class="dropdown-item">Measure distance to infrastructure</li>
+                            <li class="dropdown-item">Download Coordinates</li>
+                        </ul>`;
 }
