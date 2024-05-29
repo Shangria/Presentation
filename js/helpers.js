@@ -126,7 +126,7 @@ $(document).ready(function () {
 //
 
 
-function setupDropdownToggle(element) {
+/*function setupDropdownToggle(element) {
     element.addEventListener('click', (event) => {
         const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container');
 
@@ -166,17 +166,17 @@ function setupDropdownToggle(element) {
             }
 
     });
-}
+}*/
 
 
 function dropdownTogglePanel(){
 
-    const dropdownToggleList = document.querySelectorAll(".dropdown-toggle");
+    const dropdownToggleList = document.querySelectorAll(".toggle-container");
     console.log(dropdownToggleList)
     dropdownToggleList.forEach(dropdownToggle => {
         dropdownToggle.addEventListener('click', (event) => {
 
-            const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container');
+            const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container') || event.target.closest('.dropdown-toggle-arrow');
 
             const dropdownBox = dropDownButton.closest('.dropdown-box');
             if (dropdownBox) {
@@ -270,4 +270,4 @@ function calculateTotal(currentPackageSelect) {
 }
 
 
-export {setupDropdownToggle, calculateTotal, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, findServiceByName, determineDefaultState, dropdownTogglePanel};
+export {calculateTotal, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, findServiceByName, determineDefaultState, dropdownTogglePanel};

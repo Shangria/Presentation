@@ -2,6 +2,7 @@
 @import "../css/modal-demo.css";
 @import "../css/terms-of-use-modal.css";
 @import "../css/subscription-step.css";
+@import "../css/tab-panel.css";
 @import "../css/common-styles.css";
 @tailwind base;
 @tailwind components;

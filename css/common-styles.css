@@ -768,7 +768,8 @@
 
 /*scroll styles*/
 .terms-of-use-modal-inner,
-.presentation-menu{
+.presentation-menu,
+.accordion-panel{
     ::-webkit-scrollbar {
         width: 3px;
     }
