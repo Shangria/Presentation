@@ -125,63 +125,17 @@ $(document).ready(function () {
 
 //
 
-
-/*function setupDropdownToggle(element) {
-    element.addEventListener('click', (event) => {
-        const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container');
-
-            const dropdownBox = dropDownButton.closest('.dropdown-box');
-            if (dropdownBox) {
-                const root = dropdownBox.closest('.accordion-panel');
-                const isSelectedOptionsContainer = !!dropdownBox.closest('#selectedOptionsContainer');
-                const isMobile = window.innerWidth < 1024;
-
-                document.querySelectorAll('.dropdown-box').forEach(box => {
-                    const drop = box.querySelector('.dropdown-menu');
-
-                    if (box === dropdownBox) {
-                        box.classList.remove('closing');
-                        box.classList.add('drop-down-item-open');
-
-                        const dropHeight = drop.scrollHeight;
-                        drop.style.maxHeight = `${dropHeight}px`;
-
-                        setTimeout(() => {
-                            if (root.scrollTop > box.offsetTop - 90) { // if the drop is outside of overflow        
-                                const scrollVal = isSelectedOptionsContainer ?
-                                    root.scrollTop - (root.scrollTop - box.offsetTop) - (isMobile ? 60 : 90) : // add a root title height value
-                                    root.scrollTop - (root.scrollTop - box.offsetTop);
-
-                                root.scrollTo({top: scrollVal, behavior: "smooth"});
-                            }
-                        }, 400);
-                    } else {
-                        box.classList.add('closing');
-                        drop.removeAttribute('style');
-                        setTimeout(() => {
-                            box.classList.remove('drop-down-item-open');
-                        }, 10);
-                    }
-                });
-            }
-
-    });
-}*/
-
-
-function dropdownTogglePanel(){
-
-    const dropdownToggleList = document.querySelectorAll(".toggle-container");
-    console.log(dropdownToggleList)
+function dropdownTogglePanel(defaultOpenId = null) {
+    const dropdownToggleList = document.querySelectorAll(".toggle-container, .presentation-modules-item" );
     dropdownToggleList.forEach(dropdownToggle => {
+
         dropdownToggle.addEventListener('click', (event) => {
 
-            const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container') || event.target.closest('.dropdown-toggle-arrow');
-
+            const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container') || event.target.closest('.dropdown-toggle-arrow') || event.target.closest('.presentation-modules-item');
             const dropdownBox = dropDownButton.closest('.dropdown-box');
             if (dropdownBox) {
-                const root = dropdownBox.closest('.accordion-panel');
-                const isSelectedOptionsContainer = !!dropdownBox.closest('#selectedOptionsContainer');
+
+                const root = document.getElementById('accordionPanel');
                 const isMobile = window.innerWidth < 1024;
 
                 document.querySelectorAll('.dropdown-box').forEach(box => {
@@ -196,9 +150,7 @@ function dropdownTogglePanel(){
 
                         setTimeout(() => {
                             if (root.scrollTop > box.offsetTop - 90) { // if the drop is outside of overflow
-                                const scrollVal = isSelectedOptionsContainer ?
-                                    root.scrollTop - (root.scrollTop - box.offsetTop) - (isMobile ? 60 : 90) : // add a root title height value
-                                    root.scrollTop - (root.scrollTop - box.offsetTop);
+                                const scrollVal = root.scrollTop - (root.scrollTop - box.offsetTop);
 
                                 root.scrollTo({ top: scrollVal, behavior: "smooth" });
                             }
@@ -213,10 +165,57 @@ function dropdownTogglePanel(){
                 });
             }
         });
+
+        // Add handler for items inside dropdown
+        const dropdownItems = dropdownToggle.querySelectorAll('.presentation-modules-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', (event) => {
+
+            });
+        });
     });
+
+    // Opening a default element
+    if (defaultOpenId) {
+        const defaultElement = document.querySelector(`[data-tab-item="${defaultOpenId}"]`);
+        if (defaultElement) {
+            defaultElement.classList.add('drop-down-item-open');
+            const drop = defaultElement.querySelector('.dropdown-menu');
+            const dropHeight = drop.scrollHeight;
+            setTimeout(()=>{
+                drop.style.maxHeight = `${dropHeight}px`;
+            },500)
+        }
+    }
 }
 
 
+
+function showDefaultModule(stepFormState) {
+    const presentationModulesItems = document.querySelectorAll(".presentation-modules-item");
+
+    presentationModulesItems.forEach(presentationModulesItem => {
+        presentationModulesItem.addEventListener('click', (event) => {
+            togglePresentationMenuItem(presentationModulesItem, stepFormState);
+        });
+    });
+}
+
+function showDefaultModulePanel(){
+
+}
+
+function togglePresentationMenuItem(elem, stepFormState) {
+    document.querySelectorAll('.presentation-modules-item').forEach(item => {
+        item.classList.remove('presentation-modules-item-active');
+
+    });
+
+    elem.classList.add('presentation-modules-item-active');
+
+    const defaultSelected = stepFormState.defaultService;
+
+}
 
 
 
@@ -270,4 +269,4 @@ function calculateTotal(currentPackageSelect) {
 }
 
 
-export {calculateTotal, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, findServiceByName, determineDefaultState, dropdownTogglePanel};
+export {calculateTotal,showDefaultModulePanel, togglePresentationMenuItem, showDefaultModule, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, findServiceByName, determineDefaultState, dropdownTogglePanel};

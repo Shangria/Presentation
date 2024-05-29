@@ -3,7 +3,7 @@ import {
     determineDefaultState, dropdownTogglePanel,
     findSegmentById,
     getAvailableServices,
-    getServicesFromSelectedSegments,
+    getServicesFromSelectedSegments, showDefaultModule,
 } from "./helpers.js";
 
 $(document).ready(function () {
@@ -69,17 +69,18 @@ $(document).ready(function () {
         for (const module of stepFormState.suggestedServices) {
             const elemClass = 'presentation-modules-item ' + ' flex items-center';
             suggestedModuleItemsHtml += `
-        <div class="${elemClass}" onclick="togglePresentationMenuItem(this)">
+        <div class="${elemClass}">
           <img src="${module.iconImg}" alt="${module.name}">
           <span>${module.name}</span>
         </div>
       `;
         }
 
+
         let otherAvailableModuleItemsHtml = '';
         for (const module of stepFormState.availableServices) {
             otherAvailableModuleItemsHtml += `
-                                            <div class="presentation-modules-item flex items-center" onclick="togglePresentationMenuItem(this)">
+                                            <div class="presentation-modules-item flex items-center" >
                                               <img src="${module.iconImg}" alt="${module.name}">
                                               <span>${module.name}</span>
                                             </div>
@@ -101,6 +102,8 @@ $(document).ready(function () {
 
         console.log(stepFormState);
         $('.presentation-menu').html(suggestedModulesHtml);
+
+        showDefaultModule(stepFormState)
     }
 
 
@@ -124,7 +127,7 @@ $(document).ready(function () {
         for (const module of stepFormState.suggestedServices) {
 
             suggestedModuleItemsHtml += `
-                                     <div class="dropdown-box closing">
+                                     <div class="dropdown-box closing" data-tab-item="${module.name}">
                                           <div class="toggle-container">
                                                 <button class="dropdown-toggle">${module.name}</button>
                                                 <div class="dropdown-toggle-arrow">
@@ -144,9 +147,10 @@ $(document).ready(function () {
                                     </div> `;
         }
         $('.accordion-panel').html(suggestedModuleItemsHtml);
-        dropdownTogglePanel()
+        dropdownTogglePanel(stepFormState.defaultService)
 
     }
+
 
 
     //go on slide3

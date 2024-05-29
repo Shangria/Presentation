@@ -382,7 +382,7 @@ function accordionItemClick(elem) {
 /**
  * Click event on presentation-modules-item element
  */
-function togglePresentationMenuItem(elem) {
+/*function togglePresentationMenuItem(elem) {
   $('.presentation-modules-item').removeClass('presentation-modules-item-active');
   $(elem).addClass('presentation-modules-item-active');
 
@@ -435,7 +435,7 @@ function togglePresentationMenuItem(elem) {
   setTimeout(function () {
     $('.accordion .accordion__item')[0].click();
   }, 500);
-}
+}*/
 
 function hideFirstSlideAnimation () {
   $('#boost').addClass('animate__fadeOutLeft');
