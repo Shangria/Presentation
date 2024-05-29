@@ -118,12 +118,12 @@ export let store = {
             overviewDescription: 'Identify business opportunities by assessing Water Supply & Pipelines',
         },
         {
-            name: 'Heavy Mobile Equipment Conveyors',
+            name: 'Heavy Mobile Equipment',
             iconImg: './images/icons/modules/mobile-equipment.svg',
             img: './images/slides/project-development-timeline.jpeg',
             price: 100.00,
             description: '',
-            overviewDescription: 'Identify business opportunities by assessing Heavy Mobile Equipment Conveyors\'',
+            overviewDescription: 'Identify business opportunities by assessing Heavy Mobile Equipment',
         },
         {
             name: 'Production Costs',
@@ -235,7 +235,7 @@ export let store = {
                             <li class="dropdown-item">Recovery Rates</li>
                             <li class="dropdown-item">Flowsheet Diagrams</li>
                         </ul>`;
-    findServiceByName(store.allServices, 'Heavy Mobile Equipment Conveyors')
+    findServiceByName(store.allServices, 'Heavy Mobile Equipment')
         .description = `<ul  class="dropdown-menu">
                             <li class="dropdown-item">1,400 mines and projects with HME fleet data</li>
                             <li class="dropdown-item">2,000 models</li>

@@ -33,7 +33,6 @@ $(document).ready(function () {
 //get selected segment or segments
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
-    const accordionPanel = document.getElementById('accordionPanel');
 
     segmentItemsList.forEach((segmentItem, index) => {
         segmentItem.addEventListener('click', () => {
@@ -124,9 +123,10 @@ $(document).ready(function () {
         $('.package-info').html(defaultServiceHtml);
 
         let suggestedModuleItemsHtml = '';
-        for (const module of stepFormState.suggestedServices) {
-
-            suggestedModuleItemsHtml += `
+        for (const module of store.allServices) {
+            const currentItem=stepFormState.defaultService
+            if(module.name===currentItem){
+                suggestedModuleItemsHtml += `
                                      <div class="dropdown-box closing" data-tab-item="${module.name}">
                                           <div class="toggle-container">
                                                 <button class="dropdown-toggle">${module.name}</button>
@@ -145,6 +145,9 @@ $(document).ready(function () {
                                           </div>
                                            ${module.description}
                                     </div> `;
+            }
+
+
         }
         $('.accordion-panel').html(suggestedModuleItemsHtml);
         dropdownTogglePanel(stepFormState.defaultService)
