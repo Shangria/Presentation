@@ -375,6 +375,11 @@
     overflow: auto;
 }
 
+.presentation-menu-box{
+    height: 100%;
+    overflow-x: auto;
+}
+
 .presentation-menu h3,
 .presentation-menu h4,
 .presentation-menu h5 {

@@ -87,20 +87,17 @@ $(document).ready(function () {
         }
 
 
-        const suggestedModulesHtml = `
-                                              <h5>Suggested Modules</h5>
-                                              <div class="presentation-modules">
-                                                ${suggestedModuleItemsHtml}
-                                              </div>
-                                              <h5>Other Available Modules</h5>
-                                              <div class="presentation-modules">
-                                                ${otherAvailableModuleItemsHtml}
-                                              </div>
+        const suggestedModulesHtml = `<div class="presentation-menu-box">
+                                                      <h5>Suggested Modules</h5>
+                                                      <div class="presentation-modules">
+                                                        ${suggestedModuleItemsHtml}
+                                                      </div>
+                                                      <h5>Other Available Modules</h5>
+                                                      <div class="presentation-modules">
+                                                        ${otherAvailableModuleItemsHtml}
+                                                      </div>
+                                                </div>
                                              `;
-
-
-
-
 
         console.log(stepFormState);
         $('.presentation-menu').html(suggestedModulesHtml);
