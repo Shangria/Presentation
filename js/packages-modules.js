@@ -41,8 +41,13 @@ $(document).ready(function () {
             $('#btnSegmentsNext').removeAttr('disabled');
 
             const selectedEl = segmentItem.getAttribute("data-segment");
-            stepFormState.selectedSegmentNames.push(selectedEl);
 
+            const selectedIndex = stepFormState.selectedSegmentNames.indexOf(selectedEl);
+            if (selectedIndex === -1) {
+                stepFormState.selectedSegmentNames.push(selectedEl);
+            } else {
+                stepFormState.selectedSegmentNames.splice(selectedIndex, 1);
+            }
         });
     });
 
