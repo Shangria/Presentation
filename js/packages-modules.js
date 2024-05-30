@@ -129,12 +129,15 @@ $(document).ready(function () {
 
         let suggestedModuleItemsHtml = '';
         for (const module of store.allServices) {
+
             const currentItem=stepFormState.defaultService
             if(module.name===currentItem){
-                suggestedModuleItemsHtml += `
+
+                module.serviceTabs.forEach(item=>{
+                    suggestedModuleItemsHtml += `
                                      <div class="dropdown-box closing" data-tab-item="${module.name}">
                                           <div class="toggle-container">
-                                                <button class="dropdown-toggle">${module.name}</button>
+                                                <button class="dropdown-toggle">${item.title}</button>
                                                 <div class="dropdown-toggle-arrow">
                                                       <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <g clip-path="url(#clip0_332_23416)">
@@ -148,8 +151,10 @@ $(document).ready(function () {
                                                       </svg>
                                                 </div>
                                           </div>
-                                           ${module.description}
+                                           ${item.info}
                                     </div> `;
+                })
+
             }
 
 

@@ -6,7 +6,6 @@ import {
     newSumOfPackage,
     regionsIngLength
 } from "./request-invoice.js";
-import {store} from "./data-store.js";
 
 //determine segments and modules
 function findSegmentById(segments, name) {
@@ -14,9 +13,6 @@ function findSegmentById(segments, name) {
 }
 
 
-function findServiceByName(services, name) {
-    return store.allServices.find(s => s.name === name);
-}
 
 function getServicesFromSelectedSegments(segments, allServices) {
     let result = [];
@@ -269,4 +265,4 @@ function calculateTotal(currentPackageSelect) {
 }
 
 
-export {calculateTotal,showDefaultModulePanel, togglePresentationMenuItem, showDefaultModule, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, findServiceByName, determineDefaultState, dropdownTogglePanel};
+export {calculateTotal,showDefaultModulePanel, togglePresentationMenuItem, showDefaultModule, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, determineDefaultState, dropdownTogglePanel};
