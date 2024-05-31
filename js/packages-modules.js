@@ -1,9 +1,11 @@
 import {store} from "./data-store.js";
 import {
-    determineDefaultState, dropdownTogglePanel,
+    determineDefaultState,
+    dropdownTogglePanel,
     findSegmentById,
     getAvailableServices,
-    getServicesFromSelectedSegments, showDefaultModule,
+    getServicesFromSelectedSegments,
+    showModulePanel,
 } from "./helpers.js";
 
 $(document).ready(function () {
@@ -33,12 +35,19 @@ $(document).ready(function () {
 //get selected segment or segments
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
+    const requestInvoice = document.getElementById("requestInvoice");
 
     segmentItemsList.forEach((segmentItem, index) => {
         segmentItem.addEventListener('click', () => {
             segmentItem.classList.toggle("swiper-slide-checked");
 
-            $('#btnSegmentsNext').removeAttr('disabled');
+            const allCheckedSegments=document.querySelectorAll('.swiper-slide-checked')
+
+            if(allCheckedSegments.length>0){
+                $('#btnSegmentsNext').removeAttr('disabled');
+            } else {
+                $('#btnSegmentsNext').attr('disabled', 'disabled');
+            }
 
             const selectedEl = segmentItem.getAttribute("data-segment");
 
@@ -52,7 +61,7 @@ $(document).ready(function () {
     });
 
 
-    function buildLeftPanel() {
+    function buildLeftPanel(accordionPanelId, presentationMenuId) {
         let selectedSegments = [];
 
         for (let segmentName of stepFormState.selectedSegmentNames) {
@@ -73,7 +82,7 @@ $(document).ready(function () {
         for (const module of stepFormState.suggestedServices) {
             const elemClass = 'presentation-modules-item ' + ' flex items-center';
             suggestedModuleItemsHtml += `
-        <div class="${elemClass}">
+        <div class="${elemClass}" data-tab-modules-item="${module.name}">
           <img src="${module.iconImg}" alt="${module.name}">
           <span>${module.name}</span>
         </div>
@@ -84,7 +93,7 @@ $(document).ready(function () {
         let otherAvailableModuleItemsHtml = '';
         for (const module of stepFormState.availableServices) {
             otherAvailableModuleItemsHtml += `
-                                            <div class="presentation-modules-item flex items-center" >
+                                            <div class="presentation-modules-item flex items-center" data-tab-modules-item="${module.name}">
                                               <img src="${module.iconImg}" alt="${module.name}">
                                               <span>${module.name}</span>
                                             </div>
@@ -104,18 +113,18 @@ $(document).ready(function () {
                                                 </div>
                                              `;
 
-        console.log(stepFormState);
         $('.presentation-menu').html(suggestedModulesHtml);
 
-        showDefaultModule(stepFormState)
+        togglePresentationMenuItem(accordionPanelId, presentationMenuId);
     }
 
 
-    function buildRightPanel(){
-        let defaultServiceHtml = '';
+    function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
+
+        let commonInfoServiceHtml = '';
         for (const availableService of store.allServices) {
-            if (availableService.name === stepFormState.defaultService) {
-                defaultServiceHtml += `
+            if (availableService.name === currentService) {
+                commonInfoServiceHtml += `
                                         <div class="package-info--img relative">
                                             <img src=${availableService.img} alt=${availableService.name}>
                                         </div>
@@ -125,15 +134,14 @@ $(document).ready(function () {
             }
         }
 
-        $('.package-info').html(defaultServiceHtml);
+        $('.package-info').html(commonInfoServiceHtml);
 
         let suggestedModuleItemsHtml = '';
         for (const module of store.allServices) {
 
-            const currentItem=stepFormState.defaultService
-            if(module.name===currentItem){
+            if (module.name === currentService) {
 
-                module.serviceTabs.forEach(item=>{
+                module.serviceTabs.forEach(item => {
                     suggestedModuleItemsHtml += `
                                      <div class="dropdown-box closing" data-tab-item="${module.name}">
                                           <div class="toggle-container">
@@ -153,22 +161,68 @@ $(document).ready(function () {
                                           </div>
                                            ${item.info}
                                     </div> `;
-                })
+                });
 
             }
-
-
         }
-        $('.accordion-panel').html(suggestedModuleItemsHtml);
-        dropdownTogglePanel(stepFormState.defaultService)
+        $(`#${accordionPanelId}`).html(suggestedModuleItemsHtml);
+        dropdownTogglePanel(`${accordionPanelId}`)
+        showModulePanel(stepFormState.defaultService, presentationMenuId);
+    }
 
+    function togglePresentationMenuItem(accordionPanelId, presentationMenuId) {
+        // Add handler for items inside dropdown
+
+        const dropdownTabs = document.querySelectorAll('[data-tab-modules-item]');
+        dropdownTabs.forEach(dropdownTab => {
+            dropdownTab.addEventListener('click', (event) => {
+                // Remove 'presentation-modules-item-active' class from all elements
+                const activeItems = document.querySelectorAll('.presentation-modules-item-active');
+                activeItems.forEach(item => item.classList.remove('presentation-modules-item-active'));
+
+
+                // Add the 'presentation-modules-item-active' class to the clicked item
+                const currentItem = dropdownTab.getAttribute("data-tab-modules-item");
+                dropdownTab.classList.add('presentation-modules-item-active');
+                buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
+                showModulePanel(currentItem, presentationMenuId)
+            });
+        });
     }
 
 
+    const sectionBackBtns = document.querySelectorAll('[data-section-back-btn]');
 
-    //go on slide3
-    btnSegmentsNext.addEventListener('click', () => {
-        buildLeftPanel();
-        buildRightPanel()
+    sectionBackBtns.forEach((sectionBackBtn, index) => {
+        const adjustedIndex = index + 1;
+        sectionBackBtn.addEventListener('click', () => {
+
+            if (adjustedIndex === 3 || adjustedIndex === 4) {
+                const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
+                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
+                buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
+            }
+
+        });
     });
+
+
+
+
+
+    //go to slide3
+    btnSegmentsNext.addEventListener('click', () => {
+        const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
+        buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3");
+        buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
+    });
+
+    //go to slide4
+    requestInvoice.addEventListener('click', () => {
+        const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
+        buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4");
+        buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
+    });
+
+
 });

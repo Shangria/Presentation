@@ -95,7 +95,6 @@ $(document).ready(function () {
     });
 
 
-
     function hideFirstSlideAnimation () {
         $('#boost').addClass('animate__fadeOutLeft');
         $('#laptop').addClass('animate__fadeOutUpBig');

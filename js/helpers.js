@@ -13,7 +13,6 @@ function findSegmentById(segments, name) {
 }
 
 
-
 function getServicesFromSelectedSegments(segments, allServices) {
     let result = [];
     let seenNames = new Set();
@@ -33,8 +32,8 @@ function getServicesFromSelectedSegments(segments, allServices) {
             result.push({
                 name: serviceItem.name,
                 price: serviceItem.price,
-                iconImg:serviceItem.iconImg,
-                img:serviceItem.img,
+                iconImg: serviceItem.iconImg,
+                img: serviceItem.img,
                 description: serviceItem.description,
                 overviewDescription: serviceItem.overviewDescription,
                 checked: false
@@ -51,20 +50,20 @@ function getAvailableServices(allServices, suggestedServices) {
     return result;
 }
 
-function determineDefaultState(allTargetSegments, allServices, chooseSegments){
-    let result=''
-    for (let allTargetSegment of allTargetSegments){
+function determineDefaultState(allTargetSegments, allServices, chooseSegments) {
+    let result = '';
+    for (let allTargetSegment of allTargetSegments) {
 
-        if(chooseSegments.length>1){
-            result="Research Package"
+        if (chooseSegments.length > 1) {
+            result = "Research Package";
         }
 
-        if(chooseSegments.includes(allTargetSegment.name)){
-            result=allTargetSegment.defaultSelected
+        if (chooseSegments.includes(allTargetSegment.name)) {
+            result = allTargetSegment.defaultSelected;
         }
     }
 
-    return result
+    return result;
 }
 
 //
@@ -121,8 +120,8 @@ $(document).ready(function () {
 
 //
 
-function dropdownTogglePanel(defaultOpenId = null) {
-    const dropdownToggleList = document.querySelectorAll(".toggle-container, .presentation-modules-item" );
+function dropdownTogglePanel(accordionPanelId) {
+    const dropdownToggleList = document.querySelectorAll(".toggle-container, .presentation-modules-item");
     dropdownToggleList.forEach(dropdownToggle => {
 
         dropdownToggle.addEventListener('click', (event) => {
@@ -131,7 +130,7 @@ function dropdownTogglePanel(defaultOpenId = null) {
             const dropdownBox = dropDownButton.closest('.dropdown-box');
             if (dropdownBox) {
 
-                const root = document.getElementById('accordionPanel');
+                const root = document.getElementById(`${accordionPanelId}`);
                 const isMobile = window.innerWidth < 1024;
 
                 document.querySelectorAll('.dropdown-box').forEach(box => {
@@ -148,7 +147,7 @@ function dropdownTogglePanel(defaultOpenId = null) {
                             if (root.scrollTop > box.offsetTop - 90) { // if the drop is outside of overflow
                                 const scrollVal = root.scrollTop - (root.scrollTop - box.offsetTop);
 
-                                root.scrollTo({ top: scrollVal, behavior: "smooth" });
+                                root.scrollTo({top: scrollVal, behavior: "smooth"});
                             }
                         }, 400);
                     } else {
@@ -161,58 +160,32 @@ function dropdownTogglePanel(defaultOpenId = null) {
                 });
             }
         });
-
-        // Add handler for items inside dropdown
-        const dropdownItems = dropdownToggle.querySelectorAll('.presentation-modules-item');
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', (event) => {
-
-            });
-        });
     });
+
+}
+
+
+
+
+function showModulePanel(defaultOpenId, presentationMenuId) {
+    const boxPanel=document.getElementById(`${presentationMenuId}`)
 
     // Opening a default element
     if (defaultOpenId) {
         const defaultElement = document.querySelector(`[data-tab-item="${defaultOpenId}"]`);
+        const tabModulesItem = boxPanel.querySelector(`[data-tab-modules-item="${defaultOpenId}"]`);
         if (defaultElement) {
             defaultElement.classList.add('drop-down-item-open');
+            tabModulesItem.classList.add('presentation-modules-item-active');
             const drop = defaultElement.querySelector('.dropdown-menu');
             const dropHeight = drop.scrollHeight;
-            setTimeout(()=>{
+
+            setTimeout(() => {
                 drop.style.maxHeight = `${dropHeight}px`;
-            },500)
+            }, 500);
         }
     }
 }
-
-
-
-function showDefaultModule(stepFormState) {
-    const presentationModulesItems = document.querySelectorAll(".presentation-modules-item");
-
-    presentationModulesItems.forEach(presentationModulesItem => {
-        presentationModulesItem.addEventListener('click', (event) => {
-            togglePresentationMenuItem(presentationModulesItem, stepFormState);
-        });
-    });
-}
-
-function showDefaultModulePanel(){
-
-}
-
-function togglePresentationMenuItem(elem, stepFormState) {
-    document.querySelectorAll('.presentation-modules-item').forEach(item => {
-        item.classList.remove('presentation-modules-item-active');
-
-    });
-
-    elem.classList.add('presentation-modules-item-active');
-
-    const defaultSelected = stepFormState.defaultService;
-
-}
-
 
 
 
@@ -265,4 +238,12 @@ function calculateTotal(currentPackageSelect) {
 }
 
 
-export {calculateTotal,showDefaultModulePanel, togglePresentationMenuItem, showDefaultModule, findSegmentById, getServicesFromSelectedSegments, getAvailableServices, determineDefaultState, dropdownTogglePanel};
+export {
+    calculateTotal,
+    showModulePanel,
+    findSegmentById,
+    getServicesFromSelectedSegments,
+    getAvailableServices,
+    determineDefaultState,
+    dropdownTogglePanel
+};
