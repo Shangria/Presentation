@@ -23,7 +23,7 @@ $(document).ready(function () {
 
         //page3
         location: '', package: '',
-        licences: 0,
+        licences: 1,
         totalCost: 0,
 
 
@@ -82,7 +82,6 @@ $(document).ready(function () {
             stepFormState.suggestedServices = suggestedServices;
             stepFormState.availableServices = getAvailableServices(store.allServices, suggestedServices);
         }
-
 
         stepFormState.defaultService = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
@@ -248,7 +247,9 @@ $(document).ready(function () {
 
         const dropdownTabs = document.querySelectorAll('[data-tab-modules-item]');
         dropdownTabs.forEach(dropdownTab => {
+
             dropdownTab.addEventListener('click', (event) => {
+
                 // Remove 'presentation-modules-item-active' class from all elements
                 const activeItems = document.querySelectorAll('.presentation-modules-item-active');
                 activeItems.forEach(item => item.classList.remove('presentation-modules-item-active'));
@@ -258,6 +259,7 @@ $(document).ready(function () {
                 const currentItem = dropdownTab.getAttribute("data-tab-modules-item");
                 dropdownTab.classList.add('presentation-modules-item-active');
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
+
                 showModulePanel(currentItem, presentationMenuId)
             });
         });

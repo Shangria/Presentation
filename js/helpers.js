@@ -134,7 +134,7 @@ $(document).ready(function () {
 //
 
 function dropdownTogglePanel(accordionPanelId) {
-    const dropdownToggleList = document.querySelectorAll(".toggle-container, .presentation-modules-item");
+    const dropdownToggleList = document.querySelectorAll(".toggle-container");
     dropdownToggleList.forEach(dropdownToggle => {
 
         dropdownToggle.addEventListener('click', (event) => {
@@ -180,13 +180,12 @@ function dropdownTogglePanel(accordionPanelId) {
 
 
 
-function showModulePanel(defaultOpenId, presentationMenuId) {
+function showModulePanel(currentItemForOpenById, presentationMenuId) {
     const boxPanel=document.getElementById(`${presentationMenuId}`)
 
-    // Opening a default element
-    if (defaultOpenId) {
-        const defaultElement = document.querySelector(`[data-tab-item="${defaultOpenId}"]`);
-        const tabModulesItem = boxPanel.querySelector(`[data-tab-modules-item="${defaultOpenId}"]`);
+    if (currentItemForOpenById) {
+        const defaultElement = document.querySelector(`[data-tab-item="${currentItemForOpenById}"]`);
+        const tabModulesItem = boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
         if (defaultElement) {
             defaultElement.classList.add('drop-down-item-open');
             tabModulesItem.classList.add('presentation-modules-item-active');
