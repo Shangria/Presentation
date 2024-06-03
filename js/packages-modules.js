@@ -1,6 +1,6 @@
 import {store} from "./data-store.js";
 import {
-    calculateTotalCost,
+    calculateTotalCost, changePackageSelect,
     determineDefaultState,
     dropdownTogglePanel,
     findSegmentById,
@@ -144,12 +144,15 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
 
         function handleCheckboxChange(moduleName) {
             stepFormState.isChangedDefaultState = true;
+
             const module = stepFormState.suggestedServices.find(service => service.name === moduleName) ||
                 stepFormState.availableServices.find(service => service.name === moduleName);
 
             if (module) {
                 module.checked = !module.checked;
                 calculateTotalCost(stepFormState)
+                changePackageSelect(stepFormState)
+
             }
 
         }

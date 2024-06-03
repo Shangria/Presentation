@@ -1,4 +1,5 @@
 import {stepFormState} from "./packages-modules.js";
+import {optionsPackageSelect} from "./request-invoice.js";
 
 //determine segments and modules
 function findSegmentById(segments, name) {
@@ -124,6 +125,69 @@ $(document).ready(function () {
     });
 });
 
+function changePackageSelect(data) {
+    let allChecked = true;
+    let isOnlyResearchPackage = true; // По умолчанию считаем, что только Research Package выбран
+    let checkedCount = 0;  // Общее количество отмеченных услуг
+
+    // Проверяем услуги из suggestedServices
+    data.suggestedServices.forEach(service => {
+        if (service.name === "Research Package") {
+            if (!service.checked) {
+                isOnlyResearchPackage = false;  // Если Research Package не отмечен
+            }
+        } else {
+            if (service.checked) {
+                isOnlyResearchPackage = false;  // Если какая-либо другая услуга отмечена
+            }
+        }
+
+        if (service.checked) {
+            checkedCount++;  // Считаем отмеченные услуги
+        } else {
+            allChecked = false;
+        }
+    });
+
+    // Проверяем услуги из availableServices
+    data.availableServices.forEach(service => {
+        if (service.checked) {
+            isOnlyResearchPackage = false;  // Если в availableServices что-то отмечено
+            checkedCount++;  // Считаем отмеченные услуги
+        } else {
+            allChecked = false;
+        }
+    });
+
+    // Установка выбора пакета в зависимости от состояния услуг
+    if (isOnlyResearchPackage) {
+        optionsPackageSelect.setChoiceByValue('researchPackage');
+        stepFormState.currentPackageSelected = "researchPackage";
+        addCustomClassToChoice("researchPackage")
+    } else if (allChecked) {
+        optionsPackageSelect.setChoiceByValue('ultimatePackage');
+        stepFormState.currentPackageSelected = "ultimatePackage";
+        addCustomClassToChoice("ultimatePackage")
+    } else if (checkedCount > 1) {
+        optionsPackageSelect.setChoiceByValue('customPackage');
+        stepFormState.currentPackageSelected = "customPackage";
+        addCustomClassToChoice("customPackage")
+    }
+
+    function addCustomClassToChoice(value) {
+        const highlightedEl=document.querySelector('.is-highlighted')
+        highlightedEl.classList.remove("is-highlighted")
+        const choiceEl = document.querySelector(`.choices__list--dropdown [data-value="${value}"]`);
+        if (choiceEl) {
+            choiceEl.classList.add('is-highlighted'); // Добавление вашего кастомного класса
+        }
+    }
+
+}
+
+
+
+
 //
 
 function dropdownTogglePanel(accordionPanelId) {
@@ -248,5 +312,6 @@ export {
     determineDefaultState,
     dropdownTogglePanel,
     calculateTotalCost,
-    updateTotalCount
+    updateTotalCount,
+    changePackageSelect
 };
