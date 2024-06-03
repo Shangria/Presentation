@@ -1,5 +1,6 @@
-import {stepFormState} from "./packages-modules.js";
+import {buildLeftPanel, stepFormState} from "./packages-modules.js";
 import {calculateTotalCost} from "./helpers.js";
+
 
 export const optionalSelectContent = {
     researchPackage: {
@@ -16,23 +17,9 @@ export const optionalSelectContent = {
     },
 };
 
-
-export let isGlobalSelected = true;
-export let regionsIngLength = 0;
 export const mainRegionSelectValue = "Global";
 export const maxRegionsValues = 5;
-export const basePercent = 10;
 
-export const basePriceValues = {
-    researchPackage: 2000,
-    customPackage: 2000,
-    ultimatePackage: 10,
-};
-export const newSumOfPackage = {
-    researchPackage: 2000,
-    customPackage: 2000,
-    ultimatePackage: 10,
-};
 
 //create licenses select
 const choicesArray = [];
@@ -59,7 +46,6 @@ export const optionsPackageSelect = new Choices('#optionsSelect', {
     shouldSort: false,
     position: 'bottom',
 });
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -91,12 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //update regions select when choose value
     function updateItemsDisplay() {
-        stepFormState.regionsArr=[]
+        stepFormState.regionsArr = [];
         const selectedCheckboxes = Array.from(checkboxes).filter(c => c.checked && c.value !== mainRegionSelectValue.toLowerCase());
         if (globalCheckbox.checked) {
             regionSelectedItems.textContent = mainRegionSelectValue;
             stepFormState.regionsArr.push(mainRegionSelectValue);
-            calculateTotalCost(stepFormState)
+            calculateTotalCost(stepFormState);
 
             $('#requestInvoicePackage').removeAttr('disabled');
 
@@ -113,20 +99,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (count === 1 && item.checked) {
                     regionSelectedItems.textContent = item.name;
                     stepFormState.regionsArr.push(item.value);
-                    calculateTotalCost(stepFormState)
+                    calculateTotalCost(stepFormState);
                     item.parentNode.classList.add("choose");
                     $('#requestInvoicePackage').removeAttr('disabled');
                     return item.value;
                 } else if (count === 0 && !item.checked) {
                     regionSelectedItems.textContent = `Region (${count})`;
-                    calculateTotalCost(stepFormState)
+                    calculateTotalCost(stepFormState);
                     stepFormState.regionsArr = [];
                     $('#requestInvoicePackage').attr('disabled', 'disabled');
                     return `Region (${count})`;
                 } else if (count >= 2 && item.checked) {
                     regionSelectedItems.textContent = `Regions (${count})`;
                     stepFormState.regionsArr.push(item.value);
-                    calculateTotalCost(stepFormState)
+                    calculateTotalCost(stepFormState);
                     item.parentNode.classList.add("choose");
                     $('#requestInvoicePackage').removeAttr('disabled');
                     return `Regions (${count})`;
@@ -182,30 +168,36 @@ document.addEventListener('DOMContentLoaded', () => {
     //package select
     optionsPackageSelect.passedElement.element.addEventListener('change', (event) => {
         const value = event.detail.value;
+        const currentPackage = optionsPackageSelect.getValue().value;
+        stepFormState.currentPackageSelected = currentPackage;
+        const addedCheckboxes = true;
+        stepFormState.isChangedDefaultState = false;
 
-        if (optionsPackageSelect.getValue().value === "researchPackage") {
-            calculateTotalCost(stepFormState)
+        if (currentPackage === "researchPackage") {
+            buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
+            calculateTotalCost(stepFormState);
+        }
+
+        if (currentPackage === "customPackage") {
+            buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
+            calculateTotalCost(stepFormState);
 
         }
 
-        if (optionsPackageSelect.getValue().value === "customPackage") {
-            calculateTotalCost(stepFormState)
-
-        }
-
-        if (optionsPackageSelect.getValue().value === "ultimatePackage") {
-            calculateTotalCost(stepFormState)
+        if (currentPackage === "ultimatePackage") {
+            buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
+            calculateTotalCost(stepFormState);
         }
 
 
         additionalTextOptionsSelect.innerHTML = optionalSelectContent[value].additionalTextBottom;
-        additionalTextOptionsSelect.classList.add('show-additional-text')
+        additionalTextOptionsSelect.classList.add('show-additional-text');
     });
 
     // change event for licenses select
     licencesSelect.passedElement.element.addEventListener('change', () => {
         stepFormState.currentLicencesSelected = licencesSelect.getValue().value;
-        calculateTotalCost(stepFormState)
+        calculateTotalCost(stepFormState);
     });
 
 });

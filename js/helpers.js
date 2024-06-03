@@ -1,11 +1,3 @@
-import {
-    basePercent,
-    basePriceValues,
-    isGlobalSelected,
-    licencesSelect,
-    newSumOfPackage,
-    regionsIngLength
-} from "./request-invoice.js";
 import {stepFormState} from "./packages-modules.js";
 
 //determine segments and modules
@@ -14,55 +6,55 @@ function findSegmentById(segments, name) {
 }
 
 
-function getServicesFromSelectedSegments(segments, allServices) {
+function getServicesFromSelectedSegments(segments, allServices, currentPackage) {
     let result = [];
     let seenNames = new Set();
+    console.log(currentPackage);
 
-    // Collect all service names that occur in segments
     let selectedServices = new Set();
-
-    for (let segment of segments) {
-        for (let serviceName of segment.services) {
+    segments.forEach(segment => {
+        segment.services.forEach(serviceName => {
             selectedServices.add(serviceName);
-        }
-    }
+        });
+    });
 
-    // Filter all services, adding to the result only those that are selected in segments and have not yet been encountered
-    for (let serviceItem of allServices) {
+    allServices.forEach(serviceItem => {
         if (selectedServices.has(serviceItem.name) && !seenNames.has(serviceItem.name)) {
             seenNames.add(serviceItem.name);
-            result.push({
-                name: serviceItem.name,
-                price: serviceItem.price,
-                iconImg: serviceItem.iconImg,
-                img: serviceItem.img,
-                description: serviceItem.description,
-                overviewDescription: serviceItem.overviewDescription,
-                checked: true
-            });
+
+            let isChecked = currentPackage === "customPackage" || currentPackage === "ultimatePackage" || (currentPackage === "researchPackage" && serviceItem.name === "Research Package");
+            result.push(createServiceItem(serviceItem, isChecked));
         }
-    }
+    });
+
     return result;
 }
 
-function getAvailableServices(allServices, suggestedServices) {
+
+
+function getAvailableServices(allServices, suggestedServices, currentPackage) {
     let result = [];
-    const suggestedServicesNames = suggestedServices.map(service => service.name);
+    const suggestedServicesNames = new Set(suggestedServices.map(service => service.name));
     allServices.forEach(service => {
-        if (!suggestedServicesNames.includes(service.name)) {
-            result.push({
-                name: service.name,
-                price: service.price,
-                iconImg: service.iconImg,
-                img: service.img,
-                description: service.description,
-                overviewDescription: service.overviewDescription,
-                checked: false
-            });
+        if (!suggestedServicesNames.has(service.name)) {
+            result.push(createServiceItem(service, currentPackage === "ultimatePackage"));
         }
     });
     return result;
 }
+
+function createServiceItem(service, checked) {
+    return {
+        name: service.name,
+        price: service.price,
+        iconImg: service.iconImg,
+        img: service.img,
+        description: service.description,
+        overviewDescription: service.overviewDescription,
+        checked: checked
+    };
+}
+
 
 function determineDefaultState(allTargetSegments, allServices, chooseSegments) {
     let result = '';
@@ -179,12 +171,10 @@ function dropdownTogglePanel(accordionPanelId) {
 }
 
 
-
-
 function showModulePanel(currentTab, presentationMenuId) {
-    const currentItemForOpenById=currentTab;
+    const currentItemForOpenById = currentTab;
 
-    const boxPanel=document.getElementById(`${presentationMenuId}`)
+    const boxPanel = document.getElementById(`${presentationMenuId}`);
 
     if (currentItemForOpenById) {
 
@@ -205,8 +195,7 @@ function showModulePanel(currentTab, presentationMenuId) {
 
 function calculateTotalCost(store) {
     let total = 0;
-    console.log(store)
-    const currentPackageSelect = store.currentPackageSelected;
+    console.log(store);
     const licensesValue = store.currentLicencesSelected;
     const isGlobalSelected = store.regionsArr.includes("Global");
     const basePercent = 10; // Percentage for regions and licenses
@@ -239,69 +228,19 @@ function calculateTotalCost(store) {
 
     total += additionalLicenseCost;
 
-    store.totalCost=total
-    updateTotalCount(stepFormState)
+    store.totalCost = total;
+    updateTotalCount(stepFormState);
 }
 
 function updateTotalCount(store) {
-    const allTotalCounters=document.querySelectorAll('[data-total-counter-box]')
-    allTotalCounters.forEach(totalCounter=>{
-        totalCounter.innerText=store.totalCost
-    })
-}
-
-function calculateTotal(store) {
-    let total = store.totalCost;
-    const currentPackageSelect=store.currentPackageSelected
-    const licensesValue = store.currentLicencesSelected;
-
-    if (currentPackageSelect) {
-        const basePrice = basePriceValues[currentPackageSelect];
-        total += basePrice;
-        if (currentPackageSelect === "customPackage") {
-            let newBaseCustomPercent = total;
-            Object.keys(selectedItems).forEach(key => {
-                newBaseCustomPercent += selectedItems[key].price;
-            });
-
-            total = newBaseCustomPercent;
-
-            const selectedRegionCount = isGlobalSelected ? 10 : regionsIngLength;
-            const additionalRegionCost = selectedRegionCount * basePercent / 100 * newBaseCustomPercent;
-            total += additionalRegionCost;
-
-            const licenceFormatted = parseInt(licensesValue);
-            const licensesCount = licenceFormatted > 1 ? licenceFormatted - 1 : 0;
-            const additionalLicenseCost = licensesCount * basePercent / 100 * newBaseCustomPercent;
-
-            total += additionalLicenseCost;
-
-        } else {
-
-            const selectedRegionCount = isGlobalSelected ? basePercent : regionsIngLength;
-            const additionalRegionCost = selectedRegionCount * basePercent / 100 * basePrice;
-            total += additionalRegionCost;
-
-            const licenceFormatted = parseInt(licensesValue);
-            const licensesCount = licenceFormatted > 1 ? licenceFormatted - 1 : 0;
-            const additionalLicenseCost = licensesCount * basePercent / 100 * basePrice;
-
-            total += additionalLicenseCost;
-
-
-        }
-
-        newSumOfPackage[currentPackageSelect] = total;
-        document.getElementById("totalCounter").innerText = `${total.toLocaleString('en-US')}`;
-        document.getElementById("totalCounterSecond").innerText = `${total.toLocaleString('en-US')}`;
-        document.getElementById("continueBtnTotal").innerHTML = `Total: $${total.toLocaleString('en-US')} USD <img src="src/images/step-form/arrow-right-white.svg" alt="arrow"/>`;
-    }
-
+    const allTotalCounters = document.querySelectorAll('[data-total-counter-box]');
+    allTotalCounters.forEach(totalCounter => {
+        totalCounter.innerText = store.totalCost;
+    });
 }
 
 
 export {
-    calculateTotal,
     showModulePanel,
     findSegmentById,
     getServicesFromSelectedSegments,
