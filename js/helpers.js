@@ -180,10 +180,13 @@ function dropdownTogglePanel(accordionPanelId) {
 
 
 
-function showModulePanel(currentItemForOpenById, presentationMenuId) {
+function showModulePanel(currentTab, presentationMenuId) {
+    const currentItemForOpenById=currentTab;
+
     const boxPanel=document.getElementById(`${presentationMenuId}`)
 
     if (currentItemForOpenById) {
+
         const defaultElement = document.querySelector(`[data-tab-item="${currentItemForOpenById}"]`);
         const tabModulesItem = boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
         if (defaultElement) {

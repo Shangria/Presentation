@@ -254,12 +254,10 @@ $(document).ready(function () {
                 const activeItems = document.querySelectorAll('.presentation-modules-item-active');
                 activeItems.forEach(item => item.classList.remove('presentation-modules-item-active'));
 
-
                 // Add the 'presentation-modules-item-active' class to the clicked item
                 const currentItem = dropdownTab.getAttribute("data-tab-modules-item");
                 dropdownTab.classList.add('presentation-modules-item-active');
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
-
                 showModulePanel(currentItem, presentationMenuId)
             });
         });
