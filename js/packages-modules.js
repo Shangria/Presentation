@@ -7,6 +7,7 @@ import {
     getServicesFromSelectedSegments,
     showModulePanel,
 } from "./helpers.js";
+import {optionsPackageSelect} from "./request-invoice.js";
 
 $(document).ready(function () {
 
@@ -18,6 +19,7 @@ $(document).ready(function () {
         suggestedServices: [],
         availableServices: [],
         defaultService: '',
+        isChangedDefaultState:false,
 
         //page3
         location: '', package: '',
@@ -36,6 +38,8 @@ $(document).ready(function () {
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
     const requestInvoice = document.getElementById("requestInvoice");
+    const selectedPackageValue = optionsPackageSelect.getValue(true);
+    console.log(selectedPackageValue);
 
     segmentItemsList.forEach((segmentItem, index) => {
         segmentItem.addEventListener('click', () => {
@@ -61,7 +65,7 @@ $(document).ready(function () {
     });
 
 
-    function buildLeftPanel(accordionPanelId, presentationMenuId) {
+    function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes=false) {
         let selectedSegments = [];
 
         for (let segmentName of stepFormState.selectedSegmentNames) {
@@ -71,37 +75,78 @@ $(document).ready(function () {
             }
         }
 
-        let suggestedServices = getServicesFromSelectedSegments(selectedSegments, store.allServices);
 
-        stepFormState.suggestedServices = suggestedServices;
-        stepFormState.availableServices = getAvailableServices(store.allServices, suggestedServices);
+        if(!stepFormState.isChangedDefaultState){
+            let suggestedServices;
+            suggestedServices = getServicesFromSelectedSegments(selectedSegments, store.allServices);
+            stepFormState.suggestedServices = suggestedServices;
+            stepFormState.availableServices = getAvailableServices(store.allServices, suggestedServices);
+        }
+
+
         stepFormState.defaultService = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
 
         let suggestedModuleItemsHtml = '';
         for (const module of stepFormState.suggestedServices) {
             const elemClass = 'presentation-modules-item ' + ' flex items-center';
-            suggestedModuleItemsHtml += `
-        <div class="${elemClass}" data-tab-modules-item="${module.name}">
-          <img src="${module.iconImg}" alt="${module.name}">
-          <span>${module.name}</span>
-        </div>
-      `;
+
+            if (isAddedCheckboxes) {
+
+                suggestedModuleItemsHtml += `
+                                                <div class="${elemClass} justify-between">
+                                                        <div class="module-info flex items-center justify-between" data-tab-modules-item="${module.name}">
+                                                            <img src="${module.iconImg}" alt="${module.name}">
+                                                            <span>${module.name}</span>
+                                                        </div>
+                                                        <label class="custom-checkbox-label ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                             <span class="module-price">$${module.price.toFixed(2)} USD</span>
+                                                              <span class="checkmark"></span>
+                                                            </label>
+                                                    </div>
+                                            `;
+            } else {
+
+                suggestedModuleItemsHtml += `
+                                            <div class="${elemClass}" data-tab-modules-item="${module.name}">
+                                              <img src="${module.iconImg}" alt="${module.name}">
+                                              <span>${module.name}</span>
+                                            </div>
+                                            `;
+            }
+
         }
 
 
         let otherAvailableModuleItemsHtml = '';
         for (const module of stepFormState.availableServices) {
-            otherAvailableModuleItemsHtml += `
+            const elemClass = 'presentation-modules-item ' + ' flex items-center';
+            if (isAddedCheckboxes) {
+                otherAvailableModuleItemsHtml += `
+                                            <div class="${elemClass} justify-between">
+                                                        <div class="module-info flex items-center justify-between" data-tab-modules-item="${module.name}">
+                                                            <img src="${module.iconImg}" alt="${module.name}">
+                                                            <span>${module.name}</span>
+                                                        </div>
+                                                        <label class="custom-checkbox-label ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                             <span class="module-price">$${module.price.toFixed(2)} USD</span>
+                                                              <span class="checkmark"></span>
+                                                            </label>
+                                                    </div>
+                                            `;
+            }else {
+                otherAvailableModuleItemsHtml += `
                                             <div class="presentation-modules-item flex items-center" data-tab-modules-item="${module.name}">
                                               <img src="${module.iconImg}" alt="${module.name}">
                                               <span>${module.name}</span>
                                             </div>
                                             `;
+            }
+
         }
 
-
-        const suggestedModulesHtml = `<div class="presentation-menu-box">
+        let suggestedModulesHtml=''
+         suggestedModulesHtml = `<div class="presentation-menu-box">
                                                       <h5>Suggested Modules</h5>
                                                       <div class="presentation-modules">
                                                         ${suggestedModuleItemsHtml}
@@ -114,6 +159,34 @@ $(document).ready(function () {
                                              `;
 
         $('.presentation-menu').html(suggestedModulesHtml);
+
+        if (isAddedCheckboxes) {
+
+            const checkboxLabelsId = document.querySelectorAll('[data-checkbox-label-id]');
+            checkboxLabelsId.forEach(checkboxLabel=>{
+                checkboxLabel.addEventListener('click', ()=>{
+                    checkboxLabel.classList.toggle("checkbox-label-toggle")
+                    const currentModule=checkboxLabel.getAttribute("data-checkbox-label-id")
+                    handleCheckboxChange(currentModule)
+
+                    console.log(stepFormState)
+
+                })
+            })
+
+
+
+            function handleCheckboxChange(moduleName) {
+                stepFormState.isChangedDefaultState=true;
+                const module = stepFormState.suggestedServices.find(service => service.name === moduleName) ||
+                    stepFormState.availableServices.find(service => service.name === moduleName);
+
+                if (module) {
+                    module.checked = !module.checked;
+                }
+            }
+        }
+
 
         togglePresentationMenuItem(accordionPanelId, presentationMenuId);
     }
@@ -191,22 +264,27 @@ $(document).ready(function () {
     }
 
 
+    const addedCheckboxes=true;
     const sectionBackBtns = document.querySelectorAll('[data-section-back-btn]');
 
     sectionBackBtns.forEach((sectionBackBtn, index) => {
         const adjustedIndex = index + 1;
         sectionBackBtn.addEventListener('click', () => {
+            const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
-            if (adjustedIndex === 3 || adjustedIndex === 4) {
-                const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
-                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
+
+            if (adjustedIndex === 3 ) {
+                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,);
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
             }
 
+            //for add checkboxes
+            if(adjustedIndex === 4 ){
+                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`, addedCheckboxes);
+                buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
+            }
         });
     });
-
-
 
 
 
@@ -219,8 +297,9 @@ $(document).ready(function () {
 
     //go to slide4
     requestInvoice.addEventListener('click', () => {
+        console.log(stepFormState)
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
-        buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4");
+        buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
         buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
     });
 

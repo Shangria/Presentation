@@ -55,12 +55,8 @@ export const optionsPackageSelect = new Choices('#optionsSelect', {
     itemSelectText: '',
     shouldSort: false,
     position: 'bottom',
-    choices: [
-        {value: 'researchPackage', label: 'Research Package',},
-        {value: 'customPackage', label: 'Custom Package'},
-        {value: 'ultimatePackage', label: 'Ultimate Package'}
-    ],
 });
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -187,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //package select
     optionsPackageSelect.passedElement.element.addEventListener('change', (event) => {
         const value = event.detail.value;
-
 
         if (optionsPackageSelect.getValue().value === "researchPackage") {
 

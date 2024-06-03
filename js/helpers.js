@@ -19,6 +19,7 @@ function getServicesFromSelectedSegments(segments, allServices) {
 
     // Collect all service names that occur in segments
     let selectedServices = new Set();
+
     for (let segment of segments) {
         for (let serviceName of segment.services) {
             selectedServices.add(serviceName);
@@ -36,7 +37,7 @@ function getServicesFromSelectedSegments(segments, allServices) {
                 img: serviceItem.img,
                 description: serviceItem.description,
                 overviewDescription: serviceItem.overviewDescription,
-                checked: false
+                checked: true
             });
         }
     }
@@ -44,9 +45,21 @@ function getServicesFromSelectedSegments(segments, allServices) {
 }
 
 function getAvailableServices(allServices, suggestedServices) {
-    const suggestedServicesNames = suggestedServices.map(serviceName => serviceName.name);
-    const result = allServices.filter(service => !suggestedServicesNames.includes(service.name));
-
+    let result = [];
+    const suggestedServicesNames = suggestedServices.map(service => service.name);
+    allServices.forEach(service => {
+        if (!suggestedServicesNames.includes(service.name)) {
+            result.push({
+                name: service.name,
+                price: service.price,
+                iconImg: service.iconImg,
+                img: service.img,
+                description: service.description,
+                overviewDescription: service.overviewDescription,
+                checked: false
+            });
+        }
+    });
     return result;
 }
 
@@ -182,7 +195,7 @@ function showModulePanel(defaultOpenId, presentationMenuId) {
 
             setTimeout(() => {
                 drop.style.maxHeight = `${dropHeight}px`;
-            }, 500);
+            }, 300);
         }
     }
 }

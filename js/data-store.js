@@ -290,7 +290,7 @@ export let store = {
         {
             name: 'Project Timeline',
             iconImg: './images/icons/modules/key-managers.svg',
-            img: './images/slides/reserves-and-resources.jpeg',
+            img: './images/slides/project-development-timeline.jpeg',
             price: 100.00,
             serviceTabs:[
                 {
@@ -462,7 +462,7 @@ export let store = {
         {
             name: 'Water Supply & Pipelines',
             iconImg: './images/icons/modules/key-managers.svg',
-            img: './images/slides/project-costs-and-returns.jpeg',
+            img: './images/slides/water-supply-and-consumption.jpeg',
             price: 100.00,
             serviceTabs:[
                 {
@@ -519,7 +519,7 @@ export let store = {
         {
             name: 'Heavy Mobile Equipment',
             iconImg: './images/icons/modules/mobile-equipment.svg',
-            img: './images/slides/project-development-timeline.jpeg',
+            img: './images/slides/heavy-mobile-equipment.jpeg',
             price: 100.00,
             serviceTabs:[
                 {
@@ -574,9 +574,66 @@ export let store = {
             overviewDescription: 'Identify business opportunities by assessing Heavy Mobile Equipment',
         },
         {
+            name: 'Conveyors',
+            iconImg: './images/icons/modules/mobile-equipment.svg',
+            img: './images/slides/conveyors-and-pipelines.jpeg',
+            price: 100.00,
+            serviceTabs:[
+                {
+                    title:"Conveyors",
+                    info:`<ul  class="dropdown-menu">
+                            <li class="dropdown-item">8,000 decision makers and consultants</li>
+                            <li class="dropdown-item">General and Engineering Managers</li>
+                            <li class="dropdown-item">Mine and Operation Managers</li>
+                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
+                            <li class="dropdown-item">Processing Managers</li>
+                            <li class="dropdown-item">Procurement Staff and more…</li>
+                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
+                        </ul>`
+                },
+                {
+                    title:"Conveyors2",
+                    info:`<ul  class="dropdown-menu">
+                            <li class="dropdown-item">8,000 decision makers and consultants</li>
+                            <li class="dropdown-item">General and Engineering Managers</li>
+                            <li class="dropdown-item">Mine and Operation Managers</li>
+                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
+                            <li class="dropdown-item">Processing Managers</li>
+                            <li class="dropdown-item">Procurement Staff and more…</li>
+                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
+                        </ul>`
+                },
+                {
+                    title:"Conveyors3",
+                    info:`<ul  class="dropdown-menu">
+                            <li class="dropdown-item">8,000 decision makers and consultants</li>
+                            <li class="dropdown-item">General and Engineering Managers</li>
+                            <li class="dropdown-item">Mine and Operation Managers</li>
+                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
+                            <li class="dropdown-item">Processing Managers</li>
+                            <li class="dropdown-item">Procurement Staff and more…</li>
+                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
+                        </ul>`
+                },
+                {
+                    title:"Conveyors4",
+                    info:`<ul  class="dropdown-menu">
+                            <li class="dropdown-item">8,000 decision makers and consultants</li>
+                            <li class="dropdown-item">General and Engineering Managers</li>
+                            <li class="dropdown-item">Mine and Operation Managers</li>
+                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
+                            <li class="dropdown-item">Processing Managers</li>
+                            <li class="dropdown-item">Procurement Staff and more…</li>
+                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
+                        </ul>`
+                },
+            ],
+            overviewDescription: 'Identify business opportunities by assessing Conveyors',
+        },
+        {
             name: 'Production Costs',
             iconImg: './images/icons/modules/key-managers.svg',
-            img: './images/slides/key-mine-personnel-and-workforce.jpeg',
+            img: './images/slides/project-costs-and-returns.jpeg',
             price: 100.00,
             serviceTabs:[
                 {
@@ -633,7 +690,7 @@ export let store = {
         {
             name: 'Project Costs & Returns',
             iconImg: './images/icons/modules/price-change.svg',
-            img: './images/slides/heavy-mobile-equipment.jpeg',
+            img: './images/slides/project-costs-and-returns.jpeg',
             price: 100.00,
             serviceTabs:[
                 {

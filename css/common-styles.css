@@ -793,3 +793,60 @@
     scrollbar-width: thin; /* 'auto' или 'thin' */
     scrollbar-color: #D9D9D9 transparent;
 }
+
+
+
+/* Стили для пользовательского чекбокса */
+.custom-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.checkmark{
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    opacity: 11%;
+}
+
+.checkmark:after {
+    content: "";
+    width: 13px;
+    height: 18px;
+    background: url("../images/icons/checkbox-arrow.svg") no-repeat center center;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+
+.checkbox-label-toggle .checkmark{
+    background-color: var(--color-blue);
+    opacity: 1;
+}
+
+
+.checkbox-label-toggle .checkmark:after {
+    opacity: 1;
+}
+
+.module-content {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.module-price {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    margin-right: 12px;
+}
