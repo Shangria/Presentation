@@ -156,7 +156,7 @@
 }
 
 .subscription-box-accepted input:checked ~ .checkmark,
-.regions-select-wrap .regions-item-label input:checked ~ .checkmark,
+.regions-item-label input:checked ~ .checkmark,
 .toggle-container .checked-custom-value ~ .checkmark {
     border: 1.5px solid #27AE60;
 }

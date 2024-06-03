@@ -1,3 +1,6 @@
+import {stepFormState} from "./packages-modules.js";
+import {calculateTotalCost} from "./helpers.js";
+
 export const optionalSelectContent = {
     researchPackage: {
         name: "Research Package",
@@ -60,7 +63,6 @@ export const optionsPackageSelect = new Choices('#optionsSelect', {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const continueBtnStepOne = document.getElementById('continueBtnStepOne');
     const globalCheckbox = document.querySelector('input[value="global"]');
     const checkboxes = document.querySelectorAll('[data-regions-input]');
     const regionSelectedItems = document.getElementById('selectedItems');
@@ -87,21 +89,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function updateGlobalSelection() {
-        isGlobalSelected = regionsIng.includes(mainRegionSelectValue);
-        regionsIngLength = regionsIng.length;
-    }
-
-
     //update regions select when choose value
     function updateItemsDisplay() {
-        regionsIng = [];
+        stepFormState.regionsArr=[]
         const selectedCheckboxes = Array.from(checkboxes).filter(c => c.checked && c.value !== mainRegionSelectValue.toLowerCase());
         if (globalCheckbox.checked) {
             regionSelectedItems.textContent = mainRegionSelectValue;
-            regionsIng.push(mainRegionSelectValue);
+            stepFormState.regionsArr.push(mainRegionSelectValue);
+            calculateTotalCost(stepFormState)
 
-            continueBtnStepOne.classList.remove('disabled-btn');
+            $('#requestInvoicePackage').removeAttr('disabled');
+
             return mainRegionSelectValue;
         } else {
             const count = selectedCheckboxes.length;
@@ -114,21 +112,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (count === 1 && item.checked) {
                     regionSelectedItems.textContent = item.name;
-                    regionsIng.push(item.value);
+                    stepFormState.regionsArr.push(item.value);
+                    calculateTotalCost(stepFormState)
                     item.parentNode.classList.add("choose");
-                    continueBtnStepOne.classList.remove('disabled-btn');
+                    $('#requestInvoicePackage').removeAttr('disabled');
                     return item.value;
                 } else if (count === 0 && !item.checked) {
                     regionSelectedItems.textContent = `Region (${count})`;
-                    regionsIng.push(item.value);
-                    regionsIng = [];
-                    continueBtnStepOne.classList.add('disabled-btn');
+                    calculateTotalCost(stepFormState)
+                    stepFormState.regionsArr = [];
+                    $('#requestInvoicePackage').attr('disabled', 'disabled');
                     return `Region (${count})`;
                 } else if (count >= 2 && item.checked) {
                     regionSelectedItems.textContent = `Regions (${count})`;
-                    regionsIng.push(item.value);
+                    stepFormState.regionsArr.push(item.value);
+                    calculateTotalCost(stepFormState)
                     item.parentNode.classList.add("choose");
-                    continueBtnStepOne.classList.remove('disabled-btn');
+                    $('#requestInvoicePackage').removeAttr('disabled');
                     return `Regions (${count})`;
                 }
             });
@@ -164,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateItemsDisplay();
-        updateGlobalSelection();
     }
 
     checkboxes.forEach(checkbox => {
@@ -185,21 +184,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const value = event.detail.value;
 
         if (optionsPackageSelect.getValue().value === "researchPackage") {
+            calculateTotalCost(stepFormState)
 
         }
 
         if (optionsPackageSelect.getValue().value === "customPackage") {
+            calculateTotalCost(stepFormState)
 
         }
 
         if (optionsPackageSelect.getValue().value === "ultimatePackage") {
-
+            calculateTotalCost(stepFormState)
         }
 
 
         additionalTextOptionsSelect.innerHTML = optionalSelectContent[value].additionalTextBottom;
         additionalTextOptionsSelect.classList.add('show-additional-text')
     });
+
+    // change event for licenses select
+    licencesSelect.passedElement.element.addEventListener('change', () => {
+        stepFormState.currentLicencesSelected = licencesSelect.getValue().value;
+        calculateTotalCost(stepFormState)
+    });
+
 });
 
 

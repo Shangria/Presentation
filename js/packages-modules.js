@@ -1,53 +1,58 @@
 import {store} from "./data-store.js";
 import {
+    calculateTotalCost,
     determineDefaultState,
     dropdownTogglePanel,
     findSegmentById,
     getAvailableServices,
     getServicesFromSelectedSegments,
-    showModulePanel,
+    showModulePanel, updateTotalCount,
 } from "./helpers.js";
-import {optionsPackageSelect} from "./request-invoice.js";
+import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
+
+let stepFormState = {
+    // page 1
+    selectedSegmentNames: [],
+
+    // page 2
+    suggestedServices: [],
+    availableServices: [],
+    defaultService: '',
+
+
+    //page3
+    isChangedDefaultState: false,
+    currentPackageSelected: '',
+    currentLicencesSelected: '',
+    regionsArr: ["Global"],
+    totalCost: 0,
+
+
+    // page 4
+    userDetails: {
+        fistName: '',
+    }
+};
+
 
 $(document).ready(function () {
-
-    let stepFormState = {
-        // page 1
-        selectedSegmentNames: [],
-
-        // page 2
-        suggestedServices: [],
-        availableServices: [],
-        defaultService: '',
-        isChangedDefaultState:false,
-
-        //page3
-        location: '', package: '',
-        licences: 1,
-        totalCost: 0,
-
-
-        // page 4
-        userDetails: {
-            fistName: '',
-        }
-    };
-
 
 //get selected segment or segments
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
     const requestInvoice = document.getElementById("requestInvoice");
-    const selectedPackageValue = optionsPackageSelect.getValue(true);
-    console.log(selectedPackageValue);
+
+    stepFormState.currentPackageSelected = optionsPackageSelect.getValue().value;
+    stepFormState.currentLicencesSelected = licencesSelect.getValue().value;
+
 
     segmentItemsList.forEach((segmentItem, index) => {
         segmentItem.addEventListener('click', () => {
             segmentItem.classList.toggle("swiper-slide-checked");
 
-            const allCheckedSegments=document.querySelectorAll('.swiper-slide-checked')
+            const allCheckedSegments = document.querySelectorAll('.swiper-slide-checked');
 
-            if(allCheckedSegments.length>0){
+            if (allCheckedSegments.length > 0) {
                 $('#btnSegmentsNext').removeAttr('disabled');
             } else {
                 $('#btnSegmentsNext').attr('disabled', 'disabled');
@@ -65,7 +70,7 @@ $(document).ready(function () {
     });
 
 
-    function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes=false) {
+    function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes = false) {
         let selectedSegments = [];
 
         for (let segmentName of stepFormState.selectedSegmentNames) {
@@ -76,7 +81,7 @@ $(document).ready(function () {
         }
 
 
-        if(!stepFormState.isChangedDefaultState){
+        if (!stepFormState.isChangedDefaultState) {
             let suggestedServices;
             suggestedServices = getServicesFromSelectedSegments(selectedSegments, store.allServices);
             stepFormState.suggestedServices = suggestedServices;
@@ -91,14 +96,13 @@ $(document).ready(function () {
             const elemClass = 'presentation-modules-item ' + ' flex items-center';
 
             if (isAddedCheckboxes) {
-
                 suggestedModuleItemsHtml += `
                                                 <div class="${elemClass} justify-between">
                                                         <div class="module-info flex items-center justify-between" data-tab-modules-item="${module.name}">
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label class="custom-checkbox-label ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label class="custom-checkbox-label ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)} USD</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -133,7 +137,7 @@ $(document).ready(function () {
                                                             </label>
                                                     </div>
                                             `;
-            }else {
+            } else {
                 otherAvailableModuleItemsHtml += `
                                             <div class="presentation-modules-item flex items-center" data-tab-modules-item="${module.name}">
                                               <img src="${module.iconImg}" alt="${module.name}">
@@ -144,8 +148,8 @@ $(document).ready(function () {
 
         }
 
-        let suggestedModulesHtml=''
-         suggestedModulesHtml = `<div class="presentation-menu-box">
+        let suggestedModulesHtml = '';
+        suggestedModulesHtml = `<div class="presentation-menu-box">
                                                       <h5>Suggested Modules</h5>
                                                       <div class="presentation-modules">
                                                         ${suggestedModuleItemsHtml}
@@ -162,32 +166,34 @@ $(document).ready(function () {
         if (isAddedCheckboxes) {
 
             const checkboxLabelsId = document.querySelectorAll('[data-checkbox-label-id]');
-            checkboxLabelsId.forEach(checkboxLabel=>{
-                checkboxLabel.addEventListener('click', ()=>{
-                    checkboxLabel.classList.toggle("checkbox-label-toggle")
-                    const currentModule=checkboxLabel.getAttribute("data-checkbox-label-id")
-                    handleCheckboxChange(currentModule)
+            checkboxLabelsId.forEach(checkboxLabel => {
+                checkboxLabel.addEventListener('click', () => {
+                    checkboxLabel.classList.toggle("checkbox-label-toggle");
+                    const currentModule = checkboxLabel.getAttribute("data-checkbox-label-id");
+                    handleCheckboxChange(currentModule);
 
-                    console.log(stepFormState)
+                    console.log(stepFormState);
 
-                })
-            })
-
+                });
+            });
 
 
             function handleCheckboxChange(moduleName) {
-                stepFormState.isChangedDefaultState=true;
+                stepFormState.isChangedDefaultState = true;
                 const module = stepFormState.suggestedServices.find(service => service.name === moduleName) ||
                     stepFormState.availableServices.find(service => service.name === moduleName);
 
                 if (module) {
                     module.checked = !module.checked;
+                    calculateTotalCost(stepFormState)
                 }
+
             }
         }
 
 
         togglePresentationMenuItem(accordionPanelId, presentationMenuId);
+        calculateTotalCost(stepFormState);
     }
 
 
@@ -238,7 +244,7 @@ $(document).ready(function () {
             }
         }
         $(`#${accordionPanelId}`).html(suggestedModuleItemsHtml);
-        dropdownTogglePanel(`${accordionPanelId}`)
+        dropdownTogglePanel(`${accordionPanelId}`);
         showModulePanel(stepFormState.defaultService, presentationMenuId);
     }
 
@@ -258,13 +264,13 @@ $(document).ready(function () {
                 const currentItem = dropdownTab.getAttribute("data-tab-modules-item");
                 dropdownTab.classList.add('presentation-modules-item-active');
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
-                showModulePanel(currentItem, presentationMenuId)
+                showModulePanel(currentItem, presentationMenuId);
             });
         });
     }
 
 
-    const addedCheckboxes=true;
+    const addedCheckboxes = true;
     const sectionBackBtns = document.querySelectorAll('[data-section-back-btn]');
 
     sectionBackBtns.forEach((sectionBackBtn, index) => {
@@ -273,19 +279,18 @@ $(document).ready(function () {
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
 
-            if (adjustedIndex === 3 ) {
+            if (adjustedIndex === 3) {
                 buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,);
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
             }
 
             //for add checkboxes
-            if(adjustedIndex === 4 ){
+            if (adjustedIndex === 4) {
                 buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`, addedCheckboxes);
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
             }
         });
     });
-
 
 
     //go to slide3
@@ -297,7 +302,6 @@ $(document).ready(function () {
 
     //go to slide4
     requestInvoice.addEventListener('click', () => {
-        console.log(stepFormState)
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
         buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
         buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
@@ -305,3 +309,5 @@ $(document).ready(function () {
 
 
 });
+
+export {stepFormState}

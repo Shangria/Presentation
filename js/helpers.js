@@ -6,6 +6,7 @@ import {
     newSumOfPackage,
     regionsIngLength
 } from "./request-invoice.js";
+import {stepFormState} from "./packages-modules.js";
 
 //determine segments and modules
 function findSegmentById(segments, name) {
@@ -202,11 +203,57 @@ function showModulePanel(currentTab, presentationMenuId) {
     }
 }
 
-
-
-function calculateTotal(currentPackageSelect) {
+function calculateTotalCost(store) {
     let total = 0;
-    const licensesValue = licencesSelect.getValue()?.value;
+    console.log(store)
+    const currentPackageSelect = store.currentPackageSelected;
+    const licensesValue = store.currentLicencesSelected;
+    const isGlobalSelected = store.regionsArr.includes("Global");
+    const basePercent = 10; // Percentage for regions and licenses
+    let basePriceValue = 0;
+
+
+    //get basePriceValue
+    store.suggestedServices.forEach(service => {
+        if (service.checked) {
+            basePriceValue += service.price;
+        }
+    });
+
+    store.availableServices.forEach(service => {
+        if (service.checked) {
+            basePriceValue += service.price;
+        }
+    });
+
+    total += basePriceValue;
+
+
+    const selectedRegionCount = isGlobalSelected ? basePercent : store.regionsArr.length;
+    const additionalRegionCost = selectedRegionCount * basePercent / 100 * basePriceValue;
+    total += additionalRegionCost;
+
+    const licenceFormatted = parseInt(licensesValue);
+    const licensesCount = licenceFormatted > 1 ? licenceFormatted - 1 : 0;
+    const additionalLicenseCost = licensesCount * basePercent / 100 * basePriceValue;
+
+    total += additionalLicenseCost;
+
+    store.totalCost=total
+    updateTotalCount(stepFormState)
+}
+
+function updateTotalCount(store) {
+    const allTotalCounters=document.querySelectorAll('[data-total-counter-box]')
+    allTotalCounters.forEach(totalCounter=>{
+        totalCounter.innerText=store.totalCost
+    })
+}
+
+function calculateTotal(store) {
+    let total = store.totalCost;
+    const currentPackageSelect=store.currentPackageSelected
+    const licensesValue = store.currentLicencesSelected;
 
     if (currentPackageSelect) {
         const basePrice = basePriceValues[currentPackageSelect];
@@ -260,5 +307,7 @@ export {
     getServicesFromSelectedSegments,
     getAvailableServices,
     determineDefaultState,
-    dropdownTogglePanel
+    dropdownTogglePanel,
+    calculateTotalCost,
+    updateTotalCount
 };
