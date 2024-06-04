@@ -186,7 +186,8 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
         if (module.name === currentService) {
 
             module.serviceTabs.forEach(item => {
-                suggestedModuleItemsHtml += `
+                if(item.info){
+                    suggestedModuleItemsHtml += `
                                      <div class="dropdown-box closing" data-tab-item="${module.name}">
                                           <div class="toggle-container">
                                                 <button class="dropdown-toggle">${item.title}</button>
@@ -205,6 +206,16 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
                                           </div>
                                            ${item.info}
                                     </div> `;
+                } else {
+                    suggestedModuleItemsHtml += `
+                                     <div class="dropdown-box closing" data-tab-item="${module.name}">
+                                          <div class="toggle-container">
+                                                <button class="dropdown-toggle">${item.title}</button>
+                                          </div>
+                                         
+                                    </div> `;
+                }
+
             });
 
         }
