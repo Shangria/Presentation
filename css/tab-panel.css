@@ -6,6 +6,10 @@
     margin-bottom: 20px;
 }
 
+.dropdown-toggle{
+    text-align: left;
+    line-height: 1;
+}
 
 .dropdown-box{
     border-radius: 12px;
@@ -66,4 +70,20 @@
     margin-bottom: 16px;
 }
 
+.dropdown-menu .dropdown-menu-list{
+    list-style: none;
+    font-size: 18px;
+    margin-left: -10px;
+}
+
+.dropdown-menu .dropdown-menu-list ul li{
+    list-style: disc;
+    padding-left: 10px;
+    margin-bottom: 16px;
+}
+
+.dropdown-menu .dropdown-menu-list ul{
+    margin-top: 16px;
+    padding-left: 20px;
+}
 

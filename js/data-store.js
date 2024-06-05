@@ -2,12 +2,12 @@ export let store = {
     targetSegments: [
         {
             name: 'Mining',
-            defaultSelected: 'Mining Contracts',
+            defaultSelected: 'Mining Operations',
             services: ['Research Package', 'Mining Operations', 'Key Mine Personnel', 'Mining Contracts', 'Project Timeline',]
         },
         {
             name: 'Backfilling',
-            defaultSelected: 'Key Mine Personnel',
+            defaultSelected: 'Mining Operations',
             services: ['Research Package', 'Mining Operations', 'Key Mine Personnel', 'Mining Contracts', 'Project Timeline']
         },
         {
@@ -23,7 +23,7 @@ export let store = {
         {
             name: 'Mobile Equipment',
             defaultSelected: 'Heavy Mobile Equipment',
-            services: ['Research Package', 'Crushing & Grinding', 'Heavy Mobile Equipment', 'Project Timeline']
+            services: ['Research Package', 'Heavy Mobile Equipment', 'Key Mine Personnel', 'Project Timeline']
         },
         {
             name: 'Conveyors',
@@ -448,12 +448,18 @@ export let store = {
                 {
                     title: "2,000 Mobile Equipment Models",
                     info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">Caterpillar</li>
-                            <li class="dropdown-item">Komatsu</li>
-                            <li class="dropdown-item">Liebherr</li>
-                            <li class="dropdown-item">Hitachi</li>
-                            <li class="dropdown-item">Epiroc</li>
-                            <li class="dropdown-item">Sandvik</li>
+                            <li class="dropdown-menu-list">
+                                  Manufactued by:
+                                <ul>
+                                        <li>Caterpillar</li>
+                                        <li>Komatsu</li>
+                                        <li>Liebherr</li>
+                                        <li>Hitachi</li>
+                                        <li>Epiroc</li>
+                                        <li>Sandvik</li>
+                                </ul>
+                            </li>
+                            
                          
                         </ul>`
                 },
@@ -499,10 +505,15 @@ export let store = {
                 {
                     title: "Cash Costs",
                     info: `<ul class="dropdown-menu">
-                            <li class="dropdown-item">Synonym - mine site operating costs:</li>
-                            <li class="dropdown-item">Mining costs</li>
-                            <li class="dropdown-item">Processing costs</li>
-                            <li class="dropdown-item">General & Administrative (G&A)</li>
+                             <li class="dropdown-menu-list">
+                             Synonym - mine site operating costs:
+                                     <ul>
+                                     <li class="dropdown-item">Mining costs</li>
+                                           <li class="dropdown-item">Processing costs</li>
+                                            <li class="dropdown-item">General & Administrative (G&A)</li>
+                                    </ul>
+                                    </li>
+                            
                         </ul>`
                 },
                 {
@@ -514,7 +525,7 @@ export let store = {
                 {
                     title: "All-in Sustained Costs (AISC)",
                     info: `<ul class="dropdown-menu">
-                            <li class="dropdown-item">
+                            <li class="dropdown-menu-list">
                             Total Cash Costs + sustained expenditures:
                                     <ul>
                                         <li>Sustained CapEx</li>
@@ -529,7 +540,7 @@ export let store = {
                 {
                     title: "All-in Costs ",
                     info: `<ul class="dropdown-menu">
-                            <li class="dropdown-item">
+                            <li class="dropdown-menu-list">
                            AISC + additonal costs:
                                     <ul>
                                         <li>Projects / Mine Expansion CapEx</li>
@@ -549,27 +560,7 @@ export let store = {
                             <li class="dropdown-item">Total Operating Costs </li>
                         </ul>`
                 },
-                {
-                    title: "",
-                    info: `<ul class="dropdown-menu">
-                            <li class="dropdown-item"></li>
-                            <li class="dropdown-item"></li>
-                            <li class="dropdown-item"></li>
-                            <li class="dropdown-item"></li>
-                            <li class="dropdown-item"></li>
-                            <li class="dropdown-item"></li>
-                            <li class="dropdown-item"></li>
-                            <li class="dropdown-item"></li>
-                            <li class="dropdown-item"></li>
-                        </ul>`
-                },
 
-                {
-                    title: "",
-                    info: `<ul class="dropdown-menu">
-                            <li class="dropdown-item"></li>
-                        </ul>`
-                },
 
             ],
             overviewDescription: '1100 mines and projects with reported production costs',
@@ -698,14 +689,20 @@ export let store = {
                 {
                     title: "200 Crusher and Mill Models",
                     info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">FLSmidth</li>
-                            <li class="dropdown-item">IsaMill</li>
-                            <li class="dropdown-item">Metso</li>
-                            <li class="dropdown-item">MMD</li>
-                            <li class="dropdown-item">Sandvik</li>
-                            <li class="dropdown-item">Terex</li>
-                            <li class="dropdown-item">ThyssenKrupp</li>
-                            <li class="dropdown-item">Weir</li>
+                            <li class="dropdown-menu-list">
+                            Manufactued by:
+                                <ul>
+                                        <li>FLSmidth</li>
+                                        <li>IsaMill</li>
+                                        <li>Metso</li>
+                                        <li>MMD</li>
+                                        <li>Sandvik</li>
+                                        <li>Terex</li>
+                                        <li>ThyssenKrupp</li>
+                                        <li>Weir</li>
+                                </ul>
+                                </li>
+                            
                         </ul>`
                 },
                 {
