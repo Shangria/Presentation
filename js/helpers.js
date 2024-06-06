@@ -23,7 +23,7 @@ function getServicesFromSelectedSegments(segments, allServices, currentPackage) 
         if (selectedServices.has(serviceItem.name) && !seenNames.has(serviceItem.name)) {
             seenNames.add(serviceItem.name);
 
-            let isChecked = currentPackage === "customPackage" || currentPackage === "ultimatePackage" || (currentPackage === "researchPackage" && serviceItem.name === "Research Package");
+            let isChecked = currentPackage === "Custom Package" || currentPackage === "Ultimate Package" || (currentPackage === "Research Package" && serviceItem.name === "Research Package");
             result.push(createServiceItem(serviceItem, isChecked));
         }
     });
@@ -38,7 +38,7 @@ function getAvailableServices(allServices, suggestedServices, currentPackage) {
     const suggestedServicesNames = new Set(suggestedServices.map(service => service.name));
     allServices.forEach(service => {
         if (!suggestedServicesNames.has(service.name)) {
-            result.push(createServiceItem(service, currentPackage === "ultimatePackage"));
+            result.push(createServiceItem(service, currentPackage === "Ultimate Package"));
         }
     });
     return result;
@@ -50,9 +50,10 @@ function createServiceItem(service, checked) {
         price: service.price,
         iconImg: service.iconImg,
         img: service.img,
-        description: service.description,
         overviewDescription: service.overviewDescription,
-        checked: checked
+        checked: checked,
+        serviceTabs:service.serviceTabs,
+        video:service.video
     };
 }
 
@@ -103,6 +104,26 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+    function closeModal() {
+        $("#modalVideo").fadeOut(500, function () {
+            $(this).css("display", "none");
+        });
+    }
+
+    $(".modal-demo-content-close").click(function () {
+        closeModal();
+    });
+
+
+    $(window).click(function (event) {
+        if ($(event.target).hasClass('modal-demo')) {
+            closeModal();
+        }
+    });
+});
+
+$(document).ready(function () {
     $("#termsOfUseOpen").click(function () {
         $("#termsOfUseModal").css("display", "flex").hide().fadeIn(500);
     });
@@ -127,51 +148,50 @@ $(document).ready(function () {
 
 function changePackageSelect(data) {
     let allChecked = true;
-    let isOnlyResearchPackage = true; // По умолчанию считаем, что только Research Package выбран
-    let checkedCount = 0;  // Общее количество отмеченных услуг
+    let isOnlyResearchPackage = true;
+    let checkedCount = 0;
 
-    // Проверяем услуги из suggestedServices
     data.suggestedServices.forEach(service => {
         if (service.name === "Research Package") {
             if (!service.checked) {
-                isOnlyResearchPackage = false;  // Если Research Package не отмечен
+                isOnlyResearchPackage = false;
             }
         } else {
             if (service.checked) {
-                isOnlyResearchPackage = false;  // Если какая-либо другая услуга отмечена
+                isOnlyResearchPackage = false;
             }
         }
 
         if (service.checked) {
-            checkedCount++;  // Считаем отмеченные услуги
+            checkedCount++;
         } else {
             allChecked = false;
         }
     });
 
-    // Проверяем услуги из availableServices
+
     data.availableServices.forEach(service => {
         if (service.checked) {
-            isOnlyResearchPackage = false;  // Если в availableServices что-то отмечено
-            checkedCount++;  // Считаем отмеченные услуги
+            isOnlyResearchPackage = false;
+            checkedCount++;
         } else {
             allChecked = false;
         }
     });
 
-    // Установка выбора пакета в зависимости от состояния услуг
+
     if (isOnlyResearchPackage) {
-        optionsPackageSelect.setChoiceByValue('researchPackage');
-        stepFormState.currentPackageSelected = "researchPackage";
-        addCustomClassToChoice("researchPackage")
+        optionsPackageSelect.setChoiceByValue('Research Package');
+        stepFormState.currentPackageSelected = "Research Package";
+        addCustomClassToChoice("Research Package")
     } else if (allChecked) {
-        optionsPackageSelect.setChoiceByValue('ultimatePackage');
-        stepFormState.currentPackageSelected = "ultimatePackage";
-        addCustomClassToChoice("ultimatePackage")
+        optionsPackageSelect.setChoiceByValue('Ultimate Package');
+        stepFormState.currentPackageSelected = "Ultimate Package";
+        addCustomClassToChoice("Ultimate Package")
     } else if (checkedCount > 1) {
-        optionsPackageSelect.setChoiceByValue('customPackage');
-        stepFormState.currentPackageSelected = "customPackage";
-        addCustomClassToChoice("customPackage")
+        optionsPackageSelect.setChoiceByValue('Custom Package');
+        stepFormState.currentPackageSelected = "Custom Package";
+        addCustomClassToChoice("Custom Package")
     }
 
     function addCustomClassToChoice(value) {
@@ -179,7 +199,7 @@ function changePackageSelect(data) {
         highlightedEl.classList.remove("is-highlighted")
         const choiceEl = document.querySelector(`.choices__list--dropdown [data-value="${value}"]`);
         if (choiceEl) {
-            choiceEl.classList.add('is-highlighted'); // Добавление вашего кастомного класса
+            choiceEl.classList.add('is-highlighted');
         }
     }
 

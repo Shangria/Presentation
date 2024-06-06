@@ -59,12 +59,21 @@
 
 .btn.btn-outline-blue,
 .btn.btn-next {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	max-width: 415px;
 	height: 72px;
 	font-weight: 600;
-	font-size: 22px;
+	font-size: clamp(16px, 1.2vw, 22px);
 	line-height: 20px;
+}
+
+.btn.btn-next img{
+	width: 15px;
+	height: 17px;
+	margin-left: 10px;
 }
 
 .btn.btn-outline-blue:hover,

@@ -3,15 +3,15 @@ import {calculateTotalCost} from "./helpers.js";
 
 
 export const optionalSelectContent = {
-    researchPackage: {
+    "Research Package": {
         name: "Research Package",
         additionalTextBottom: "Perfect for mining industry research! Encompasses Mine Type, Location, Address, Ownership, Deposit, Reserves, Commodity Production, LOM, Workforce, and Financials. Exceptonal value for your dollar!",
     },
-    customPackage: {
+    "Custom Package": {
         name: "Custom Package",
         additionalTextBottom: "Ideal for business development, specialized research or when your budget is limited! Includes all Research Package data points plus your selection of optional data modules.",
     },
-    ultimatePackage: {
+    "Ultimate Package": {
         name: "Ultimate Package",
         additionalTextBottom: "Comprehensive mining intelligence! Best suitable for large corporations, consulting firms and institutional investors. Includes all Research Package data points and all optional data modules.",
     },
@@ -173,18 +173,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const addedCheckboxes = true;
         stepFormState.isChangedDefaultState = false;
 
-        if (currentPackage === "researchPackage") {
+        if (currentPackage === "Research Package") {
             buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
             calculateTotalCost(stepFormState);
         }
 
-        if (currentPackage === "customPackage") {
+        if (currentPackage === "Custom Package") {
             buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
             calculateTotalCost(stepFormState);
 
         }
 
-        if (currentPackage === "ultimatePackage") {
+        if (currentPackage === "Ultimate Package") {
             buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
             calculateTotalCost(stepFormState);
         }

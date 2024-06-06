@@ -91,7 +91,7 @@
 
 .modal-demo-content input:focus,
 .modal-demo-content textarea:focus {
-  outline: none;
+    outline: none;
 }
 
 .modal-demo-content input {
@@ -111,7 +111,7 @@
     resize: none;
 }
 
-.contact-form-send-btn{
+.contact-form-send-btn {
     background-color: var(--color-blue);
     max-width: 415px;
     width: 100%;
@@ -127,15 +127,55 @@
     bottom: 0;
 }
 
-.modal-demo-content-close.section-close{
+.modal-demo-content-close.section-close {
     position: absolute;
     top: 5px;
     right: 0;
     border: none;
 }
 
+.modal-video .modal-demo-content {
+    padding: 44px;
+}
+
+
+.modal-video .modal-demo-content-close {
+    position: absolute;
+    right: 40px;
+    top: 30px;
+    color: #fff;
+    fill: currentColor;
+    cursor: pointer;
+}
+
+.modal-video .modal-demo-content-close svg {
+    width: 32px;
+    height: 32px;
+}
+
+.modal-video .modal-demo-content-title {
+    font-size: clamp(18px, 1.7vw, 22px);
+    font-weight: 600;
+    margin-bottom: 33px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.modal-video .modal-demo-box {
+    width: 100%;
+    height: 100%;
+}
+
+
+.modal-video iframe {
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+
 @media screen and (min-width: 1024px) {
-    .modal-demo {
+    .modal-demo,
+    .modal-video {
         align-items: center;
     }
 
@@ -192,14 +232,14 @@
     }
 
 
-    .contact-form-send-btn{
+    .contact-form-send-btn {
         height: 72px;
         border-radius: 14px;
         font-size: 22px;
         position: static;
     }
 
-    .modal-demo-content-close.section-close{
+    .modal-demo-content-close.section-close {
         top: 25px;
         right: 50px;
     }
@@ -211,7 +251,7 @@
         padding-top: 10dvh;
     }
 
-    .contact-form-wrap{
+    .contact-form-wrap {
         margin-bottom: 4dvh;
     }
 }

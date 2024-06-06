@@ -1,7 +1,38 @@
 .subscription-step {
-    padding: 6dvh 165px;
     width: 100%;
     color: var(--color-white);
+    display: flex;
+}
+
+.subscription-step-wrap {
+    background: url(../images/gradient.png);
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    padding: 6dvh 61px 6dvh 162px;
+    flex-basis: 57%;
+    display: flex;
+    flex-direction: column;
+}
+
+.subscription-step-box {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 43%;
+    padding: 15dvh 63px 6dvh 62px;
+    background: url(../images/gradient.png);
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
+}
+
+.subscription-step-box .subscription-modules-title {
+    margin-bottom: 33px;
+    font-size: clamp(20px, 1.5vw, 28px);
+    font-weight: 600;
+    line-height: 42px;
+    text-align: left;
+
 }
 
 .subscription-details-title {
@@ -20,7 +51,7 @@
 }
 
 .subscription-box-details label input {
-    border-radius: 8px;
+    border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
     height: 5dvh;
     max-height: 52px;
@@ -42,8 +73,6 @@
 
 .subscription-details-columns {
     display: flex;
-    max-width: 920px;
-    width: 100%;
     gap: 40px;
 }
 
@@ -87,7 +116,7 @@
     margin-bottom: 1.2dvh;
 }
 
-.radio-btn-item{
+.radio-btn-item {
     position: relative;
 }
 
@@ -140,24 +169,30 @@
     border: 2px solid #27AE60;;
 }
 
-.subscription-box-accepted{
+.subscription-box-accepted {
     position: relative;
 }
 
-.subscription-box-accepted-container{
+.subscription-box-accepted-container {
     display: flex;
     align-items: center;
     position: relative;
 }
 
 .subscription-box-accepted-text,
-.subscription-box-accepted-terms{
+.subscription-box-accepted-terms {
     font-size: 18px;
     opacity: .7;
     cursor: pointer;
 }
 
-.subscription-box-accepted-terms{
+.subscription-box-accepted-terms {
     text-decoration: underline;
     margin-left: 6px;
+}
+
+.subscription-step-bottom-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }

@@ -1,5 +1,5 @@
 .accordion-panel{
-    max-height: 690px;
+    max-height: 65vh;
     height: 100%;
     overflow-y: auto;
     color: var(--color-white);
@@ -30,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     border: none;
-    font-size: 24px;
+    font-size: clamp(18px, 1.5vw, 24px);
     font-weight: 500;
     line-height: 20px;
     cursor: pointer;
@@ -44,7 +44,7 @@
 }
 
 .dropdown-toggle-arrow svg{
-    width: 32px;
+    min-width: 32px;
     height: 32px;
 }
 
@@ -87,3 +87,20 @@
     padding-left: 20px;
 }
 
+.subscription-step-box .dropdown-toggle{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subscription-step-box .dropdown-toggle .checkmark{
+    transform: none;
+    margin-right: 10px;
+}
+
+
+
+.subscription-step-box .module-info img{
+    margin-right: 16px;
+}

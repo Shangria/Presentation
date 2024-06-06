@@ -53,6 +53,7 @@ export let store = {
             iconImg: './images/icons/modules/research.svg',
             img: './images/slides/key-mine-personnel-and-workforce.jpeg',
             price: 2000.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Geographic Location, Address & Phone Number",
@@ -161,6 +162,7 @@ export let store = {
             iconImg: './images/icons/modules/mining-operations.svg',
             img: './images/slides/heavy-mobile-equipment.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "100 Mining Methods and Technologies",
@@ -211,6 +213,7 @@ export let store = {
             iconImg: './images/icons/modules/key-managers.svg',
             img: './images/slides/commodity-production.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "20 Main Job Categoris",
@@ -253,6 +256,7 @@ export let store = {
             iconImg: './images/icons/modules/mining-contracts.svg',
             img: './images/slides/mining-operations.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Contract Types",
@@ -275,6 +279,7 @@ export let store = {
             iconImg: './images/icons/modules/key-managers.svg',
             img: './images/slides/project-development-timeline.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Development Stage",
@@ -298,6 +303,7 @@ export let store = {
             iconImg: './images/icons/modules/key-managers.svg',
             img: './images/slides/comminution-crushers-and-mills.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Crushing & Grinding",
@@ -356,6 +362,7 @@ export let store = {
             iconImg: './images/icons/modules/mineral-processing.svg',
             img: './images/slides/mineral-processing.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "120 Processing Technologies and Recovery Methods",
@@ -398,6 +405,7 @@ export let store = {
             iconImg: './images/icons/modules/key-managers.svg',
             img: './images/slides/water-supply-and-consumption.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Pipeline Types",
@@ -434,6 +442,7 @@ export let store = {
             iconImg: './images/icons/modules/mobile-equipment.svg',
             img: './images/slides/heavy-mobile-equipment.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "50 Mobile Equipment Types",
@@ -471,6 +480,7 @@ export let store = {
             iconImg: './images/icons/modules/mobile-equipment.svg',
             img: './images/slides/conveyors-and-pipelines.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Conveyor Types",
@@ -501,6 +511,7 @@ export let store = {
             iconImg: './images/icons/modules/key-managers.svg',
             img: './images/slides/project-costs-and-returns.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Cash Costs",
@@ -570,6 +581,7 @@ export let store = {
             iconImg: './images/icons/modules/price-change.svg',
             img: './images/slides/project-costs-and-returns.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Capital Costs",
@@ -628,6 +640,7 @@ export let store = {
             iconImg: './images/icons/modules/key-managers.svg',
             img: './images/slides/commodity-production.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Camp size metrics",
@@ -647,6 +660,7 @@ export let store = {
             iconImg: './images/icons/modules/mapper.svg',
             img: './images/slides/mining-operations.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "Mapping platform",
@@ -670,6 +684,7 @@ export let store = {
             iconImg: './images/icons/modules/mining-operations.svg',
             img: './images/slides/heavy-mobile-equipment.jpeg',
             price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
                     title: "30 Crusher and Mill Types",
@@ -716,19 +731,5 @@ export let store = {
             ],
             overviewDescription: '1,200 mines and projects with crushers, mills and comminution information',
         },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     ]
 };

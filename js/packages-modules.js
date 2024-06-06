@@ -67,7 +67,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
                                                             <span>${module.name}</span>
                                                         </div>
                                                         <label class="custom-checkbox-label ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
-                                                             <span class="module-price">$${module.price.toFixed(2)} USD</span>
+                                                             <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
                                                     </div>
@@ -96,7 +96,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
                                                             <span>${module.name}</span>
                                                         </div>
                                                         <label class="custom-checkbox-label ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
-                                                             <span class="module-price">$${module.price.toFixed(2)} USD</span>
+                                                             <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
                                                     </div>
@@ -163,22 +163,109 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
     calculateTotalCost(stepFormState);
 }
 
+function buildSubscriptionModulesPanel(){
+    const checkedServices = [];
+
+    stepFormState.suggestedServices.forEach(service => {
+        if (service.checked) {
+            checkedServices.push(service);
+        }
+    });
+
+    stepFormState.availableServices.forEach(service => {
+        if (service.checked) {
+            checkedServices.push(service);
+        }
+    });
+
+    let subscriptionModulesPanelHtml = '';
+
+    for (const service of checkedServices) {
+        let tabsHtml = "";
+        // Iterate over serviceTabs and concatenate their titles
+        service.serviceTabs.forEach(item => {
+            tabsHtml += `
+                            <li class="dropdown-item">${item.title}</li>
+                      `;
+        });
+
+        subscriptionModulesPanelHtml += `
+                                     <div class="dropdown-box closing" data-tab-item="${service.name}">
+                                          <div class="toggle-container">
+                                                <button class="dropdown-toggle">
+                                                <div class="module-info flex items-center justify-between">
+                                                            <img src="${service.iconImg}" alt="${service.name}">
+                                                            <span>${service.name}</span>
+                                                        </div>
+                                                        <label class="custom-checkbox-label pointer-events-none checkbox-label-toggle">
+                                                             <span class="module-price">$${service.price.toFixed(2)}</span>
+                                                              <span class="checkmark"></span>
+                                                            </label>
+                                                </button>
+                                                <div class="dropdown-toggle-arrow">
+                                                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_332_23416)">
+                                                          <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </g>
+                                                        <defs>
+                                                          <clipPath id="clip0_332_23416">
+                                                            <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"></rect>
+                                                          </clipPath>
+                                                        </defs>
+                                                      </svg>
+                                                </div>
+                                          </div>
+                                          <ul class="dropdown-menu">
+                                          ${tabsHtml}
+                                          </ul>
+                                        
+                                         
+                                         
+                                    </div> `;
+    }
+
+    $('#currentBoxModules').html(subscriptionModulesPanelHtml);
+    $('#subscriptionModulesTitle').text(stepFormState.currentPackageSelected);
+    dropdownTogglePanel("currentBoxModules");
+
+}
+
 function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
 
     let commonInfoServiceHtml = '';
+    let videoInfoServiceHtml = '';
     for (const availableService of store.allServices) {
         if (availableService.name === currentService) {
             commonInfoServiceHtml += `
                                         <div class="package-info--img relative">
                                             <img src=${availableService.img} alt=${availableService.name}>
+                                            <button id="videoBtn" type="button" class="package-info--video-btn">
+                                                 <img src="./images/request-invoice/play_arrow.svg" alt="play_arrow"/>
+                                                 <span>info</span>
+                                            </button>
                                         </div>
                                         <h3>${availableService.name}</h3>
                                         <p>${availableService.overviewDescription}</p>
+
 					                    `;
+            videoInfoServiceHtml += `
+                                         <h2 class="modal-demo-content-title">${availableService.name}</h2>
+                                        <iframe src="${availableService.video}"
+                                                 title="YouTube video player" frameborder="0"
+                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                 referrerpolicy="strict-origin-when-cross-origin"
+                                                 allowfullscreen></iframe> `;
+
         }
     }
 
     $('.package-info').html(commonInfoServiceHtml);
+    $('#modalVideoContent').html(videoInfoServiceHtml);
+
+    $("#videoBtn").click(function () {
+        $("#modalVideo").css("display", "flex").hide().fadeIn(500);
+    });
+
 
     let suggestedModuleItemsHtml = '';
     for (const module of store.allServices) {
@@ -253,6 +340,7 @@ $(document).ready(function () {
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
     const requestInvoice = document.getElementById("requestInvoice");
+    const requestInvoiceSubscription = document.getElementById("requestInvoiceSubscription");
 
     stepFormState.currentPackageSelected = optionsPackageSelect.getValue().value;
     stepFormState.currentLicencesSelected = licencesSelect.getValue().value;
@@ -317,6 +405,11 @@ $(document).ready(function () {
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
         buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
         buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
+    });
+
+    //go to slide5
+    requestInvoiceSubscription.addEventListener('click', () => {
+        buildSubscriptionModulesPanel()
     });
 
 });
