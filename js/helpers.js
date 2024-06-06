@@ -1,5 +1,7 @@
 import {stepFormState} from "./packages-modules.js";
-import {optionsPackageSelect} from "./request-invoice.js";
+import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
+import {clearContactInputs, resetFormElements, validateContactForm, validateEmailContact} from "./validation-form.js";
+import {pageSlider} from "./sliders.js";
 
 //determine segments and modules
 function findSegmentById(segments, name) {
@@ -93,7 +95,13 @@ $(document).ready(function () {
     });
 
     $("#sendMessageBtn").click(function () {
-        closeModal();
+        const isValidForm = validateContactForm();
+        const isValidEmail = validateEmailContact();
+
+        if (isValidForm && isValidEmail) {
+            clearContactInputs();
+            closeModal();
+        }
     });
 
     $(window).click(function (event) {
@@ -193,16 +201,15 @@ function changePackageSelect(data) {
         stepFormState.currentPackageSelected = "Custom Package";
         addCustomClassToChoice("Custom Package")
     }
+}
 
-    function addCustomClassToChoice(value) {
-        const highlightedEl=document.querySelector('.is-highlighted')
-        highlightedEl.classList.remove("is-highlighted")
-        const choiceEl = document.querySelector(`.choices__list--dropdown [data-value="${value}"]`);
-        if (choiceEl) {
-            choiceEl.classList.add('is-highlighted');
-        }
+function addCustomClassToChoice(value) {
+    const highlightedEl=document.querySelector('.is-highlighted')
+    highlightedEl.classList.remove("is-highlighted")
+    const choiceEl = document.querySelector(`.choices__list--dropdown [data-value="${value}"]`);
+    if (choiceEl) {
+        choiceEl.classList.add('is-highlighted');
     }
-
 }
 
 
@@ -323,6 +330,66 @@ function updateTotalCount(store) {
     });
 }
 
+function resetRegions() {
+
+    const selectedItems = document.getElementById('selectedItems');
+    selectedItems.textContent = 'Global';
+
+    const checkboxes = document.querySelectorAll('[data-regions-input]');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+        checkbox.parentNode.classList.remove("choose")
+    });
+
+    const globalCheckbox = document.querySelector('input[name="Global"]');
+    if (globalCheckbox) {
+        globalCheckbox.checked = true;
+        globalCheckbox.parentNode.classList.add("choose")
+    }
+}
+
+function resetForm() {
+    const additionalTextOptionsSelect=document.getElementById("additionalTextOptionsSelect")
+    // Reset form and formData for demonstration purposes
+
+    clearObject(stepFormState)
+    optionsPackageSelect.setChoiceByValue('Custom Package');
+    stepFormState.currentPackageSelected = "Custom Package";
+    addCustomClassToChoice("Custom Package")
+    licencesSelect.setChoiceByValue('1');
+    resetRegions()
+    additionalTextOptionsSelect.innerHTML = "";
+    resetFormElements()
+    pageSlider.slideTo(0);
+    clearSegmentsList()
+
+    console.log(stepFormState)
+}
+
+function clearObject(obj) {
+    obj.selectedSegmentNames = [];
+    obj.suggestedServices = [];
+    obj.availableServices = [];
+    obj.regionsArr=["Global"]
+    obj.defaultService = '';
+    obj.currentPackageSelected = '';
+    obj.currentLicencesSelected = '';
+    obj.totalCost = 0;
+    obj.isChangedDefaultState= false;
+}
+
+function clearSegmentsList(){
+    const segmentItemsList = document.querySelectorAll("[data-segment-item]");
+    segmentItemsList.forEach((segmentItem, index) => {
+        if(segmentItem.classList.contains("swiper-slide-checked")){
+            segmentItem.classList.remove("swiper-slide-checked")
+        }
+    })
+
+    $('#btnSegmentsNext').attr('disabled', 'disabled');
+}
+
 
 export {
     showModulePanel,
@@ -333,5 +400,7 @@ export {
     dropdownTogglePanel,
     calculateTotalCost,
     updateTotalCount,
-    changePackageSelect
+    changePackageSelect,
+    resetForm,
+    clearSegmentsList
 };

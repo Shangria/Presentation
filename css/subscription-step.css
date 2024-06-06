@@ -54,7 +54,6 @@
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
     height: 5dvh;
-    max-height: 52px;
     font-size: 16px;
     width: 100%;
     padding: 1dvh 20px;
@@ -196,3 +195,25 @@
     flex-direction: column;
     align-items: flex-end;
 }
+
+.subscription-step .error-message {
+    color: #D34E4E;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    position: absolute;
+    bottom:-15px;
+    left: 6px;
+}
+
+.subscription-step .subscription-select-box .error-message{
+    bottom: -5px;
+}
+.subscription-step .subscription-box-details .error-border {
+    position: relative;
+}
+
+.subscription-step .subscription-box-details .error-border input{
+    border: 1px solid #D34E4E;
+}
+

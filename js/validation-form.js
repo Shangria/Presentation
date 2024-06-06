@@ -4,7 +4,7 @@ function validateField(field) {
         if (errorDiv) {
             errorDiv.textContent = 'Please fill';
             errorDiv.style.display = 'block';
-            errorDiv.parentNode.classList.add("error-border")
+            errorDiv.parentNode.classList.add("error-border");
         }
         return false;
     } else {
@@ -12,7 +12,7 @@ function validateField(field) {
         if (errorDiv) {
             errorDiv.textContent = '';
             errorDiv.style.display = 'none';
-            errorDiv.parentNode.classList.remove("error-border")
+            errorDiv.parentNode.classList.remove("error-border");
         }
         return true;
     }
@@ -64,7 +64,7 @@ function validateEmailInput() {
     const emailPattern = /^[a-z0-9.]+@[a-z0-9.]+$/;
 
 
-    if (emailInput.value==='') {
+    if (emailInput.value === '') {
         if (errorDiv) {
             errorDiv.textContent = 'Please fill';
             errorDiv.style.display = 'block';
@@ -117,7 +117,9 @@ function validatePassword() {
         if (errorDiv) {
             errorDiv.textContent = 'Use the same password';
             errorDiv.style.display = 'block';
+            errorDiv.parentNode.classList.add("error-border");
         }
+
         return false;
     } else if (password.value.trim() === '' && confirmPassword.value.trim() === '') {
         if (errorDiv) {
@@ -138,7 +140,7 @@ function validateForm() {
     let isValidAllInputs = true;
 
     // Check each required field
-    const requiredFields = document.querySelectorAll('#stepFormWrap [required]');
+    const requiredFields = document.querySelectorAll('#subscriptionStep [required]');
     requiredFields.forEach(field => {
         isValidAllInputs &= validateField(field);
     });
@@ -148,6 +150,8 @@ function validateForm() {
     const isValidEmail = validateEmailInput();
     const isValidatePhone = validatePhone();
     const isValidPassword = validatePassword();
+
+
     if (isValidPayment && isCheckboxAccepted && isValidEmail && isValidatePhone && isValidAllInputs && isValidPassword) {
         return true;
     } else {
@@ -156,18 +160,25 @@ function validateForm() {
 
 }
 
+$(document).ready(function () {
+//change checkbox accepted state
+    const checkboxAccepted = document.getElementById('checkboxAccepted');
+    checkboxAccepted.addEventListener("click", validateCheckboxAccepted);
+});
+
+
 export function resetFormElements() {
-    // Сброс всех текстовых полей
+
     const inputs = document.querySelectorAll('[data-subscription-input]');
 
     inputs.forEach(input => {
         input.value = '';
         input.checked = false;
-        input.parentNode.classList.remove("error-border")
+        input.parentNode.classList.remove("error-border");
     });
 
 
-    const errorMessages = document.querySelectorAll('#step2 .error-message');
+    const errorMessages = document.querySelectorAll('#subscriptionStep .error-message');
     errorMessages.forEach(message => {
         message.innerText = '';
     });
@@ -181,7 +192,7 @@ document.querySelectorAll('[data-radio-item]').forEach(item => {
 
 
 // Connect the validation function to all fields with the required attribute
-document.querySelectorAll('#stepFormWrap [required]').forEach(field => {
+document.querySelectorAll('#subscriptionStep [required]').forEach(field => {
     field.addEventListener('input', () => {
         validateField(field);
     });
@@ -200,7 +211,10 @@ function validateEmailContact() {
         return false;
     }
 
-    return emailInput.value.match(emailContactPattern);
+    if (emailInput.value.match(emailContactPattern)) {
+        return true;
+    }
+
 }
 
 
@@ -214,10 +228,18 @@ function validateContactForm() {
     });
     return isValid;
 }
-function clearContactInputs(){
+
+function clearContactInputs() {
     document.querySelectorAll('[data-contact-input]').forEach(field => {
-        field.value=''
+        field.value = '';
     });
 }
 
-export {validateField, validateForm, validateCheckboxAccepted, validateContactForm, validateEmailContact, clearContactInputs};
+export {
+    validateField,
+    validateForm,
+    validateCheckboxAccepted,
+    validateContactForm,
+    validateEmailContact,
+    clearContactInputs
+};

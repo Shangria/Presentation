@@ -5,10 +5,11 @@ import {
     dropdownTogglePanel,
     findSegmentById,
     getAvailableServices,
-    getServicesFromSelectedSegments,
+    getServicesFromSelectedSegments, resetForm,
     showModulePanel,
 } from "./helpers.js";
 import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
+import {validateForm} from "./validation-form.js";
 
 let stepFormState = {
     // page 1
@@ -24,7 +25,7 @@ let stepFormState = {
     isChangedDefaultState: false,
     currentPackageSelected: '',
     currentLicencesSelected: '',
-    regionsArr: ["Global"],
+    regionsArr: [],
     totalCost: 0,
 
 
@@ -135,9 +136,6 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
                 checkboxLabel.classList.toggle("checkbox-label-toggle");
                 const currentModule = checkboxLabel.getAttribute("data-checkbox-label-id");
                 handleCheckboxChange(currentModule);
-
-                console.log(stepFormState);
-
             });
         });
 
@@ -341,6 +339,7 @@ $(document).ready(function () {
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
     const requestInvoice = document.getElementById("requestInvoice");
     const requestInvoiceSubscription = document.getElementById("requestInvoiceSubscription");
+    const requestInvoiceSuccessful = document.getElementById("requestInvoiceSuccessful");
 
     stepFormState.currentPackageSelected = optionsPackageSelect.getValue().value;
     stepFormState.currentLicencesSelected = licencesSelect.getValue().value;
@@ -411,6 +410,22 @@ $(document).ready(function () {
     requestInvoiceSubscription.addEventListener('click', () => {
         buildSubscriptionModulesPanel()
     });
+
+    //finish step
+    requestInvoiceSuccessful.addEventListener('click', () => {
+        const isValidForm = validateForm();
+        if (!isValidForm) {
+            resetForm()
+            console.log(" no super")
+            return;
+
+        } else {
+
+            console.log("super")
+        }
+    });
+
+
 
 });
 
