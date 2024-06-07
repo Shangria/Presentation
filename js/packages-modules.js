@@ -415,12 +415,12 @@ $(document).ready(function () {
     requestInvoiceSuccessful.addEventListener('click', () => {
         const isValidForm = validateForm();
         if (!isValidForm) {
-            resetForm()
+
             console.log(" no super")
             return;
 
         } else {
-
+            resetForm()
             console.log("super")
         }
     });
