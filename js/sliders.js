@@ -13,7 +13,7 @@ const pageSlider = new Swiper('#page-slider', {
     allowSlideNext: true,
     allowSlidePrev: true,
     effect: 'fade',
-    initialSlide:0,
+    initialSlide:1,
     fadeEffect: {
         crossFade: true,
     },
@@ -62,22 +62,37 @@ const pageSlider = new Swiper('#page-slider', {
 /**
  * Initialize a comprehensive slider
  */
-new Swiper('#comprehensive-slider', {
-    slidesPerView: 'auto',
-    freeMode: true,
-    speed: 700,
-    pagination: {
-        el: '.comprehensive-coverage-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    slideClass: 'comprehensive-slide-item',
-    slideActiveClass: 'comprehensive-slide-item-active',
-    grabCursor: true,
-    preventInteractionOnTransition: true,
+// Функция для инициализации Swiper
+function initializeSwiper() {
+    new Swiper('#comprehensive-slider', {
+        slidesPerView: 'auto',
+        freeMode: true,
+        speed: 700,
+        pagination: {
+            el: '.comprehensive-coverage-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        slideClass: 'comprehensive-slide-item',
+        slideActiveClass: 'comprehensive-slide-item-active',
+        grabCursor: true,
+        preventInteractionOnTransition: true,
+    });
+}
+
+
+if (window.innerWidth >= 1042) {
+    initializeSwiper();
+}
+
+
+window.addEventListener('resize', function() {
+    if (window.innerWidth >= 1042 && !document.querySelector('.swiper-container-initialized')) {
+        initializeSwiper();
+    }
 });
 
 function hideFirstSlideAnimation () {
