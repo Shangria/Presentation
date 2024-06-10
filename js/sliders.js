@@ -13,7 +13,7 @@ const pageSlider = new Swiper('#page-slider', {
     allowSlideNext: true,
     allowSlidePrev: true,
     effect: 'fade',
-    initialSlide:1,
+  /*  initialSlide:1,*/
     fadeEffect: {
         crossFade: true,
     },

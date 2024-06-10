@@ -11,14 +11,14 @@ export let store = {
             services: ['Research Package', 'Mining Operations', 'Key Mine Personnel', 'Mining Contracts', 'Project Timeline']
         },
         {
+            name: 'Comminution',
+            defaultSelected: 'Comminution',
+            services: ['Research Package', 'Comminution', 'Key Mine Personnel', 'Project Timeline']
+        },
+        {
             name: 'Mineral Processing',
             defaultSelected: 'Mineral Processing',
             services: ['Research Package', 'Mineral Processing', 'Key Mine Personnel', 'Project Timeline']
-        },
-        {
-            name: 'Milling Equipment',
-            defaultSelected: 'Crushing & Grinding',
-            services: ['Research Package', 'Crushing & Grinding', 'Key Mine Personnel', 'Project Timeline']
         },
         {
             name: 'Mobile Equipment',
@@ -31,19 +31,19 @@ export let store = {
             services: ['Research Package', 'Conveyors', 'Key Mine Personnel', 'Project Timeline']
         },
         {
-            name: 'Pipelines',
-            defaultSelected: 'Water Supply & Pipelines',
-            services: ['Research Package', 'Water Supply & Pipelines', 'Key Mine Personnel', 'Project Timeline']
+            name: 'Pumps & Pipelines',
+            defaultSelected: 'Pumps, Pipelines and Water Supply',
+            services: ['Research Package', 'Pumps, Pipelines and Water Supply', 'Key Mine Personnel', 'Project Timeline']
         },
         {
-            name: 'Project Consulting',
+            name: 'Camp Services',
+            defaultSelected: 'Remote Mining Camps',
+            services: ['Research Package', 'Remote Mining Camps', 'Key Mine Personnel', 'Mapper & Coordinates',]
+        },
+        {
+            name: 'Business Development & Investment',
             defaultSelected: 'Project Costs & Returns',
-            services: ['Research Package', 'Key Mine Personnel', 'Production Costs', 'Project Costs & Returns', 'Mining Contracts']
-        },
-        {
-            name: 'Lodging',
-            defaultSelected: 'Remote Camps',
-            services: ['Research Package', 'Remote Camps', 'Key Mine Personnel',]
+            services: ['Research Package', 'Project Costs & Returns', 'Production Costs', 'Key Mine Personnel',]
         },
     ],
 
@@ -158,6 +158,42 @@ export let store = {
             overviewDescription: 'Exceptional value for your dollar! Perfect for mining industry research. Covers over 2400 mines and advanced projects located in 100 countries.',
         },
         {
+            name: 'Heavy Mobile Equipment',
+            iconImg: './images/icons/modules/mobile-equipment.svg',
+            img: './images/slides/heavy-mobile-equipment.jpeg',
+            price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
+            serviceTabs: [
+                {
+                    title: "50 Mobile Equipment Types",
+                    info: `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">Controller Type (Autonomous or Driver operated)</li>
+                            <li class="dropdown-item">Fuel Type (Diesel, Electric)</li>
+                            <li class="dropdown-item">Open Pit Equipment (Loaders, Trucks, Shovels, Dozers, Drills)</li>
+                            <li class="dropdown-item">Underground Equipment (LHD, Jumbo, Bolter, Continuous miner)</li>
+                            <li class="dropdown-item">Search by Equipment Type</li>
+                        </ul>`
+                },
+                {
+                    title: "2,000 Mobile Equipment Models",
+                    info: `<ul  class="dropdown-menu">
+                            <li class="dropdown-menu-list">
+                                  Manufactued by:
+                                <ul>
+                                        <li>Caterpillar</li>
+                                        <li>Komatsu</li>
+                                        <li>Liebherr</li>
+                                        <li>Hitachi</li>
+                                        <li>Epiroc</li>
+                                        <li>Sandvik</li>
+                                </ul>
+                            </li>
+                        </ul>`
+                },
+            ],
+            overviewDescription: 'Covers both open pit and underground mining equipment at 900 active mine sites and required equipment at 500 projects; over 62,000 units.',
+        },
+        {
             name: 'Mining Operations',
             iconImg: './images/icons/modules/mining-operations.svg',
             img: './images/slides/heavy-mobile-equipment.jpeg',
@@ -209,154 +245,57 @@ export let store = {
             overviewDescription: 'Comprehensive coverage of operations at mine sites',
         },
         {
-            name: 'Key Mine Personnel',
-            iconImg: './images/icons/modules/key-managers.svg',
-            img: './images/slides/commodity-production.jpeg',
+            name: 'Comminution',
+            iconImg: './images/icons/modules/mining-operations.svg',
+            img: './images/slides/heavy-mobile-equipment.jpeg',
             price: 100.00,
             video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
-                    title: "20 Main Job Categoris",
+                    title: "30 Crusher and Mill Types",
                     info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">General Managers</li>
-                            <li class="dropdown-item">Operation Managers</li>
-                            <li class="dropdown-item">Mine Managers</li>
-                            <li class="dropdown-item">Maintenance Managers</li>
-                            <li class="dropdown-item">Mine Planners</li>
-                            <li class="dropdown-item">Mill / Plant Managers</li>
-                            <li class="dropdown-item">Processing / Metallurgy Managers</li>
-                            <li class="dropdown-item">Engineering Managers</li>
-                            <li class="dropdown-item">Drilling & Blasting Managers</li>
-                            <li class="dropdown-item">Procurement personnel</li>
-                            <li class="dropdown-item">Consultants</li>
+                            <li class="dropdown-item">Jaw crusher</li>
+                            <li class="dropdown-item">Cone crusher</li>
+                            <li class="dropdown-item">Gyratory crusher</li>
+                            <li class="dropdown-item">Impact crusher</li>
+                            <li class="dropdown-item">AG mill</li>
+                            <li class="dropdown-item">SAG mill</li>
+                            <li class="dropdown-item">Ball mill</li>
+                            <li class="dropdown-item">Rod mill</li>
+                            <li class="dropdown-item">UFG mill</li>
+                            <li class="dropdown-item">HPGR mill</li>
                         </ul>`
                 },
                 {
-                    title: "200 Consulting Firms",
+                    title: "200 Crusher and Mill Models",
                     info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">AMC Consultants</li>
-                            <li class="dropdown-item">Ausenco</li>
-                            <li class="dropdown-item">Canadian Engineering Associates</li>
-                            <li class="dropdown-item">DRA Global</li>
-                            <li class="dropdown-item">GR Engineering Services</li>
-                            <li class="dropdown-item">Hatch</li>
-                            <li class="dropdown-item">Lycopodium</li>
-                            <li class="dropdown-item">Mining Plus</li>
-                            <li class="dropdown-item">SGS Canada</li>
-                            <li class="dropdown-item">Snowden</li>
-                            <li class="dropdown-item">Tetra Tech</li>
+                            <li class="dropdown-menu-list">
+                            Manufactued by:
+                                <ul>
+                                        <li>FLSmidth</li>
+                                        <li>IsaMill</li>
+                                        <li>Metso</li>
+                                        <li>MMD</li>
+                                        <li>Sandvik</li>
+                                        <li>Terex</li>
+                                        <li>ThyssenKrupp</li>
+                                        <li>Weir</li>
+                                </ul>
+                                </li>
+                            
                         </ul>`
                 },
-            ],
-            overviewDescription: '8,000 key decision makers and consultants',
-
-        },
-        {
-            name: 'Mining Contracts',
-            iconImg: './images/icons/modules/mining-contracts.svg',
-            img: './images/slides/mining-operations.jpeg',
-            price: 100.00,
-            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
-            serviceTabs: [
                 {
-                    title: "Contract Types",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">FEED / EPC / EPCM</li>
-                            <li class="dropdown-item">Drilling & Blasting</li>
-                            <li class="dropdown-item">Mine Development</li>
-                            <li class="dropdown-item">Load & haul</li>
-                            <li class="dropdown-item">Mining</li>
-                            <li class="dropdown-item">Logistics & Material Handling</li>
-                            <li class="dropdown-item">Mining Fleet & Maintenance</li>
-                            <li class="dropdown-item">Maintenance & Shutdown</li>
-                        </ul>`
-                },
-            ],
-            overviewDescription: '100 mines and projects with awarded and unawarded contracts',
-        },
-        {
-            name: 'Project Timeline',
-            iconImg: './images/icons/modules/key-managers.svg',
-            img: './images/slides/project-development-timeline.jpeg',
-            price: 100.00,
-            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
-            serviceTabs: [
-                {
-                    title: "Development Stage",
+                    title: "Comminution process details",
                     info: null
                 },
                 {
-                    title: "Construction Start",
-                    info: null
-                },
-                {
-                    title: "Production Start",
+                    title: "Flowsheet diagrams",
                     info: null
                 },
             ],
-            overviewDescription: '200 projects with announced development timeline',
-
+            overviewDescription: '1,200 mines and projects with crushers, mills and comminution information',
         },
-
-        {
-            name: 'Crushing & Grinding',
-            iconImg: './images/icons/modules/key-managers.svg',
-            img: './images/slides/comminution-crushers-and-mills.jpeg',
-            price: 100.00,
-            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
-            serviceTabs: [
-                {
-                    title: "Crushing & Grinding",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">8,000 decision makers and consultants</li>
-                            <li class="dropdown-item">General and Engineering Managers</li>
-                            <li class="dropdown-item">Mine and Operation Managers</li>
-                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
-                            <li class="dropdown-item">Processing Managers</li>
-                            <li class="dropdown-item">Procurement Staff and more…</li>
-                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
-                        </ul>`
-                },
-                {
-                    title: "Crushing & Grinding2",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">8,000 decision makers and consultants</li>
-                            <li class="dropdown-item">General and Engineering Managers</li>
-                            <li class="dropdown-item">Mine and Operation Managers</li>
-                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
-                            <li class="dropdown-item">Processing Managers</li>
-                            <li class="dropdown-item">Procurement Staff and more…</li>
-                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
-                        </ul>`
-                },
-                {
-                    title: "Crushing & Grinding3",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">8,000 decision makers and consultants</li>
-                            <li class="dropdown-item">General and Engineering Managers</li>
-                            <li class="dropdown-item">Mine and Operation Managers</li>
-                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
-                            <li class="dropdown-item">Processing Managers</li>
-                            <li class="dropdown-item">Procurement Staff and more…</li>
-                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
-                        </ul>`
-                },
-                {
-                    title: "Crushing & Grinding4",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">8,000 decision makers and consultants</li>
-                            <li class="dropdown-item">General and Engineering Managers</li>
-                            <li class="dropdown-item">Mine and Operation Managers</li>
-                            <li class="dropdown-item">Mine and Plant Maintenance Managers</li>
-                            <li class="dropdown-item">Processing Managers</li>
-                            <li class="dropdown-item">Procurement Staff and more…</li>
-                            <li class="dropdown-item">Search by job category, job title, consulting company</li>
-                        </ul>`
-                },
-            ],
-            overviewDescription: 'Identify business opportunities by assessing Crushing & Grinding',
-        },
-
         {
             name: 'Mineral Processing',
             iconImg: './images/icons/modules/mineral-processing.svg',
@@ -401,7 +340,81 @@ export let store = {
             overviewDescription: 'Comprehensive coverage of ore processing at mine sites',
         },
         {
-            name: 'Water Supply & Pipelines',
+            name: 'Key Mine Personnel',
+            iconImg: './images/icons/modules/key-managers.svg',
+            img: './images/slides/commodity-production.jpeg',
+            price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
+            serviceTabs: [
+                {
+                    title: "20 Main Job Categoris",
+                    info: `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">General Managers</li>
+                            <li class="dropdown-item">Operation Managers</li>
+                            <li class="dropdown-item">Mine Managers</li>
+                            <li class="dropdown-item">Maintenance Managers</li>
+                            <li class="dropdown-item">Mine Planners</li>
+                            <li class="dropdown-item">Mill / Plant Managers</li>
+                            <li class="dropdown-item">Processing / Metallurgy Managers</li>
+                            <li class="dropdown-item">Engineering Managers</li>
+                            <li class="dropdown-item">Drilling & Blasting Managers</li>
+                            <li class="dropdown-item">Procurement personnel</li>
+                            <li class="dropdown-item">Consultants</li>
+                        </ul>`
+                },
+                {
+                    title: "200 Consulting Firms",
+                    info: `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">AMC Consultants</li>
+                            <li class="dropdown-item">Ausenco</li>
+                            <li class="dropdown-item">Canadian Engineering Associates</li>
+                            <li class="dropdown-item">DRA Global</li>
+                            <li class="dropdown-item">GR Engineering Services</li>
+                            <li class="dropdown-item">Hatch</li>
+                            <li class="dropdown-item">Lycopodium</li>
+                            <li class="dropdown-item">Mining Plus</li>
+                            <li class="dropdown-item">SGS Canada</li>
+                            <li class="dropdown-item">Snowden</li>
+                            <li class="dropdown-item">Tetra Tech</li>
+                        </ul>`
+                },
+            ],
+            overviewDescription: '8,000 key decision makers and consultants',
+
+        },
+        {
+            name: 'Conveyors',
+            iconImg: './images/icons/modules/mobile-equipment.svg',
+            img: './images/slides/conveyors-and-pipelines.jpeg',
+            price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
+            serviceTabs: [
+                {
+                    title: "Conveyor Types",
+                    info: `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">Overland conveyors</li>
+                            <li class="dropdown-item">Underground conveyors</li>
+                            <li class="dropdown-item">Stacking and sacrificial conveyours</li>
+                            <li class="dropdown-item">Pipe conveyors</li>
+                            <li class="dropdown-item">Aerial rope conveyors</li>
+                        </ul>`
+                },
+                {
+                    title: "Techical specifications",
+                    info: `<ul  class="dropdown-menu">
+                            <li class="dropdown-item">Length is available for all conveyors</li>
+                            <li class="dropdown-item">Conveyor specs reported for some assets:</li>
+                            <li class="dropdown-item">Capacity</li>
+                            <li class="dropdown-item">Belt speed</li>
+                            <li class="dropdown-item">Best width</li>
+                            <li class="dropdown-item">Motor size</li>
+                        </ul>`
+                },
+            ],
+            overviewDescription: '450 mines and projects with conveyor data',
+        },
+        {
+            name: 'Pumps, Pipelines and Water Supply',
             iconImg: './images/icons/modules/key-managers.svg',
             img: './images/slides/water-supply-and-consumption.jpeg',
             price: 100.00,
@@ -438,73 +451,73 @@ export let store = {
             overviewDescription: '300 mines and projects with pipelines data',
         },
         {
-            name: 'Heavy Mobile Equipment',
-            iconImg: './images/icons/modules/mobile-equipment.svg',
-            img: './images/slides/heavy-mobile-equipment.jpeg',
+            name: 'Project Timeline',
+            iconImg: './images/icons/modules/key-managers.svg',
+            img: './images/slides/project-development-timeline.jpeg',
             price: 100.00,
             video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
-                    title: "50 Mobile Equipment Types",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">Controller Type (Autonomous or Driver operated)</li>
-                            <li class="dropdown-item">Fuel Type (Diesel, Electric)</li>
-                            <li class="dropdown-item">Open Pit Equipment (Loaders, Trucks, Shovels, Dozers, Drills)</li>
-                            <li class="dropdown-item">Underground Equipment (LHD, Jumbo, Bolter, Continuous miner)</li>
-                            <li class="dropdown-item">Search by Equipment Type</li>
-                        </ul>`
+                    title: "Development Stage",
+                    info: null
                 },
                 {
-                    title: "2,000 Mobile Equipment Models",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-menu-list">
-                                  Manufactued by:
-                                <ul>
-                                        <li>Caterpillar</li>
-                                        <li>Komatsu</li>
-                                        <li>Liebherr</li>
-                                        <li>Hitachi</li>
-                                        <li>Epiroc</li>
-                                        <li>Sandvik</li>
-                                </ul>
-                            </li>
-                            
-                         
-                        </ul>`
+                    title: "Construction Start",
+                    info: null
+                },
+                {
+                    title: "Production Start",
+                    info: null
                 },
             ],
-            overviewDescription: 'Covers both open pit and underground mining equipment at 900 active mine sites and required equipment at 500 projects; over 62,000 units.',
+            overviewDescription: '200 projects with announced development timeline',
+
         },
         {
-            name: 'Conveyors',
-            iconImg: './images/icons/modules/mobile-equipment.svg',
-            img: './images/slides/conveyors-and-pipelines.jpeg',
+            name: 'Mapper & Coordinates',
+            iconImg: './images/icons/modules/mapper.svg',
+            img: './images/slides/mining-operations.jpeg',
             price: 100.00,
             video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [
                 {
-                    title: "Conveyor Types",
+                    title: "Mapping platform",
                     info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">Overland conveyors</li>
-                            <li class="dropdown-item">Underground conveyors</li>
-                            <li class="dropdown-item">Stacking and sacrificial conveyours</li>
-                            <li class="dropdown-item">Pipe conveyors</li>
-                            <li class="dropdown-item">Aerial rope conveyors</li>
+                            <li class="dropdown-item">Plot search results on Google Map</li>
+                            <li class="dropdown-item">Toggle between "Map", "Terrain" and "Satellite"</li>
+                            <li class="dropdown-item">Measure distance to infrastructure</li>
                         </ul>`
                 },
                 {
-                    title: "Techical specifications",
+                    title: "Download Coordinates",
+                    info: null
+                },
+
+            ],
+            overviewDescription: 'Spatial tool designed to support research and business development objectives',
+        },
+        {
+            name: 'Mining Contracts',
+            iconImg: './images/icons/modules/mining-contracts.svg',
+            img: './images/slides/mining-operations.jpeg',
+            price: 100.00,
+            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
+            serviceTabs: [
+                {
+                    title: "Contract Types",
                     info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">Length is available for all conveyors</li>
-                            <li class="dropdown-item">Conveyor specs reported for some assets:</li>
-                            <li class="dropdown-item">Capacity</li>
-                            <li class="dropdown-item">Belt speed</li>
-                            <li class="dropdown-item">Best width</li>
-                            <li class="dropdown-item">Motor size</li>
+                            <li class="dropdown-item">FEED / EPC / EPCM</li>
+                            <li class="dropdown-item">Drilling & Blasting</li>
+                            <li class="dropdown-item">Mine Development</li>
+                            <li class="dropdown-item">Load & haul</li>
+                            <li class="dropdown-item">Mining</li>
+                            <li class="dropdown-item">Logistics & Material Handling</li>
+                            <li class="dropdown-item">Mining Fleet & Maintenance</li>
+                            <li class="dropdown-item">Maintenance & Shutdown</li>
                         </ul>`
                 },
             ],
-            overviewDescription: '450 mines and projects with conveyor data',
+            overviewDescription: '100 mines and projects with awarded and unawarded contracts',
         },
         {
             name: 'Production Costs',
@@ -636,7 +649,7 @@ export let store = {
             overviewDescription: '600 projects at PEA, PFS and Feasibility stages',
         },
         {
-            name: 'Remote Camps',
+            name: 'Remote Mining Camps',
             iconImg: './images/icons/modules/key-managers.svg',
             img: './images/slides/commodity-production.jpeg',
             price: 100.00,
@@ -654,82 +667,6 @@ export let store = {
 
             ],
             overviewDescription: '760 mines and projects with remote camps',
-        },
-        {
-            name: 'Mapper & Coordinates',
-            iconImg: './images/icons/modules/mapper.svg',
-            img: './images/slides/mining-operations.jpeg',
-            price: 100.00,
-            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
-            serviceTabs: [
-                {
-                    title: "Mapping platform",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">Plot search results on Google Map</li>
-                            <li class="dropdown-item">Toggle between "Map", "Terrain" and "Satellite"</li>
-                            <li class="dropdown-item">Measure distance to infrastructure</li>
-                        </ul>`
-                },
-                {
-                    title: "Download Coordinates",
-                    info: null
-                },
-
-            ],
-            overviewDescription: 'Spatial tool designed to support research and business development objectives',
-        },
-
-        {
-            name: 'Comminution',
-            iconImg: './images/icons/modules/mining-operations.svg',
-            img: './images/slides/heavy-mobile-equipment.jpeg',
-            price: 100.00,
-            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
-            serviceTabs: [
-                {
-                    title: "30 Crusher and Mill Types",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-item">Jaw crusher</li>
-                            <li class="dropdown-item">Cone crusher</li>
-                            <li class="dropdown-item">Gyratory crusher</li>
-                            <li class="dropdown-item">Impact crusher</li>
-                            <li class="dropdown-item">AG mill</li>
-                            <li class="dropdown-item">SAG mill</li>
-                            <li class="dropdown-item">Ball mill</li>
-                            <li class="dropdown-item">Rod mill</li>
-                            <li class="dropdown-item">UFG mill</li>
-                            <li class="dropdown-item">HPGR mill</li>
-                        </ul>`
-                },
-                {
-                    title: "200 Crusher and Mill Models",
-                    info: `<ul  class="dropdown-menu">
-                            <li class="dropdown-menu-list">
-                            Manufactued by:
-                                <ul>
-                                        <li>FLSmidth</li>
-                                        <li>IsaMill</li>
-                                        <li>Metso</li>
-                                        <li>MMD</li>
-                                        <li>Sandvik</li>
-                                        <li>Terex</li>
-                                        <li>ThyssenKrupp</li>
-                                        <li>Weir</li>
-                                </ul>
-                                </li>
-                            
-                        </ul>`
-                },
-                {
-                    title: "Comminution process details",
-                    info: null
-                },
-                {
-                    title: "Flowsheet diagrams",
-                    info: null
-                },
-            ],
-            overviewDescription: '1,200 mines and projects with crushers, mills and comminution information',
         },
     ]
 };
