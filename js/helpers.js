@@ -79,6 +79,25 @@ function determineDefaultState(allTargetSegments, allServices, chooseSegments) {
 //
 
 //show modals
+
+$(document).ready(function () {
+    function closeModal() {
+        $("#modalSuccessful").fadeOut(500, function () {
+            $(this).css("display", "none");
+        });
+    }
+
+    $(".modal-successful-close").click(function () {
+        closeModal();
+    });
+
+
+    $(window).click(function (event) {
+        if ($(event.target).hasClass('modal-successful')) {
+            closeModal();
+        }
+    });
+});
 $(document).ready(function () {
     $("#requestDemo").click(function () {
         $("#modalDemo").css("display", "flex").hide().fadeIn(500);
@@ -125,7 +144,7 @@ $(document).ready(function () {
 
 
     $(window).click(function (event) {
-        if ($(event.target).hasClass('modal-demo')) {
+        if ($(event.target).hasClass('modal-video')) {
             closeModal();
         }
     });
@@ -361,10 +380,8 @@ function resetForm() {
     resetRegions()
     additionalTextOptionsSelect.innerHTML = "";
     resetFormElements()
-    pageSlider.slideTo(0);
     clearSegmentsList()
 
-    console.log(stepFormState)
 }
 
 function clearObject(obj) {

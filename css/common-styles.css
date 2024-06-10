@@ -493,12 +493,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 9px;
+    padding: 9px 15px;
     cursor: pointer;
 }
 
 .package-info--video-btn img {
     width: 20px;
+    border-radius: 0;
 }
 
 .package-info--video-btn span {

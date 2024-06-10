@@ -340,6 +340,7 @@ $(document).ready(function () {
     const requestInvoice = document.getElementById("requestInvoice");
     const requestInvoiceSubscription = document.getElementById("requestInvoiceSubscription");
     const requestInvoiceSuccessful = document.getElementById("requestInvoiceSuccessful");
+    const modalSuccessfulClose = document.getElementById("modalSuccessfulClose");
 
     stepFormState.currentPackageSelected = optionsPackageSelect.getValue().value;
     stepFormState.currentLicencesSelected = licencesSelect.getValue().value;
@@ -415,15 +416,17 @@ $(document).ready(function () {
     requestInvoiceSuccessful.addEventListener('click', () => {
         const isValidForm = validateForm();
         if (!isValidForm) {
-
-            console.log(" no super")
             return;
-
         } else {
-            resetForm()
-            console.log("super")
+            $("#modalSuccessful").css("display", "flex").hide().fadeIn(500);
         }
     });
+
+    //reset
+    modalSuccessfulClose.addEventListener('click', () => {
+     resetForm()
+    });
+
 
 
 
