@@ -407,6 +407,42 @@ function clearSegmentsList(){
     $('#btnSegmentsNext').attr('disabled', 'disabled');
 }
 
+function animateCounter(element, endValue) {
+    let startValue = 0;
+    let startTime = null;
+    const duration = 1500; // Total animation duration for all counters
+    const increment = endValue / (60 * (duration / 1000)); // Calculate the step so that it depends on the final value
+
+    const step = timestamp => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const currentValue = Math.floor(progress * (endValue - startValue) + startValue);
+        element.textContent = currentValue;
+
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        } else {
+            element.textContent = endValue;
+        }
+    };
+
+    window.requestAnimationFrame(step);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('[data-counter]');
+    counters.forEach(counter => {
+        const endValue = parseInt(counter.getAttribute('data-counter'), 10);
+        animateCounter(counter, endValue);
+    });
+});
+
+
+
+
+
+
+
 
 export {
     showModulePanel,
