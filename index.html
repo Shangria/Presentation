@@ -43,6 +43,7 @@
 
 <body>
 
+<header></header>
 <div class="h-dvh swiper main-content" id="page-slider">
     <div class="swiper-wrapper">
         <!-- slide1 -->
@@ -50,21 +51,68 @@
             <section class="section section-start">
                 <div class="main relative">
                     <img src="./images/gradient.png" alt="gradient" class="gradient">
-                    <div class="h-full px-[6vw]">
-                        <div class="grid gap-4  grid-cols-[45%_55%]  items-center h-full ">
-                            <div class="relative z-10 animate__animated animate__fadeInLeftBig" id="boost">
-                                <h1 class="title">Boost your <br/> sales with MDO</h1>
-                                <h2 class="subtitle">MDO is a business development tool specifically <br/> crafted to
-                                    Mining
-                                    Suppliers and
-                                    Consultants
-                                </h2>
-                                <button type="button" class="btn btn-blue btn-size-xl btn-rounded btn-title uppercase"
-                                        id="getStarted">
-                                    Get Started
-                                </button>
+                    <div class="h-full lg:px-[6vw]">
+                        <div class="flex flex-col justify-center lg:grid grid-flow-row gap-4  grid-cols-[45%_55%]  items-center h-full ">
+                            <div class="flex flex-col justify-center items-center h-full  relative z-10 animate__animated animate__fadeInLeftBig" id="boost">
+                                <div class="flex flex-col">
+                                    <div class="lg:hidden flex-md flex-col-md content-end-md animate__animated animate__fadeInDownBig z-[1]"
+                                         id="laptop">
+                                        <div class="laptop-images-box">
+                                            <img src="./images/laptop.png" alt="laptop" class="laptop">
+                                            <img src="./images/laptop-shadow.png" alt="laptop-shadow"
+                                                 class="laptop-shadow ">
+                                        </div>
+
+
+                                        <!-- counter desktop-->
+                                        <div class="hidden lg:block counter-container">
+                                            <h3 class="counter-title">Mining Database in numbers</h3>
+                                            <div class="counter-box-wrap grid grid-cols-6 gap-4">
+                                                <div class="counter-box">
+                                                    <div class="counter" data-counter="99">0</div>
+                                                    <p>Countries</p>
+                                                </div>
+                                                <div class="counter-box">
+                                                    <div class="counter" data-counter="120">0</div>
+                                                    <p>Processing Technologies</p>
+                                                </div>
+                                                <div class="counter-box">
+                                                    <div class="counter" data-counter="140">0</div>
+                                                    <p>Commodities</p>
+                                                </div>
+                                                <div class="counter-box">
+                                                    <div class="counter" data-counter="2400">0</div>
+                                                    <p>Heavy Mobile Equipment Models</p>
+                                                </div>
+                                                <div class="counter-box">
+                                                    <div class="counter" data-counter="2400">0</div>
+                                                    <p>Mines and Advanced Mining Projects</p>
+                                                </div>
+                                                <div class="counter-box">
+                                                    <div class="counter-append-plus">
+                                                        <div class="counter" data-counter="7000">0</div>
+                                                        <span>+</span>
+                                                    </div>
+                                                    <p>Key Contacts on Mine Sites</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h1 class="title">Boost your <br class="hidden lg:block"/> sales with MDO</h1>
+                                    <h2 class="subtitle">MDO is a business development tool specifically <br class="hidden lg:block"/> crafted to
+                                        Mining
+                                        Suppliers and
+                                        Consultants
+                                    </h2>
+                                    <button type="button" class="self-center lg:self-start btn btn-blue btn-size-xl btn-rounded btn-title uppercase"
+                                            id="getStarted">
+                                        Get Started
+                                    </button>
+                                </div>
+
                             </div>
-                            <div class="flex-md flex-col-md content-end-md animate__animated animate__fadeInDownBig z-[1]"
+                            <div class="hidden lg:block flex-md flex-col-md content-end-md animate__animated animate__fadeInDownBig z-[1]"
                                  id="laptop">
                                 <div class="laptop-images-box">
                                     <img src="./images/laptop.png" alt="laptop" class="laptop">
@@ -74,7 +122,7 @@
 
 
                                 <!-- counter desktop-->
-                                <div class="counter-container">
+                                <div class="hidden lg:block counter-container">
                                     <h3 class="counter-title">Mining Database in numbers</h3>
                                     <div class="counter-box-wrap grid grid-cols-6 gap-4">
                                         <div class="counter-box">
@@ -107,7 +155,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

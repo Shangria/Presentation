@@ -81,14 +81,25 @@
 	font-size: 24px;
 }
 
+@media screen and (max-width: 1024px) {
+	.btn.btn-blue {
+		position: fixed;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		bottom: 10px;
+	}
+}
+
 @media screen and (max-width: 1295px) {
 	.btn.btn-size-xl {
 		max-width: 340px;
-		height: 68px;
+		height: 48px;
 	}
+
 	.btn.btn-size-xl:hover {
 		font-size: 1.24rem;
 	}
+
 	.btn-title {
 		font-size: 1.115rem;
 		line-height: 0.892rem;
