@@ -390,14 +390,14 @@ $(document).ready(function () {
             if (adjustedIndex === 3) {
                 buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
-                togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
+                togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
             }
 
             //for add checkboxes
             if (adjustedIndex === 4) {
                 buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`, addedCheckboxes, `slide${adjustedIndex}`);
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
-                togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
+                togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
             }
         });
     });
