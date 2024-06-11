@@ -134,8 +134,9 @@
 
 
     .accordion-panel {
+        margin-bottom: 0;
         max-height: 100%;
-        height: 100%;
+        height: calc(100% - 100px);
     }
 
 }

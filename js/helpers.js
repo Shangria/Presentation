@@ -446,12 +446,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function openModalModule() {
     const packageContainerWrap = document.getElementById('packageContainerWrap');
+    const bgOpacityInner = document.getElementById('bgOpacityInner');
     const dropdownTabs = document.querySelectorAll('[data-mobile-modal-open]');
 
     dropdownTabs.forEach(dropdownTab => {
         dropdownTab.addEventListener('click', (event) => {
             if(event.isTrusted){
                 packageContainerWrap.classList.add('package-container-wrap-open');
+                bgOpacityInner.classList.add('bg-opacity-inner-open');
             }
 
         });
@@ -462,9 +464,11 @@ function openModalModule() {
 
 document.addEventListener("click", ()=>{
     const packageModalClose=document.getElementById("packageModalClose")
+    const bgOpacityInner=document.getElementById("bgOpacityInner")
     const packageContainerWrap = document.getElementById('packageContainerWrap');
     packageModalClose.addEventListener("click", ()=>{
         packageContainerWrap.classList.remove('package-container-wrap-open');
+        bgOpacityInner.classList.remove('bg-opacity-inner-open');
     })
 })
 
