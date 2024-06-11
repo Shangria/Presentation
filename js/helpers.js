@@ -133,6 +133,11 @@ $(document).ready(function () {
 $(document).ready(function () {
 
     function closeModal() {
+        let $videoIframe = $('#modalVideo iframe');
+        let iframeSrc = $videoIframe.attr('src');
+        $videoIframe.attr('src', ''); // Сброс src останавливает видео
+        $videoIframe.attr('src', iframeSrc);
+
         $("#modalVideo").fadeOut(500, function () {
             $(this).css("display", "none");
         });
