@@ -53,10 +53,9 @@
                     <img src="./images/gradient.png" alt="gradient" class="gradient">
                     <div class="h-full lg:px-[6vw]">
                         <div class="flex flex-col justify-center lg:grid grid-flow-row gap-4  grid-cols-[45%_55%]  items-center h-full ">
-                            <div class="flex flex-col justify-center items-center h-full  relative z-10 animate__animated animate__fadeInLeftBig" id="boost">
+                            <div class="flex flex-col justify-center items-center h-full  relative z-10 animate__animated animate__fadeInLeftBig" data-boost-style >
                                 <div class="flex flex-col">
-                                    <div class="lg:hidden flex-md flex-col-md content-end-md animate__animated animate__fadeInDownBig z-[1]"
-                                         id="laptop">
+                                    <div class="lg:hidden flex-md flex-col-md content-end-md animate__animated animate__fadeInDownBig z-[1]" data-laptop-style>
                                         <div class="laptop-images-box">
                                             <img src="./images/laptop.png" alt="laptop" class="laptop">
                                             <img src="./images/laptop-shadow.png" alt="laptop-shadow"
@@ -105,7 +104,7 @@
                                         Suppliers and
                                         Consultants
                                     </h2>
-                                    <button type="button" class="self-center lg:self-start btn btn-blue btn-size-xl btn-rounded btn-title uppercase"
+                                    <button type="button" class="self-center lg:self-start btn btn-single btn-blue btn-size-xl btn-rounded btn-title uppercase"
                                             id="getStarted">
                                         Get Started
                                     </button>
@@ -113,7 +112,7 @@
 
                             </div>
                             <div class="hidden lg:block flex-md flex-col-md content-end-md animate__animated animate__fadeInDownBig z-[1]"
-                                 id="laptop">
+                               data-laptop-style >
                                 <div class="laptop-images-box">
                                     <img src="./images/laptop.png" alt="laptop" class="laptop">
                                     <img src="./images/laptop-shadow.png" alt="laptop-shadow"
@@ -576,7 +575,7 @@
                         <button
                                 type="button"
                                 id="btnSegmentsNext"
-                                class="btn btn-rounded btn-blue btn-next ml-auto mr-auto-lg uppercase"
+                                class="btn btn-single  btn-rounded btn-blue btn-next ml-auto mr-auto-lg uppercase"
                                 disabled
                         >
                             Next
@@ -680,12 +679,28 @@
                         </defs>
                     </svg>
                 </div>
+                <h2 class="title title-mobile lg:hidden">Packages and Modules</h2>
                 <div class="presentation-menu animate__animated" id="presentationMenuSlide3">
                     <!-- Do not delete this block. It's being used in js -->
                 </div>
-                <div class="main relative flex flex-col animate__animated">
-                    <h2 class="title">Packages and Modules</h2>
-                    <div class="package flex flex-nowrap flex-grow">
+                <div class="main package-container-wrap fixed lg:relative flex flex-col animate__animated" id="packageContainerWrap">
+                    <div id="packageModalClose" class="package-modal-close lg:hidden">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1_1170)">
+                                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1_1170">
+                                    <rect width="24" height="24" fill="currentColor"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2 class="title  hidden lg:block">Packages and Modules</h2>
+                    <div class="package flex flex-col lg:flex-row flex-nowrap flex-grow">
                         <div class="package-info">
                             <!-- Do not delete this block. It's being used in js -->
                         </div>
@@ -693,17 +708,27 @@
                             <div class="accordion-panel" id="accordionPanelSlide3">
                                 <!-- Do not delete this block. It's being used in js -->
                             </div>
-                            <div class="packages-request flex justify-end grow items-end">
-                                <button type="button" class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
-                                        id="requestDemo">Request a demo
+                            <div class="packages-request hidden lg:flex justify-end grow items-end">
+                                <button data-request-demo type="button" class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
+                                        >Request a demo
                                 </button>
-                                <button type="button" class="btn btn-rounded btn-blue btn-next uppercase"
-                                        id="requestInvoice">Request invoice
+                                <button data-request-invoice type="button" class="btn btn-rounded btn-blue btn-next uppercase"
+                                        >Request invoice
                                     <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
                                 </button>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
+                    <button data-request-demo type="button" class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
+                            >Request a demo
+                    </button>
+                    <button data-request-invoice type="button" class="btn btn-rounded btn-blue btn-next uppercase"
+                            >Request invoice
+                        <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
+                    </button>
                 </div>
             </section>
         </div>

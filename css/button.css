@@ -82,7 +82,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-	.btn.btn-blue {
+	.btn.btn-blue.btn-single  {
 		position: fixed;
 		left: 50%;
 		transform: translate(-50%, -50%);

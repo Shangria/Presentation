@@ -99,7 +99,7 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
-    $("#requestDemo").click(function () {
+    $("[data-request-demo]").click(function () {
         $("#modalDemo").css("display", "flex").hide().fadeIn(500);
     });
 
@@ -256,8 +256,10 @@ function dropdownTogglePanel(accordionPanelId) {
                         box.classList.remove('closing');
                         box.classList.add('drop-down-item-open');
 
+                        if(drop){
                         const dropHeight = drop.scrollHeight;
-                        drop.style.maxHeight = `${dropHeight}px`;
+                            drop.style.maxHeight = `${dropHeight}px`;
+                        }
 
                         setTimeout(() => {
                             if (root.scrollTop > box.offsetTop - 90) { // if the drop is outside of overflow
@@ -283,7 +285,6 @@ function dropdownTogglePanel(accordionPanelId) {
 
 function showModulePanel(currentTab, presentationMenuId) {
     const currentItemForOpenById = currentTab;
-
     const boxPanel = document.getElementById(`${presentationMenuId}`);
 
     if (currentItemForOpenById) {
@@ -294,11 +295,12 @@ function showModulePanel(currentTab, presentationMenuId) {
             defaultElement.classList.add('drop-down-item-open');
             tabModulesItem.classList.add('presentation-modules-item-active');
             const drop = defaultElement.querySelector('.dropdown-menu');
+            if(drop){
             const dropHeight = drop.scrollHeight;
-
-            setTimeout(() => {
-                drop.style.maxHeight = `${dropHeight}px`;
-            }, 300);
+                setTimeout(() => {
+                    drop.style.maxHeight = `${dropHeight}px`;
+                }, 300);
+            }
         }
     }
 }
@@ -437,6 +439,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function openModalModule() {
+    const packageContainerWrap = document.getElementById('packageContainerWrap');
+    const dropdownTabs = document.querySelectorAll('[data-mobile-modal-open]');
+
+    dropdownTabs.forEach(dropdownTab => {
+        dropdownTab.addEventListener('click', (event) => {
+            if(event.isTrusted){
+                packageContainerWrap.classList.add('package-container-wrap-open');
+            }
+
+        });
+    });
+}
+
+
+
+document.addEventListener("click", ()=>{
+    const packageModalClose=document.getElementById("packageModalClose")
+    const packageContainerWrap = document.getElementById('packageContainerWrap');
+    packageModalClose.addEventListener("click", ()=>{
+        packageContainerWrap.classList.remove('package-container-wrap-open');
+    })
+})
 
 
 
@@ -455,5 +480,6 @@ export {
     updateTotalCount,
     changePackageSelect,
     resetForm,
-    clearSegmentsList
+    clearSegmentsList,
+    openModalModule
 };

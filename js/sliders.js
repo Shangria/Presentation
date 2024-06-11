@@ -96,13 +96,13 @@ window.addEventListener('resize', function() {
 });
 
 function hideFirstSlideAnimation () {
-    $('#boost').addClass('animate__fadeOutLeft');
-    $('#laptop').addClass('animate__fadeOutUpBig');
+    $('[data-boost-style]').addClass('animate__fadeOutLeft');
+    $('[data-laptop-style]').addClass('animate__fadeOutUpBig');
 }
 
 function showFirstSlideAnimation () {
-    $('#boost').removeClass('animate__fadeOutLeft');
-    $('#laptop').removeClass('animate__fadeOutUpBig');
+    $('[data-boost-style]').removeClass('animate__fadeOutLeft');
+    $('[data-laptop-style]').removeClass('animate__fadeOutUpBig');
 }
 
 function hideSecondSlideAnimation () {

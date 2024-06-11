@@ -5,7 +5,7 @@ import {
     dropdownTogglePanel,
     findSegmentById,
     getAvailableServices,
-    getServicesFromSelectedSegments, resetForm,
+    getServicesFromSelectedSegments, openModalModule, resetForm,
     showModulePanel,
 } from "./helpers.js";
 import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
@@ -63,7 +63,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
         if (isAddedCheckboxes) {
             suggestedModuleItemsHtml += `
                                                 <div class="${elemClass} justify-between">
-                                                        <div class="module-info flex items-center justify-between" data-tab-modules-item="${module.name}">
+                                                        <div class="module-info flex items-center justify-between" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
@@ -76,7 +76,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
         } else {
 
             suggestedModuleItemsHtml += `
-                                            <div class="${elemClass}" data-tab-modules-item="${module.name}">
+                                            <div class="${elemClass}" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                               <img src="${module.iconImg}" alt="${module.name}">
                                               <span>${module.name}</span>
                                             </div>
@@ -92,7 +92,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
         if (isAddedCheckboxes) {
             otherAvailableModuleItemsHtml += `
                                             <div class="${elemClass} justify-between">
-                                                        <div class="module-info flex items-center justify-between" data-tab-modules-item="${module.name}">
+                                                        <div class="module-info flex items-center justify-between" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
@@ -104,7 +104,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
                                             `;
         } else {
             otherAvailableModuleItemsHtml += `
-                                            <div class="presentation-modules-item flex items-center" data-tab-modules-item="${module.name}">
+                                            <div class="presentation-modules-item flex items-center" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                               <img src="${module.iconImg}" alt="${module.name}">
                                               <span>${module.name}</span>
                                             </div>
@@ -127,6 +127,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
                                              `;
 
     $('.presentation-menu').html(suggestedModulesHtml);
+    openModalModule()
 
     if (isAddedCheckboxes) {
 
@@ -157,9 +158,10 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
     }
 
 
-    togglePresentationMenuItem(accordionPanelId, presentationMenuId);
     calculateTotalCost(stepFormState);
+
 }
+
 
 function buildSubscriptionModulesPanel(){
     const checkedServices = [];
@@ -235,6 +237,7 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
     for (const availableService of store.allServices) {
         if (availableService.name === currentService) {
             commonInfoServiceHtml += `
+                                        <h3 class="package-info-mobile-title lg:hidden">${availableService.name}</h3>
                                         <div class="package-info--img relative">
                                             <img src=${availableService.img} alt=${availableService.name}>
                                             <button id="videoBtn" type="button" class="package-info--video-btn">
@@ -242,7 +245,7 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
                                                  <span>info</span>
                                             </button>
                                         </div>
-                                        <h3>${availableService.name}</h3>
+                                        <h3 class="package-info-descktop-title hidden lg:block">${availableService.name}</h3>
                                         <p>${availableService.overviewDescription}</p>
 
 					                    `;
@@ -325,8 +328,10 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId) {
             // Add the 'presentation-modules-item-active' class to the clicked item
             const currentItem = dropdownTab.getAttribute("data-tab-modules-item");
             dropdownTab.classList.add('presentation-modules-item-active');
+
             buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
             showModulePanel(currentItem, presentationMenuId);
+
         });
     });
 }
@@ -337,7 +342,7 @@ $(document).ready(function () {
 //get selected segment or segments
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
-    const requestInvoice = document.getElementById("requestInvoice");
+    const requestInvoiceBtns = document.querySelectorAll("[data-request-invoice]");
     const requestInvoiceSubscription = document.getElementById("requestInvoiceSubscription");
     const requestInvoiceSuccessful = document.getElementById("requestInvoiceSuccessful");
     const modalSuccessfulClose = document.getElementById("modalSuccessfulClose");
@@ -398,14 +403,21 @@ $(document).ready(function () {
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
         buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3");
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
+        togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3");
+
     });
 
     //go to slide4
-    requestInvoice.addEventListener('click', () => {
-        const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
-        buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
-        buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
-    });
+
+    requestInvoiceBtns.forEach(requestInvoiceBtn=>{
+        requestInvoiceBtn.addEventListener('click', () => {
+            const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
+            buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
+            buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
+            togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4");
+
+        });
+    })
 
     //go to slide5
     requestInvoiceSubscription.addEventListener('click', () => {
@@ -426,7 +438,6 @@ $(document).ready(function () {
     modalSuccessfulClose.addEventListener('click', () => {
      resetForm()
     });
-
 
 
 
