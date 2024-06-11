@@ -101,11 +101,13 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("[data-request-demo]").click(function () {
         $("#modalDemo").css("display", "flex").hide().fadeIn(500);
+        $("#bgOpacityInner").addClass("bg-opacity-inner-open");
     });
 
     function closeModal() {
         $("#modalDemo").fadeOut(500, function () {
             $(this).css("display", "none");
+            $("#bgOpacityInner").removeClass("bg-opacity-inner-open");
         });
     }
 
@@ -120,6 +122,8 @@ $(document).ready(function () {
         if (isValidForm && isValidEmail) {
             clearContactInputs();
             closeModal();
+            pageSlider.slideTo(0);
+            resetForm()
         }
     });
 
@@ -444,13 +448,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function openModalModule() {
-    const packageContainerWrap = document.getElementById('packageContainerWrap');
+function openModalModule(slideId) {
+    const packageContainerWrap = document.querySelector(`#${slideId} [data-package-container-wrap]`);
     const bgOpacityInner = document.getElementById('bgOpacityInner');
-    const dropdownTabs = document.querySelectorAll('[data-mobile-modal-open]');
+    const dropdownTabs = document.querySelectorAll(`#${slideId} [data-mobile-modal-open]`);
 
     dropdownTabs.forEach(dropdownTab => {
         dropdownTab.addEventListener('click', (event) => {
+
             if(event.isTrusted){
                 packageContainerWrap.classList.add('package-container-wrap-open');
                 bgOpacityInner.classList.add('bg-opacity-inner-open');
@@ -461,20 +466,23 @@ function openModalModule() {
 }
 
 
-
 document.addEventListener("click", ()=>{
-    const packageModalClose=document.getElementById("packageModalClose")
+    const packageModalCloseBtns=document.querySelectorAll("[data-package-modal-close]")
     const bgOpacityInner=document.getElementById("bgOpacityInner")
-    const packageContainerWrap = document.getElementById('packageContainerWrap');
-    packageModalClose.addEventListener("click", ()=>{
-        packageContainerWrap.classList.remove('package-container-wrap-open');
-        bgOpacityInner.classList.remove('bg-opacity-inner-open');
+    const packageContainerWraps = document.querySelectorAll('[data-package-container-wrap]');
+
+
+    packageModalCloseBtns.forEach(packageModalClose =>{
+        packageModalClose.addEventListener("click", ()=>{
+            packageContainerWraps.forEach(packageContainerWrap=>{
+                packageContainerWrap.classList.remove('package-container-wrap-open');
+            })
+
+            bgOpacityInner.classList.remove('bg-opacity-inner-open');
+        })
     })
+
 })
-
-
-
-
 
 
 

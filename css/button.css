@@ -89,6 +89,15 @@
 		bottom: 10px;
 		height: 46px;
 	}
+
+	.btn.btn-blue.btn-single-request{
+		position: fixed;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		bottom: 55px;
+		height: 46px;
+		margin: 0 15px;
+	}
 }
 
 @media screen and (max-width: 1295px) {

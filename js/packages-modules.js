@@ -35,7 +35,74 @@ let stepFormState = {
     }
 };
 
-function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes = false) {
+function buildSubscriptionModulesPanel(){
+    const checkedServices = [];
+
+    stepFormState.suggestedServices.forEach(service => {
+        if (service.checked) {
+            checkedServices.push(service);
+        }
+    });
+
+    stepFormState.availableServices.forEach(service => {
+        if (service.checked) {
+            checkedServices.push(service);
+        }
+    });
+
+    let subscriptionModulesPanelHtml = '';
+
+    for (const service of checkedServices) {
+        let tabsHtml = "";
+        // Iterate over serviceTabs and concatenate their titles
+        service.serviceTabs.forEach(item => {
+            tabsHtml += `
+                            <li class="dropdown-item">${item.title}</li>
+                      `;
+        });
+
+        subscriptionModulesPanelHtml += `
+                                     <div class="dropdown-box closing" data-tab-item="${service.name}">
+                                          <div class="toggle-container">
+                                                <button class="dropdown-toggle">
+                                                <div class="module-info flex items-center justify-between">
+                                                            <img src="${service.iconImg}" alt="${service.name}">
+                                                            <span>${service.name}</span>
+                                                        </div>
+                                                        <label class="custom-checkbox-label pointer-events-none checkbox-label-toggle">
+                                                             <span class="module-price">$${service.price.toFixed(2)}</span>
+                                                              <span class="checkmark"></span>
+                                                            </label>
+                                                </button>
+                                                <div class="dropdown-toggle-arrow">
+                                                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_332_23416)">
+                                                          <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </g>
+                                                        <defs>
+                                                          <clipPath id="clip0_332_23416">
+                                                            <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"></rect>
+                                                          </clipPath>
+                                                        </defs>
+                                                      </svg>
+                                                </div>
+                                          </div>
+                                          <ul class="dropdown-menu">
+                                          ${tabsHtml}
+                                          </ul>
+                                        
+                                         
+                                         
+                                    </div> `;
+    }
+
+    $('#currentBoxModules').html(subscriptionModulesPanelHtml);
+    $('#subscriptionModulesTitle').text(stepFormState.currentPackageSelected);
+    dropdownTogglePanel("currentBoxModules");
+
+}
+
+function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes, slideId) {
     let selectedSegments = [];
 
     for (let segmentName of stepFormState.selectedSegmentNames) {
@@ -127,7 +194,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
                                              `;
 
     $('.presentation-menu').html(suggestedModulesHtml);
-    openModalModule()
+    openModalModule(slideId)
 
     if (isAddedCheckboxes) {
 
@@ -162,73 +229,6 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes 
 
 }
 
-
-function buildSubscriptionModulesPanel(){
-    const checkedServices = [];
-
-    stepFormState.suggestedServices.forEach(service => {
-        if (service.checked) {
-            checkedServices.push(service);
-        }
-    });
-
-    stepFormState.availableServices.forEach(service => {
-        if (service.checked) {
-            checkedServices.push(service);
-        }
-    });
-
-    let subscriptionModulesPanelHtml = '';
-
-    for (const service of checkedServices) {
-        let tabsHtml = "";
-        // Iterate over serviceTabs and concatenate their titles
-        service.serviceTabs.forEach(item => {
-            tabsHtml += `
-                            <li class="dropdown-item">${item.title}</li>
-                      `;
-        });
-
-        subscriptionModulesPanelHtml += `
-                                     <div class="dropdown-box closing" data-tab-item="${service.name}">
-                                          <div class="toggle-container">
-                                                <button class="dropdown-toggle">
-                                                <div class="module-info flex items-center justify-between">
-                                                            <img src="${service.iconImg}" alt="${service.name}">
-                                                            <span>${service.name}</span>
-                                                        </div>
-                                                        <label class="custom-checkbox-label pointer-events-none checkbox-label-toggle">
-                                                             <span class="module-price">$${service.price.toFixed(2)}</span>
-                                                              <span class="checkmark"></span>
-                                                            </label>
-                                                </button>
-                                                <div class="dropdown-toggle-arrow">
-                                                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g clip-path="url(#clip0_332_23416)">
-                                                          <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                        </g>
-                                                        <defs>
-                                                          <clipPath id="clip0_332_23416">
-                                                            <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"></rect>
-                                                          </clipPath>
-                                                        </defs>
-                                                      </svg>
-                                                </div>
-                                          </div>
-                                          <ul class="dropdown-menu">
-                                          ${tabsHtml}
-                                          </ul>
-                                        
-                                         
-                                         
-                                    </div> `;
-    }
-
-    $('#currentBoxModules').html(subscriptionModulesPanelHtml);
-    $('#subscriptionModulesTitle').text(stepFormState.currentPackageSelected);
-    dropdownTogglePanel("currentBoxModules");
-
-}
 
 function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
 
@@ -313,24 +313,26 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
     showModulePanel(stepFormState.defaultService, presentationMenuId);
 }
 
-function togglePresentationMenuItem(accordionPanelId, presentationMenuId) {
+function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId ) {
     // Add handler for items inside dropdown
 
-    const dropdownTabs = document.querySelectorAll('[data-tab-modules-item]');
+    const dropdownTabs = document.querySelectorAll(`#${slideId} [data-tab-modules-item]`);
     dropdownTabs.forEach(dropdownTab => {
 
         dropdownTab.addEventListener('click', (event) => {
+            if(event.isTrusted){
+                // Remove 'presentation-modules-item-active' class from all elements
+                const activeItems = document.querySelectorAll('.presentation-modules-item-active');
+                activeItems.forEach(item => item.classList.remove('presentation-modules-item-active'));
 
-            // Remove 'presentation-modules-item-active' class from all elements
-            const activeItems = document.querySelectorAll('.presentation-modules-item-active');
-            activeItems.forEach(item => item.classList.remove('presentation-modules-item-active'));
+                // Add the 'presentation-modules-item-active' class to the clicked item
+                const currentItem = dropdownTab.getAttribute("data-tab-modules-item");
+                dropdownTab.classList.add('presentation-modules-item-active');
 
-            // Add the 'presentation-modules-item-active' class to the clicked item
-            const currentItem = dropdownTab.getAttribute("data-tab-modules-item");
-            dropdownTab.classList.add('presentation-modules-item-active');
+                buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
+                showModulePanel(currentItem, presentationMenuId);
+            }
 
-            buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
-            showModulePanel(currentItem, presentationMenuId);
 
         });
     });
@@ -343,7 +345,7 @@ $(document).ready(function () {
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
     const requestInvoiceBtns = document.querySelectorAll("[data-request-invoice]");
-    const requestInvoiceSubscription = document.getElementById("requestInvoiceSubscription");
+    const requestInvoiceSubscriptionBtns = document.querySelectorAll("[data-request-invoice-subscription]");
     const requestInvoiceSuccessful = document.getElementById("requestInvoiceSuccessful");
     const modalSuccessfulClose = document.getElementById("modalSuccessfulClose");
 
@@ -376,6 +378,7 @@ $(document).ready(function () {
 
 
     const addedCheckboxes = true;
+    const noAddedCheckboxes = false;
     const sectionBackBtns = document.querySelectorAll('[data-section-back-btn]');
 
     sectionBackBtns.forEach((sectionBackBtn, index) => {
@@ -385,14 +388,16 @@ $(document).ready(function () {
 
 
             if (adjustedIndex === 3) {
-                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,);
+                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
+                togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
             }
 
             //for add checkboxes
             if (adjustedIndex === 4) {
-                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`, addedCheckboxes);
+                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`, addedCheckboxes, `slide${adjustedIndex}`);
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
+                togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
             }
         });
     });
@@ -401,9 +406,9 @@ $(document).ready(function () {
     //go to slide3
     btnSegmentsNext.addEventListener('click', () => {
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
-        buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3");
+        buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3", noAddedCheckboxes,"slide3");
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
-        togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3");
+        togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
 
     });
 
@@ -412,17 +417,20 @@ $(document).ready(function () {
     requestInvoiceBtns.forEach(requestInvoiceBtn=>{
         requestInvoiceBtn.addEventListener('click', () => {
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
-            buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes);
+            buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
             buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
-            togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4");
+            togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
 
         });
     })
 
     //go to slide5
-    requestInvoiceSubscription.addEventListener('click', () => {
-        buildSubscriptionModulesPanel()
-    });
+    requestInvoiceSubscriptionBtns.forEach(requestInvoiceSubscription=>{
+        requestInvoiceSubscription.addEventListener('click', () => {
+            buildSubscriptionModulesPanel()
+        });
+    })
+
 
     //finish step
     requestInvoiceSuccessful.addEventListener('click', () => {

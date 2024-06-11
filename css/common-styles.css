@@ -609,6 +609,10 @@ header{
         width: 20px;
     }
 
+    .package-list{
+        padding-bottom: 10px;
+    }
+
     .title-mobile {
         position: absolute;
         padding-top: 20px;
@@ -661,10 +665,16 @@ header{
         height: 100%;
     }
 
-    .presentation-menu {
+    .presentation-menu.presentation-menu-big-space {
         padding: 70px 0 20px 20px;
         flex-basis: 100%;
         height: calc(100% - 170px);
+    }
+
+    .presentation-menu.presentation-menu-little-space {
+        padding: 70px 0 20px 20px;
+        flex-basis: 100%;
+        height: calc(100% - 115px);
     }
 
     .presentation-modules {
@@ -712,6 +722,7 @@ header{
         left: 0;
         right: 0;
         z-index: 5;
+        padding: 0 15px;
     }
 
     .packages-request-mobile button {
