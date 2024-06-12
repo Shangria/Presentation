@@ -384,8 +384,16 @@
 
 @media screen and (max-width: 1024px) {
 
-    .swiper-slide-calculation{
+    .swiper-slide-calculation .regions-select-wrap .select-choices-inner{
+        height: 40px;
+    }
 
+    .swiper-slide-calculation .title-mobile {
+        margin-bottom: 0 !important;
+    }
+
+    .swiper-slide-calculation  .select-box {
+        margin-bottom:20px !important;
     }
 }
 

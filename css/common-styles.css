@@ -548,7 +548,30 @@ header {
     .section.section-select-target .main {
         padding: 20px;
     }
+    .section-calculation.section{
+        height: calc(100% - 170px);
+    }
 
+    .section.section-modules .main,
+    .calculation-container {
+        background: transparent;
+    }
+
+    .calculation-container{
+        gap: 0;
+        padding: 0;
+    }
+
+    .section-calculation .selects-box-container {
+        flex-basis: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 60px !important;
+    }
+
+    .calculation-btn{
+        display: none !important;
+    }
     .section.section-select-target .title {
         margin-bottom: 3dvh;
     }
@@ -699,6 +722,10 @@ header {
         height: calc(100% - 115px);
     }
 
+    .swiper-slide-calculation .presentation-menu.presentation-menu-little-space {
+        padding: 0 0 20px 20px;
+    }
+
     .presentation-modules {
         padding-right: 20px;
         margin-bottom: 32px;
@@ -713,6 +740,11 @@ header {
         margin-bottom: 20px;
         font-size: 16px;
     }
+
+    .swiper-slide-calculation .presentation-menu h5{
+        line-height: 1;
+    }
+
 
     .package-info .package-info-mobile-title {
         font-size: 18px;
