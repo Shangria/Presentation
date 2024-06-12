@@ -65,7 +65,7 @@ function buildSubscriptionModulesPanel(){
                                      <div class="dropdown-box closing" data-tab-item="${service.name}">
                                           <div class="toggle-container">
                                                 <button class="dropdown-toggle">
-                                                <div class="module-info flex items-center justify-between">
+                                                <div class="module-info flex w-full items-center justify-start">
                                                             <img src="${service.iconImg}" alt="${service.name}">
                                                             <span>${service.name}</span>
                                                         </div>
@@ -125,12 +125,12 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
 
     let suggestedModuleItemsHtml = '';
     for (const module of stepFormState.suggestedServices) {
-        const elemClass = 'presentation-modules-item ' + ' flex items-center';
+        const elemClass = 'presentation-modules-item ' + ' flex items-center w-full justify-start';
 
         if (isAddedCheckboxes) {
             suggestedModuleItemsHtml += `
                                                 <div class="${elemClass} justify-between">
-                                                        <div class="module-info flex items-center justify-between" data-mobile-modal-open data-tab-modules-item="${module.name}">
+                                                        <div class="module-info flex w-full items-center justify-start" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
@@ -155,11 +155,11 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
 
     let otherAvailableModuleItemsHtml = '';
     for (const module of stepFormState.availableServices) {
-        const elemClass = 'presentation-modules-item ' + ' flex items-center';
+        const elemClass = 'presentation-modules-item ' + ' flex items-center ';
         if (isAddedCheckboxes) {
             otherAvailableModuleItemsHtml += `
                                             <div class="${elemClass} justify-between">
-                                                        <div class="module-info flex items-center justify-between" data-mobile-modal-open data-tab-modules-item="${module.name}">
+                                                        <div class="module-info flex w-full items-center justify-start" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
@@ -171,7 +171,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
                                             `;
         } else {
             otherAvailableModuleItemsHtml += `
-                                            <div class="presentation-modules-item flex items-center" data-mobile-modal-open data-tab-modules-item="${module.name}">
+                                            <div class="presentation-modules-item flex items-center w-full justify-start" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                               <img src="${module.iconImg}" alt="${module.name}">
                                               <span>${module.name}</span>
                                             </div>

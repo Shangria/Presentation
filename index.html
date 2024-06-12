@@ -772,7 +772,7 @@
                     <div class="calculation-container order-2 lg:order-2  flex">
                         <div class="main package-container-wrap fixed lg:relative flex flex-col animate__animated" data-package-container-wrap >
                             <h2 class="title  hidden lg:block">Packages and Modules</h2>
-                            <div class="package package-container package-container-width flex flex-nowrap flex-grow">
+                            <div class="package package-container package-container-width flex flex-col lg:flex-row flex-nowrap flex-grow">
                                 <div data-package-modal-close  class="package-modal-close lg:hidden">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0_1_1170)">
@@ -914,7 +914,8 @@
                     </div>
 
                     <div class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
-                        <button data-request-invoice-subscription type="button" class="btn lg:hidden btn-rounded btn-blue btn-next uppercase">Request invoice
+                        <button data-request-invoice-subscription type="button" class="btn lg:hidden btn-rounded btn-blue btn-next uppercase">
+                            Total: $<span data-total-counter-box></span> USD
                             <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
                         </button>
                     </div>

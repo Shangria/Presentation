@@ -1,7 +1,15 @@
 .section {
     width: 100%;
-    height: calc(100% - 24px);
+    height: 100%;
     overflow: hidden;
+}
+
+.section.section-start {
+    height: calc(100% - 24px);
+}
+
+.section.section-select-target{
+    height: calc(100% - 13px);
 }
 
 .main {
@@ -234,6 +242,10 @@ header {
     overflow-x: auto;
 }
 
+.swiper-slide-calculation .presentation-menu-box {
+    height: calc(100% - 30px);
+}
+
 .presentation-menu h3,
 .presentation-menu h4,
 .presentation-menu h5 {
@@ -302,7 +314,7 @@ header {
 .section.section-modules .main,
 .calculation-container {
     flex-basis: 73%;
-    padding: 6vh 3vw;
+    padding: 6vh 3vw 9vh;
     background: url('../images/gradient.png');
     background-size: cover;
     background-position: right;
@@ -319,9 +331,8 @@ header {
     text-align: left;
 }
 
-.calculation-container{
+.calculation-container {
     gap: 3vw;
-    padding: 6vh 3vw 8vh;
 }
 
 .package {
@@ -335,7 +346,7 @@ header {
     flex-shrink: 0;
 }
 
-.section-calculation .package-info{
+.section-calculation .package-info {
     flex-basis: 44%;
 }
 
@@ -548,8 +559,9 @@ header {
     .section.section-select-target .main {
         padding: 20px;
     }
-    .section-calculation.section{
-        height: calc(100% - 170px);
+
+    .section-calculation.section {
+        height: calc(100% - 140px);
     }
 
     .section.section-modules .main,
@@ -557,7 +569,7 @@ header {
         background: transparent;
     }
 
-    .calculation-container{
+    .calculation-container {
         gap: 0;
         padding: 0;
     }
@@ -569,9 +581,10 @@ header {
         padding-top: 60px !important;
     }
 
-    .calculation-btn{
+    .calculation-btn {
         display: none !important;
     }
+
     .section.section-select-target .title {
         margin-bottom: 3dvh;
     }
@@ -635,6 +648,10 @@ header {
         flex-direction: column-reverse;
     }
 
+    .swiper-slide-calculation .presentation-menu-box {
+        height: calc(100% - 360px);
+    }
+
 
     .package-modal-close {
         border: 1.46px solid #FFFFFF33;
@@ -656,6 +673,13 @@ header {
 
     .package-list {
         padding-bottom: 10px;
+    }
+    .section-calculation .package-info {
+        flex-basis: auto;
+    }
+
+    .section-calculation .package-container-width .package-list{
+        flex-basis: auto;
     }
 
     .title-mobile {
@@ -713,7 +737,7 @@ header {
     .presentation-menu.presentation-menu-big-space {
         padding: 70px 0 20px 20px;
         flex-basis: 100%;
-        height: calc(100% - 170px);
+        height: calc(100% - 190px);
     }
 
     .presentation-menu.presentation-menu-little-space {
@@ -724,11 +748,20 @@ header {
 
     .swiper-slide-calculation .presentation-menu.presentation-menu-little-space {
         padding: 0 0 20px 20px;
+        height: calc(100% - 170px);
     }
 
     .presentation-modules {
         padding-right: 20px;
         margin-bottom: 32px;
+    }
+
+    .presentation-menu {
+        min-width: 100%;
+    }
+
+    .presentation-modules-item {
+        padding: 16px 10px;
     }
 
     .presentation-modules:last-child {
@@ -741,7 +774,7 @@ header {
         font-size: 16px;
     }
 
-    .swiper-slide-calculation .presentation-menu h5{
+    .swiper-slide-calculation .presentation-menu h5 {
         line-height: 1;
     }
 
@@ -758,7 +791,9 @@ header {
     }
 
     .package-info--img {
-        margin-bottom: 24px;
+        margin: 0 auto 24px;
+        height: 250px;
+        max-width: 393px;
     }
 
     .package-info p {
@@ -772,11 +807,19 @@ header {
 
     .packages-request-mobile {
         position: fixed;
-        bottom: 85px;
+        bottom: 70px;
         left: 0;
         right: 0;
         z-index: 5;
         padding: 0 15px;
+    }
+
+    .packages-request-mobile span {
+        margin-right: 5px;
+    }
+
+    .packages-request-mobile img {
+       height: 13px !important;
     }
 
     .packages-request-mobile button {
