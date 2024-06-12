@@ -90,15 +90,13 @@ function buildSubscriptionModulesPanel(){
                                           <ul class="dropdown-menu">
                                           ${tabsHtml}
                                           </ul>
-                                        
-                                         
-                                         
                                     </div> `;
     }
 
     $('#currentBoxModules').html(subscriptionModulesPanelHtml);
     $('#subscriptionModulesTitle').text(stepFormState.currentPackageSelected);
     dropdownTogglePanel("currentBoxModules");
+    showModulePanel("Research Package","", "currentBoxModules", );
 
 }
 
@@ -309,8 +307,9 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
         }
     }
     $(`#${accordionPanelId}`).html(suggestedModuleItemsHtml);
+
     dropdownTogglePanel(`${accordionPanelId}`);
-    showModulePanel(stepFormState.defaultService, presentationMenuId);
+    showModulePanel(stepFormState.defaultService, presentationMenuId,accordionPanelId );
 }
 
 function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId ) {
@@ -330,9 +329,8 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId
                 dropdownTab.classList.add('presentation-modules-item-active');
 
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
-                showModulePanel(currentItem, presentationMenuId);
+                showModulePanel(currentItem, presentationMenuId, accordionPanelId);
             }
-
 
         });
     });
@@ -420,7 +418,6 @@ $(document).ready(function () {
             buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
             buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
             togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
-
         });
     })
 

@@ -278,11 +278,9 @@ function dropdownTogglePanel(accordionPanelId) {
             if (dropdownBox) {
 
                 const root = document.getElementById(`${accordionPanelId}`);
-                const isMobile = window.innerWidth < 1024;
 
                 document.querySelectorAll('.dropdown-box').forEach(box => {
                     const drop = box.querySelector('.dropdown-menu');
-
                     if (box === dropdownBox) {
                         box.classList.remove('closing');
                         box.classList.add('drop-down-item-open');
@@ -301,6 +299,7 @@ function dropdownTogglePanel(accordionPanelId) {
                         }, 400);
                     } else {
                         box.classList.add('closing');
+
                         drop.removeAttribute('style');
                         setTimeout(() => {
                             box.classList.remove('drop-down-item-open');
@@ -314,23 +313,25 @@ function dropdownTogglePanel(accordionPanelId) {
 }
 
 
-function showModulePanel(currentTab, presentationMenuId) {
+function showModulePanel(currentTab, presentationMenuId, accordionId) {
     const currentItemForOpenById = currentTab;
     const boxPanel = document.getElementById(`${presentationMenuId}`);
+    const currentAccordion = document.getElementById(`${accordionId}`);
 
     if (currentItemForOpenById) {
 
-        const defaultElement = document.querySelector(`[data-tab-item="${currentItemForOpenById}"]`);
-        const tabModulesItem = boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
+        const defaultElement = currentAccordion.querySelector(`[data-tab-item="${currentItemForOpenById}"]`);
+        const tabModulesItem =boxPanel && boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
         if (defaultElement) {
+
             defaultElement.classList.add('drop-down-item-open');
-            tabModulesItem.classList.add('presentation-modules-item-active');
+            tabModulesItem && tabModulesItem.classList.add('presentation-modules-item-active');
             const drop = defaultElement.querySelector('.dropdown-menu');
             if(drop){
             const dropHeight = drop.scrollHeight;
                 setTimeout(() => {
                     drop.style.maxHeight = `${dropHeight}px`;
-                }, 300);
+                }, 500);
             }
         }
     }

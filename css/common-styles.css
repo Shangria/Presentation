@@ -484,25 +484,7 @@ header {
     background-color: rgba(255, 255, 255, 0.19);
 }
 
-.bg-opacity-inner {
-    background: #00000096 !important;
-    transition: all .25s ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: -2;
-    overflow-y: auto;
-    opacity: 0;
-    position: fixed;
-}
 
-.bg-opacity-inner.bg-opacity-inner-open {
-    z-index: 1;
-    transition: all .25s ease-in-out;
-    opacity: 1;
-}
 
 /*
 
@@ -556,6 +538,26 @@ header {
 
 
 @media screen and (max-width: 1024px) {
+    .bg-opacity-inner {
+        background: #00000096 !important;
+        transition: all .25s ease-in-out;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -2;
+        overflow-y: auto;
+        opacity: 0;
+        position: fixed;
+    }
+
+    .bg-opacity-inner.bg-opacity-inner-open {
+        z-index: 1;
+        transition: all .25s ease-in-out;
+        opacity: 1;
+    }
+
     .section.section-select-target .main {
         padding: 20px;
     }
