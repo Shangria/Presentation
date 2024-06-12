@@ -81,6 +81,28 @@ function determineDefaultState(allTargetSegments, allServices, chooseSegments) {
 //show modals
 
 $(document).ready(function () {
+    $("#packageSelectInfo").click(function () {
+        $("#modalPackageSelectInfoText").css("display", "flex").hide().fadeIn(500);
+    });
+    function closeModal() {
+        $("#modalPackageSelectInfoText").fadeOut(500, function () {
+            $(this).css("display", "none");
+        });
+    }
+
+    $(".modal-select-info-close").click(function () {
+        closeModal();
+    });
+
+
+    $(window).click(function (event) {
+        if ($(event.target).hasClass('modal-successful')) {
+            closeModal();
+        }
+    });
+});
+
+$(document).ready(function () {
     function closeModal() {
         $("#modalSuccessful").fadeOut(500, function () {
             $(this).css("display", "none");

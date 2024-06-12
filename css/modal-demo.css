@@ -9,10 +9,10 @@
     background: rgba(29, 31, 40, 0.8);
     align-items: flex-end;
     justify-content: center;
-    font-family: Poppins, sans-serif;
 }
 
-.modal-demo-content {
+
+.modal-demo-content{
     position: relative;
     backdrop-filter: blur(10px);
     background: rgba(49, 51, 58, 0.8);
