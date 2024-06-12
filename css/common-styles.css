@@ -14,7 +14,7 @@
     padding: 0 24px;
 }
 
-header{
+header {
     color: white;
 }
 
@@ -299,7 +299,8 @@ header{
     background-color: #1D1F28;
 }
 
-.section.section-modules .main {
+.section.section-modules .main,
+.calculation-container {
     flex-basis: 73%;
     padding: 6vh 3vw;
     background: url('../images/gradient.png');
@@ -308,12 +309,23 @@ header{
     background-repeat: no-repeat;
 }
 
+.section.section-modules.section-calculation .main {
+    padding: 0;
+    background: transparent;
+    flex-basis: 67%;
+}
+
 .section.section-modules .title {
     text-align: left;
 }
 
+.calculation-container{
+    gap: 3vw;
+    padding: 6vh 3vw 8vh;
+}
+
 .package {
-    gap: 30px;
+    gap: 2vw;
 }
 
 
@@ -321,6 +333,10 @@ header{
     flex-basis: 27%;
     -ms-flex-negative: 0;
     flex-shrink: 0;
+}
+
+.section-calculation .package-info{
+    flex-basis: 44%;
 }
 
 .package-info--img {
@@ -379,6 +395,10 @@ header{
 
 .package-container-width .package-list {
     flex-basis: 45%;
+}
+
+.section-calculation .package-container-width .package-list {
+    flex-basis: 54%;
 }
 
 .accordion__item {
@@ -453,7 +473,7 @@ header{
     background-color: rgba(255, 255, 255, 0.19);
 }
 
-.bg-opacity-inner{
+.bg-opacity-inner {
     background: #00000096 !important;
     transition: all .25s ease-in-out;
     top: 0;
@@ -467,7 +487,7 @@ header{
     position: fixed;
 }
 
-.bg-opacity-inner.bg-opacity-inner-open{
+.bg-opacity-inner.bg-opacity-inner-open {
     z-index: 1;
     transition: all .25s ease-in-out;
     opacity: 1;
@@ -500,9 +520,11 @@ header{
     }
 
     .swiper-dots {
-        margin: 0 0 25px;
-        transform: initial;
+        margin-left: 0 !important;
+        transform: none !important;
+        margin-bottom: 25px !important;
     }
+
 
     .mr-auto-lg {
         margin-right: auto;
@@ -609,7 +631,7 @@ header{
         width: 20px;
     }
 
-    .package-list{
+    .package-list {
         padding-bottom: 10px;
     }
 
@@ -623,7 +645,7 @@ header{
 
     .package-container-wrap {
         background: #00000096 !important;
-        padding: 0!important;
+        padding: 0 !important;
         transition: all .25s ease-in-out;
         top: -58px;
         left: 0;
@@ -646,7 +668,7 @@ header{
         overflow: hidden !important;
     }
 
-    .package{
+    .package {
         background: #1D1F28 !important;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
@@ -659,7 +681,7 @@ header{
         position: relative;
     }
 
-    .package-container-wrap.package-container-wrap-open .package{
+    .package-container-wrap.package-container-wrap-open .package {
         transform: translateY(0);
         transition: all .25s ease-in-out;
         height: 100%;

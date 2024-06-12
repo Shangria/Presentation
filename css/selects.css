@@ -4,6 +4,10 @@
     flex-direction: column;
 }
 
+.section-calculation .selects-box-container{
+    padding-top: 105px;
+}
+
 .selects-box{
     flex: 1;
 }
@@ -377,3 +381,11 @@
 .additional-text-options.show-additional-text{
     display: block;
 }
+
+@media screen and (max-width: 1024px) {
+
+    .swiper-slide-calculation{
+
+    }
+}
+
