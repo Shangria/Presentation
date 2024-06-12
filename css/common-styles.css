@@ -891,11 +891,10 @@ header {
 .custom-checkbox-label .checkmark {
     min-width: 32px;
     height: 32px;
-    background-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.11);
     border-radius: 50%;
     position: relative;
     display: block;
-    opacity: 11%;
 }
 
 .custom-checkbox-label .checkmark:after {
@@ -909,7 +908,7 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    opacity: 0;
+    opacity: 11%;
 }
 
 
