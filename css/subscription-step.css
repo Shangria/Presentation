@@ -252,14 +252,23 @@
     margin-right: 10px;
 }
 
+.subscription-accordion-box .accordion-panel{
+    max-height: 52vh;
+}
+
+.subscription-accordion-box{
+    flex: 1;
+}
+
+.subscription-accordion-box .checkmark{
+    display: none;
+}
+
 @media screen and (min-width: 1024px) and (max-height: 1000px) {
     .subscription-box-details label input {
         height:4dvh;
     }
 
-    .subscription-accordion{
-        max-height: 45vh;
-    }
 
     .section.section-subscription .title {
         margin-bottom: 1dvh;

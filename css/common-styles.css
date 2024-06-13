@@ -567,6 +567,10 @@ header {
     .accordion-panel {
         max-height: 60vh!important;
     }
+
+    .subscription-accordion-box .accordion-panel {
+        max-height: 45vh!important;
+    }
 }
 
 
