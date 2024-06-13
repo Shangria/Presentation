@@ -62,17 +62,21 @@ function createServiceItem(service, checked) {
 function determineDefaultState(allTargetSegments, allServices, chooseSegments) {
     let result = '';
     for (let allTargetSegment of allTargetSegments) {
-
         if (chooseSegments.length > 1) {
-            result = "Research Package";
+            if(allTargetSegment.name===chooseSegments[0]){
+                result = allTargetSegment.defaultSelected;
+                return result;
+            }
+
         }
 
         if (chooseSegments.includes(allTargetSegment.name)) {
             result = allTargetSegment.defaultSelected;
+            return result;
         }
     }
 
-    return result;
+
 }
 
 //
