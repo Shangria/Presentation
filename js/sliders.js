@@ -1,99 +1,105 @@
 import {resetForm} from "./helpers.js";
 
-/**
- * Initialize a page slider
- */
-let activePageIndex = 0;
-const pageSlider = new Swiper('#page-slider', {
-    slidesPerView: 1,
-    direction: 'vertical',
-    speed: 800,
-    mousewheel: false,
-    allowTouchMove: false,
-    allowSlideNext: true,
-    allowSlidePrev: true,
-    effect: 'fade',
-    initialSlide:0,
-    fadeEffect: {
-        crossFade: true,
-    },
-    on: {
-        /**
-         * Event will be fired when currently active slide is changed
-         */
-        slideChange: function (swiper) {
-            // Animate when navigating from 1 to 2 slide
-            if (activePageIndex === 0 && swiper.activeIndex === 1) {
-                hideFirstSlideAnimation();
-                showSecondSlideAnimation();
-            }
-
-            // Animate when navigating from 2 to 1 slide
-            if (activePageIndex === 1 && swiper.activeIndex === 0) {
-                showFirstSlideAnimation();
-                hideSecondSlideAnimation();
-            }
-
-            // Animate when navigating from 2 to 3 slide
-            if (activePageIndex === 1 && swiper.activeIndex === 2) {
-                hideSecondSlideAnimation();
-                showThirdSlideAnimation();
-
-                $('.presentation-modules-item.presentation-modules-item-active').click();
-            }
-
-            // Animate when navigating from 3 to 2 slide
-            if (activePageIndex === 2 && swiper.activeIndex === 1) {
-                showSecondSlideAnimation();
-                hideThirdSlideAnimation();
-            }
-
-            if (activePageIndex > 1 && swiper.activeIndex === 0) {
-                // TODO: As it is the last slide implemented for now - so hide the third slide.
-                hideThirdSlideAnimation();
-                showFirstSlideAnimation();
-            }
-
-            activePageIndex = swiper.activeIndex;
+let pageSlider;
+window.addEventListener("load", ()=>{
+    /**
+     * Initialize a page slider
+     */
+    let activePageIndex = 0;
+     pageSlider = new Swiper('#page-slider', {
+        slidesPerView: 1,
+        direction: 'vertical',
+        speed: 800,
+        mousewheel: false,
+        allowTouchMove: false,
+        allowSlideNext: true,
+        allowSlidePrev: true,
+        effect: 'fade',
+        initialSlide:0,
+        fadeEffect: {
+            crossFade: true,
         },
-    },
-});
+        on: {
+            /**
+             * Event will be fired when currently active slide is changed
+             */
+            slideChange: function (swiper) {
+                // Animate when navigating from 1 to 2 slide
+                if (activePageIndex === 0 && swiper.activeIndex === 1) {
+                    hideFirstSlideAnimation();
+                    showSecondSlideAnimation();
+                }
 
-/**
- * Initialize a comprehensive slider
- */
-// Функция для инициализации Swiper
-function initializeSwiper() {
-    new Swiper('#comprehensive-slider', {
-        slidesPerView: 'auto',
-        freeMode: true,
-        speed: 700,
-        pagination: {
-            el: '.comprehensive-coverage-pagination',
-            clickable: true,
+                // Animate when navigating from 2 to 1 slide
+                if (activePageIndex === 1 && swiper.activeIndex === 0) {
+                    showFirstSlideAnimation();
+                    hideSecondSlideAnimation();
+                }
+
+                // Animate when navigating from 2 to 3 slide
+                if (activePageIndex === 1 && swiper.activeIndex === 2) {
+                    hideSecondSlideAnimation();
+                    showThirdSlideAnimation();
+
+                    $('.presentation-modules-item.presentation-modules-item-active').click();
+                }
+
+                // Animate when navigating from 3 to 2 slide
+                if (activePageIndex === 2 && swiper.activeIndex === 1) {
+                    showSecondSlideAnimation();
+                    hideThirdSlideAnimation();
+                }
+
+                if (activePageIndex > 1 && swiper.activeIndex === 0) {
+                    // TODO: As it is the last slide implemented for now - so hide the third slide.
+                    hideThirdSlideAnimation();
+                    showFirstSlideAnimation();
+                }
+
+                activePageIndex = swiper.activeIndex;
+            },
         },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        slideClass: 'comprehensive-slide-item',
-        slideActiveClass: 'comprehensive-slide-item-active',
-        grabCursor: true,
-        preventInteractionOnTransition: true,
     });
-}
 
+    /**
+     * Initialize a comprehensive slider
+     */
+// Функция для инициализации Swiper
+    function initializeSwiper() {
+        new Swiper('#comprehensive-slider', {
+            slidesPerView: 'auto',
+            freeMode: true,
+            speed: 700,
+            pagination: {
+                el: '.comprehensive-coverage-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            slideClass: 'comprehensive-slide-item',
+            slideActiveClass: 'comprehensive-slide-item-active',
+            grabCursor: true,
+            preventInteractionOnTransition: true,
+        });
+    }
 
-if (window.innerWidth >= 1042) {
-    initializeSwiper();
-}
-
-
-window.addEventListener('resize', function() {
-    if (window.innerWidth >= 1042 && !document.querySelector('.swiper-container-initialized')) {
+    if (window.innerWidth >= 1042) {
         initializeSwiper();
     }
-});
+
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 1042 && !document.querySelector('.swiper-container-initialized')) {
+            initializeSwiper();
+        }
+    });
+
+})
+
+
+
 
 function hideFirstSlideAnimation () {
     $('[data-boost-style]').addClass('animate__fadeOutLeft');
