@@ -826,7 +826,7 @@ header {
     }
 
     .packages-request-mobile {
-        position: fixed;
+        position: absolute;
         bottom: 70px;
         left: 0;
         right: 0;
