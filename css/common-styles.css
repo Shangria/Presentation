@@ -235,6 +235,7 @@ header {
     flex-shrink: 0;
     background-color: #1d1f28;
     overflow: auto;
+    height: calc(100% - 53px);
 }
 
 .presentation-menu-box {

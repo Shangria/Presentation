@@ -273,7 +273,7 @@
     }
 
     .subscription-step-box {
-        display: none;
+        position: fixed;
         background: #00000096 !important;
         padding: 0 !important;
         transition: all .25s ease-in-out;
@@ -303,7 +303,7 @@
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         margin-top: 115px;
-        padding: 0 18px 18px;
+        padding: 70px 18px 18px;
         min-height: 100%;
         transform: translateY(100%);
         overflow: hidden;
@@ -311,7 +311,7 @@
         position: relative;
     }
 
-    .subscription-step-box.subscription-step-box-open {
+    .subscription-step-box.subscription-step-box-open .subscription-accordion {
         transform: translateY(0);
         transition: all .25s ease-in-out;
         height: 100%;

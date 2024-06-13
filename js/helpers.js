@@ -34,7 +34,6 @@ function getServicesFromSelectedSegments(segments, allServices, currentPackage) 
 }
 
 
-
 function getAvailableServices(allServices, suggestedServices, currentPackage) {
     let result = [];
     const suggestedServicesNames = new Set(suggestedServices.map(service => service.name));
@@ -54,8 +53,8 @@ function createServiceItem(service, checked) {
         img: service.img,
         overviewDescription: service.overviewDescription,
         checked: checked,
-        serviceTabs:service.serviceTabs,
-        video:service.video
+        serviceTabs: service.serviceTabs,
+        video: service.video
     };
 }
 
@@ -85,6 +84,7 @@ $(document).ready(function () {
         $("#modalPackageSelectInfoText").css("display", "flex").hide().fadeIn(500);
         $("#bgOpacityInner").addClass("bg-opacity-inner-open backdrop-blur-sm");
     });
+
     function closeModal() {
         $("#modalPackageSelectInfoText").fadeOut(500, function () {
             $(this).css("display", "none");
@@ -148,7 +148,7 @@ $(document).ready(function () {
             clearContactInputs();
             closeModal();
             pageSlider.slideTo(0);
-            resetForm()
+            resetForm();
         }
     });
 
@@ -246,28 +246,26 @@ function changePackageSelect(data) {
     if (isOnlyResearchPackage) {
         optionsPackageSelect.setChoiceByValue('Research Package');
         stepFormState.currentPackageSelected = "Research Package";
-        addCustomClassToChoice("Research Package")
+        addCustomClassToChoice("Research Package");
     } else if (allChecked) {
         optionsPackageSelect.setChoiceByValue('Ultimate Package');
         stepFormState.currentPackageSelected = "Ultimate Package";
-        addCustomClassToChoice("Ultimate Package")
+        addCustomClassToChoice("Ultimate Package");
     } else if (checkedCount > 1) {
         optionsPackageSelect.setChoiceByValue('Custom Package');
         stepFormState.currentPackageSelected = "Custom Package";
-        addCustomClassToChoice("Custom Package")
+        addCustomClassToChoice("Custom Package");
     }
 }
 
 function addCustomClassToChoice(value) {
-    const highlightedEl=document.querySelector('.is-highlighted')
-    highlightedEl.classList.remove("is-highlighted")
+    const highlightedEl = document.querySelector('.is-highlighted');
+    highlightedEl.classList.remove("is-highlighted");
     const choiceEl = document.querySelector(`.choices__list--dropdown [data-value="${value}"]`);
     if (choiceEl) {
         choiceEl.classList.add('is-highlighted');
     }
 }
-
-
 
 
 //
@@ -290,8 +288,8 @@ function dropdownTogglePanel(accordionPanelId) {
                         box.classList.remove('closing');
                         box.classList.add('drop-down-item-open');
 
-                        if(drop){
-                        const dropHeight = drop.scrollHeight;
+                        if (drop) {
+                            const dropHeight = drop.scrollHeight;
                             drop.style.maxHeight = `${dropHeight}px`;
                         }
 
@@ -326,14 +324,14 @@ function showModulePanel(currentTab, presentationMenuId, accordionId) {
     if (currentItemForOpenById) {
 
         const defaultElement = currentAccordion.querySelector(`[data-tab-item="${currentItemForOpenById}"]`);
-        const tabModulesItem =boxPanel && boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
+        const tabModulesItem = boxPanel && boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
         if (defaultElement) {
 
             defaultElement.classList.add('drop-down-item-open');
             tabModulesItem && tabModulesItem.classList.add('presentation-modules-item-active');
             const drop = defaultElement.querySelector('.dropdown-menu');
-            if(drop){
-            const dropHeight = drop.scrollHeight;
+            if (drop) {
+                const dropHeight = drop.scrollHeight;
                 setTimeout(() => {
                     drop.style.maxHeight = `${dropHeight}px`;
                 }, 500);
@@ -397,29 +395,29 @@ function resetRegions() {
 
     checkboxes.forEach(checkbox => {
         checkbox.checked = false;
-        checkbox.parentNode.classList.remove("choose")
+        checkbox.parentNode.classList.remove("choose");
     });
 
     const globalCheckbox = document.querySelector('input[name="Global"]');
     if (globalCheckbox) {
         globalCheckbox.checked = true;
-        globalCheckbox.parentNode.classList.add("choose")
+        globalCheckbox.parentNode.classList.add("choose");
     }
 }
 
 function resetForm() {
-    const additionalTextOptionsSelect=document.getElementById("additionalTextOptionsSelect")
+    const additionalTextOptionsSelect = document.getElementById("additionalTextOptionsSelect");
     // Reset form and formData for demonstration purposes
 
-    clearObject(stepFormState)
+    clearObject(stepFormState);
     optionsPackageSelect.setChoiceByValue('Custom Package');
     stepFormState.currentPackageSelected = "Custom Package";
-    addCustomClassToChoice("Custom Package")
+    addCustomClassToChoice("Custom Package");
     licencesSelect.setChoiceByValue('1');
-    resetRegions()
+    resetRegions();
     additionalTextOptionsSelect.innerHTML = "";
-    resetFormElements()
-    clearSegmentsList()
+    resetFormElements();
+    clearSegmentsList();
 
 }
 
@@ -427,21 +425,21 @@ function clearObject(obj) {
     obj.selectedSegmentNames = [];
     obj.suggestedServices = [];
     obj.availableServices = [];
-    obj.regionsArr=["Global"]
+    obj.regionsArr = ["Global"];
     obj.defaultService = '';
     obj.currentPackageSelected = '';
     obj.currentLicencesSelected = '';
     obj.totalCost = 0;
-    obj.isChangedDefaultState= false;
+    obj.isChangedDefaultState = false;
 }
 
-function clearSegmentsList(){
+function clearSegmentsList() {
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     segmentItemsList.forEach((segmentItem, index) => {
-        if(segmentItem.classList.contains("swiper-slide-checked")){
-            segmentItem.classList.remove("swiper-slide-checked")
+        if (segmentItem.classList.contains("swiper-slide-checked")) {
+            segmentItem.classList.remove("swiper-slide-checked");
         }
-    })
+    });
 
     $('#btnSegmentsNext').attr('disabled', 'disabled');
 }
@@ -468,7 +466,7 @@ function animateCounter(element, endValue) {
     window.requestAnimationFrame(step);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('[data-counter]');
     counters.forEach(counter => {
         const endValue = parseInt(counter.getAttribute('data-counter'), 10);
@@ -485,13 +483,13 @@ function openModalModule(slideId) {
     dropdownTabs.forEach(dropdownTab => {
         dropdownTab.addEventListener('click', (event) => {
 
-            if(event.isTrusted){
+            if (event.isTrusted) {
                 packageContainerWrap.classList.add('package-container-wrap-open');
 
-                    let screenWidth = $(window).width();
-                    if(screenWidth<=1024){
-                        bgOpacityInner.classList.add('bg-opacity-inner-open');
-                    }
+                let screenWidth = $(window).width();
+                if (screenWidth <= 1024) {
+                    bgOpacityInner.classList.add('bg-opacity-inner-open');
+                }
             }
 
         });
@@ -499,24 +497,39 @@ function openModalModule(slideId) {
 }
 
 
-document.addEventListener("click", ()=>{
-    const packageModalCloseBtns=document.querySelectorAll("[data-package-modal-close]")
-    const bgOpacityInner=document.getElementById("bgOpacityInner")
+document.addEventListener("click", () => {
+    const packageModalCloseBtns = document.querySelectorAll("[data-package-modal-close]");
+    const bgOpacityInner = document.getElementById("bgOpacityInner");
     const packageContainerWraps = document.querySelectorAll('[data-package-container-wrap]');
 
 
-    packageModalCloseBtns.forEach(packageModalClose =>{
-        packageModalClose.addEventListener("click", ()=>{
-            packageContainerWraps.forEach(packageContainerWrap=>{
+    packageModalCloseBtns.forEach(packageModalClose => {
+        packageModalClose.addEventListener("click", () => {
+            packageContainerWraps.forEach(packageContainerWrap => {
                 packageContainerWrap.classList.remove('package-container-wrap-open');
-            })
+                packageContainerWrap.classList.remove('subscription-step-box-open');
+            });
 
             bgOpacityInner.classList.remove('bg-opacity-inner-open');
-        })
-    })
+        });
+    });
 
-})
+});
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const subscriptionModalInfo = document.getElementById("subscriptionModalInfo");
+
+    subscriptionModalInfo.addEventListener("click", () => {
+        const packageContainerWrap = document.querySelector(`#slide5 .subscription-step-box`);
+        const bgOpacityInner = document.getElementById('bgOpacityInner');
+
+        packageContainerWrap.classList.add('subscription-step-box-open');
+        bgOpacityInner.classList.add('bg-opacity-inner-open');
+        showModulePanel("Research Package","", "currentBoxModules", );
+
+    });
+});
 
 
 export {
