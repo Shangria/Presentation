@@ -216,7 +216,7 @@ header {
 }
 
 .section.section-subscription .title {
-    text-align: left;
+    text-align: center;
     margin-bottom: 3dvh;
 }
 
@@ -241,10 +241,6 @@ header {
 .presentation-menu-box {
     height: 100%;
     overflow-x: auto;
-}
-
-.swiper-slide-calculation .presentation-menu-box {
-    height: calc(100% - 30px);
 }
 
 .presentation-menu h3,
@@ -557,6 +553,21 @@ header {
     opacity: 1;
 }
 
+@media screen and (min-width: 1600px) {
+    .section.section-subscription .title {
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-height: 1000px) {
+    .calculation-container, .section.section-modules .main {
+        padding: 6vh 4vw 12vh;
+    }
+
+    .accordion-panel {
+        max-height: 60vh!important;
+    }
+}
 
 
 @media screen and (max-width: 1024px) {
