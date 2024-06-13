@@ -63,7 +63,7 @@ function determineDefaultState(allTargetSegments, allServices, chooseSegments) {
     let result = '';
     for (let allTargetSegment of allTargetSegments) {
         if (chooseSegments.length > 1) {
-            if(allTargetSegment.name===chooseSegments[0]){
+            if (allTargetSegment.name === chooseSegments[0]) {
                 result = allTargetSegment.defaultSelected;
                 return result;
             }
@@ -509,11 +509,16 @@ document.addEventListener("click", () => {
 
     packageModalCloseBtns.forEach(packageModalClose => {
         packageModalClose.addEventListener("click", () => {
-            const openDDList=document.querySelectorAll(".drop-down-item-open")
-            openDDList.forEach(openItem=>{
-                openItem.querySelector(".dropdown-menu").style.maxHeight="0";
+            const openDDList = document.querySelectorAll(".drop-down-item-open");
+            openDDList.forEach(openItem => {
+                const dropdownMenu = openItem.querySelector(".dropdown-menu");
+                if (dropdownMenu) {
+                    dropdownMenu.style.maxHeight = "0";
+                }
+
                 openItem.classList.remove("drop-down-item-open");
-            })
+            });
+
 
             packageContainerWraps.forEach(packageContainerWrap => {
                 packageContainerWrap.classList.remove('package-container-wrap-open');
@@ -536,7 +541,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         packageContainerWrap.classList.add('subscription-step-box-open');
         bgOpacityInner.classList.add('bg-opacity-inner-open');
-        showModulePanel("Research Package","", "currentBoxModules", );
+        showModulePanel("Research Package", "", "currentBoxModules",);
 
     });
 });
