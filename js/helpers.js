@@ -505,6 +505,12 @@ document.addEventListener("click", () => {
 
     packageModalCloseBtns.forEach(packageModalClose => {
         packageModalClose.addEventListener("click", () => {
+            const openDDList=document.querySelectorAll(".drop-down-item-open")
+            openDDList.forEach(openItem=>{
+                openItem.querySelector(".dropdown-menu").style.maxHeight="0";
+                openItem.classList.remove("drop-down-item-open");
+            })
+
             packageContainerWraps.forEach(packageContainerWrap => {
                 packageContainerWrap.classList.remove('package-container-wrap-open');
                 packageContainerWrap.classList.remove('subscription-step-box-open');

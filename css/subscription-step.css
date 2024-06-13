@@ -374,6 +374,7 @@
     }
 
     .subscription-accordion-box .accordion-panel{
-        height: calc(100% - 160px);
+        height: calc(100% - 170px);
+        max-height: 100%;
     }
 }
