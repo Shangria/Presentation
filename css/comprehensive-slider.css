@@ -271,7 +271,7 @@
 
 @media screen and (max-width: 390px) {
     #comprehensive-slider .comprehensive-slide-item {
-        width: 155px !important;
+        width: 145px !important;
         height: 191px !important;
     }
 }
