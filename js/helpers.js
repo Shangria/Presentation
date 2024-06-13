@@ -83,11 +83,14 @@ function determineDefaultState(allTargetSegments, allServices, chooseSegments) {
 $(document).ready(function () {
     $("#packageSelectInfo").click(function () {
         $("#modalPackageSelectInfoText").css("display", "flex").hide().fadeIn(500);
+        $("#bgOpacityInner").addClass("bg-opacity-inner-open backdrop-blur-sm");
     });
     function closeModal() {
         $("#modalPackageSelectInfoText").fadeOut(500, function () {
             $(this).css("display", "none");
         });
+
+        $("#bgOpacityInner").removeClass("bg-opacity-inner-open backdrop-blur-sm");
     }
 
     $(".modal-select-info-close").click(function () {
@@ -96,7 +99,7 @@ $(document).ready(function () {
 
 
     $(window).click(function (event) {
-        if ($(event.target).hasClass('modal-successful')) {
+        if ($(event.target).hasClass('modal-select-info-text')) {
             closeModal();
         }
     });
@@ -123,13 +126,13 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("[data-request-demo]").click(function () {
         $("#modalDemo").css("display", "flex").hide().fadeIn(500);
-        $("#bgOpacityInner").addClass("bg-opacity-inner-open");
+        $("#bgOpacityInner").addClass("bg-opacity-inner-open backdrop-blur-sm");
     });
 
     function closeModal() {
         $("#modalDemo").fadeOut(500, function () {
             $(this).css("display", "none");
-            $("#bgOpacityInner").removeClass("bg-opacity-inner-open");
+            $("#bgOpacityInner").removeClass("bg-opacity-inner-open backdrop-blur-sm");
         });
     }
 
@@ -157,11 +160,10 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
     function closeModal() {
         let $videoIframe = $('#modalVideo iframe');
         let iframeSrc = $videoIframe.attr('src');
-        $videoIframe.attr('src', ''); // Сброс src останавливает видео
+        $videoIframe.attr('src', '');
         $videoIframe.attr('src', iframeSrc);
 
         $("#modalVideo").fadeOut(500, function () {
@@ -184,12 +186,14 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#termsOfUseOpen").click(function () {
         $("#termsOfUseModal").css("display", "flex").hide().fadeIn(500);
+        $("#bgOpacityInner").addClass("bg-opacity-inner-open backdrop-blur-sm");
     });
 
     function closeModal() {
         $("#termsOfUseModal").fadeOut(500, function () {
             $(this).css("display", "none");
         });
+        $("#bgOpacityInner").removeClass("bg-opacity-inner-open backdrop-blur-sm");
     }
 
     $("#termsOfUseClose").click(function () {
@@ -300,7 +304,7 @@ function dropdownTogglePanel(accordionPanelId) {
                     } else {
                         box.classList.add('closing');
 
-                        drop.removeAttribute('style');
+                        drop && drop.removeAttribute('style');
                         setTimeout(() => {
                             box.classList.remove('drop-down-item-open');
                         }, 10);
@@ -476,12 +480,18 @@ function openModalModule(slideId) {
     const bgOpacityInner = document.getElementById('bgOpacityInner');
     const dropdownTabs = document.querySelectorAll(`#${slideId} [data-mobile-modal-open]`);
 
+
     dropdownTabs.forEach(dropdownTab => {
         dropdownTab.addEventListener('click', (event) => {
 
             if(event.isTrusted){
                 packageContainerWrap.classList.add('package-container-wrap-open');
-                bgOpacityInner.classList.add('bg-opacity-inner-open');
+
+
+                    let screenWidth = $(window).width();
+                    if(screenWidth<=1024){
+                        bgOpacityInner.classList.add('bg-opacity-inner-open');
+                    }
             }
 
         });

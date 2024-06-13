@@ -9,12 +9,13 @@
     background: rgba(29, 31, 40, 0.8);
     align-items: flex-end;
     justify-content: center;
+    backdrop-filter: blur(4px);
 }
 
 
 .modal-demo-content{
     position: relative;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
     background: rgba(49, 51, 58, 0.8);
     padding: 40px 20px 24px;
     border-top-right-radius: 24px;

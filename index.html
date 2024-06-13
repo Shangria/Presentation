@@ -953,11 +953,7 @@
                             <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
                         </button>
                     </div>
-
-
                 </div>
-
-
             </section>
         </div>
 
@@ -1307,7 +1303,19 @@
                             </svg>
                         </div>
                         <h2 class="title">Subscription</h2>
+
                         <div class="subscription-details-columns">
+                            <div class="subscription-total-mobile-info lg:hidden">
+
+                                <button class="subscription-total-mobile-img absolute lg:hidden"
+                                        id="subscriptionModalInfo">
+                                    <img src="./images/request-invoice/info-white.svg" alt="info"/>
+                                </button>
+
+                                <span class="subscription-total-mobile-title" id="subscriptionTotalMobileTitle"></span>
+                                Total: $<span data-total-counter-box></span>
+                            </div>
+
                             <div class="subscription-details-column">
                                 <div class="subscription-box-details flex flex-col ">
                                     <h4 class="subscription-details-title">Your details</h4>
@@ -1462,7 +1470,7 @@
 
                     <div class="subscription-step-box">
                         <h3 class="subscription-modules-title" id="subscriptionModulesTitle"></h3>
-                        <div class="accordion-panel" id="currentBoxModules">
+                        <div class="accordion-panel subscription-accordion" id="currentBoxModules">
                             <!-- Do not delete this block. It's being used in js -->
                         </div>
 
@@ -1472,14 +1480,19 @@
                                 Total: $<span data-total-counter-box></span> USD
                             </div>
                             <button type="button" class="btn btn-rounded btn-blue btn-next uppercase"
-                                    id="requestInvoiceSuccessful">Request invoice
+                                  data-request-invoice-successful>Request invoice
                                 <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
                             </button>
                         </div>
                     </div>
                 </div>
 
-
+                <div class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
+                    <button  data-request-invoice-successful type="button" class="btn lg:hidden btn-rounded btn-blue btn-next uppercase">
+                        Total: $<span data-total-counter-box></span> USD
+                        <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
+                    </button>
+                </div>
             </section>
         </div>
 

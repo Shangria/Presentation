@@ -536,28 +536,29 @@ header {
     }
 }
 
+.bg-opacity-inner {
+    background: #00000096 !important;
+    transition: all .25s ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -2;
+    overflow-y: auto;
+    opacity: 0;
+    position: fixed;
+}
+
+.bg-opacity-inner.bg-opacity-inner-open {
+    z-index: 1;
+    transition: all .25s ease-in-out;
+    opacity: 1;
+}
+
+
 
 @media screen and (max-width: 1024px) {
-    .bg-opacity-inner {
-        background: #00000096 !important;
-        transition: all .25s ease-in-out;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        z-index: -2;
-        overflow-y: auto;
-        opacity: 0;
-        position: fixed;
-    }
-
-    .bg-opacity-inner.bg-opacity-inner-open {
-        z-index: 1;
-        transition: all .25s ease-in-out;
-        opacity: 1;
-    }
-
     .section.section-select-target .main {
         padding: 20px;
     }
@@ -651,7 +652,7 @@ header {
     }
 
     .swiper-slide-calculation .presentation-menu-box {
-        height: calc(100% - 360px);
+        height: calc(100% - 415px);
     }
 
 
@@ -748,9 +749,10 @@ header {
         height: calc(100% - 115px);
     }
 
+
     .swiper-slide-calculation .presentation-menu.presentation-menu-little-space {
         padding: 0 0 20px 20px;
-        height: calc(100% - 170px);
+        height: 100%;
     }
 
     .presentation-modules {

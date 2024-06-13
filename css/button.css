@@ -87,9 +87,9 @@
 		font-weight: 500;
 	}
 	.btn.btn-outline-blue:hover,
-	.btn.btn-next:hover
+	.btn.btn-next:hover,
 	.btn.btn-size-xl:hover {
-		font-size: inherit;
+		font-size: 16px;
 	}
 
 	.btn.btn-blue.btn-single  {

@@ -14,13 +14,11 @@
 
 .terms-of-use-modal-inner {
     position: relative;
-    backdrop-filter: blur(10px);
     background: rgba(49, 51, 58, 0.8);
     padding: 75px 0 24px;
-    border-top-right-radius: 24px;
-    border-top-left-radius: 24px;
+    border-radius: 20px;
     height: 90%;
-    width: 100%;
+    width: 90%;
 }
 
 .terms-of-use-modal-box {

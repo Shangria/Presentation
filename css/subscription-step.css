@@ -7,9 +7,9 @@
 .subscription-step-wrap {
     background: url(../images/gradient.png);
     background-size: cover;
-    background-position: 100%;
+    background-position: left;
     background-repeat: no-repeat;
-    padding: 6dvh 61px 6dvh 162px;
+    padding: 6dvh 61px 9dvh 162px;
     flex-basis: 57%;
     display: flex;
     flex-direction: column;
@@ -21,8 +21,8 @@
     flex-basis: 43%;
     padding: 15dvh 63px 6dvh 62px;
     background: url(../images/gradient.png);
-    background-size: cover;
-    background-position: 100%;
+    background-size: auto;
+    background-position: right;
     background-repeat: no-repeat;
 }
 
@@ -202,18 +202,114 @@
     font-weight: 400;
     line-height: 15px;
     position: absolute;
-    bottom:-15px;
+    bottom: -15px;
     left: 6px;
 }
 
-.subscription-step .subscription-select-box .error-message{
+.subscription-step .subscription-select-box .error-message {
     bottom: -5px;
 }
+
 .subscription-step .subscription-box-details .error-border {
     position: relative;
 }
 
-.subscription-step .subscription-box-details .error-border input{
+.subscription-step .subscription-box-details .error-border input {
     border: 1px solid #D34E4E;
 }
 
+.subscription-total-mobile-info {
+    background: #ffffff0d;
+    border-radius: 16px;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.subscription-total-mobile-img {
+    width: 30px;
+    top: 5px;
+    right: 5px;
+}
+
+.subscription-total-mobile-img img {
+    width: 100%;
+}
+
+.subscription-total-mobile-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .subscription-step-wrap {
+        background: transparent;
+        flex-basis: 100%;
+        padding: 0 20px;
+    }
+
+    .subscription-step-wrap .title {
+        padding-left: 50px;
+        padding-top: 20px;
+        font-size: 24px;
+    }
+
+    .subscription-step-box {
+        display: none;
+        background: #00000096 !important;
+        padding: 0 !important;
+        transition: all .25s ease-in-out;
+        top: -58px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -2;
+        overflow-y: auto;
+        opacity: 0;
+        animation: none;
+        height: 100%;
+    }
+
+
+    .subscription-step-box.subscription-step-box-open {
+        display: flex !important;
+        z-index: 10000;
+        transition: all .25s ease-in-out;
+        opacity: 1;
+        overflow: hidden !important;
+    }
+
+    .subscription-accordion {
+        background: #1D1F28 !important;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        margin-top: 115px;
+        padding: 0 18px 18px;
+        min-height: 100%;
+        transform: translateY(100%);
+        overflow: hidden;
+        transition: all .25s ease-in-out;
+        position: relative;
+    }
+
+    .subscription-step-box.subscription-step-box-open {
+        transform: translateY(0);
+        transition: all .25s ease-in-out;
+        height: 100%;
+    }
+
+    .subscription-details-columns {
+        flex-direction: column;
+        overflow-y: auto;
+        height: calc(100% - 220px);
+    }
+
+    .subscription-details-column {
+        width: 100%;
+    }
+}

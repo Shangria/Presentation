@@ -12,7 +12,6 @@
     position: relative;
     max-width: 345px;
     width: 100%;
-    backdrop-filter: blur(10px);
 }
 
 .package-select-info-text-container {

@@ -94,6 +94,7 @@ function buildSubscriptionModulesPanel(){
     }
 
     $('#currentBoxModules').html(subscriptionModulesPanelHtml);
+    $('#subscriptionTotalMobileTitle').text(stepFormState.currentPackageSelected);
     $('#subscriptionModulesTitle').text(stepFormState.currentPackageSelected);
     dropdownTogglePanel("currentBoxModules");
     showModulePanel("Research Package","", "currentBoxModules", );
@@ -344,7 +345,7 @@ $(document).ready(function () {
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
     const requestInvoiceBtns = document.querySelectorAll("[data-request-invoice]");
     const requestInvoiceSubscriptionBtns = document.querySelectorAll("[data-request-invoice-subscription]");
-    const requestInvoiceSuccessful = document.getElementById("requestInvoiceSuccessful");
+    const requestInvoiceSuccessfulBts = document.querySelectorAll("[data-request-invoice-successful]");
     const modalSuccessfulClose = document.getElementById("modalSuccessfulClose");
 
     stepFormState.currentPackageSelected = optionsPackageSelect.getValue().value;
@@ -430,14 +431,18 @@ $(document).ready(function () {
 
 
     //finish step
-    requestInvoiceSuccessful.addEventListener('click', () => {
-        const isValidForm = validateForm();
-        if (!isValidForm) {
-            return;
-        } else {
-            $("#modalSuccessful").css("display", "flex").hide().fadeIn(500);
-        }
-    });
+
+    requestInvoiceSuccessfulBts.forEach(requestInvoiceSuccessful=>{
+        requestInvoiceSuccessful.addEventListener('click', () => {
+            const isValidForm = validateForm();
+            if (!isValidForm) {
+                return;
+            } else {
+                $("#modalSuccessful").css("display", "flex").hide().fadeIn(500);
+            }
+        });
+    })
+
 
     //reset
     modalSuccessfulClose.addEventListener('click', () => {
