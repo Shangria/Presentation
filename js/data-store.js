@@ -162,7 +162,7 @@ export let store = {
             iconImg: './images/icons/modules/mobile-equipment.svg',
             img: './images/slides/heavy-mobile-equipment.jpeg',
             price: 100.00,
-            video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
+            video:"https://www.youtube.com/embed/1hs4FDhCpfs?si=nryLAk-8HWsfy_-c",
             serviceTabs: [
                 {
                     title: "50 Mobile Equipment Types",

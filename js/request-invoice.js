@@ -191,7 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         additionalTextOptionsSelect.innerHTML = optionalSelectContent[value].additionalTextBottom;
-        additionalTextOptionsSelect.classList.add('show-additional-text');
+
+        let screenWidth = $(window).width();
+        if(screenWidth>1024){
+            additionalTextOptionsSelect.classList.add('show-additional-text');
+        }
+
     });
 
     // change event for licenses select

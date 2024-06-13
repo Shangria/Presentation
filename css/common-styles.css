@@ -652,7 +652,7 @@ header {
     }
 
     .swiper-slide-calculation .presentation-menu-box {
-        height: calc(100% - 415px);
+        height: calc(100% - 360px);
     }
 
 
@@ -830,6 +830,10 @@ header {
         margin: 0;
         margin-bottom: 10px;
         height: 46px !important;
+    }
+
+    .presentation-modules-item.presentation-modules-item-active {
+        background-color: #ffffff0d;
     }
 
 }

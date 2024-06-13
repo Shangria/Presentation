@@ -169,6 +169,7 @@ $(document).ready(function () {
         $("#modalVideo").fadeOut(500, function () {
             $(this).css("display", "none");
         });
+        $("#bgOpacityInner").removeClass("bg-opacity-inner-open backdrop-blur-sm");
     }
 
     $(".modal-demo-content-close").click(function () {
@@ -486,7 +487,6 @@ function openModalModule(slideId) {
 
             if(event.isTrusted){
                 packageContainerWrap.classList.add('package-container-wrap-open');
-
 
                     let screenWidth = $(window).width();
                     if(screenWidth<=1024){

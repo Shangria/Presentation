@@ -629,27 +629,6 @@
                         </form>
                     </div>
                 </div>
-                <div id="modalVideo" class="modal-video modal-wrap">
-                    <div class="modal-demo-content">
-                        <div class="modal-demo-content-close">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_1_1170)">
-                                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                          stroke-linejoin="round"/>
-                                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                          stroke-linejoin="round"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1_1170">
-                                        <rect width="24" height="24" fill="currentColor"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </div>
-                        <div class="modal-demo-box" id="modalVideoContent"></div>
-                    </div>
-                </div>
 
                 <div class="section-back" data-section-back-btn>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -918,7 +897,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="text-[11px] lg:text-[12px] additional-text-options"
+                                    <div class="text-[11px] lg:text-[12px] hidden lg:block additional-text-options"
                                          id="additionalTextOptionsSelect"></div>
                                 </div>
 
@@ -1313,7 +1292,7 @@
                                 </button>
 
                                 <span class="subscription-total-mobile-title" id="subscriptionTotalMobileTitle"></span>
-                                Total: $<span data-total-counter-box></span>
+                                Total: <span class="subscription-total-mobile-sum subscription-total-mobile-sum-space"> $</span><span class="subscription-total-mobile-sum" data-total-counter-box></span>
                             </div>
 
                             <div class="subscription-details-column">
@@ -1496,7 +1475,27 @@
             </section>
         </div>
 
-
+        <div id="modalVideo" class="modal-video modal-wrap">
+            <div class="modal-demo-content">
+                <div class="modal-demo-content-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1_1170)">
+                            <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_1170">
+                                <rect width="24" height="24" fill="currentColor"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="modal-demo-box" id="modalVideoContent"></div>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -239,7 +239,7 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
                                         <h3 class="package-info-mobile-title lg:hidden">${availableService.name}</h3>
                                         <div class="package-info--img relative">
                                             <img src=${availableService.img} alt=${availableService.name}>
-                                            <button id="videoBtn" type="button" class="package-info--video-btn">
+                                            <button data-video-btn id="videoBtn" type="button" class="package-info--video-btn">
                                                  <img src="./images/request-invoice/play_arrow.svg" alt="play_arrow"/>
                                                  <span>info</span>
                                             </button>
@@ -262,8 +262,9 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
     $('.package-info').html(commonInfoServiceHtml);
     $('#modalVideoContent').html(videoInfoServiceHtml);
 
-    $("#videoBtn").click(function () {
+    $("[data-video-btn]").click(function () {
         $("#modalVideo").css("display", "flex").hide().fadeIn(500);
+        $("#bgOpacityInner").addClass("bg-opacity-inner-open backdrop-blur-sm");
     });
 
 
