@@ -225,7 +225,6 @@
     transform-origin: left center
 }
 
-
 @media screen and (max-width: 1024px) {
     .swiper-comprehensive .swiper-wrapper {
         display: flex;
@@ -267,6 +266,14 @@
         width: 15px;
     }
 
+}
+
+
+@media screen and (max-width: 390px) {
+    #comprehensive-slider .comprehensive-slide-item {
+        width: 155px !important;
+        height: 191px !important;
+    }
 }
 
 
