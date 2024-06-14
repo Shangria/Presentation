@@ -65,6 +65,7 @@ ul.authorized-block > li.user {
   display: block;
   right: 0;
   top: 0;
+  filter: invert();
 }
 
 .dropdown input:checked ~ label:after {

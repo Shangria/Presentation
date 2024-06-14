@@ -865,6 +865,10 @@ header {
 
 }
 
+.swiper{
+    height: calc(100dvh - 56px);
+}
+
 .swiper-slide {
     overflow: hidden
 }
