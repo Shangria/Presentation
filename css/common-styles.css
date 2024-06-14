@@ -584,7 +584,7 @@ header {
     }
 
     .section-calculation.section {
-        height: calc(100% - 140px);
+        height: calc(100% - 100px);
     }
 
     .section.section-modules .main,
@@ -595,6 +595,10 @@ header {
     .calculation-container {
         gap: 0;
         padding: 0;
+    }
+
+    .section-slide-box{
+        padding-top: 70px;
     }
 
     .section-calculation .selects-box-container {
@@ -672,7 +676,7 @@ header {
     }
 
     .swiper-slide-calculation .presentation-menu-box {
-        height: calc(100% - 360px);
+        height: calc(100% - 345px);
     }
 
 
@@ -707,10 +711,14 @@ header {
 
     .title-mobile {
         position: absolute;
-        padding-top: 20px;
+        padding-top: 75px;
         width: 100%;
         text-align: center !important;
         font-size: 22px !important;
+    }
+
+    .section-slide-box .title-mobile {
+        padding-top: 10px;
     }
 
     .package-container-wrap {
@@ -760,7 +768,7 @@ header {
     .presentation-menu.presentation-menu-big-space {
         padding: 110px 0 20px 20px;
         flex-basis: 100%;
-        height: calc(100% - 190px);
+        height: calc(100% - 135px);
     }
 
     .presentation-menu.presentation-menu-little-space {
@@ -831,7 +839,7 @@ header {
 
     .packages-request-mobile {
         position: absolute;
-        bottom: 70px;
+        bottom: 20px;
         left: 0;
         right: 0;
         z-index: 5;
