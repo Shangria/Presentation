@@ -580,7 +580,7 @@ header {
 
 @media screen and (max-width: 1024px) {
     .section.section-select-target .main {
-        padding: 80px 20px 0;
+        padding: 30px 20px 0;
     }
 
     .section-calculation.section {
@@ -598,7 +598,7 @@ header {
     }
 
     .section-slide-box{
-        padding-top: 70px;
+        padding-top: 20px;
     }
 
     .section-calculation .selects-box-container {
@@ -618,7 +618,7 @@ header {
 
     .section-back,
     .section-close {
-        top: 70px;
+        top: 20px;
         width: 36px;
         height: 36px;
     }
@@ -711,7 +711,7 @@ header {
 
     .title-mobile {
         position: absolute;
-        padding-top: 75px;
+        padding-top: 30px;
         width: 100%;
         text-align: center !important;
         font-size: 22px !important;
@@ -765,7 +765,7 @@ header {
     }
 
     .presentation-menu.presentation-menu-big-space {
-        padding: 110px 0 20px 20px;
+        padding: 70px 0 20px 20px;
         flex-basis: 100%;
         height: calc(100% - 135px);
     }
