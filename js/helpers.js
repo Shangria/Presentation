@@ -113,6 +113,7 @@ $(document).ready(function () {
     function closeModal() {
         $("#modalSuccessful").fadeOut(500, function () {
             $(this).css("display", "none");
+            $(".modal-successful-content").removeClass("modal-successful-content-show");
         });
     }
 

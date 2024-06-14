@@ -442,6 +442,7 @@ $(document).ready(function () {
                 return;
             } else {
                 $("#modalSuccessful").css("display", "flex").hide().fadeIn(500);
+                $(".modal-successful-content").addClass("modal-successful-content-show");
             }
         });
     })
