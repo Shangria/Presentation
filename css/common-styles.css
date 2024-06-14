@@ -968,3 +968,18 @@ header {
     height: 56px;
     background: black;
 }
+
+.animate__animated.animate__smooth {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInCustom {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

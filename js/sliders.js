@@ -19,43 +19,30 @@ window.addEventListener("load", ()=>{
         fadeEffect: {
             crossFade: true,
         },
-        on: {
+        on:{
+            init: function(swiper) {
+              //1sts slide animations
+                animateFirstSlide();
+            },
+
+
             /**
              * Event will be fired when currently active slide is changed
              */
             slideChange: function (swiper) {
                 // Animate when navigating from 1 to 2 slide
-                if (activePageIndex === 0 && swiper.activeIndex === 1) {
-                    hideFirstSlideAnimation();
-                    showSecondSlideAnimation();
+
+                if (swiper.previousIndex < swiper.activeIndex) {
+                    //to right
+
+                    showAnimationFromRight();
+                } else if (swiper.previousIndex > swiper.activeIndex) {
+                    // to left
+
+                    showAnimationFromLeft();
                 }
 
-                // Animate when navigating from 2 to 1 slide
-                if (activePageIndex === 1 && swiper.activeIndex === 0) {
-                    showFirstSlideAnimation();
-                    hideSecondSlideAnimation();
-                }
-
-                // Animate when navigating from 2 to 3 slide
-                if (activePageIndex === 1 && swiper.activeIndex === 2) {
-                    hideSecondSlideAnimation();
-                    showThirdSlideAnimation();
-
-                    $('.presentation-modules-item.presentation-modules-item-active').click();
-                }
-
-                // Animate when navigating from 3 to 2 slide
-                if (activePageIndex === 2 && swiper.activeIndex === 1) {
-                    showSecondSlideAnimation();
-                    hideThirdSlideAnimation();
-                }
-
-                if (activePageIndex > 1 && swiper.activeIndex === 0) {
-                    // TODO: As it is the last slide implemented for now - so hide the third slide.
-                    hideThirdSlideAnimation();
-                    showFirstSlideAnimation();
-                }
-
+                // update current index
                 activePageIndex = swiper.activeIndex;
             },
         },
@@ -64,7 +51,7 @@ window.addEventListener("load", ()=>{
     /**
      * Initialize a comprehensive slider
      */
-// Функция для инициализации Swiper
+
     function initializeSwiper() {
         new Swiper('#comprehensive-slider', {
             slidesPerView: 'auto',
@@ -98,26 +85,32 @@ window.addEventListener("load", ()=>{
 
 })
 
+function animateFirstSlide() {
+    $('#slide1 [data-animate]').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth');
+}
 
+function showAnimationFromRight() {
+    // Remove the animation for the appearance effect on the left side and add it for the right side.
+    $('[data-animate]').removeClass('animate__fadeInRight').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth')
+}
 
+function showAnimationFromLeft() {
+// Remove the animation for the appearance effect on the right side and add it for the left side.
+    $('[data-animate]').removeClass('animate__fadeInLeft').addClass('animate__animated animate__fadeInRight animate__fast animate__smooth')
+}
 
+/*
 function hideFirstSlideAnimation () {
-    $('[data-boost-style]').addClass('animate__fadeOutLeft');
-    $('[data-laptop-style]').addClass('animate__fadeOutUpBig');
+    $('[data-boost-style]').addClass('animate__fadeOutLeft  animate__fast ');
+    $('[data-laptop-style]').addClass('animate__fadeOutLeft  animate__fast ');
 }
 
 function showFirstSlideAnimation () {
-    $('[data-boost-style]').removeClass('animate__fadeOutLeft');
-    $('[data-laptop-style]').removeClass('animate__fadeOutUpBig');
+    $('[data-boost-style]').addClass('animate__fadeInRight animate__fast');
+    $('[data-laptop-style]').addClass('animate__fadeInRight animate__fast');
 }
 
-function hideSecondSlideAnimation () {
-    $('.section-select-target .section-back').removeClass('animate__fadeIn').addClass('animate__fadeOut');
-    $('.section-select-target .section-close').removeClass('animate__fadeIn').addClass('animate__fadeOut');
-    $('.section-select-target .title').removeClass('animate__fadeInDown').addClass('animate__fadeOutUp');
-    $('#comprehensive-slider').removeClass('animate__fadeInRight').addClass('animate__fadeOutRight');
-    $('.swiper-dots-wrapper').removeClass('animate__fadeInUp').addClass('animate__fadeOutDown');
-}
+,k
 
 function showSecondSlideAnimation () {
     $('.section-select-target .section-back').removeClass('animate__fadeOut').addClass('animate__fadeIn');
@@ -135,13 +128,13 @@ function hideThirdSlideAnimation () {
 function showThirdSlideAnimation () {
     $('.presentation-menu').removeClass('animate__fadeOutLeft').addClass('animate__fadeInLeft');
     $('.section-modules .main').removeClass('animate__fadeOutRight').addClass('animate__fadeInRight');
-}
+}*/
 
 $(document).ready(function () {
     /**
      * Navigate between page slides
      */
-    $('#getStarted, .btn-next').on('click', function () {
+    $('#getStarted, .btn-next, [data-request-invoice]').on('click', function () {
         pageSlider.slideNext();
     });
 
@@ -155,4 +148,4 @@ $(document).ready(function () {
     });
 
 })
-export {pageSlider}
+export {pageSlider, showAnimationFromRight}

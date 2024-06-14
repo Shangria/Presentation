@@ -10,6 +10,7 @@ import {
 } from "./helpers.js";
 import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
 import {validateForm} from "./validation-form.js";
+import {showAnimationFromRight} from "./sliders.js";
 
 let stepFormState = {
     // page 1
@@ -405,6 +406,7 @@ $(document).ready(function () {
 
     //go to slide3
     btnSegmentsNext.addEventListener('click', () => {
+
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
         buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3", noAddedCheckboxes,"slide3");
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");

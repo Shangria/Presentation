@@ -54,9 +54,9 @@
                     <img src="./images/gradient.png" alt="gradient" class="gradient">
                     <div class="h-full lg:px-[6vw]">
                         <div class="flex flex-col justify-center lg:grid grid-flow-row gap-4  grid-cols-[45%_55%]  items-center h-full ">
-                            <div class="flex flex-col justify-center items-center h-full  relative z-10 animate__animated animate__fadeInLeftBig" data-boost-style >
-                                <div class="flex flex-col">
-                                    <div class="lg:hidden flex-md flex-col-md content-end-md animate__animated animate__fadeInDownBig z-[1]" data-laptop-style>
+                            <div class="flex flex-col justify-center items-center h-full  relative z-10">
+                                <div data-animate  class="flex flex-col">
+                                    <div class="lg:hidden flex-md flex-col-md content-end-md z-[1]" data-laptop-style>
                                         <div class="laptop-images-box">
                                             <img src="./images/laptop.png" alt="laptop" class="laptop">
                                             <img src="./images/laptop-shadow.png" alt="laptop-shadow"
@@ -99,21 +99,23 @@
                                         </div>
                                     </div>
 
-                                    <h1 class="title">Boost your <br class="hidden lg:block"/> sales with MDO</h1>
-                                    <h2 class="subtitle">MDO is a business development tool specifically <br class="hidden lg:block"/> crafted to
+                                    <h1 class="title ">Boost your <br class="hidden lg:block"/> sales with MDO</h1>
+                                    <h2 class="subtitle">MDO is a business development tool specifically <br
+                                            class="hidden lg:block"/> crafted to
                                         Mining
                                         Suppliers and
                                         Consultants
                                     </h2>
-                                    <button type="button" class="self-center lg:self-start btn btn-single btn-blue btn-size-xl btn-rounded btn-title uppercase"
+                                    <button type="button"
+                                            class="self-center lg:self-start btn btn-single btn-blue btn-size-xl btn-rounded btn-title uppercase"
                                             id="getStarted">
                                         Get Started
                                     </button>
                                 </div>
 
                             </div>
-                            <div class="hidden lg:block flex-md flex-col-md content-end-md animate__animated animate__fadeInDownBig z-[1]"
-                               data-laptop-style >
+                            <div data-animate  class="hidden lg:block flex-md flex-col-md content-end-md z-[1]"
+                                 data-laptop-style>
                                 <div class="laptop-images-box">
                                     <img src="./images/laptop.png" alt="laptop" class="laptop">
                                     <img src="./images/laptop-shadow.png" alt="laptop-shadow"
@@ -122,7 +124,7 @@
 
 
                                 <!-- counter desktop-->
-                                <div class="hidden lg:block counter-container">
+                                <div  class="hidden lg:block counter-container">
                                     <h3 class="counter-title">Mining Database in numbers</h3>
                                     <div class="counter-box-wrap grid grid-cols-6 gap-4">
                                         <div class="counter-box">
@@ -166,7 +168,7 @@
             <section class="section section-select-target">
                 <div class="main relative flex flex-col">
                     <img src="./images/gradient.png" alt="gradient" class="gradient">
-                    <div class="section-back animate__animated animate__slower" data-section-back-btn>
+                    <div class="section-back" data-section-back-btn>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_332_23416)">
                                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -179,7 +181,7 @@
                             </defs>
                         </svg>
                     </div>
-                    <div class="section-close animate__animated animate__slower">
+                    <div class="section-close">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_1_1170)">
                                 <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -194,8 +196,8 @@
                             </defs>
                         </svg>
                     </div>
-                    <h2 class="title animate__animated">Select your target segment</h2>
-                    <div class="swiper swiper-comprehensive grow w-full animate__animated animate__slow" id="comprehensive-slider">
+                    <h2 data-animate class="title">Select your target segment</h2>
+                    <div data-animate class="swiper swiper-comprehensive grow w-full" id="comprehensive-slider">
                         <div class="swiper-wrapper">
                             <div class="comprehensive-slide-item" data-segment-item data-segment="Mining"
                                  data-id="Mining">
@@ -539,7 +541,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-center relative z-[1] animate__animated swiper-dots-wrapper">
+                    <div data-animate class="flex items-center relative z-[1]  swiper-dots-wrapper">
                         <div class="flex items-center hidden lg:flex swiper-dots">
                             <div class="swiper-button-prev">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -588,350 +590,370 @@
 
         <!-- slide3 -->
         <div class="swiper-slide" id="slide3">
-            <section class="section section-modules flex flex-nowrap">
-
-                <div id="modalDemo" class="modal-demo modal-wrap">
-                    <div class="modal-demo-content">
-                        <div class="modal-demo-content-close section-close">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_1_1170)">
-                                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                          stroke-linejoin="round"/>
-                                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                          stroke-linejoin="round"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1_1170">
-                                        <rect width="24" height="24" fill="currentColor"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </div>
-                        <h2 class="modal-demo-content-title">Request a Demo</h2>
-                        <p class="modal-demo-content-sub-title">Do not hesitate to drop us a line or request a Free
-                            Demo!</p>
-
-                        <form action="" class="contact-form-box" id="contactForm">
-                            <div class="contact-form-wrap">
-                                <input data-contact-input type="text" placeholder="First name*" name="firstName"
-                                       required/>
-                                <input data-contact-input type="text" placeholder="Last name*" name="lastName"
-                                       required/>
-                                <input data-contact-input type="email" placeholder="Email*" name="email" required/>
-                                <input data-contact-input type="number" placeholder="Phone*" name="phone" required/>
-                                <textarea data-contact-input type="text" placeholder="Message"
-                                          name="message"></textarea>
+            <section class="section section-modules">
+                <div class="flex flex-nowrap h-full">
+                    <div id="modalDemo" class="modal-demo modal-wrap">
+                        <div class="modal-demo-content">
+                            <div class="modal-demo-content-close section-close">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1_1170)">
+                                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1_1170">
+                                            <rect width="24" height="24" fill="currentColor"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
                             </div>
+                            <h2 class="modal-demo-content-title">Request a Demo</h2>
+                            <p class="modal-demo-content-sub-title">Do not hesitate to drop us a line or request a Free
+                                Demo!</p>
 
-                            <button id="sendMessageBtn" type="button" class="contact-form-send-btn uppercase">
-                                Send Message
-                            </button>
-                        </form>
+                            <form action="" class="contact-form-box" id="contactForm">
+                                <div class="contact-form-wrap">
+                                    <input data-contact-input type="text" placeholder="First name*" name="firstName"
+                                           required/>
+                                    <input data-contact-input type="text" placeholder="Last name*" name="lastName"
+                                           required/>
+                                    <input data-contact-input type="email" placeholder="Email*" name="email" required/>
+                                    <input data-contact-input type="number" placeholder="Phone*" name="phone" required/>
+                                    <textarea data-contact-input type="text" placeholder="Message"
+                                              name="message"></textarea>
+                                </div>
+
+                                <button id="sendMessageBtn" type="button" class="contact-form-send-btn uppercase">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-
-                <div class="section-back" data-section-back-btn>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_332_23416)">
-                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_332_23416">
-                                <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="section-close">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_1_1170)">
-                            <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                            <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_1_1170">
-                                <rect width="24" height="24" fill="currentColor"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <h2 class="title title-mobile lg:hidden">Packages and Modules</h2>
-                <div class="presentation-menu presentation-menu-big-space animate__animated" id="presentationMenuSlide3">
-                    <!-- Do not delete this block. It's being used in js -->
-                </div>
-                <div class="main package-container-wrap fixed lg:relative flex flex-col animate__animated" data-package-container-wrap >
-                    <h2 class="title  hidden lg:block">Packages and Modules</h2>
-                    <div class="package flex flex-col lg:flex-row flex-nowrap flex-grow">
-                        <div data-package-modal-close class="package-modal-close lg:hidden">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_1_1170)">
-                                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                          stroke-linejoin="round"/>
-                                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                          stroke-linejoin="round"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1_1170">
-                                        <rect width="24" height="24" fill="currentColor"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </div>
-                        <div class="package-info">
-                            <!-- Do not delete this block. It's being used in js -->
-                        </div>
-                        <div class="package-list w-full flex flex-col">
-                            <div class="accordion-panel" id="accordionPanelSlide3">
+                    <div class="section-back" data-section-back-btn>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_332_23416)">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_332_23416">
+                                    <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="section-close">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1_1170)">
+                                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1_1170">
+                                    <rect width="24" height="24" fill="currentColor"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2 data-animate  class="title title-mobile lg:hidden">Packages and Modules</h2>
+                    <div data-animate  class="presentation-menu presentation-menu-big-space" id="presentationMenuSlide3">
+                        <!-- Do not delete this block. It's being used in js -->
+                    </div>
+                    <div data-animate  class="main package-container-wrap fixed lg:relative flex flex-col"
+                         data-package-container-wrap>
+                        <h2 class="title hidden lg:block">Packages and Modules</h2>
+                        <div class="package  flex flex-col lg:flex-row flex-nowrap flex-grow">
+                            <div data-package-modal-close class="package-modal-close lg:hidden">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1_1170)">
+                                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1_1170">
+                                            <rect width="24" height="24" fill="currentColor"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="package-info">
                                 <!-- Do not delete this block. It's being used in js -->
                             </div>
-                            <div class="packages-request hidden lg:flex justify-end grow items-end">
-                                <button data-request-demo type="button" class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
-                                        >Request a demo
-                                </button>
-                                <button data-request-invoice type="button" class="btn btn-rounded btn-blue btn-next uppercase"
-                                        >Request invoice
-                                    <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
-                                </button>
+                            <div class="package-list w-full flex flex-col">
+                                <div class="accordion-panel" id="accordionPanelSlide3">
+                                    <!-- Do not delete this block. It's being used in js -->
+                                </div>
+                                <div class="packages-request hidden lg:flex justify-end grow items-end">
+                                    <button data-request-demo type="button"
+                                            class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
+                                    >Request a demo
+                                    </button>
+                                    <button data-request-invoice type="button"
+                                            class="btn btn-rounded btn-blue btn-next uppercase"
+                                    >Request invoice
+                                        <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
-                    <button data-request-demo type="button" class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
-                            >Request a demo
-                    </button>
-                    <button data-request-invoice type="button" class="btn btn-rounded btn-blue btn-next uppercase"
-                            >Request invoice
-                        <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
-                    </button>
+                    <div data-animate  class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
+                        <button data-request-demo type="button"
+                                class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
+                        >Request a demo
+                        </button>
+                        <button data-request-invoice type="button" class="btn btn-rounded btn-blue btn-next uppercase"
+                        >Request invoice
+                            <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>
 
         <!-- slide4 -->
         <div class="swiper-slide swiper-slide-calculation" id="slide4">
-            <section class="section section-modules section-calculation  flex flex-nowrap">
+            <section class="section section-modules section-calculation">
+                <div  class="flex flex-nowrap h-full">
+                    <div id="modalPackageSelectInfoText" class="modal-select-info-text modal-wrap">
+                        <div class="modal-select-info-content">
+                            <div class="modal-select-info-close">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1_1170)">
+                                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1_1170">
+                                            <rect width="24" height="24" fill="currentColor"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="package-select-info-text-container">
+                                <h4>Research Package</h4>
+                                <p class="package-select-info-text-inner">Perfect for mining industry research! Encompasses
+                                    Mine Type, Location, Address, Ownership, Deposit, Reserves, Commodity Production, LOM,
+                                    Workforce, and Financials. Exceptonal value for your dollar!</p>
 
+                                <h4>Custom Package</h4>
+                                <p class="package-select-info-text-inner">Ideal for business development, specialized
+                                    research or when your budget is limited! Includes all Research Package data points plus
+                                    your selection of optional data modules.</p>
 
-                <div id="modalPackageSelectInfoText" class="modal-select-info-text modal-wrap">
-                    <div class="modal-select-info-content">
-                        <div class="modal-select-info-close">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_1_1170)">
-                                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                          stroke-linejoin="round"/>
-                                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                          stroke-linejoin="round"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1_1170">
-                                        <rect width="24" height="24" fill="currentColor"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </div>
-                        <div class="package-select-info-text-container">
-                            <h4>Research Package</h4>
-                            <p class="package-select-info-text-inner">Perfect for mining industry research! Encompasses Mine Type, Location, Address, Ownership, Deposit, Reserves, Commodity Production, LOM, Workforce, and Financials. Exceptonal value for your dollar!</p>
+                                <h4>Ultimate Package</h4>
+                                <p class="package-select-info-text-inner">Comprehensive mining intelligence! Best suitable
+                                    for large corporations, consulting firms and institutional investors. Includes all
+                                    Research Package data points and all optional data modules.</p>
 
-                            <h4>Custom Package</h4>
-                            <p class="package-select-info-text-inner">Ideal for business development, specialized research or when your budget is limited! Includes all Research Package data points plus your selection of optional data modules.</p>
-
-                            <h4>Ultimate Package</h4>
-                            <p class="package-select-info-text-inner">Comprehensive mining intelligence! Best suitable for large corporations, consulting firms and institutional investors. Includes all Research Package data points and all optional data modules.</p>
-
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="section-back" data-section-back-btn>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_332_23416)">
-                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_332_23416">
-                                <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="section-close">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_1_1170)">
-                            <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                            <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_1_1170">
-                                <rect width="24" height="24" fill="currentColor"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="section-slide-box w-full flex-col lg:flex-row flex">
-                    <h2 class="title order-1 title-mobile lg:hidden">Packages and Modules</h2>
-                    <div class="presentation-menu order-3 lg:order-1 presentation-menu-little-space animate__animated" id="presentationMenuSlide4">
-                        <!-- Do not delete this block. It's being used in js -->
+                    <div class="section-back" data-section-back-btn>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_332_23416)">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_332_23416">
+                                    <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
                     </div>
-                    <div class="calculation-container order-2 lg:order-2  flex">
-                        <div class="main package-container-wrap fixed lg:relative flex flex-col animate__animated" data-package-container-wrap >
-                            <h2 class="title  hidden lg:block">Packages and Modules</h2>
-                            <div class="package package-container package-container-width flex flex-col lg:flex-row flex-nowrap flex-grow">
-                                <div data-package-modal-close  class="package-modal-close lg:hidden">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_1_1170)">
-                                            <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_1_1170">
-                                                <rect width="24" height="24" fill="currentColor"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <div class="package-info">
-                                    <div class="package-info--img relative">
-                                        <img src="./images/slides/key-mine-personnel-and-workforce.jpeg"
-                                             alt="key mine personnel">
+                    <div class="section-close">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1_1170)">
+                                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1_1170">
+                                    <rect width="24" height="24" fill="currentColor"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="section-slide-box w-full flex-col lg:flex-row flex">
+                        <h2 data-animate class="title order-1 title-mobile lg:hidden">Packages and Modules</h2>
+                        <div data-animate class="presentation-menu order-3 lg:order-1 presentation-menu-little-space"
+                             id="presentationMenuSlide4">
+                            <!-- Do not delete this block. It's being used in js -->
+                        </div>
+                        <div data-animate class="calculation-container order-2 lg:order-2  flex">
+                            <div class="main package-container-wrap fixed lg:relative flex flex-col"
+                                 data-package-container-wrap>
+                                <h2 class="title  hidden lg:block">Packages and Modules</h2>
+                                <div class="package package-container package-container-width flex flex-col lg:flex-row flex-nowrap flex-grow">
+                                    <div data-package-modal-close class="package-modal-close lg:hidden">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_1_1170)">
+                                                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_1_1170">
+                                                    <rect width="24" height="24" fill="currentColor"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
                                     </div>
-                                    <h3><!-- Do not delete this block. It's being used in js --></h3>
-                                    <p><!-- Do not delete this block. It's being used in js --></p>
-                                </div>
-                                <div class="package-list w-full flex flex-col">
-                                    <div class="accordion-panel" id="accordionPanelSlide4">
-                                        <!-- Do not delete this block. It's being used in js -->
+                                    <div class="package-info">
+                                        <div class="package-info--img relative">
+                                            <img src="./images/slides/key-mine-personnel-and-workforce.jpeg"
+                                                 alt="key mine personnel">
+                                        </div>
+                                        <h3><!-- Do not delete this block. It's being used in js --></h3>
+                                        <p><!-- Do not delete this block. It's being used in js --></p>
+                                    </div>
+                                    <div class="package-list w-full flex flex-col">
+                                        <div class="accordion-panel" id="accordionPanelSlide4">
+                                            <!-- Do not delete this block. It's being used in js -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="selects-box-container ">
-                            <div class="selects-box">
-                                <div class="select-box regions-select-box">
-                                    <div class="select-title-box  flex items-center">
-                                        <img class="mr-2" src="./images/request-invoice/region-img.svg"
-                                             alt="Select your region"/>
-                                        <span class="font-semibold  text-white">1. Select your region(s):</span>
+                            <div class="selects-box-container ">
+                                <div class="selects-box">
+                                    <div class="select-box regions-select-box">
+                                        <div class="select-title-box  flex items-center">
+                                            <img class="mr-2" src="./images/request-invoice/region-img.svg"
+                                                 alt="Select your region"/>
+                                            <span class="font-semibold  text-white">1. Select your region(s):</span>
+                                        </div>
+
+                                        <div id="regionsSelect" class="regions-select-wrap">
+                                            <div class="select-choices-inner" id="selectedItems">Global</div>
+                                            <div class="regions-item-box" id="regionsItemBox">
+                                                <label class="regions-item-label hover:font-semibold ease-in choose">
+                                                    <input data-regions-input type="checkbox" value="global" name="Global"
+                                                           checked>
+                                                    <span class="checkmark"></span>
+                                                    Global
+                                                </label>
+                                                <label class="regions-item-label hover:font-semibold ease-in">
+                                                    <input data-regions-input type="checkbox" value="Oceania"
+                                                           name="Oceania">
+                                                    <span class="checkmark"></span>
+                                                    Oceania
+                                                </label>
+                                                <label class="regions-item-label hover:font-semibold ease-in">
+                                                    <input data-regions-input type="checkbox" value="USA" name="USA">
+                                                    <span class="checkmark"></span>
+                                                    USA
+                                                </label>
+                                                <label class="regions-item-label hover:font-semibold ease-in">
+                                                    <input data-regions-input type="checkbox" value="Canada" name="Canada">
+                                                    <span class="checkmark"></span>
+                                                    Canada
+                                                </label>
+                                                <label class="regions-item-label hover:font-semibold ease-in">
+                                                    <input data-regions-input type="checkbox" value="LatinAmerica"
+                                                           name="Latin America">
+                                                    <span class="checkmark"></span>
+                                                    Latin America
+                                                </label>
+                                                <label class="regions-item-label hover:font-semibold ease-in">
+                                                    <input data-regions-input type="checkbox" value="Africa" name="Africa">
+                                                    <span class="checkmark"></span>
+                                                    Africa
+                                                </label>
+                                                <label class="regions-item-label hover:font-semibold ease-in">
+                                                    <input data-regions-input type="checkbox" value="EuropeAsia"
+                                                           name="Europe+Asia">
+                                                    <span class="checkmark"></span>
+                                                    Europe + Asia
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div id="regionsSelect" class="regions-select-wrap">
-                                        <div class="select-choices-inner" id="selectedItems">Global</div>
-                                        <div class="regions-item-box" id="regionsItemBox">
-                                            <label class="regions-item-label hover:font-semibold ease-in choose">
-                                                <input data-regions-input type="checkbox" value="global" name="Global"
-                                                       checked>
-                                                <span class="checkmark"></span>
-                                                Global
-                                            </label>
-                                            <label class="regions-item-label hover:font-semibold ease-in">
-                                                <input data-regions-input type="checkbox" value="Oceania"
-                                                       name="Oceania">
-                                                <span class="checkmark"></span>
-                                                Oceania
-                                            </label>
-                                            <label class="regions-item-label hover:font-semibold ease-in">
-                                                <input data-regions-input type="checkbox" value="USA" name="USA">
-                                                <span class="checkmark"></span>
-                                                USA
-                                            </label>
-                                            <label class="regions-item-label hover:font-semibold ease-in">
-                                                <input data-regions-input type="checkbox" value="Canada" name="Canada">
-                                                <span class="checkmark"></span>
-                                                Canada
-                                            </label>
-                                            <label class="regions-item-label hover:font-semibold ease-in">
-                                                <input data-regions-input type="checkbox" value="LatinAmerica"
-                                                       name="Latin America">
-                                                <span class="checkmark"></span>
-                                                Latin America
-                                            </label>
-                                            <label class="regions-item-label hover:font-semibold ease-in">
-                                                <input data-regions-input type="checkbox" value="Africa" name="Africa">
-                                                <span class="checkmark"></span>
-                                                Africa
-                                            </label>
-                                            <label class="regions-item-label hover:font-semibold ease-in">
-                                                <input data-regions-input type="checkbox" value="EuropeAsia"
-                                                       name="Europe+Asia">
-                                                <span class="checkmark"></span>
-                                                Europe + Asia
-                                            </label>
+                                    <div class="select-box package-select-box">
+                                        <div class="select-title-box  flex items-center relative">
+
+                                            <button class="package-select-info-img absolute right-0 lg:hidden"
+                                                    id="packageSelectInfo">
+                                                <img src="./images/request-invoice/info.svg" alt="info"/>
+                                            </button>
+                                            <img class="mr-2" src="./images/request-invoice/package-img.svg"
+                                                 alt="Select you package"/>
+                                            <span class="font-semibold text-white">2. Select you package:</span>
+                                        </div>
+
+                                        <div class="package-select-wrap">
+                                            <select id="optionsSelect">
+                                                <option data-select-option="customPackage" value="Custom Package" selected>
+                                                    Custom Package
+                                                </option>
+                                                <option data-select-option="researchPackage" value="Research Package">
+                                                    Research Package
+                                                </option>
+                                                <option data-select-option="ultimatePackage" value="Ultimate Package">
+                                                    Ultimate Package
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="text-[11px] lg:text-[12px] hidden lg:block additional-text-options"
+                                             id="additionalTextOptionsSelect"></div>
+                                    </div>
+
+                                    <div class="select-box licences-select-box">
+                                        <div class="select-title-box flex items-center">
+                                            <img class="mr-2" src="./images/request-invoice/licence-img.svg"
+                                                 alt="Select you package"/>
+                                            <span class="font-semibold text-white">3. Select  License quantity:</span>
+                                        </div>
+
+
+                                        <div class="licences-select-wrap">
+                                            <select id="licencesSelect"></select>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="select-box package-select-box">
-                                    <div class="select-title-box  flex items-center relative">
 
-                                        <button class="package-select-info-img absolute right-0 lg:hidden"
-                                                id="packageSelectInfo">
-                                            <img src="./images/request-invoice/info.svg" alt="info"/>
-                                        </button>
-                                        <img class="mr-2" src="./images/request-invoice/package-img.svg"
-                                             alt="Select you package"/>
-                                        <span class="font-semibold text-white">2. Select you package:</span>
-                                    </div>
-
-                                    <div class="package-select-wrap">
-                                        <select id="optionsSelect">
-                                            <option data-select-option="customPackage" value="Custom Package" selected>
-                                                Custom Package
-                                            </option>
-                                            <option data-select-option="researchPackage" value="Research Package">
-                                                Research Package
-                                            </option>
-                                            <option data-select-option="ultimatePackage" value="Ultimate Package">
-                                                Ultimate Package
-                                            </option>
-                                        </select>
-                                    </div>
-
-                                    <div class="text-[11px] lg:text-[12px] hidden lg:block additional-text-options"
-                                         id="additionalTextOptionsSelect"></div>
+                                <div class="total-counter hidden lg:block">
+                                    Total: $<span data-total-counter-box></span> USD
                                 </div>
-
-                                <div class="select-box licences-select-box">
-                                    <div class="select-title-box flex items-center">
-                                        <img class="mr-2" src="./images/request-invoice/licence-img.svg"
-                                             alt="Select you package"/>
-                                        <span class="font-semibold text-white">3. Select  License quantity:</span>
-                                    </div>
-
-
-                                    <div class="licences-select-wrap">
-                                        <select id="licencesSelect"></select>
-                                    </div>
-                                </div>
+                                <button data-request-invoice-subscription type="button"
+                                        class="btn calculation-btn hidden lg:block btn-rounded btn-blue btn-next uppercase"
+                                >Request invoice
+                                    <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
+                                </button>
                             </div>
+                        </div>
 
-
-                            <div class="total-counter hidden lg:block">
+                        <div data-animate class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
+                            <button data-request-invoice-subscription type="button"
+                                    class="btn flex lg:hidden btn-rounded btn-blue btn-next uppercase">
                                 Total: $<span data-total-counter-box></span> USD
-                            </div>
-                            <button data-request-invoice-subscription type="button" class="btn calculation-btn hidden lg:block btn-rounded btn-blue btn-next uppercase"
-                            >Request invoice
                                 <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
                             </button>
                         </div>
-                    </div>
-
-                    <div class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
-                        <button data-request-invoice-subscription type="button" class="btn flex lg:hidden btn-rounded btn-blue btn-next uppercase">
-                            Total: $<span data-total-counter-box></span> USD
-                            <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
-                        </button>
                     </div>
                 </div>
             </section>
@@ -940,7 +962,6 @@
         <!-- slide5 -->
         <div class="swiper-slide" id="slide5">
             <section class="section section-subscription flex flex-nowrap">
-
                 <div id="modalSuccessful" class="modal-successful">
                     <div class="modal-successful-content">
                         <div class="section-close modal-successful-close" id="modalSuccessfulClose">
@@ -968,7 +989,6 @@
                         <span>Your request has been submitted.<br> We will get back to you shortly</span>
                     </div>
                 </div>
-
                 <div class="section-close">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_1_1170)">
@@ -1266,7 +1286,7 @@
 
                         </div>
                     </div>
-                    <div class="subscription-step-wrap">
+                    <div  data-animate class="subscription-step-wrap">
                         <div class="section-back" data-section-back-btn>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -1293,7 +1313,8 @@
                                 </button>
 
                                 <span class="subscription-total-mobile-title" id="subscriptionTotalMobileTitle"></span>
-                                Total: <span class="subscription-total-mobile-sum subscription-total-mobile-sum-space"> $</span><span class="subscription-total-mobile-sum" data-total-counter-box></span>
+                                Total: <span class="subscription-total-mobile-sum subscription-total-mobile-sum-space"> $</span><span
+                                    class="subscription-total-mobile-sum" data-total-counter-box></span>
                             </div>
 
                             <div class="subscription-details-column">
@@ -1448,13 +1469,16 @@
                         </div>
                     </div>
 
-                    <div class="subscription-step-box" data-package-container-wrap>
+                    <div  data-animate class="subscription-step-box" data-package-container-wrap>
                         <div class="subscription-accordion-box subscription-accordion">
                             <div data-package-modal-close class="package-modal-close lg:hidden">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_1_1170)">
-                                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"></path>
                                     </g>
                                     <defs>
                                         <clipPath id="clip0_1_1170">
@@ -1475,7 +1499,7 @@
                                 Total: $<span data-total-counter-box></span> USD
                             </div>
                             <button type="button" class="btn btn-rounded btn-blue btn-next uppercase"
-                                  data-request-invoice-successful>Request invoice
+                                    data-request-invoice-successful>Request invoice
                                 <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
                             </button>
                         </div>
@@ -1483,7 +1507,8 @@
                 </div>
 
                 <div class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
-                    <button  data-request-invoice-successful type="button" class="btn lg:hidden btn-rounded btn-blue btn-next uppercase">
+                    <button data-request-invoice-successful type="button"
+                            class="btn lg:hidden btn-rounded btn-blue btn-next uppercase">
                         Total: $<span data-total-counter-box></span> USD
                         <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
                     </button>
