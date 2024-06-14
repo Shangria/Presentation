@@ -153,7 +153,7 @@ header {
 .section-back,
 .section-close {
     position: absolute;
-    top: 9dvh;
+    top: 6dvh;
     width: 64px;
     height: 64px;
     display: -webkit-box;
@@ -201,7 +201,7 @@ header {
 }
 
 .section.section-select-target .main {
-    padding: 9dvh 60px 6dvh 60px;
+    padding: 6dvh 60px 6dvh 60px;
 }
 
 .section.section-select-target .title,
@@ -311,7 +311,7 @@ header {
 .section.section-modules .main,
 .calculation-container {
     flex-basis: 73%;
-    padding: 9vh 3vw 6vh;
+    padding: 6vh 3vw 6vh;
     background: url('../images/gradient.png');
     background-size: cover;
     background-position: right;
