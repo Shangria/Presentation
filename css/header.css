@@ -71,10 +71,6 @@
   padding-right: 12px;
 }
 
-.top-links-not-auth li:last-child {
-  padding-right: 0;
-}
-
 .top-links li a {
   font-family: "Poppins";
   font-style: normal;
@@ -105,6 +101,10 @@
 }
 
 .search-icon-mobile-template {
+  display: none;
+}
+
+.header-subscribe-mobile-button {
   display: none;
 }
 
@@ -142,11 +142,12 @@
     height: 100%;
     align-items: center;
     padding: 0 20px;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
   }
 
   .header-content {
-    height: 40px;
-    padding: 6px 0;
+    padding: 12px 0;
   }
 
   .logo {
@@ -191,7 +192,7 @@
   .top-menu {
     position: absolute;
     z-index: 101;
-    top: 40px;
+    top: 100%;
     left: 0;
     width: 100%;
     height: 0;
@@ -211,10 +212,7 @@
     overflow: auto;
     align-items: stretch;
   }
-  
-  .top-links-not-auth li:last-child {
-    padding-right: 12px;
-  }
+
   .top-menu-nav-wrapper > * {
     opacity: 0.3;
     transition: all 0.2s ease-in-out 0.1s;
@@ -381,16 +379,16 @@
   }
 
   .top-links li a.home:before {
-    background: url("/icons/home-icon.svg") no-repeat center center;
+    background: url("../images/icons/home-icon.svg") no-repeat center center;
   }
   .top-links li a.contact:before {
-    background: url("/icons/contact-icon.svg") no-repeat center center;
+    background: url("../images/icons/contact-icon.svg") no-repeat center center;
   }
   .top-links li a.news:before {
-    background: url("/icons/news-icon.svg") no-repeat center center;
+    background: url("../images/icons/news-icon.svg") no-repeat center center;
   }
   .top-links li a.database:before {
-    background: url("/icons/database-icon.svg") no-repeat center center;
+    background: url("../images/icons/database-icon.svg") no-repeat center center;
   }
 
   .top-links li a:after {
@@ -432,5 +430,33 @@
 
   .user-name {
     display: block;
+  }
+
+  .header-subscribe-mobile-button {
+    text-align: center;
+    background-color: var(--subscribe-btn-color);
+    padding: 6px 13px;
+    border-radius: 8px;
+    transition: all .2s ease-in-out;
+    display: block;
+  }
+  
+  .header-subscribe-mobile-button:hover {
+    background-color: var(--subscribe-btn-color-hover);
+  }
+  
+  .header-subscribe-mobile-button:active {
+    transition: all .1s ease-in-out;
+    background-color: var(--subscribe-btn-color-focus);
+  }
+  
+  .header-subscribe-mobile-button {
+    opacity: 1;
+    color: var(--color-white);
+    text-align: center;
+    font-size: 14px;
+    font-family: "Poppins";
+    font-weight: 500;
+    line-height: 20px;
   }
 }

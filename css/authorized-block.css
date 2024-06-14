@@ -20,7 +20,7 @@
 
 li.user-dropdown  {
   width: 147px;
-  padding: 9px 12px;
+  padding: 9px 14px;
   color: var(--color-white);
   background-color: var(--user-dropdown-bg);
   border-radius: 8px;
@@ -60,7 +60,7 @@ ul.authorized-block > li.user {
 }
 
 .dropdown label:after {
-  content: url("../icons/dropdown.svg");
+  content: url("../images/icons/dropdown.svg");
   position: absolute;
   display: block;
   right: 0;

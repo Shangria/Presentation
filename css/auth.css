@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0 auto;
   transition: opacity 0.3s ease-in-out;
+  background: transparent;
 }
 
 .signIn-modal-active {
@@ -12,16 +13,18 @@
 
 .signIn-modal-active .main-content {
   margin: unset;
-  filter: blur(3px);
+  /* filter: blur(3px); */
 }
 
 .signIn-modal-active .ui-widget-overlay {
-  opacity: 0.6;
-  background-color: var(--overlay-bg-color);
+  opacity: 1;
+  background-color: #1d1f28cc;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 .signIn-modal-active .ui-dialog .ui-dialog-titlebar-close {
-  filter: brightness(10);
+  filter: invert();
 }
 
 .signIn-modal-active .ui-dialog .ui-dialog-titlebar {
@@ -49,6 +52,7 @@
   background-color: var(--dropdown-item-hover);
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+  line-height: 1;
 }
 
 .signIn-modal-active #MainBody_Overview_pnlSignIn {
@@ -104,6 +108,10 @@
   border: 1px solid var(--spinner-color);
 }
 
+.signIn-modal-fields-input::placeholder {
+  color: #757575;
+}
+
 .signIn-modal-options {
   display: flex;
   margin-top: 14px;
@@ -149,7 +157,7 @@
   bottom: 0;
   margin: auto;
   position: absolute;
-  background: url("/icons/check.svg") no-repeat center;
+  background: url("../images/icons/check.svg") no-repeat center;
   filter: brightness(10);
 }
 
@@ -174,8 +182,7 @@
 
 .signIn-modal-button {
   width: 100%;
-  height: 6.5vh;
-  padding: 1.1vh;
+  padding: 14px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -248,7 +255,7 @@
 
   .isSignInModalPosition {
     max-width: 100%;
-    top: 40px !important;
+    top: 56px !important;
     /* TODO: Hide page animation */
     transition: all 0.4s ease-in-out;
 
@@ -303,7 +310,7 @@
   }
 
   .signIn-modal-active .main-content {
-    filter: blur(0);
+    /* filter: blur(0); */
   }
 
   .ui-widget-overlay {
@@ -432,13 +439,8 @@
   .signIn-modal-button-subscribe {
     outline: none;
     display: block;
-    position: absolute;
-    bottom: 15vh;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
     width: 100%;
-    padding: 1.8vh 0;
+    padding: 14px;
     border-radius: 6px;
     background-color: var(--color-white);
     border: 2px solid var(--color-blue);
@@ -461,11 +463,6 @@
     border: 2px solid var(--subscribe-btn-color);
 
     color: var(--color-white) !important;
-  }
-
-  .signIn-modal-active .signIn-modal-button-demo,
-  .signIn-modal-active .signIn-modal-button-subscribe {
-    width: calc(100% - 40px);
   }
 
   .signIn-modal-active .signIn-modal-button-demo:hover {
@@ -523,8 +520,6 @@
 
   .top-links-not-auth {
     display: flex;
-    flex-direction: column;
-    height: 100%;
   }
 
   .user-auth-desktop {

@@ -1,3 +1,8 @@
+@import "../css/header.css";
+@import "../css/authorized-block.css";
+@import "../css/authorized-block-mobile-bottom.css";
+@import "../css/auth.css";
+@import "../css/not-authorized.css";
 @import "../css/button.css";
 @import "../css/common-styles.css";
 @import "../css/selects.css";
@@ -9,6 +14,7 @@
 @import "../css/terms-of-use-modal.css";
 @import "../css/subscription-step.css";
 @import "../css/tab-panel.css";
+@import "../css/mdo.css";
 
 @tailwind base;
 @tailwind components;
