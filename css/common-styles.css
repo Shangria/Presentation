@@ -862,11 +862,10 @@ header {
     .presentation-modules-item.presentation-modules-item-active {
         background-color: #ffffff0d;
     }
+}
 
-    .header-hide{
-        position: static!important;
-    }
-
+.header-hide{
+    position: static!important;
 }
 
 .swiper{

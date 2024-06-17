@@ -265,6 +265,7 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
 
     $("[data-video-btn]").click(function () {
         $("#modalVideo").css("display", "flex").hide().fadeIn(500);
+        document.querySelector("header").classList.add('header-hide')
         $("#bgOpacityInner").addClass("bg-opacity-inner-open backdrop-blur-sm");
     });
 
