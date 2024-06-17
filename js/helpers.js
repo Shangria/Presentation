@@ -519,6 +519,7 @@ document.addEventListener("click", () => {
                 }
 
                 openItem.classList.remove("drop-down-item-open");
+
             });
 
 
@@ -529,6 +530,7 @@ document.addEventListener("click", () => {
             });
 
             bgOpacityInner.classList.remove('bg-opacity-inner-open');
+            document.querySelector("header").classList.remove('header-hide')
         });
     });
 
@@ -543,6 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const bgOpacityInner = document.getElementById('bgOpacityInner');
 
         packageContainerWrap.classList.add('subscription-step-box-open');
+        document.querySelector("header").classList.add('header-hide')
         bgOpacityInner.classList.add('bg-opacity-inner-open');
         showModulePanel("Research Package", "", "currentBoxModules",);
 
