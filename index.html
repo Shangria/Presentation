@@ -262,34 +262,6 @@
     </div>
 </header>
 
-<script type="text/javascript">
-    const headerWrap = document.querySelector('.headerWrap');
-
-    function getScrollBarWidth() {
-        let div = document.createElement('div');
-
-        div.style.overflowY = 'scroll';
-        div.style.width = '50px';
-        div.style.height = '50px';
-        div.style.visibility = 'hidden';
-
-        document.body.appendChild(div);
-        const scrollWidth = div.offsetWidth - div.clientWidth;
-        document.body.removeChild(div);
-
-        return scrollWidth;
-    }
-
-    function updateHeaderRightOffset() {
-        try {
-            headerWrap.style.right = getScrollBarWidth() + 'px';
-        } catch(err) {
-            console.warn(err);
-        }
-    }
-
-    updateHeaderRightOffset();
-</script>
 <div class="swiper main-content" id="page-slider">
     <div class="bg-opacity-inner" id="bgOpacityInner"></div>
     <div class="swiper-wrapper">
