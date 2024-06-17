@@ -441,7 +441,7 @@ const signIn = () => {
   signInModal.css('opacity', '1');
   if (!$('.ui-dialog-titlebar').find('#signIn-modal-logo').length) {
     $('.ui-dialog-titlebar').append(
-      "<img id='signIn-modal-logo' src='/images/logo.svg' alt='MDO' title='Mining Data Online'>"
+      "<img id='signIn-modal-logo' src='images/logo.svg' alt='MDO' title='Mining Data Online'>"
     );
   }
   const closeSignInModalWindow = (isMenuClosed) => {
