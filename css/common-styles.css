@@ -863,6 +863,10 @@ header {
         background-color: #ffffff0d;
     }
 
+    .header-hide{
+        position: static!important;
+    }
+
 }
 
 .swiper{
