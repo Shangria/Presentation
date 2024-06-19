@@ -687,7 +687,7 @@ header {
         border-radius: 50%;
         position: absolute;
         right: 20px;
-        top: 14px;
+        top: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -749,7 +749,7 @@ header {
         background: #1D1F28 !important;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        margin-top: 115px;
+        margin-top: 60px;
         padding: 0 18px 18px;
         min-height: 100%;
         transform: translateY(100%);
@@ -813,12 +813,10 @@ header {
     .package-info .package-info-mobile-title {
         font-size: 18px;
         font-weight: 400;
-        line-height: 36px;
+        line-height: 23px;
         text-align: left;
         text-transform: uppercase;
-        padding-top: 14px;
-        padding-bottom: 12px;
-
+        padding: 14px 34px 20px 0;
     }
 
     .package-info--img {
@@ -919,6 +917,12 @@ header {
     scrollbar-width: thin; /* 'auto' или 'thin' */
     scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
 
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 

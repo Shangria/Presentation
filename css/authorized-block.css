@@ -181,5 +181,7 @@ ul.submenu li a {
 .not-authorized-user .authorized-block {
   display: none;
 }
-
+.user-name {
+color: black;
+}
 
