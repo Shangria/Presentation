@@ -25,25 +25,14 @@ window.addEventListener("load", ()=>{
                 animateFirstSlide();
             },
 
+            beforeTransitionStart: function(swiper) {
+                // Подготовка элементов к анимации
 
-            /**
-             * Event will be fired when currently active slide is changed
-             */
-            slideChange: function (swiper) {
-                // Animate when navigating from 1 to 2 slide
-
-                if (swiper.previousIndex < swiper.activeIndex) {
-                    //to right
-
-                    showAnimationFromRight();
-                } else if (swiper.previousIndex > swiper.activeIndex) {
-                    // to left
-
-                    showAnimationFromLeft();
-                }
-
-                // update current index
-                activePageIndex = swiper.activeIndex;
+                prepareAnimation(swiper);
+            },
+            transitionStart: function(swiper) {
+                // Запуск анимации после полного перехода
+                startAnimation(swiper);
             },
         },
     });
@@ -89,14 +78,18 @@ function animateFirstSlide() {
     $('#slide1 [data-animate]').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth');
 }
 
-function showAnimationFromRight() {
-    // Remove the animation for the appearance effect on the left side and add it for the right side.
-    $('[data-animate]').removeClass('animate__fadeInRight').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth')
+function prepareAnimation(swiper) {
+    // Скрытие всех анимированных элементов
+    $('[data-animate]').css('opacity', 0).removeClass('animate__animated animate__fadeInLeft animate__fadeInRight');
 }
 
-function showAnimationFromLeft() {
-// Remove the animation for the appearance effect on the right side and add it for the left side.
-    $('[data-animate]').removeClass('animate__fadeInLeft').addClass('animate__animated animate__fadeInRight animate__fast animate__smooth')
+function startAnimation(swiper) {
+    // Применение анимации в зависимости от направления перехода
+    if (swiper.activeIndex > swiper.previousIndex) {
+        $('#slide' + (swiper.activeIndex + 1) + ' [data-animate]').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth').css('opacity', 1);
+    } else if (swiper.activeIndex < swiper.previousIndex) {
+        $('#slide' + (swiper.activeIndex + 1) + ' [data-animate]').addClass('animate__animated animate__fadeInRight animate__fast animate__smooth').css('opacity', 1);
+    }
 }
 
 /*
@@ -148,4 +141,4 @@ $(document).ready(function () {
     });
 
 })
-export {pageSlider, showAnimationFromRight}
+export {pageSlider}

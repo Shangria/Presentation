@@ -10,7 +10,7 @@ import {
 } from "./helpers.js";
 import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
 import {validateForm} from "./validation-form.js";
-import {showAnimationFromRight} from "./sliders.js";
+
 
 let stepFormState = {
     // page 1
