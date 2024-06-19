@@ -26,12 +26,9 @@ window.addEventListener("load", ()=>{
             },
 
             beforeTransitionStart: function(swiper) {
-                // Подготовка элементов к анимации
-
                 prepareAnimation(swiper);
             },
             transitionStart: function(swiper) {
-                // Запуск анимации после полного перехода
                 startAnimation(swiper);
             },
         },
@@ -79,12 +76,10 @@ function animateFirstSlide() {
 }
 
 function prepareAnimation(swiper) {
-    // Скрытие всех анимированных элементов
     $('[data-animate]').css('opacity', 0).removeClass('animate__animated animate__fadeInLeft animate__fadeInRight');
 }
 
 function startAnimation(swiper) {
-    // Применение анимации в зависимости от направления перехода
     if (swiper.activeIndex > swiper.previousIndex) {
         $('#slide' + (swiper.activeIndex + 1) + ' [data-animate]').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth').css('opacity', 1);
     } else if (swiper.activeIndex < swiper.previousIndex) {
@@ -92,36 +87,6 @@ function startAnimation(swiper) {
     }
 }
 
-/*
-function hideFirstSlideAnimation () {
-    $('[data-boost-style]').addClass('animate__fadeOutLeft  animate__fast ');
-    $('[data-laptop-style]').addClass('animate__fadeOutLeft  animate__fast ');
-}
-
-function showFirstSlideAnimation () {
-    $('[data-boost-style]').addClass('animate__fadeInRight animate__fast');
-    $('[data-laptop-style]').addClass('animate__fadeInRight animate__fast');
-}
-
-,k
-
-function showSecondSlideAnimation () {
-    $('.section-select-target .section-back').removeClass('animate__fadeOut').addClass('animate__fadeIn');
-    $('.section-select-target .section-close').removeClass('animate__fadeOut').addClass('animate__fadeIn');
-    $('.section-select-target .title').removeClass('animate__fadeOutUp').addClass('animate__fadeInDown');
-    $('#comprehensive-slider').removeClass('animate__fadeOutRight').addClass('animate__fadeInRight');
-    $('.swiper-dots-wrapper').removeClass('animate__fadeOutDown').addClass('animate__fadeInUp');
-}
-
-function hideThirdSlideAnimation () {
-    $('.presentation-menu').removeClass('animate__fadeInLeft').addClass('animate__fadeOutLeft');
-    $('.section-modules .main').removeClass('animate__fadeInRight').addClass('animate__fadeOutRight');
-}
-
-function showThirdSlideAnimation () {
-    $('.presentation-menu').removeClass('animate__fadeOutLeft').addClass('animate__fadeInLeft');
-    $('.section-modules .main').removeClass('animate__fadeOutRight').addClass('animate__fadeInRight');
-}*/
 
 $(document).ready(function () {
     /**
