@@ -15,7 +15,7 @@ window.addEventListener("load", ()=>{
         allowSlideNext: true,
         allowSlidePrev: true,
         effect: 'fade',
-        initialSlide:1,
+        initialSlide:0,
         fadeEffect: {
             crossFade: true,
         },
