@@ -68,6 +68,7 @@ function validateEmailInput() {
         if (errorDiv) {
             errorDiv.textContent = 'Please fill';
             errorDiv.style.display = 'block';
+            errorDiv.parentNode.classList.add("error-border");
         }
         return false;
     }
@@ -76,6 +77,7 @@ function validateEmailInput() {
         if (errorDiv) {
             errorDiv.textContent = 'Please fill properly';
             errorDiv.style.display = 'block';
+            errorDiv.parentNode.classList.add("error-border");
         }
         return false;
     } else {
