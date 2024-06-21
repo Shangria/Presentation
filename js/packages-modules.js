@@ -299,7 +299,7 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
                 } else {
                     suggestedModuleItemsHtml += `
                                      <div class="dropdown-box closing" data-tab-item="${module.name}">
-                                          <div class="toggle-container">
+                                          <div class="toggle-container cursor-default">
                                                 <button class="dropdown-toggle">${item.title}</button>
                                           </div>
                                          

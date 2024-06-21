@@ -38,6 +38,10 @@
     transition: all .3s ease-in-out;
 }
 
+.toggle-container button {
+    cursor: inherit;
+}
+
 .dropdown-toggle-arrow {
     transform-origin: center center;
     transition: .2s ease-in-out;
