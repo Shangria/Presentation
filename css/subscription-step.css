@@ -237,9 +237,9 @@
 }
 
 .subscription-total-mobile-img {
-    width: 30px;
-    top: 5px;
-    right: 5px;
+    width: 25px;
+    top: 4px;
+    right: 4px;
 }
 
 .subscription-total-mobile-img img {
@@ -372,7 +372,7 @@
     }
 
     .subscription-accordion-box .accordion-panel{
-        height: calc(100% - 170px);
+        height: calc(100% - 110px);
         max-height: 100%;
     }
 }

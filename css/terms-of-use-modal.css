@@ -25,7 +25,7 @@
 .terms-of-use-modal-box {
     overflow-y: auto;
     height: calc(100% - 65px);
-    padding: 30px 20px 0;
+    padding: 10px 20px 0;
     font-size: 14px;
 }
 
@@ -38,11 +38,10 @@
 }
 
 .terms-of-use-modal-title {
-    color: #4c4c4c;
+    color: white;
     text-align: center;
     font-size: 24px;
     font-weight: 300;
-    background: #ececec;
     padding: 12px 0;
     width: 100%;
 }
@@ -84,7 +83,7 @@
     }
 
     .terms-of-use-modal-box {
-        padding: 30px 50px 0;
+        padding: 10px 50px 0;
     }
 
 }

@@ -12,14 +12,17 @@
     font-weight: 500;
     line-height: 2.061rem;
     text-align: center;
-    -webkit-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
     padding-bottom: 20px;
 }
 
 #comprehensive-slider .comprehensive-slide-item.swiper-slide-checked .content{
     padding-bottom: 60px;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 
@@ -32,10 +35,10 @@
 }
 
 #comprehensive-slider .comprehensive-slide-item .content-modules-list{
+    overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transition: all .8s ease-in-out;
-    visibility: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity .3s ease-in-out;
     padding: 0 20px;
     font-weight: 400;
 }
@@ -43,10 +46,9 @@
 
 
 #comprehensive-slider .comprehensive-slide-item.swiper-slide-checked .content-modules-list {
-    max-height: 500px;
+    max-height: 500px; /* или больше, в зависимости от максимально возможной высоты контента */
     opacity: 1;
-    visibility: visible;
-    transition: all .8s ease-in-out;
+    transition: max-height 0.8s ease-in-out, opacity .3s ease-in-out;
 }
 
 

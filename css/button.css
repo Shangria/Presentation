@@ -68,7 +68,6 @@
 	font-weight: 600;
 	font-size: clamp(16px, 1.2vw, 22px);
 	line-height: 20px;
-	min-height: 60px;
 }
 
 .btn.btn-next img{
@@ -86,6 +85,7 @@
 	.btn.btn-outline-blue,
 	.btn.btn-next {
 		font-weight: 500;
+		height: 46px;
 	}
 	.btn.btn-outline-blue:hover,
 	.btn.btn-next:hover,
