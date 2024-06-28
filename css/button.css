@@ -81,6 +81,12 @@
 	font-size: 24px;
 }
 
+
+.btn-slider-segments{
+	width: 100%;
+	max-width: 415px;
+}
+
 @media screen and (max-width: 1024px) {
 	.btn.btn-outline-blue,
 	.btn.btn-next {
@@ -91,6 +97,13 @@
 	.btn.btn-next:hover,
 	.btn.btn-size-xl:hover {
 		font-size: 16px;
+	}
+
+	.btn-slider-segments{
+		position: absolute;
+		bottom: 20px;
+		width: 100%;
+		padding: 0 20px;
 	}
 
 	.btn.btn-blue.btn-single  {
@@ -120,5 +133,11 @@
 	.btn-title {
 		font-size: 1.115rem;
 		line-height: 0.892rem;
+	}
+}
+
+@media screen and (min-width: 1496px) {
+	.btn-slider-segments{
+		margin-left: auto;
 	}
 }

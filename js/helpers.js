@@ -552,6 +552,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const scrollSections = document.querySelectorAll("[data-section-scroll]");
+    const scrollSectionsWraps = document.querySelectorAll("[data-section-scroll-class]");
+
+    scrollSections.forEach((section, index) => {
+        section.addEventListener("scroll", () => {
+            let scrollTop = section.scrollTop;
+            let scrollHeight = section.scrollHeight;
+            let clientHeight = section.clientHeight;
+            if (scrollTop > 0) {
+                scrollSectionsWraps[index].classList.add('scrolled-top');
+                if (scrollTop + clientHeight >= scrollHeight) {
+                    scrollSectionsWraps[index].classList.remove("scrolled-bottom");
+                } else {
+                    scrollSectionsWraps[index].classList.add("scrolled-bottom");
+                }
+            } else {
+                scrollSectionsWraps[index].classList.remove('scrolled-top');
+            }
+        });
+    });
+});
+
 
 export {
     showModulePanel,

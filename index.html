@@ -386,8 +386,8 @@
 
         <!-- slide2 -->
         <div class="swiper-slide" id="slide2">
-            <section class="section section-select-target">
-                <div class="main relative flex flex-col">
+            <section class="section section-select-target section-scroll-bg-top " data-section-scroll-class>
+                <div class="main flex flex-col">
                     <img src="./images/gradient.png" alt="gradient" class="gradient">
                     <div class="section-back" data-section-back-btn>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -418,8 +418,8 @@
                         </svg>
                     </div>
                     <h2 data-animate class="title">Select your target segment</h2>
-                    <div data-animate class="swiper swiper-comprehensive grow w-full" id="comprehensive-slider">
-                        <div class="swiper-wrapper">
+                    <div data-animate class="swiper swiper-comprehensive grow w-full section-scroll-bg-bottom" id="comprehensive-slider">
+                        <div class="swiper-wrapper" data-section-scroll>
                             <div class="comprehensive-slide-item" data-segment-item data-segment="Mining"
                                  data-id="Mining">
                                 <div class="swiper-slide-inner">
@@ -790,14 +790,16 @@
                                 </svg>
                             </div>
                         </div>
-                        <button
+                        <div class="btn-slider-segments">
+                            <button
                                 type="button"
                                 id="btnSegmentsNext"
-                                class="btn btn-single  btn-rounded btn-blue btn-next ml-auto mr-auto-lg uppercase"
+                                class="btn  btn-rounded btn-blue btn-next ml-auto mr-auto-lg uppercase"
                                 disabled
                         >
                             Next
-                        </button>
+                        </button></div>
+
                     </div>
                 </div>
             </section>
