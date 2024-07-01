@@ -850,7 +850,7 @@ header {
 
     .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-top {
         &:after {
-            height: 65px;
+            height: 55px;
             background: linear-gradient(.5turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
         }
     }
