@@ -553,27 +553,37 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    addedBgScroll()
+});
+
+function addedBgScroll(){
     const scrollSections = document.querySelectorAll("[data-section-scroll]");
     const scrollSectionsWraps = document.querySelectorAll("[data-section-scroll-class]");
 
-    scrollSections.forEach((section, index) => {
+
+    scrollSections.forEach((section, scrollSectionsIndex) => {
         section.addEventListener("scroll", () => {
             let scrollTop = section.scrollTop;
             let scrollHeight = section.scrollHeight;
             let clientHeight = section.clientHeight;
-            if (scrollTop > 0) {
-                scrollSectionsWraps[index].classList.add('scrolled-top');
-                if (scrollTop + clientHeight >= scrollHeight) {
-                    scrollSectionsWraps[index].classList.remove("scrolled-bottom");
-                } else {
-                    scrollSectionsWraps[index].classList.add("scrolled-bottom");
+            scrollSectionsWraps.forEach((scrollSectionsWrap, sectionsWrapIndex)=>{
+                if(section.getAttribute("data-section-scroll")===scrollSectionsWrap.getAttribute("data-section-scroll-class")){
+                    if (scrollTop > 0) {
+                        scrollSectionsWraps[sectionsWrapIndex].classList.add('scrolled-top');
+                        if (scrollTop + clientHeight >= scrollHeight - 2) {
+                            scrollSectionsWraps[sectionsWrapIndex].classList.remove("scrolled-bottom");
+                        } else {
+                            scrollSectionsWraps[sectionsWrapIndex].classList.add("scrolled-bottom");
+                        }
+                    } else {
+                        scrollSectionsWraps[sectionsWrapIndex].classList.remove('scrolled-top');
+                    }
                 }
-            } else {
-                scrollSectionsWraps[index].classList.remove('scrolled-top');
-            }
+            })
+
         });
     });
-});
+}
 
 
 export {
@@ -588,5 +598,6 @@ export {
     changePackageSelect,
     resetForm,
     clearSegmentsList,
-    openModalModule
+    openModalModule,
+    addedBgScroll
 };

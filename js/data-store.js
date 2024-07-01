@@ -247,7 +247,7 @@ export let store = {
         {
             name: 'Comminution',
             iconImg: './images/icons/modules/mining-operations.svg',
-            img: './images/slides/heavy-mobile-equipment.jpeg',
+            img: './images/slides/commodity-production.jpeg',
             price: 100.00,
             video:"https://www.youtube.com/embed/8VESowgMbjA?si=qJbm3YA6jJnztTLo",
             serviceTabs: [

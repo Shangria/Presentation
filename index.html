@@ -386,7 +386,7 @@
 
         <!-- slide2 -->
         <div class="swiper-slide" id="slide2">
-            <section class="section section-select-target section-scroll-bg-top " data-section-scroll-class>
+            <section class="section section-select-target section-scroll-bg-top " data-section-scroll-class="2">
                 <div class="main flex flex-col">
                     <img src="./images/gradient.png" alt="gradient" class="gradient">
                     <div class="section-back" data-section-back-btn>
@@ -418,8 +418,9 @@
                         </svg>
                     </div>
                     <h2 data-animate class="title">Select your target segment</h2>
-                    <div data-animate class="swiper swiper-comprehensive grow w-full section-scroll-bg-bottom" id="comprehensive-slider">
-                        <div class="swiper-wrapper" data-section-scroll>
+                    <div data-animate class="swiper swiper-comprehensive grow w-full section-scroll-bg-bottom"
+                         id="comprehensive-slider">
+                        <div class="swiper-wrapper" data-section-scroll="2">
                             <div class="comprehensive-slide-item" data-segment-item data-segment="Mining"
                                  data-id="Mining">
                                 <div class="swiper-slide-inner">
@@ -500,7 +501,7 @@
                                  data-id="Comminution">
                                 <div class="swiper-slide-inner">
                                     <img
-                                            src="./images/slides/comminution-crushers-and-mills.jpeg"
+                                            src="./images/slides/commodity-production.jpeg"
                                             alt="comminution"
                                             class="w-full object-cover h-full absolute top-0 right-0 bottom-0 left-0"
                                     />
@@ -792,13 +793,14 @@
                         </div>
                         <div class="btn-slider-segments">
                             <button
-                                type="button"
-                                id="btnSegmentsNext"
-                                class="btn  btn-rounded btn-blue btn-next ml-auto mr-auto-lg uppercase"
-                                disabled
-                        >
-                            Next
-                        </button></div>
+                                    type="button"
+                                    id="btnSegmentsNext"
+                                    class="btn  btn-rounded btn-blue btn-next ml-auto mr-auto-lg uppercase"
+                                    disabled
+                            >
+                                Next
+                            </button>
+                        </div>
 
                     </div>
                 </div>
@@ -839,13 +841,15 @@
                         </svg>
                     </div>
                     <h2 data-animate class="title title-mobile lg:hidden">Packages and Modules</h2>
-                    <div data-animate class="presentation-menu presentation-menu-big-space section-scroll-bg-top " data-section-scroll-class id="presentationMenuSlide3">
+                    <div data-animate
+                         class="presentation-menu presentation-menu-big-space section-scroll-bg-top section-scroll-bg-bottom"
+                         data-section-scroll-class="3" id="presentationMenuSlide3">
                         <!-- Do not delete this block. It's being used in js -->
                     </div>
                     <div class="main package-container-wrap fixed lg:relative flex flex-col"
                          data-package-container-wrap>
                         <h2 data-animate class="title hidden lg:block">Packages and Modules</h2>
-                        <div data-animate  class="package  flex flex-col lg:flex-row flex-nowrap flex-grow">
+                        <div data-animate class="package  flex flex-col lg:flex-row flex-nowrap flex-grow">
                             <div data-package-modal-close class="package-modal-close lg:hidden">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -868,9 +872,13 @@
                                 <!-- Do not delete this block. It's being used in js -->
                             </div>
                             <div class="package-list w-full flex flex-col">
-                                <div class="accordion-panel" id="accordionPanelSlide3">
-                                    <!-- Do not delete this block. It's being used in js -->
+                                <div class="accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
+                                     data-section-scroll-class="acc3">
+                                    <div class="accordion-panel " data-section-scroll="acc3" id="accordionPanelSlide3">
+                                        <!-- Do not delete this block. It's being used in js -->
+                                    </div>
                                 </div>
+
                                 <div class="packages-request hidden lg:flex justify-end grow items-end">
                                     <button data-request-demo type="button"
                                             class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
@@ -904,7 +912,7 @@
         <div class="swiper-slide swiper-slide-calculation" id="slide4">
             <section class="section section-modules section-calculation">
                 <div class="flex flex-nowrap h-full">
-                    <div class="section-back" data-section-back-btn>
+                    <div class="section-back z-20" data-section-back-btn>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_332_23416)">
                                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -934,15 +942,20 @@
                     </div>
                     <div class="section-slide-box w-full flex-col lg:flex-row flex">
                         <h2 data-animate class="title order-1 title-mobile lg:hidden">Packages and Modules</h2>
-                        <div  data-animate  class="presentation-menu order-3 lg:order-1 presentation-menu-little-space"
-                             id="presentationMenuSlide4">
-                            <!-- Do not delete this block. It's being used in js -->
+                        <div class="order-3 lg:order-1 presentation-menu-scroll-box section-scroll-bg-top section-scroll-bg-bottom"
+                             data-section-scroll-class="4">
+                            <div data-animate class="presentation-menu presentation-menu-little-space"
+                                 id="presentationMenuSlide4">
+                                <!-- Do not delete this block. It's being used in js -->
+                            </div>
                         </div>
+
                         <div class="calculation-container order-2 lg:order-2  flex">
                             <div class="main package-container-wrap fixed lg:relative flex flex-col"
                                  data-package-container-wrap>
-                                <h2  data-animate  class="title  hidden lg:block">Packages and Modules</h2>
-                                <div  data-animate  class="package package-container package-container-width flex flex-col lg:flex-row flex-nowrap flex-grow">
+                                <h2 data-animate class="title  hidden lg:block">Packages and Modules</h2>
+                                <div data-animate
+                                     class="package package-container package-container-width flex flex-col lg:flex-row flex-nowrap flex-grow">
                                     <div data-package-modal-close class="package-modal-close lg:hidden">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -970,13 +983,17 @@
                                         <p><!-- Do not delete this block. It's being used in js --></p>
                                     </div>
                                     <div class="package-list w-full flex flex-col">
-                                        <div class="accordion-panel" id="accordionPanelSlide4">
-                                            <!-- Do not delete this block. It's being used in js -->
+                                        <div class="accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
+                                             data-section-scroll-class="acc4">
+                                            <div class="accordion-panel" data-section-scroll="acc4"
+                                                 id="accordionPanelSlide4">
+                                                <!-- Do not delete this block. It's being used in js -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div  data-animate  class="selects-box-container ">
+                            <div data-animate class="selects-box-container ">
                                 <div class="selects-box">
                                     <div class="select-box regions-select-box">
                                         <div class="select-title-box  flex items-center">
@@ -1166,175 +1183,180 @@
                                 </defs>
                             </svg>
                         </div>
-                        <h2 data-animate  class="title">Subscription</h2>
+                        <h2 data-animate class="title">Subscription</h2>
+                        <div class="subscription-details-columns-wrapper section-scroll-bg-top section-scroll-bg-bottom"
+                             data-section-scroll-class="5">
+                            <div data-animate class="subscription-details-columns " data-section-scroll="5">
+                                <div class="subscription-total-mobile-info lg:hidden">
 
-                        <div data-animate  class="subscription-details-columns">
-                            <div class="subscription-total-mobile-info lg:hidden">
+                                    <button class="subscription-total-mobile-img absolute lg:hidden"
+                                            id="subscriptionModalInfo">
+                                        <img src="./images/request-invoice/info-white.svg" alt="info"/>
+                                    </button>
 
-                                <button class="subscription-total-mobile-img absolute lg:hidden"
-                                        id="subscriptionModalInfo">
-                                    <img src="./images/request-invoice/info-white.svg" alt="info"/>
-                                </button>
-
-                                <span class="subscription-total-mobile-title" id="subscriptionTotalMobileTitle"></span>
-                                Total: <span class="subscription-total-mobile-sum subscription-total-mobile-sum-space"> $</span><span
-                                    class="subscription-total-mobile-sum" data-total-counter-box></span>
-                            </div>
-
-                            <div class="subscription-details-column">
-                                <div class="subscription-box-details flex flex-col ">
-                                    <h4 class="subscription-details-title">Your details</h4>
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="First name" id="firstName">
-                                        <span class="error-message" id="error-firstName"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="Last Name" id="lastName">
-                                        <span class="error-message" id="error-lastName"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input type="tel" id="phone" name="phone"
-                                               placeholder="Phone" pattern="\+\d{1,3}-\d{3}-\d{4}" required>
-                                        <span class="error-message" id="error-phone"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input required type="email" placeholder="Email"
-                                               id="email">
-                                        <span class="error-message" id="error-email"></span>
-                                    </label>
+                                    <span class="subscription-total-mobile-title"
+                                          id="subscriptionTotalMobileTitle"></span>
+                                    Total: <span
+                                        class="subscription-total-mobile-sum subscription-total-mobile-sum-space"> $</span><span
+                                        class="subscription-total-mobile-sum" data-total-counter-box></span>
                                 </div>
 
-                                <div class="subscription-box-details subscription-box-details-space flex flex-col ">
-                                    <h4 class="subscription-details-title">Company details</h4>
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="Company Name" id="companyName">
-                                        <span class="error-message" id="error-companyName"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input type="text" placeholder="Departament"
-                                               id="departament">
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="Position" id="position">
-                                        <span class="error-message" id="error-position"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="Company Address 1" id="companyAddress1">
-                                        <span class="error-message" id="error-companyAddress1"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="Company Address 2" id="companyAddress2">
-                                        <span class="error-message" id="error-companyAddress2"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="Country" id="сountry">
-                                        <span class="error-message" id="error-сountry"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="subscription-details-column">
-                                <div class="subscription-box-details subscription-box-details-second flex flex-col ">
-                                    <label>
-                                        <input data-subscription-input required type="text" placeholder="City"
-                                               id="сity">
-                                        <span class="error-message" id="error-сity"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input required type="text" placeholder="State"
-                                               id="state">
-                                        <span class="error-message" id="error-state"></span>
-                                    </label>
-
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="Zip/Postal Code" id="postalCode">
-                                        <span class="error-message" id="error-postalCode"></span>
-                                    </label>
-                                </div>
-
-                                <div class="subscription-box-details flex flex-col ">
-                                    <h4 class="subscription-details-title">Security</h4>
-                                    <label> <input data-subscription-input required type="text"
-                                                   placeholder="Password" id="password">
-                                        <span class="error-message" id="error-password"></span>
-                                    </label>
-                                    <label>
-                                        <input data-subscription-input required type="text"
-                                               placeholder="Confirm Password" id="confirmPassword">
-                                        <span class="error-message" id="error-confirmPassword"></span>
-                                    </label>
-                                </div>
-
-                                <div class="subscription-payment-box-details">
-                                    <h4 class="subscription-details-title">Payment Method</h4>
-                                    <div class="subscription-payment-box-details-box">
-                                        <div data-radio-item class="radio-item">
-                                            <input data-subscription-input class="radio-button" type="radio"
-                                                   data-pay-method name="payment" id="visaMastercard"
-                                                   value="visaMastercard">
-
-                                            <label for="visaMastercard">
-                                                <div class="radio-btn-item"></div>
-                                                Visa/ Mastercard</label>
-                                        </div>
-
-                                        <div data-radio-item class="radio-item">
-                                            <input data-subscription-input class="radio-button" type="radio"
-                                                   data-pay-method name="payment"
-                                                   id="check" value="check">
-                                            <label for="check">
-                                                <div class="radio-btn-item"></div>
-                                                Check</label>
-                                        </div>
-
-                                        <div data-radio-item class="radio-item">
-                                            <input data-subscription-input class="radio-button" type="radio"
-                                                   data-pay-method name="payment"
-                                                   id="viseTransfer"
-                                                   value="viseTransfer">
-                                            <label for="viseTransfer">
-                                                <div class="radio-btn-item"></div>
-                                                Wise Transfer (EFT)</label>
-                                        </div>
-
-                                        <div data-radio-item class="radio-item">
-                                            <input data-subscription-input class="radio-button" type="radio"
-                                                   data-pay-method name="payment"
-                                                   id="payPal"
-                                                   value="payPal">
-                                            <label for="payPal">
-                                                <div class="radio-btn-item"></div>
-                                                PayPal</label>
-                                        </div>
-
-                                        <span class="error-message" id="error-radio"></span>
-                                    </div>
-                                    <div class="subscription-box-accepted-container">
-                                        <label class="subscription-box-accepted check-box-label flex items-center">
-                                            <input data-subscription-input type="checkbox"
-                                                   class="checkbox-accepted" id="checkboxAccepted">
-                                            <span class="checkmark"></span>
-                                            <p class="ml-8 subscription-box-accepted-text">I Accept </p>
+                                <div class="subscription-details-column">
+                                    <div class="subscription-box-details flex flex-col ">
+                                        <h4 class="subscription-details-title">Your details</h4>
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="First name" id="firstName">
+                                            <span class="error-message" id="error-firstName"></span>
                                         </label>
-                                        <span class="subscription-box-accepted-terms"
-                                              id="termsOfUseOpen">Terms of Use</span>
-                                        <span class="error-message" id="error-checkboxAccepted"></span>
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="Last Name" id="lastName">
+                                            <span class="error-message" id="error-lastName"></span>
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input type="tel" id="phone" name="phone"
+                                                   placeholder="Phone" pattern="\+\d{1,3}-\d{3}-\d{4}" required>
+                                            <span class="error-message" id="error-phone"></span>
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input required type="email" placeholder="Email"
+                                                   id="email">
+                                            <span class="error-message" id="error-email"></span>
+                                        </label>
                                     </div>
 
+                                    <div class="subscription-box-details subscription-box-details-space flex flex-col ">
+                                        <h4 class="subscription-details-title">Company details</h4>
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="Company Name" id="companyName">
+                                            <span class="error-message" id="error-companyName"></span>
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input type="text" placeholder="Departament"
+                                                   id="departament">
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="Position" id="position">
+                                            <span class="error-message" id="error-position"></span>
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="Company Address 1" id="companyAddress1">
+                                            <span class="error-message" id="error-companyAddress1"></span>
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="Company Address 2" id="companyAddress2">
+                                            <span class="error-message" id="error-companyAddress2"></span>
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="Country" id="сountry">
+                                            <span class="error-message" id="error-сountry"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="subscription-details-column">
+                                    <div class="subscription-box-details subscription-box-details-second flex flex-col ">
+                                        <label>
+                                            <input data-subscription-input required type="text" placeholder="City"
+                                                   id="сity">
+                                            <span class="error-message" id="error-сity"></span>
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input required type="text" placeholder="State"
+                                                   id="state">
+                                            <span class="error-message" id="error-state"></span>
+                                        </label>
+
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="Zip/Postal Code" id="postalCode">
+                                            <span class="error-message" id="error-postalCode"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="subscription-box-details flex flex-col ">
+                                        <h4 class="subscription-details-title">Security</h4>
+                                        <label> <input data-subscription-input required type="text"
+                                                       placeholder="Password" id="password">
+                                            <span class="error-message" id="error-password"></span>
+                                        </label>
+                                        <label>
+                                            <input data-subscription-input required type="text"
+                                                   placeholder="Confirm Password" id="confirmPassword">
+                                            <span class="error-message" id="error-confirmPassword"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="subscription-payment-box-details">
+                                        <h4 class="subscription-details-title">Payment Method</h4>
+                                        <div class="subscription-payment-box-details-box">
+                                            <div data-radio-item class="radio-item">
+                                                <input data-subscription-input class="radio-button" type="radio"
+                                                       data-pay-method name="payment" id="visaMastercard"
+                                                       value="visaMastercard">
+
+                                                <label for="visaMastercard">
+                                                    <div class="radio-btn-item"></div>
+                                                    Visa/ Mastercard</label>
+                                            </div>
+
+                                            <div data-radio-item class="radio-item">
+                                                <input data-subscription-input class="radio-button" type="radio"
+                                                       data-pay-method name="payment"
+                                                       id="check" value="check">
+                                                <label for="check">
+                                                    <div class="radio-btn-item"></div>
+                                                    Check</label>
+                                            </div>
+
+                                            <div data-radio-item class="radio-item">
+                                                <input data-subscription-input class="radio-button" type="radio"
+                                                       data-pay-method name="payment"
+                                                       id="viseTransfer"
+                                                       value="viseTransfer">
+                                                <label for="viseTransfer">
+                                                    <div class="radio-btn-item"></div>
+                                                    Wise Transfer (EFT)</label>
+                                            </div>
+
+                                            <div data-radio-item class="radio-item">
+                                                <input data-subscription-input class="radio-button" type="radio"
+                                                       data-pay-method name="payment"
+                                                       id="payPal"
+                                                       value="payPal">
+                                                <label for="payPal">
+                                                    <div class="radio-btn-item"></div>
+                                                    PayPal</label>
+                                            </div>
+
+                                            <span class="error-message" id="error-radio"></span>
+                                        </div>
+                                        <div class="subscription-box-accepted-container">
+                                            <label class="subscription-box-accepted check-box-label flex items-center">
+                                                <input data-subscription-input type="checkbox"
+                                                       class="checkbox-accepted" id="checkboxAccepted">
+                                                <span class="checkmark"></span>
+                                                <p class="ml-8 subscription-box-accepted-text">I Accept </p>
+                                            </label>
+                                            <span class="subscription-box-accepted-terms"
+                                                  id="termsOfUseOpen">Terms of Use</span>
+                                            <span class="error-message" id="error-checkboxAccepted"></span>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
                     <div class="subscription-step-box" data-package-container-wrap>
-                        <div data-animate  class="subscription-accordion-box subscription-accordion">
+                        <div data-animate class="subscription-accordion-box subscription-accordion">
                             <div data-package-modal-close class="package-modal-close lg:hidden">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -1352,13 +1374,16 @@
                                 </svg>
                             </div>
                             <h3 class="subscription-modules-title" id="subscriptionModulesTitle"></h3>
-                            <div class="accordion-panel " id="currentBoxModules">
-                                <!-- Do not delete this block. It's being used in js -->
+                            <div class="accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
+                                 data-section-scroll-class="acc5">
+                                <div class="accordion-panel" data-section-scroll="acc5" id="currentBoxModules">
+                                    <!-- Do not delete this block. It's being used in js -->
+                                </div>
                             </div>
 
                         </div>
 
-                        <div data-animate  class="subscription-step-bottom-box">
+                        <div data-animate class="subscription-step-bottom-box">
                             <div class="total-counter">
                                 Total: $<span data-total-counter-box></span> USD
                             </div>

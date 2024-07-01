@@ -1,5 +1,6 @@
 import {store} from "./data-store.js";
 import {
+    addedBgScroll,
     calculateTotalCost, changePackageSelect,
     determineDefaultState,
     dropdownTogglePanel,
@@ -104,6 +105,7 @@ function buildSubscriptionModulesPanel(){
 
 function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes, slideId) {
     let selectedSegments = [];
+    console.log(presentationMenuId.slice(-1))
 
     for (let segmentName of stepFormState.selectedSegmentNames) {
         let segment = findSegmentById(store.targetSegments, segmentName);
@@ -181,7 +183,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
     }
 
     let suggestedModulesHtml = '';
-    suggestedModulesHtml = `<div class="presentation-menu-box">
+    suggestedModulesHtml = `<div class="presentation-menu-box" data-section-scroll=${presentationMenuId.slice(-1)}>
                                                       <h5>Suggested Modules</h5>
                                                       <div class="presentation-modules">
                                                         ${suggestedModuleItemsHtml}
@@ -226,6 +228,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
 
 
     calculateTotalCost(stepFormState);
+    addedBgScroll()
 
 }
 
