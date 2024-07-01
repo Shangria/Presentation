@@ -867,7 +867,7 @@ header {
 
     .section.section-modules .presentation-menu.section-scroll-bg-bottom {
         &:before {
-            height: 60px;
+            height: 50px;
         }
     }
 
