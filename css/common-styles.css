@@ -845,7 +845,7 @@ header {
 
     .section.section-modules .presentation-menu-scroll-box.section-scroll-bg-top {
         &:after {
-            background: linear-gradient(.5turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
+            background: linear-gradient(.5turn, #1d1f28c9 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
             height: 105px;
         }
     }
@@ -853,7 +853,7 @@ header {
 
     .section.section-modules .presentation-menu-scroll-box.section-scroll-bg-bottom {
         &:before {
-            height: 35px;
+            height: 45px;
         }
     }
 
