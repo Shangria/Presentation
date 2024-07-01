@@ -381,8 +381,12 @@
         width: 165px;
         height: 191px;
         padding-top: 10px;
-        border: 3px solid #02a1d3;
+        border: 3px solid transparent;
 }
+
+    #comprehensive-slider .comprehensive-slide-item.swiper-slide-checked .swiper-slide-inner {
+        border: 3px solid #02a1d3;
+    }
 
     #comprehensive-slider .comprehensive-slide-item {
         width: 165px !important;
