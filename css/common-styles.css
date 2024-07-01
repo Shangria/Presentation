@@ -70,13 +70,12 @@
 
 }
 
-.section.section-select-target{
-    .section-scroll-bg-bottom{
+.section.section-select-target.scrolled-bottom .section-scroll-bg-bottom{
         &:before{
             background: linear-gradient(1turn, #212736 82%, #22293933 96%, #2229391a 83%, #22293900);
             height:90px;
         }
-    }
+
 }
 
 /*//*/
