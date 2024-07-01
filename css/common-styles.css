@@ -885,7 +885,7 @@ header {
     }
 
 
-    .section.section-modules.section-calculation .section-scroll-bg-top {
+    .section.section-modules.section-calculation .section-scroll-bg-top.scrolled-top {
         &:after {
             height: 50px;
         }
@@ -935,7 +935,7 @@ header {
         &:before {
             background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
             height: 30px;
-            bottom: 0px;
+            bottom: 0;
         }
     }
 
@@ -1118,7 +1118,7 @@ header {
     }
 
     .presentation-modules-item {
-        padding: 8px 10px;
+        padding: 10px;
     }
 
     .presentation-modules:last-child {
@@ -1199,6 +1199,11 @@ header {
 
     .presentation-modules-item.presentation-modules-item-active {
         background-color: #ffffff0d;
+    }
+
+    .custom-checkbox-label .checkmark {
+        min-width: 24px!important;
+        height: 24px !important;
     }
 }
 

@@ -40,7 +40,7 @@
 
 
 .regions-select-wrap .select-choices-inner {
-    border: 1px solid #CFCFCF;
+    border: 1px solid #75879b;
     width: 100%;
     height: 5.5dvh;
     max-height: 59px;
@@ -223,7 +223,7 @@
 
 .package-select-box .choices,
 .licences-select-box .choices {
-    border: 1px solid #CFCFCF;
+    border: 1px solid #75879b;
     width: 100%;
     height: 5.5dvh;
     max-height: 59px;
