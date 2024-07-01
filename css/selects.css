@@ -81,19 +81,20 @@
 }
 
 .regions-select-wrap .regions-item-box {
+    background: #47485B;
     width: 100%;
     visibility: hidden;
     opacity: 0;
     overflow: hidden;
     position: absolute;
     transition: opacity 350ms ease, transform 350ms, visibility 0s ease 0s, -webkit-transform 350ms;
-    background: white;
     z-index: 3;
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 20px 0 #00000026;
     padding: 6px;
     border-radius: 8px;
     top: 107%;
     left: 0;
+    color: white;
 }
 
 .regions-select-wrap .regions-item-box.open {
@@ -131,9 +132,9 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #c4bebe;
+    border: 1.5px solid #CFCFCF;
     border-radius: 3px;
-    background-color: white;
+    background-color: transparent;
 }
 
 .subscription-box-accepted .checkmark{
@@ -318,7 +319,7 @@
     overflow: hidden;
     position: absolute;
     transition: opacity 350ms ease, transform 350ms, visibility 0s ease 0s, -webkit-transform 350ms;
-    background: white;
+    background: #47485B;
     z-index: 3;
     box-shadow: 0px 3px 20px 0px #00000026;
     padding: 6px;
@@ -327,7 +328,7 @@
     left: 0;
     border: none;
     margin-top: 0;
-    color:  var(--checkbox-text-color);
+    color:  white;
 }
 
 .licences-select-box .choices__list.choices__list--dropdown.is-active,
@@ -349,6 +350,7 @@
 .licences-select-box .choices__item.is-highlighted,
 .package-select-box .choices__item.is-highlighted {
     background: #E7E7E7 !important;
+    color: #2A2D30 !important;
 }
 
 .custom-licences-select-box{

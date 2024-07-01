@@ -79,15 +79,16 @@
     }
 }
 
+/*//*/
 
-.section.section-modules .section-scroll-bg-top {
+.section.section-modules .presentation-menu.section-scroll-bg-top {
     &:after {
         z-index: 10;
         height: 255px;
         background: linear-gradient(0.5turn, #1d1f28 79%, #1d1f2833 93%, #1d1f281a 98%, #1d1f280d)};
 }
 
-.section.section-modules .section-scroll-bg-bottom{
+.section.section-modules .presentation-menu.section-scroll-bg-bottom{
     &:before {
         background: linear-gradient(1turn, #1d1f28cc 43%, #1d1f2833 80%, #1d1f281a 30%, #1d1f280d);
         height: 50px;
@@ -98,19 +99,37 @@
 /*//*/
 
 
+.section.section-modules .presentation-menu-scroll-box.section-scroll-bg-top {
+    &:after {
+        z-index: 10;
+        height: 255px;
+        background: linear-gradient(0.5turn, #1d1f28 79%, #1d1f2833 93%, #1d1f281a 98%, #1d1f280d)};
+}
+
+.section.section-modules .presentation-menu-scroll-box.section-scroll-bg-bottom{
+    &:before {
+        background: linear-gradient(1turn, #1d1f28cc 43%, #1d1f2833 80%, #1d1f281a 30%, #1d1f280d);
+        height: 50px;
+        z-index: 333;
+        opacity: 0;
+    }
+}
+
+/*//*/
+
 .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-top {
     &:after {
-        height: 105px;
-        background: linear-gradient(.5turn, #212736 44%, #22293933 78%, #2229391a 83%, #22293900);
-        top: -40px;
+        height: 30px;
+        background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
+        top: 0px;
     }
 }
 
 .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-bottom {
     &:before {
-        background: linear-gradient(1turn, #212736 44%, #22293933 78%, #2229391a 83%, #22293900);
-        height: 115px;
-        bottom: -60px;
+        background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
+        height: 30px;
+        bottom: 0px;
     }
 }
 
@@ -136,18 +155,18 @@
 
 .section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top {
     &:after {
-        height: 60px;
-        background: linear-gradient(180deg, #20222C 0%, rgba(36, 38, 54, 0) 77%);
-        top: -10px;
+        height: 30px;
+        background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
+        top: 0;
     }
 }
 
 
 .section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top {
     &:before {
-        height: 60px;
-        background: linear-gradient(0deg, #20222C 0%, rgba(36, 38, 54, 0) 77%);
-        bottom: -10px;
+        height: 30px;
+        background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
+        bottom: 0;
     }
 }
 
@@ -158,6 +177,12 @@
 .section-scroll-bg-bottom.scrolled-bottom{
     &:before {
         opacity: 1!important;
+    }
+}
+
+.section.section-modules .section-scroll-bg-bottom.scrolled-bottom{
+    &:before {
+        opacity: 1 !important;
     }
 }
 
@@ -470,7 +495,8 @@ header {
     flex-basis: 73%;
     padding: 6vh 3vw 6vh;
     background: url('../images/gradient.png');
-    background-size: cover;
+    background-size: 140%;
+    -webkit-background-size: 140%;
     background-position: right;
     background-repeat: no-repeat;
 }
@@ -502,6 +528,16 @@ header {
 
 .section-calculation .package-info {
     flex-basis: 44%;
+}
+
+.package-info-wrapper{
+    height: 100%;
+}
+
+.package-info-inner-wrapper{
+    display: flex;
+    height: 100%;
+    gap: 25px;
 }
 
 .package-info--img {
@@ -658,7 +694,7 @@ header {
 
 @media screen and (max-width: 1495px) {
     .section.section-modules .main {
-        background-position-x: initial;
+        background-position-x: right;
         background-size: cover;
     }
 
@@ -806,6 +842,37 @@ header {
     }
 
 
+
+    .section.section-modules .presentation-menu-scroll-box.section-scroll-bg-top {
+        &:after {
+            background: linear-gradient(.5turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
+            height: 105px;
+        }
+    }
+
+
+    .section.section-modules .presentation-menu-scroll-box.section-scroll-bg-bottom {
+        &:before {
+            height: 60px;
+        }
+    }
+
+
+    .section.section-modules .presentation-menu.section-scroll-bg-top {
+        &:after {
+            background: linear-gradient(.5turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
+            height: 105px;
+        }
+    }
+
+
+    .section.section-modules .presentation-menu.section-scroll-bg-bottom {
+        &:before {
+            height: 60px;
+        }
+    }
+
+
     .section.section-modules.section-calculation .presentation-menu-scroll-box{
         height: 100%;
         overflow: hidden;
@@ -816,19 +883,6 @@ header {
         height: 100%;
     }
 
-    .section.section-modules .section-scroll-bg-top {
-        &:after {
-            background: linear-gradient(.5turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
-            height: 105px;
-        }
-    }
-
-
-    .section.section-modules .section-scroll-bg-bottom {
-        &:before {
-            height: 60px;
-        }
-    }
 
     .section.section-modules.section-calculation .section-scroll-bg-top {
         &:after {
@@ -848,17 +902,31 @@ header {
         height: 100%;
     }
 
-    .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-top {
+    .section.section-modules .accordion-panel-scroll-gradient.accordion-panel-scroll-gradient-box.section-scroll-bg-top {
         &:after {
-            height: 55px;
-            background: linear-gradient(.5turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
+            content: none;
         }
     }
 
-    .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-bottom {
+    .section.section-modules .accordion-panel-scroll-gradient.accordion-panel-scroll-gradient-box.section-scroll-bg-bottom {
         &:before {
-            background: linear-gradient(1turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
-            height: 115px;
+           content: none;
+        }
+    }
+
+    .section.section-modules .package-info-wrapper.section-scroll-bg-top {
+        &:after {
+            height: 30px;
+            background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
+            top: 60px;
+        }
+    }
+
+    .section.section-modules .package-info-wrapper.section-scroll-bg-bottom {
+        &:before {
+            background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
+            height: 30px;
+            bottom: 0px;
         }
     }
 
@@ -938,6 +1006,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 33;
     }
 
     .package-modal-close svg {
@@ -1059,12 +1128,25 @@ header {
 
 
     .package-info .package-info-mobile-title {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 23px;
-        text-align: left;
-        text-transform: uppercase;
         padding: 14px 34px 20px 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 33px;
+        text-align: center;
+
+    }
+
+    .package-info-wrapper{
+        height: calc(100% - 60px);
+        padding-top: 60px;
+    }
+
+    .package-info-inner-wrapper{
+        flex-direction: column;
+        overflow: auto;
     }
 
     .package-info--img {
@@ -1143,7 +1225,9 @@ header {
 /*scroll styles*/
 .terms-of-use-modal-inner,
 .presentation-menu,
-.accordion-panel {
+.accordion-panel,
+.licences-select-box  .choices__list.choices__list--dropdown,
+.package-info-wrapper{
     ::-webkit-scrollbar {
         width: 3px;
     }

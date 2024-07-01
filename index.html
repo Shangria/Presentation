@@ -873,7 +873,7 @@
                     <div class="main package-container-wrap fixed lg:relative flex flex-col"
                          data-package-container-wrap>
                         <h2 data-animate class="title hidden lg:block">Packages and Modules</h2>
-                        <div data-animate class="package  flex flex-col lg:flex-row flex-nowrap flex-grow">
+                        <div data-animate class="package flex flex-col lg:flex-row flex-nowrap flex-grow">
                             <div data-package-modal-close class="package-modal-close lg:hidden">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -892,29 +892,35 @@
                                     </defs>
                                 </svg>
                             </div>
-                            <div class="package-info">
-                                <!-- Do not delete this block. It's being used in js -->
-                            </div>
-                            <div class="package-list w-full flex flex-col">
-                                <div class="accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
-                                     data-section-scroll-class="acc3">
-                                    <div class="accordion-panel " data-section-scroll="acc3" id="accordionPanelSlide3">
+                            <div class="package-info-wrapper  section-scroll-bg-top section-scroll-bg-bottom" data-section-scroll-class="6">
+                                <div data-section-scroll="6" class="package-info-inner-wrapper" >
+                                    <div class="package-info">
                                         <!-- Do not delete this block. It's being used in js -->
                                     </div>
-                                </div>
+                                    <div class="package-list w-full flex flex-col">
+                                        <div class="accordion-panel-scroll-gradient  section-scroll-bg-top section-scroll-bg-bottom"
+                                             data-section-scroll-class="acc3">
+                                            <div class="accordion-panel " data-section-scroll="acc3" id="accordionPanelSlide3">
+                                                <!-- Do not delete this block. It's being used in js -->
+                                            </div>
+                                        </div>
 
-                                <div class="packages-request hidden lg:flex justify-end grow items-end">
-                                    <button data-request-demo type="button"
-                                            class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
-                                    >Request a demo
-                                    </button>
-                                    <button data-request-invoice type="button"
-                                            class="btn btn-rounded btn-blue btn-next uppercase"
-                                    >Request invoice
-                                        <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
-                                    </button>
+                                        <div class="packages-request hidden lg:flex justify-end grow items-end">
+                                            <button data-request-demo type="button"
+                                                    class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
+                                            >Request a demo
+                                            </button>
+                                            <button data-request-invoice type="button"
+                                                    class="btn btn-rounded btn-blue btn-next uppercase"
+                                            >Request invoice
+                                                <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                     <div data-animate

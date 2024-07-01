@@ -154,6 +154,11 @@
     height: 12px
 }
 
+.comprehensive-coverage-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background: #02C2FF;
+}
+
+
 #comprehensive-slider {
     height: calc(100% - 184px);
 }

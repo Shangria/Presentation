@@ -27,7 +27,7 @@
 
 .btn.btn-blue:disabled,
 .btn.btn-blue:disabled:hover {
-	background-color: #a7a1a1;
+	background: #9B9B9B1C;
 	cursor: initial;
 	pointer-events: none;
 }
@@ -57,6 +57,8 @@
 	font-size: 27px;
 }
 
+
+
 .btn.btn-outline-blue,
 .btn.btn-next {
 	display: flex;
@@ -79,6 +81,16 @@
 .btn.btn-outline-blue:hover,
 .btn.btn-next:hover {
 	font-size: 24px;
+}
+
+
+
+.section-modules, .section-subscription{
+	.btn.btn-size-xl:hover,
+	.btn.btn-outline-blue:hover,
+	.btn.btn-next:hover {
+		font-size: 20px;
+	}
 }
 
 
