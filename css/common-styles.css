@@ -74,7 +74,7 @@
     .section-scroll-bg-bottom{
         &:before{
             background: linear-gradient(1turn, #212736 82%, #22293933 96%, #2229391a 83%, #22293900);
-            height:115px;
+            height:90px;
         }
     }
 }
