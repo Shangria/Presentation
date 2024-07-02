@@ -1,12 +1,12 @@
 import {resetForm} from "./helpers.js";
 
 let pageSlider;
-window.addEventListener("load", ()=>{
+window.addEventListener("load", () => {
     /**
      * Initialize a page slider
      */
     let activePageIndex = 0;
-     pageSlider = new Swiper('#page-slider', {
+    pageSlider = new Swiper('#page-slider', {
         slidesPerView: 1,
         direction: 'vertical',
         speed: 800,
@@ -15,24 +15,25 @@ window.addEventListener("load", ()=>{
         allowSlideNext: true,
         allowSlidePrev: true,
         effect: 'fade',
-        initialSlide:0,
+        initialSlide: 0,
         fadeEffect: {
             crossFade: true,
         },
-        on:{
-            init: function(swiper) {
-              //1sts slide animations
+        on: {
+            init: function (swiper) {
+                //1sts slide animations
                 animateFirstSlide();
             },
 
-            beforeTransitionStart: function(swiper) {
+            beforeTransitionStart: function (swiper) {
                 prepareAnimation(swiper);
             },
-            transitionStart: function(swiper) {
+            transitionStart: function (swiper) {
                 startAnimation(swiper);
             },
         },
     });
+
 
     /**
      * Initialize a comprehensive slider
@@ -63,30 +64,60 @@ window.addEventListener("load", ()=>{
     }
 
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         if (window.innerWidth >= 1042 && !document.querySelector('.swiper-container-initialized')) {
             initializeSwiper();
         }
     });
 
-})
+});
 
 function animateFirstSlide() {
     $('#slide1 [data-animate]').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth');
 }
 
 function prepareAnimation(swiper) {
-    $('[data-animate]').css('opacity', 0).removeClass('animate__animated animate__fadeInLeft animate__fadeInRight');
+    $('[data-animate]').removeClass('animate__animated animate__fadeInLeft animate__fadeInRight');
+    $('[data-animate-fade-in-up]').removeClass('animate__animated animate__fadeInUp');
+    $('[data-animate-left]').removeClass('animate__animated animate__fadeInLeft animate__fadeInRightSlower animate__fadeInLeftSlower animate__fadeInRight ');
+    $('[data-animate-right]').removeClass('animate__animated animate__fadeInLeft animate__fadeInRightSlower animate__fadeInLeftSlower animate__fadeInRight ');
+    $('[data-animate-fade-in]').removeClass('animate__animated animate__fadeIn');
+    $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeft');
+    $('[data-animate-top-left]').removeClass('animate__animated animate__fadeInTopLeft');
 }
 
 function startAnimation(swiper) {
-    if (swiper.activeIndex > swiper.previousIndex) {
-        $('#slide' + (swiper.activeIndex + 1) + ' [data-animate]').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth').css('opacity', 1);
-    } else if (swiper.activeIndex < swiper.previousIndex) {
-        $('#slide' + (swiper.activeIndex + 1) + ' [data-animate]').addClass('animate__animated animate__fadeInRight animate__fast animate__smooth').css('opacity', 1);
-    }
-}
+    let slideDirection = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRight' : 'animate__fadeInLeft';
+    let slideDirectionFor2SlideLeft = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRight' : '';
+    let slideDirectionFor2SlideRight = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInLeft' : '';
 
+    if (swiper.activeIndex === 0) {
+        animateFirstSlide()
+    }
+
+    else if (swiper.activeIndex === 1) {
+
+        $('#slide2 [data-animate]').addClass(`animate__animated ${slideDirection} `);
+        $('#slide2 [data-animate-fade-in-up]').addClass(`animate__animated animate__fadeInUp `);
+    }
+
+    else if (swiper.activeIndex === 2) {
+        $('#slide3 [data-animate-left]').addClass(`animate__animated  ${slideDirectionFor2SlideLeft}`);
+        $('#slide3 [data-animate-right]').addClass(`animate__animated  ${slideDirectionFor2SlideRight}`);
+    }
+
+    else if (swiper.activeIndex === 3) {
+        $('#slide4 [data-animate-left]').addClass(`animate__animated  animate__fadeInRight`);
+        $('#slide4 [data-animate-right]').addClass('animate__animated animate__fadeInLeft ');
+    }
+
+    else if (swiper.activeIndex === 4) {
+        $('#slide5 [data-animate-left]').addClass('animate__animated animate__fadeInRight');
+        $('#slide5 [data-animate-bottom-left]').addClass('animate__animated animate__fadeInBottomLeft ');
+        $('#slide5 [data-animate-top-left]').addClass('animate__animated animate__fadeInTopLeft ');
+    }
+
+}
 
 $(document).ready(function () {
     /**
@@ -102,8 +133,8 @@ $(document).ready(function () {
 
     $('.section-close').on('click', function () {
         pageSlider.slideTo(0);
-        resetForm()
+        resetForm();
     });
 
-})
-export {pageSlider}
+});
+export {pageSlider};

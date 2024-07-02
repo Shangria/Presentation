@@ -12,7 +12,7 @@ function findSegmentById(segments, name) {
 function getServicesFromSelectedSegments(segments, allServices, currentPackage) {
     let result = [];
     let seenNames = new Set();
-    console.log(currentPackage);
+
 
     let selectedServices = new Set();
     segments.forEach(segment => {

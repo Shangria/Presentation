@@ -781,7 +781,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-animate class="flex items-center relative z-[1]  swiper-dots-wrapper">
+                    <div data-animate-fade-in-up class="flex items-center relative z-[1]  swiper-dots-wrapper">
                         <div class="flex items-center hidden lg:flex swiper-dots">
                             <div class="swiper-button-prev">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -832,11 +832,11 @@
         </div>
 
         <!-- slide3 -->
-        <div class="swiper-slide" id="slide3">
+        <div class="swiper-slide" id="slide3" >
             <section class="section section-modules">
                 <div class="flex flex-nowrap h-full">
 
-                    <div class="section-back z-10" data-section-back-btn>
+                    <div class="section-back z-20" data-section-back-btn>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_332_23416)">
                                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -849,7 +849,7 @@
                             </defs>
                         </svg>
                     </div>
-                    <div class="section-close z-10">
+                    <div class="section-close z-20">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_1_1170)">
                                 <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -864,15 +864,15 @@
                             </defs>
                         </svg>
                     </div>
-                    <h2 data-animate class="title title-mobile lg:hidden">Packages and Modules</h2>
-                    <div data-animate
+                    <h2 data-animate-left  class="title title-mobile lg:hidden">Packages and Modules</h2>
+                    <div data-animate-right
                          class="presentation-menu presentation-menu-big-space section-scroll-bg-top section-scroll-bg-bottom"
                          data-section-scroll-class="3" id="presentationMenuSlide3">
                         <!-- Do not delete this block. It's being used in js -->
                     </div>
                     <div class="main package-container-wrap fixed lg:relative flex flex-col"
                          data-package-container-wrap>
-                        <h2 data-animate class="title hidden lg:block">Packages and Modules</h2>
+                        <h2 data-animate-left class="title hidden lg:block">Packages and Modules</h2>
                         <div  class="package flex flex-col lg:flex-row flex-nowrap flex-grow">
                             <div data-package-modal-close class="package-modal-close lg:hidden">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -894,17 +894,20 @@
                             </div>
 
                             <div class="package-info-wrapper  w-full section-scroll-bg-top section-scroll-bg-bottom" data-section-scroll-class="6">
-                                <div data-section-scroll="6" class="package-info-inner-wrapper" >
-                                    <div class="package-info">
+                                <div  data-section-scroll="6" class="package-info-inner-wrapper" >
+                                    <div data-animate-left class="package-info">
                                         <!-- Do not delete this block. It's being used in js -->
                                     </div>
-                                    <div class="package-list w-full flex flex-col">
-                                        <div class="accordion-panel-scroll-gradient  section-scroll-bg-top section-scroll-bg-bottom"
-                                             data-section-scroll-class="acc3">
-                                            <div class="accordion-panel " data-section-scroll="acc3" id="accordionPanelSlide3">
-                                                <!-- Do not delete this block. It's being used in js -->
+                                    <div  class="package-list w-full flex flex-col">
+                                        <div data-animate-left>
+                                            <div class="accordion-panel-scroll-gradient  section-scroll-bg-top section-scroll-bg-bottom"
+                                                 data-section-scroll-class="acc3">
+                                                <div class="accordion-panel panel-animation " data-section-scroll="acc3" id="accordionPanelSlide3">
+                                                    <!-- Do not delete this block. It's being used in js -->
+                                                </div>
                                             </div>
                                         </div>
+
 
                                         <div class="packages-request hidden lg:flex justify-end grow items-end">
                                             <button data-request-demo type="button"
@@ -924,7 +927,7 @@
 
                         </div>
                     </div>
-                    <div data-animate
+                    <div data-animate-left
                          class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
                         <button data-request-demo type="button"
                                 class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
@@ -972,10 +975,10 @@
                         </svg>
                     </div>
                     <div class="section-slide-box w-full flex-col lg:flex-row flex">
-                        <h2 data-animate class="title order-1 title-mobile lg:hidden">Packages and Modules</h2>
+                        <h2  class="title order-1 title-mobile lg:hidden">Packages and Modules</h2>
                         <div class="order-3 lg:order-1 presentation-menu-scroll-box section-scroll-bg-top section-scroll-bg-bottom"
                              data-section-scroll-class="4">
-                            <div data-animate class="presentation-menu presentation-menu-little-space"
+                            <div  class="presentation-menu presentation-menu-little-space"
                                  id="presentationMenuSlide4">
                                 <!-- Do not delete this block. It's being used in js -->
                             </div>
@@ -984,7 +987,7 @@
                         <div class="calculation-container  order-2 lg:order-2  flex">
                             <div class="main package-container-wrap fixed lg:relative flex flex-col"
                                  data-package-container-wrap>
-                                <h2 data-animate class="title  hidden lg:block">Packages and Modules</h2>
+                                <h2 class="title  hidden lg:block">Packages and Modules</h2>
                                 <div
                                      class="package package-container package-container-width flex flex-col lg:flex-row flex-nowrap flex-grow">
                                     <div data-package-modal-close class="package-modal-close lg:hidden">
@@ -1015,10 +1018,10 @@
                                                 <h3><!-- Do not delete this block. It's being used in js --></h3>
                                                 <p><!-- Do not delete this block. It's being used in js --></p>
                                             </div>
-                                            <div class="package-list w-full flex flex-col">
+                                            <div class="package-list panel-animation w-full flex flex-col">
                                                 <div class="accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
                                                      data-section-scroll-class="acc4">
-                                                    <div class="accordion-panel" data-section-scroll="acc4"
+                                                    <div class="accordion-panel " data-section-scroll="acc4"
                                                          id="accordionPanelSlide4">
                                                         <!-- Do not delete this block. It's being used in js -->
                                                     </div>
@@ -1029,7 +1032,7 @@
 
                                 </div>
                             </div>
-                            <div data-animate class="selects-box-container z-20">
+                            <div data-animate-fade-in class="selects-box-container z-20">
                                 <div class="selects-box">
                                     <div class="select-box regions-select-box">
                                         <div class="select-title-box  flex items-center">
@@ -1144,7 +1147,7 @@
                             </div>
                         </div>
 
-                        <div data-animate
+                        <div
                              class="packages-request items-center  packages-request-mobile lg:hidden flex justify-end flex-col grow ">
                             <button data-request-invoice-subscription type="button"
                                     class="btn flex lg:hidden btn-rounded btn-blue btn-next uppercase">
@@ -1219,10 +1222,10 @@
                                 </defs>
                             </svg>
                         </div>
-                        <h2 data-animate class="title">Subscription</h2>
+                        <h2 class="title">Subscription</h2>
                         <div class="subscription-details-columns-wrapper section-scroll-bg-top section-scroll-bg-bottom"
                              data-section-scroll-class="5">
-                            <div data-animate class="subscription-details-columns " data-section-scroll="5">
+                            <div class="subscription-details-columns " data-section-scroll="5">
                                 <div class="subscription-total-mobile-info lg:hidden">
 
                                     <button class="subscription-total-mobile-img absolute lg:hidden"
@@ -1237,7 +1240,7 @@
                                         class="subscription-total-mobile-sum" data-total-counter-box></span>
                                 </div>
 
-                                <div class="subscription-details-column">
+                                <div data-animate-bottom-left class="subscription-details-column">
                                     <div class="subscription-box-details flex flex-col ">
                                         <h4 class="subscription-details-title">Your details</h4>
                                         <label>
@@ -1295,7 +1298,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="subscription-details-column">
+                                <div data-animate-top-left  class="subscription-details-column">
                                     <div class="subscription-box-details subscription-box-details-second flex flex-col ">
                                         <label>
                                             <input data-subscription-input required type="text" placeholder="City"
@@ -1391,8 +1394,8 @@
                         </div>
                     </div>
 
-                    <div class="subscription-step-box" data-package-container-wrap>
-                        <div  class="subscription-accordion-box subscription-accordion">
+                    <div  class="subscription-step-box" data-package-container-wrap>
+                        <div class="subscription-accordion-box subscription-accordion">
                             <div data-package-modal-close class="package-modal-close lg:hidden">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -1410,16 +1413,19 @@
                                 </svg>
                             </div>
                             <h3 class="subscription-modules-title" id="subscriptionModulesTitle"></h3>
-                            <div class="accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
-                                 data-section-scroll-class="acc5">
-                                <div class="accordion-panel" data-section-scroll="acc5" id="currentBoxModules">
-                                    <!-- Do not delete this block. It's being used in js -->
+                            <div data-animate-left>
+                                <div class="accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
+                                     data-section-scroll-class="acc5">
+                                    <div class="accordion-panel" data-section-scroll="acc5"
+                                         id="currentBoxModules">
+                                        <!-- Do not delete this block. It's being used in js -->
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
 
-                        <div data-animate class="subscription-step-bottom-box">
+                        <div  class="subscription-step-bottom-box">
                             <div class="total-counter">
                                 Total: $<span data-total-counter-box></span> USD
                             </div>

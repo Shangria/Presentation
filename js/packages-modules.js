@@ -105,7 +105,6 @@ function buildSubscriptionModulesPanel(){
 
 function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes, slideId) {
     let selectedSegments = [];
-    console.log(presentationMenuId.slice(-1))
 
     for (let segmentName of stepFormState.selectedSegmentNames) {
         let segment = findSegmentById(store.targetSegments, segmentName);
@@ -136,7 +135,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label class="custom-checkbox-label ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeIn ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -165,7 +164,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label class="custom-checkbox-label ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeIn ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -229,12 +228,10 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
 
     calculateTotalCost(stepFormState);
     addedBgScroll()
-
 }
 
 
 function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
-
     let commonInfoServiceHtml = '';
     let videoInfoServiceHtml = '';
     for (const availableService of store.allServices) {
