@@ -135,7 +135,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label data-animate-fade-in  class="custom-checkbox-label animate__animated animate__fadeInShow animate__fadeOut ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label data-animate-fade-in  class="custom-checkbox-label animate__animated animate__fadeInShowOwn animate__fadeOutDisappear ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -164,7 +164,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeInShow animate__fadeOut ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeInShowOwn animate__fadeOutDisappear ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -393,13 +393,13 @@ $(document).ready(function () {
             if (adjustedIndex === 3) {
                 const animateFadeIn = document.querySelectorAll('[data-animate-fade-in]');
                 animateFadeIn.forEach(animateFadeInItem=>{
-                    animateFadeInItem.classList.remove("animate__fadeInShow")
+                    animateFadeInItem.classList.remove("animate__fadeInShowOwn")
                 })
 
                 //setTimeout for animation of labels checkboxes
                 setTimeout(()=>{
                     buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
-                }, 800)
+                }, 1000)
                 //
 
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);

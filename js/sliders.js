@@ -20,11 +20,6 @@ window.addEventListener("load", () => {
             crossFade: true,
         },
         on: {
-            init: function (swiper) {
-                //1sts slide animations
-                animateFirstSlide();
-            },
-
             beforeTransitionStart: function (swiper) {
                 prepareAnimation(swiper);
             },
@@ -72,57 +67,67 @@ window.addEventListener("load", () => {
 
 });
 
-function animateFirstSlide() {
-    $('#slide1 [data-animate]').addClass('animate__animated animate__fadeInLeft animate__fast animate__smooth');
+function animateFirstSlide(slideDirectionMobile) {
+    //for desktop
+    $('#slide1 [data-animate]').addClass('animate__animated animate__fadeInLeftOwn');
+
+    //for mobile
+    $('#slide1 [data-animate-mobile]').addClass(`animate__animated ${slideDirectionMobile} `);
 }
 
 function prepareAnimation(swiper) {
     $('.panel-animation').css('width', "auto");
-    $('[data-animate]').removeClass('animate__animated animate__fadeInLeft animate__fadeInRight');
-    $('[data-animate-fade-in-up]').removeClass('animate__animated animate__fadeInUp');
-    $('[data-animate-left]').removeClass('animate__animated animate__fadeInLeft animate__fadeInRightSlower animate__fadeInLeftSlower animate__fadeInRight ');
-    $('[data-animate-right]').removeClass('animate__animated animate__fadeInLeft animate__fadeInRightSlower animate__fadeInLeftSlower animate__fadeInRight ');
-    $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeft');
-    $('[data-animate-top-left]').removeClass('animate__animated animate__fadeInTopLeft');
-    $('[data-animate-width]').removeClass('animate__animated animate__width animate__width-min');
-    /*$('[data-animate-fade-in]').removeClass('animate__fadeInShow');*/
+    $('[data-animate]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightOwn');
+    $('[data-animate-fade-in-up]').removeClass('animate__animated animate__fadeInUpOwn');
+    $('[data-animate-left]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
+    $('[data-animate-right]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
+    $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeftOwn');
+    $('[data-animate-top-left]').removeClass('animate__animated animate__fadeInTopLeftOwn');
+    $('[data-animate-width]').removeClass('animate__animated animate__widthOwn animate__width-minOwn');
+    $('[data-animate-mobile]').removeClass('animate__animated animate__fadeInRightOwnMobile animate__fadeInLeftOwnMobile');
 }
 
 function startAnimation(swiper) {
-    let slideDirection = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRight' : 'animate__fadeInLeft';
-    let slideDirectionShow = swiper.activeIndex === 3 ? 'animate__fadeInShow' : '';
+    let slideDirection = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRightOwn' : 'animate__fadeInLeftOwn';
+    let slideDirectionMobile = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRightOwnMobile' : 'animate__fadeInLeftOwnMobile';
 
-    let slideDirectionFor2SlideLeft = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRight' : '';
-    let slideDirectionFor2SlideRight = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInLeft' : '';
-    let slideDirectionFor2Width = swiper.activeIndex > swiper.previousIndex ? '' : 'animate__width';
+    let slideDirectionFor2SlideLeft = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRightOwn' : '';
+    let slideDirectionFor2SlideRight = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInLeftOwn' : '';
+    let slideDirectionFor2Width = swiper.activeIndex > swiper.previousIndex ? '' : 'animate__widthOwn';
+    let slideDirectionFor3Width = swiper.activeIndex > swiper.previousIndex ? 'animate__width-minOwn' : '';
 
 
     if (swiper.activeIndex === 0) {
-        animateFirstSlide()
+        animateFirstSlide(slideDirectionMobile)
+        $('#slide1 [data-animate-mobile]').addClass(`animate__animated ${slideDirection} `);
     }
 
+
     else if (swiper.activeIndex === 1) {
+        $('#slide2 [data-animate-mobile]').addClass(`animate__animated ${slideDirectionMobile} `);
         $('#slide2 [data-animate]').addClass(`animate__animated ${slideDirection} `);
-        $('#slide2 [data-animate-fade-in-up]').addClass(`animate__animated animate__fadeInUp `);
+        $('#slide2 [data-animate-fade-in-up]').addClass(`animate__animated animate__fadeInUpOwn `);
     }
 
     else if (swiper.activeIndex === 2) {
+        $('#slide3 [data-animate-mobile]').addClass(`animate__animated ${slideDirectionMobile}`);
         $('#slide3 [data-animate-left]').addClass(`animate__animated  ${slideDirectionFor2SlideLeft}`);
         $('#slide3 [data-animate-right]').addClass(`animate__animated  ${slideDirectionFor2SlideRight}`);
         $('#slide3 [data-animate-width]').addClass(`animate__animated   ${slideDirectionFor2Width}`);
     }
 
     else if (swiper.activeIndex === 3) {
-        $('#slide4 [data-animate-left]').addClass(`animate__animated  animate__fadeInRight`);
-        $('#slide4 [data-animate-right]').addClass('animate__animated animate__fadeInLeft ');
-        $('#slide4 [data-animate-width]').addClass(`animate__animated  animate__width-min`);
-       /* $('#slide4 [data-animate-fade-in]').addClass(`animate__animated ${slideDirectionShow}`);*/
+        $('#slide4 [data-animate-mobile]').addClass(`animate__animated ${slideDirectionMobile} `);
+        $('#slide4 [data-animate-left]').addClass(`animate__animated  animate__fadeInRightOwn`);
+        $('#slide4 [data-animate-right]').addClass('animate__animated animate__fadeInLeftOwn ');
+        $('#slide4 [data-animate-width]').addClass(`animate__animated  ${slideDirectionFor3Width}`);
     }
 
     else if (swiper.activeIndex === 4) {
-        $('#slide5 [data-animate-left]').addClass('animate__animated animate__fadeInRight');
-        $('#slide5 [data-animate-bottom-left]').addClass('animate__animated animate__fadeInBottomLeft ');
-        $('#slide5 [data-animate-top-left]').addClass('animate__animated animate__fadeInTopLeft ');
+        $('#slide5 [data-animate-mobile]').addClass(`animate__animated ${slideDirectionMobile} `);
+        $('#slide5 [data-animate-left]').addClass('animate__animated animate__fadeInRightOwn');
+        $('#slide5 [data-animate-bottom-left]').addClass('animate__animated animate__fadeInBottomLeftOwn ');
+        $('#slide5 [data-animate-top-left]').addClass('animate__animated animate__fadeInTopLeftOwn ');
     }
 
 }
