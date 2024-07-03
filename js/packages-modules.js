@@ -438,9 +438,18 @@ $(document).ready(function () {
     requestInvoiceBtns.forEach(requestInvoiceBtn=>{
         requestInvoiceBtn.addEventListener('click', () => {
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
-            
 
-            buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
+            if(window.innerWidth<1025){
+                //setTimeout for animation of labels checkboxes
+                setTimeout(()=>{
+                    buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
+                }, 500)
+                //
+            } else {
+                buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
+            }
+
+
             buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
             togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
         });
