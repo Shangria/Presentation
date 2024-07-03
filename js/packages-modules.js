@@ -396,11 +396,16 @@ $(document).ready(function () {
                     animateFadeInItem.classList.remove("animate__fadeInShowOwn")
                 })
 
-                //setTimeout for animation of labels checkboxes
-                setTimeout(()=>{
+                if(window.innerWidth>1025){
+                    //setTimeout for animation of labels checkboxes
+                    setTimeout(()=>{
+                        buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
+                    }, 700)
+                    //
+                } else {
                     buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
-                }, 1000)
-                //
+                }
+
 
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
                 togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
@@ -433,6 +438,8 @@ $(document).ready(function () {
     requestInvoiceBtns.forEach(requestInvoiceBtn=>{
         requestInvoiceBtn.addEventListener('click', () => {
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
+            
+
             buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
             buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
             togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );

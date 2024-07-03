@@ -746,7 +746,6 @@ header {
         min-width: 185px;
         max-width: 185px;
     }
-
 }
 
 
@@ -1414,6 +1413,10 @@ header {
         animation-duration: .5s !important;
         animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) !important;
     }
+
+    .custom-checkbox-label.animate__animated.animate__fadeInShowOwn.animate__fadeOutDisappear {
+        animation: none;
+    }
 }
 
 
@@ -1543,7 +1546,7 @@ header {
 
 
     .animate__fadeOutDisappear{
-        animation:fadeOutDisappear 1s
+        animation:fadeOutDisappear .7s
     }
 
     .animate__fadeInShowOwn{
@@ -1579,6 +1582,8 @@ header {
         animation-duration: .6s ;
         animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
+
+
 
 }
 
