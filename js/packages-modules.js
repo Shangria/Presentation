@@ -386,17 +386,18 @@ $(document).ready(function () {
     sectionBackBtns.forEach((sectionBackBtn, index) => {
         const adjustedIndex = index + 1;
         sectionBackBtn.addEventListener('click', () => {
+            console.log(adjustedIndex)
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
             //for add checkboxes
 
             if (adjustedIndex === 3) {
-                const animateFadeIn = document.querySelectorAll('[data-animate-fade-in]');
-                animateFadeIn.forEach(animateFadeInItem=>{
-                    animateFadeInItem.classList.remove("animate__fadeInShowOwn")
-                })
-
                 if(window.innerWidth>1025){
+                    //for desktop
+                    const animateFadeIn = document.querySelectorAll('[data-animate-fade-in]');
+                    animateFadeIn.forEach(animateFadeInItem=>{
+                        animateFadeInItem.classList.remove("animate__fadeInShowOwn")
+                    })
                     //setTimeout for animation of labels checkboxes
                     setTimeout(()=>{
                         buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);

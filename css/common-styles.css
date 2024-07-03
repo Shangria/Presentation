@@ -1402,16 +1402,12 @@ header {
     }
 
     .animate__fadeInLeftOwnMobile {
-        animation: fadeInLeftTransform .4s, fadeInOpacity 2s !important;
-        animation-duration: .5s !important;
-        animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) !important;
+        animation: fadeInLeftTransform .4s, fadeInOpacity 1.5s ;
     }
 
 
     .animate__fadeInRightOwnMobile {
-        animation: fadeInRightTransform .4s, fadeInOpacity 2s !important;
-        animation-duration: .5s !important;
-        animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) !important;
+        animation: fadeInRightTransform .4s, fadeInOpacity 1.5s ;
     }
 
     .custom-checkbox-label.animate__animated.animate__fadeInShowOwn.animate__fadeOutDisappear {
