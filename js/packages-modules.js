@@ -425,7 +425,6 @@ $(document).ready(function () {
 
     //go to slide3
     btnSegmentsNext.addEventListener('click', () => {
-
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
         buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3", noAddedCheckboxes,"slide3");
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
@@ -443,7 +442,7 @@ $(document).ready(function () {
                 //setTimeout for animation of labels checkboxes
                 setTimeout(()=>{
                     buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
-                }, 500)
+                }, 300)
                 //
             } else {
                 buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
