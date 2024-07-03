@@ -113,11 +113,6 @@
     margin-right: 16px;
 }
 
-.panel-animation{
-    width: 100%;
-    transition: width 0.5s ease-in-out;
-}
-
 
 @media screen and (max-width: 1024px) {
     .dropdown-box {

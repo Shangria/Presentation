@@ -135,7 +135,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeIn ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeInShow ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -164,7 +164,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeIn ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeInShow ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -275,7 +275,7 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
 
         if (module.name === currentService) {
 
-            module.serviceTabs.forEach(item => {
+            module.serviceTabs.forEach((item,index) => {
                 if(item.info){
                     suggestedModuleItemsHtml += `
                                      <div class="dropdown-box closing" data-tab-item="${module.name}">

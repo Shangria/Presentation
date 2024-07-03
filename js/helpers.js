@@ -331,15 +331,12 @@ function showModulePanel(currentTab, presentationMenuId, accordionId) {
         const defaultElement = currentAccordion.querySelector(`[data-tab-item="${currentItemForOpenById}"]`);
         const tabModulesItem = boxPanel && boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
         if (defaultElement) {
-
             defaultElement.classList.add('drop-down-item-open');
             tabModulesItem && tabModulesItem.classList.add('presentation-modules-item-active');
             const drop = defaultElement.querySelector('.dropdown-menu');
             if (drop) {
                 const dropHeight = drop.scrollHeight;
-                setTimeout(() => {
                     drop.style.maxHeight = `${dropHeight}px`;
-                }, 500);
             }
         }
     }
