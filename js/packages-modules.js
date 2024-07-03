@@ -131,11 +131,11 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
         if (isAddedCheckboxes) {
             suggestedModuleItemsHtml += `
                                                 <div class="${elemClass} justify-between">
-                                                        <div class="module-info flex w-full items-center justify-start" data-mobile-modal-open data-tab-modules-item="${module.name}">
+                                                        <div class="module-info flex  items-center justify-start" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeInShow ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label data-animate-fade-in  class="custom-checkbox-label animate__animated animate__fadeInShow animate__fadeOut ${module.name === "Research Package" && "pointer-events-none"} ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -146,7 +146,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
             suggestedModuleItemsHtml += `
                                             <div class="${elemClass}" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                               <img src="${module.iconImg}" alt="${module.name}">
-                                              <span>${module.name}</span>
+                                              <span class="presentation-modules-item-text">${module.name}</span>
                                             </div>
                                             `;
         }
@@ -160,11 +160,11 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
         if (isAddedCheckboxes) {
             otherAvailableModuleItemsHtml += `
                                             <div class="${elemClass} justify-between">
-                                                        <div class="module-info flex w-full items-center justify-start" data-mobile-modal-open data-tab-modules-item="${module.name}">
+                                                        <div class="module-info flex  items-center justify-start" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                                             <img src="${module.iconImg}" alt="${module.name}">
                                                             <span>${module.name}</span>
                                                         </div>
-                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeInShow ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
+                                                        <label data-animate-fade-in class="custom-checkbox-label animate__animated animate__fadeInShow animate__fadeOut ${module.checked && "checkbox-label-toggle"}" data-checkbox-label-id="${module.name}">
                                                              <span class="module-price">$${module.price.toFixed(2)}</span>
                                                               <span class="checkmark"></span>
                                                             </label>
@@ -174,7 +174,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
             otherAvailableModuleItemsHtml += `
                                             <div class="presentation-modules-item flex items-center w-full justify-start" data-mobile-modal-open data-tab-modules-item="${module.name}">
                                               <img src="${module.iconImg}" alt="${module.name}">
-                                              <span>${module.name}</span>
+                                              <span class="presentation-modules-item-text">${module.name}</span>
                                             </div>
                                             `;
         }
@@ -388,11 +388,24 @@ $(document).ready(function () {
         sectionBackBtn.addEventListener('click', () => {
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
+            //for add checkboxes
 
             if (adjustedIndex === 3) {
-                buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
+                const animateFadeIn = document.querySelectorAll('[data-animate-fade-in]');
+                animateFadeIn.forEach(animateFadeInItem=>{
+                    animateFadeInItem.classList.remove("animate__fadeInShow")
+                })
+
+                //setTimeout for animation of labels checkboxes
+                setTimeout(()=>{
+                    buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
+                }, 800)
+                //
+
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
                 togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
+
+
             }
 
             //for add checkboxes

@@ -82,14 +82,16 @@ function prepareAnimation(swiper) {
     $('[data-animate-fade-in-up]').removeClass('animate__animated animate__fadeInUp');
     $('[data-animate-left]').removeClass('animate__animated animate__fadeInLeft animate__fadeInRightSlower animate__fadeInLeftSlower animate__fadeInRight ');
     $('[data-animate-right]').removeClass('animate__animated animate__fadeInLeft animate__fadeInRightSlower animate__fadeInLeftSlower animate__fadeInRight ');
-    $('[data-animate-fade-in]').removeClass('animate__animated animate__fadeInShow');
     $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeft');
     $('[data-animate-top-left]').removeClass('animate__animated animate__fadeInTopLeft');
     $('[data-animate-width]').removeClass('animate__animated animate__width animate__width-min');
+    /*$('[data-animate-fade-in]').removeClass('animate__fadeInShow');*/
 }
 
 function startAnimation(swiper) {
     let slideDirection = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRight' : 'animate__fadeInLeft';
+    let slideDirectionShow = swiper.activeIndex === 3 ? 'animate__fadeInShow' : '';
+
     let slideDirectionFor2SlideLeft = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRight' : '';
     let slideDirectionFor2SlideRight = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInLeft' : '';
     let slideDirectionFor2Width = swiper.activeIndex > swiper.previousIndex ? '' : 'animate__width';
@@ -100,7 +102,6 @@ function startAnimation(swiper) {
     }
 
     else if (swiper.activeIndex === 1) {
-
         $('#slide2 [data-animate]').addClass(`animate__animated ${slideDirection} `);
         $('#slide2 [data-animate-fade-in-up]').addClass(`animate__animated animate__fadeInUp `);
     }
@@ -115,7 +116,7 @@ function startAnimation(swiper) {
         $('#slide4 [data-animate-left]').addClass(`animate__animated  animate__fadeInRight`);
         $('#slide4 [data-animate-right]').addClass('animate__animated animate__fadeInLeft ');
         $('#slide4 [data-animate-width]').addClass(`animate__animated  animate__width-min`);
-        $('#slide4 [data-animate-fade-in]').addClass(`animate__animated animate__fadeInShow`);
+       /* $('#slide4 [data-animate-fade-in]').addClass(`animate__animated ${slideDirectionShow}`);*/
     }
 
     else if (swiper.activeIndex === 4) {
