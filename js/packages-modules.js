@@ -443,7 +443,7 @@ $(document).ready(function () {
                 //setTimeout for animation of labels checkboxes
                 setTimeout(()=>{
                     buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
-                }, 300)
+                }, 400)
                 //
             } else {
                 buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");

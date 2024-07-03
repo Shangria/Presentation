@@ -1402,12 +1402,12 @@ header {
     }
 
     .animate__fadeInLeftOwnMobile {
-        animation: fadeInLeftTransform .4s, fadeInOpacity 1.5s ;
+        animation: fadeInLeftTransform .4s, fadeInOpacity 2s ;
     }
 
 
     .animate__fadeInRightOwnMobile {
-        animation: fadeInRightTransform .4s, fadeInOpacity 1.5s ;
+        animation: fadeInRightTransform .4s, fadeInOpacity 2s ;
     }
 
     .custom-checkbox-label.animate__animated.animate__fadeInShowOwn.animate__fadeOutDisappear {
