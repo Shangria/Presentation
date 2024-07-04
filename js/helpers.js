@@ -166,15 +166,21 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     function closeModal() {
-        let $videoIframe = $('#modalVideo iframe');
-        let iframeSrc = $videoIframe.attr('src');
-        $videoIframe.attr('src', '');
-        $videoIframe.attr('src', iframeSrc);
 
         $("#modalVideo").fadeOut(500, function () {
             $(this).css("display", "none");
         });
         $("#bgOpacityInner").removeClass("bg-opacity-inner-open backdrop-blur-sm");
+
+        
+        let $videoIframe = $('#modalVideo iframe');
+        let iframeSrc = $videoIframe.attr('src');
+
+        setTimeout(()=>{
+            $videoIframe.attr('src', '');
+            $videoIframe.attr('src', iframeSrc);
+        }, 500)
+
     }
 
     $(".modal-demo-content-close").click(function () {
