@@ -73,7 +73,8 @@
 	font-weight: 600;
 	font-size: clamp(16px, 1.2vw, 22px);
 	line-height: 20px;
-	margin: 0 5px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .btn.btn-next img{
@@ -126,7 +127,7 @@
 		position: absolute;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		bottom: 10px;
+		bottom: 0;
 		height: 46px;
 	}
 
@@ -137,6 +138,12 @@
 		bottom: 55px;
 		height: 46px;
 		margin: 0 15px;
+	}
+
+	.btn.btn-outline-blue,
+	.btn.btn-next {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 
