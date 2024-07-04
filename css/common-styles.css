@@ -1268,7 +1268,11 @@ header {
 .presentation-menu,
 .accordion-panel,
 .licences-select-box  .choices__list.choices__list--dropdown,
-.package-info-wrapper{
+.package-info-wrapper,
+.package-select-info-text-container,
+.subscription-details-columns,
+.subscription-details-columns-wrapper,
+.accordion-panel-container{
     ::-webkit-scrollbar {
         width: 3px;
     }

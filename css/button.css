@@ -70,6 +70,7 @@
 	font-weight: 600;
 	font-size: clamp(16px, 1.2vw, 22px);
 	line-height: 20px;
+	margin: 0 5px;
 }
 
 .btn.btn-next img{
