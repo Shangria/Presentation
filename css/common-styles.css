@@ -80,14 +80,14 @@
 
 /*//*/
 
-.section.section-modules .presentation-menu.section-scroll-bg-top {
+.section.section-modules .presentation-menu-scroll.section-scroll-bg-top {
     &:after {
         z-index: 10;
         height: 255px;
         background: linear-gradient(0.5turn, #1d1f28 79%, #1d1f2833 93%, #1d1f281a 98%, #1d1f280d)};
 }
 
-.section.section-modules .presentation-menu.section-scroll-bg-bottom{
+.section.section-modules .presentation-menu-scroll.section-scroll-bg-bottom{
     &:before {
         background: linear-gradient(1turn, #1d1f28cc 43%, #1d1f2833 80%, #1d1f281a 30%, #1d1f280d);
         height: 50px;
@@ -867,7 +867,7 @@ header {
     }
 
 
-    .section.section-modules .presentation-menu.section-scroll-bg-top {
+    .section.section-modules .presentation-menu-scroll.section-scroll-bg-top {
         &:after {
             background: linear-gradient(.5turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
             height: 105px;
@@ -875,7 +875,7 @@ header {
     }
 
 
-    .section.section-modules .presentation-menu.section-scroll-bg-bottom {
+    .section.section-modules .presentation-menu-scroll.section-scroll-bg-bottom {
         &:before {
             height: 70px;
             background: linear-gradient(1turn, #1d1f28cc 55%, #1d1f2833 80%, #1d1f281a 40%, #1d1f280d);
