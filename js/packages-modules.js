@@ -320,14 +320,10 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
 function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId ) {
     // Add handler for items inside dropdown
 
+    const numberOfAcc=String(slideId.slice(-1));
     const dropdownTabs = document.querySelectorAll(`#${slideId} [data-tab-modules-item]`);
-    const scrollWrap = document.querySelector(` [data-section-scroll-class="acc"]`);
-    const scrollElement = document.querySelector("[data-section-scroll='acc4']");
-
-
-    setTimeout(()=>{
-        updateShadows(scrollElement, scrollWrap);
-    }, 500)
+    const scrollWrap = document.querySelector(`[data-section-scroll-class="acc${numberOfAcc}"]`);
+    const scrollElement = document.querySelector(`[data-section-scroll="acc${numberOfAcc}"]`);
 
 
     dropdownTabs.forEach(dropdownTab => {
@@ -344,6 +340,10 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId
 
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
                 showModulePanel(currentItem, presentationMenuId, accordionPanelId);
+
+                setTimeout(()=>{
+                    updateShadows(scrollElement, scrollWrap);
+                }, 500)
             }
 
         });
@@ -440,6 +440,8 @@ $(document).ready(function () {
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
         togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
 
+
+        //for add bottom bg shadow
           const scrollWrap = document.querySelector(` [data-section-scroll-class="acc3"]`);
           const scrollElement = document.querySelector("[data-section-scroll='acc3']");
 
@@ -470,6 +472,8 @@ $(document).ready(function () {
             buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
             togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
 
+
+            //for add bottom bg shadow
             const scrollWrap = document.querySelector(` [data-section-scroll-class="acc4"]`);
             const scrollElement = document.querySelector("[data-section-scroll='acc4']");
 
@@ -487,6 +491,8 @@ $(document).ready(function () {
         requestInvoiceSubscription.addEventListener('click', () => {
             buildSubscriptionModulesPanel()
 
+
+            //for add bottom bg shadow
             const scrollWrap = document.querySelector(` [data-section-scroll-class="acc5"]`);
             const scrollElement = document.querySelector("[data-section-scroll='acc5']");
 
