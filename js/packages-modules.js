@@ -407,15 +407,17 @@ $(document).ready(function () {
                     //setTimeout for animation of labels checkboxes
                     setTimeout(()=>{
                         buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
+                        togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
                     }, 700)
                     //
                 } else {
                     buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
+                    togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
+
                 }
 
 
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
-                togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
 
 
             }
