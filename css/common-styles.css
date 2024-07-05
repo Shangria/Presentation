@@ -58,7 +58,7 @@
 
 
 
-.section.section-select-target.section-scroll-bg-top {
+.section.section-select-target.section-scroll-bg-top.scrolled-top {
     &:after {
         height: 100px;
         background: linear-gradient(0.5turn, #212736 50%, rgba(34, 41, 57, 0.2) 78%, rgba(34, 41, 57, 0.1) 83%, rgba(34, 41, 57, 0));
@@ -76,7 +76,7 @@
 
 /*//*/
 
-.section.section-modules .presentation-menu-scroll.section-scroll-bg-top {
+.section.section-modules .presentation-menu-scroll.section-scroll-bg-top.scrolled-top {
     &:after {
         z-index: 10;
         height: 200px;
@@ -94,7 +94,7 @@
 /*//*/
 
 
-.section.section-modules .presentation-menu-scroll-box.section-scroll-bg-top {
+.section.section-modules .presentation-menu-scroll-box.section-scroll-bg-top.scrolled-top {
     &:after {
         z-index: 10;
         height: 200px;
@@ -864,14 +864,14 @@ header {
     }
 
 
-    .section.section-modules .presentation-menu-scroll-box.section-scroll-bg-bottom {
+    .section.section-modules .presentation-menu-scroll-box.section-scroll-bg-bottom.scrolled-bottom {
         &:before {
             height: 45px;
         }
     }
 
 
-    .section.section-modules .presentation-menu-scroll.section-scroll-bg-top {
+    .section.section-modules .presentation-menu-scroll.section-scroll-bg-top.scrolled-top  {
         &:after {
             background: linear-gradient(.5turn, #1d1f28 60%, #1d1f2833 92%, #1d1f281a 90%, #1d1f280d);
             height: 105px;
@@ -879,7 +879,7 @@ header {
     }
 
 
-    .section.section-modules .presentation-menu-scroll.section-scroll-bg-bottom {
+    .section.section-modules .presentation-menu-scroll.section-scroll-bg-bottom.scrolled-bottom {
         &:before {
             height: 70px;
             background: linear-gradient(1turn, #1d1f28cc 55%, #1d1f2833 80%, #1d1f281a 40%, #1d1f280d);
@@ -898,13 +898,14 @@ header {
     }
 
 
-    .section.section-modules.section-calculation .section-scroll-bg-top.scrolled-top {
+    .section.section-modules.section-calculation .section-scroll-bg-top.scrolled-top.scrolled-top {
         &:after {
-            height: 50px;
+            height: 35px;
+            background: linear-gradient(.5turn, #1d1f28ab 60%, #1d1f2833 92%, #1d1f281a 0, #1d1f280d);
         }
     }
 
-    .section.section-calculation .section-scroll-bg-bottom {
+    .section.section-calculation .section-scroll-bg-bottom.scrolled-bottom {
         &:before {
             height: 45px;
         }
@@ -944,11 +945,12 @@ header {
         }
     }
 
-    .section.section-modules .package-info-wrapper.section-scroll-bg-bottom {
+    .section.section-modules .package-info-wrapper.section-scroll-bg-bottom.scrolled-bottom {
         &:before {
             background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
             height: 30px;
             bottom: 0;
+            opacity: 1;
         }
     }
 
@@ -957,6 +959,7 @@ header {
             background: linear-gradient(0deg, #20222C 0%, rgba(36, 38, 54, 0) 77%);
             height: 60px;
             bottom: -10px;
+            opacity: 1;
         }
     }
 
