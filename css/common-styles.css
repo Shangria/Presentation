@@ -144,11 +144,12 @@
 }
 
 
-.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top {
+.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom {
     &:before {
         height: 30px;
         background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
         bottom: -1px;
+        opacity: 1;
     }
 }
 

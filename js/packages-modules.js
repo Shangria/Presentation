@@ -433,10 +433,15 @@ $(document).ready(function () {
 
     //go to slide3
     btnSegmentsNext.addEventListener('click', () => {
+        const scrollAccBox = document.querySelector(`#slide3 [data-scroll-box]`);
+        const scrollCurrentAcc = document.querySelector(`#slide3 [data-scroll-accordion]`);
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
         buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3", noAddedCheckboxes,"slide3");
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
         togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
+        setTimeout(()=>{
+            updateShadows(scrollCurrentAcc, scrollAccBox)
+        }, 300)
     });
 
     //go to slide4
@@ -444,6 +449,8 @@ $(document).ready(function () {
     requestInvoiceBtns.forEach(requestInvoiceBtn=>{
         requestInvoiceBtn.addEventListener('click', () => {
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
+            const scrollAccBox = document.querySelector(`#slide4 [data-scroll-box]`);
+            const scrollCurrentAcc = document.querySelector(`#slide4 [data-scroll-accordion]`);
 
             if(window.innerWidth<1025){
                 //setTimeout for animation of labels checkboxes
@@ -458,13 +465,21 @@ $(document).ready(function () {
 
             buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
             togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
+            setTimeout(()=>{
+                updateShadows(scrollCurrentAcc, scrollAccBox)
+            }, 300)
         });
     })
 
     //go to slide5
     requestInvoiceSubscriptionBtns.forEach(requestInvoiceSubscription=>{
+        const scrollAccBox = document.querySelector(`#slide5 [data-scroll-box]`);
+        const scrollCurrentAcc = document.querySelector(`#slide5 [data-scroll-accordion]`);
         requestInvoiceSubscription.addEventListener('click', () => {
             buildSubscriptionModulesPanel()
+            setTimeout(()=>{
+                updateShadows(scrollCurrentAcc, scrollAccBox)
+            }, 300)
         });
     })
 
