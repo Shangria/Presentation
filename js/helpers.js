@@ -558,43 +558,53 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     addedBgScroll()
 });
+
+
 function addedBgScroll() {
     const scrollSections = document.querySelectorAll("[data-section-scroll]");
     const scrollWrapsMap = new Map();
 
-    // Сохраняем соответствие между элементами скролла и обертками
     document.querySelectorAll("[data-section-scroll-class]").forEach(wrap => {
         scrollWrapsMap.set(wrap.getAttribute("data-section-scroll-class"), wrap);
     });
 
     scrollSections.forEach(scrollElement => {
-        // Инициализация теней при загрузке
-        updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
 
-        // Обработчик скролла
         scrollElement.addEventListener("scroll", () => {
             updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
         });
+
+
+        updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
     });
+}
 
-    function updateShadows(scrollElement, scrollWrap) {
-        if (!scrollWrap) return;
 
-        // Добавляем тень сверху, если scrollTop больше 1
-        if (scrollElement.scrollTop > 1) {
-            scrollWrap.classList.add('scrolled-top');
-        } else {
-            scrollWrap.classList.remove('scrolled-top');
-        }
 
-        // Добавляем тень снизу, если не доскроллено до конца
-        if (scrollElement.scrollHeight > scrollElement.clientHeight && scrollElement.scrollTop + scrollElement.clientHeight < scrollElement.scrollHeight) {
+function updateShadows(scrollElement, scrollWrap) {
+    if (!scrollWrap || !scrollElement) return;
+
+
+    if (scrollElement.scrollTop > 1) {
+        scrollWrap.classList.add('scrolled-top');
+    } else {
+        scrollWrap.classList.remove('scrolled-top');
+    }
+
+
+
+    if (scrollElement.scrollHeight > scrollElement.clientHeight) {
+
+        if (scrollElement.scrollTop + scrollElement.clientHeight < scrollElement.scrollHeight - 2) {
             scrollWrap.classList.add('scrolled-bottom');
         } else {
             scrollWrap.classList.remove('scrolled-bottom');
         }
+    } else {
+        scrollWrap.classList.remove('scrolled-bottom');
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', addedBgScroll);
 
@@ -613,5 +623,6 @@ export {
     resetForm,
     clearSegmentsList,
     openModalModule,
-    addedBgScroll
+    addedBgScroll,
+    updateShadows
 };

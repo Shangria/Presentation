@@ -7,7 +7,7 @@ import {
     findSegmentById,
     getAvailableServices,
     getServicesFromSelectedSegments, openModalModule, resetForm,
-    showModulePanel,
+    showModulePanel, updateShadows,
 } from "./helpers.js";
 import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
 import {validateForm} from "./validation-form.js";
@@ -320,6 +320,8 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId
     // Add handler for items inside dropdown
 
     const dropdownTabs = document.querySelectorAll(`#${slideId} [data-tab-modules-item]`);
+    const scrollAccBox = document.querySelector(`#${slideId} [data-scroll-box]`);
+    const scrollCurrentAcc = document.querySelector(`#${slideId} [data-scroll-accordion]`);
     dropdownTabs.forEach(dropdownTab => {
 
         dropdownTab.addEventListener('click', (event) => {
@@ -334,6 +336,11 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId
 
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
                 showModulePanel(currentItem, presentationMenuId, accordionPanelId);
+
+                setTimeout(()=>{
+                    updateShadows(scrollCurrentAcc, scrollAccBox)
+                }, 300)
+
             }
 
         });
@@ -386,7 +393,6 @@ $(document).ready(function () {
     sectionBackBtns.forEach((sectionBackBtn, index) => {
         const adjustedIndex = index + 1;
         sectionBackBtn.addEventListener('click', () => {
-            console.log(adjustedIndex)
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
             //for add checkboxes
@@ -421,6 +427,7 @@ $(document).ready(function () {
                 togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
             }
         });
+
     });
 
 
@@ -430,7 +437,6 @@ $(document).ready(function () {
         buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3", noAddedCheckboxes,"slide3");
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
         togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
-
     });
 
     //go to slide4
