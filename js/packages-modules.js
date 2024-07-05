@@ -321,6 +321,14 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId
     // Add handler for items inside dropdown
 
     const dropdownTabs = document.querySelectorAll(`#${slideId} [data-tab-modules-item]`);
+    const scrollWrap = document.querySelector(` [data-section-scroll-class="acc"]`);
+    const scrollElement = document.querySelector("[data-section-scroll='acc4']");
+
+
+    setTimeout(()=>{
+        updateShadows(scrollElement, scrollWrap);
+    }, 500)
+
 
     dropdownTabs.forEach(dropdownTab => {
 
@@ -478,10 +486,14 @@ $(document).ready(function () {
     requestInvoiceSubscriptionBtns.forEach(requestInvoiceSubscription=>{
         requestInvoiceSubscription.addEventListener('click', () => {
             buildSubscriptionModulesPanel()
-/*
+
             const scrollWrap = document.querySelector(` [data-section-scroll-class="acc5"]`);
             const scrollElement = document.querySelector("[data-section-scroll='acc5']");
-            updateShadows(scrollElement, scrollWrap);*/
+
+
+            setTimeout(()=>{
+                updateShadows(scrollElement, scrollWrap);
+            }, 500)
         });
     })
 
