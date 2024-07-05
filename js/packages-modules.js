@@ -314,14 +314,14 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
 
     dropdownTogglePanel(`${accordionPanelId}`);
     showModulePanel(stepFormState.defaultService, presentationMenuId,accordionPanelId );
+    addedBgScroll()
 }
 
 function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId ) {
     // Add handler for items inside dropdown
 
     const dropdownTabs = document.querySelectorAll(`#${slideId} [data-tab-modules-item]`);
-    const scrollAccBox = document.querySelector(`#${slideId} [data-scroll-box]`);
-    const scrollCurrentAcc = document.querySelector(`#${slideId} [data-scroll-accordion]`);
+
     dropdownTabs.forEach(dropdownTab => {
 
         dropdownTab.addEventListener('click', (event) => {
@@ -336,11 +336,6 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId
 
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId);
                 showModulePanel(currentItem, presentationMenuId, accordionPanelId);
-
-                setTimeout(()=>{
-                    updateShadows(scrollCurrentAcc, scrollAccBox)
-                }, 300)
-
             }
 
         });
@@ -412,13 +407,10 @@ $(document).ready(function () {
                     //
                 } else {
                     buildLeftPanel(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,noAddedCheckboxes,`slide${adjustedIndex}`);
-                    togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
-
                 }
 
-
+                togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
                 buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
-
 
             }
 
@@ -435,15 +427,19 @@ $(document).ready(function () {
 
     //go to slide3
     btnSegmentsNext.addEventListener('click', () => {
-        const scrollAccBox = document.querySelector(`#slide3 [data-scroll-box]`);
-        const scrollCurrentAcc = document.querySelector(`#slide3 [data-scroll-accordion]`);
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
         buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3", noAddedCheckboxes,"slide3");
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
         togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
-        setTimeout(()=>{
-            updateShadows(scrollCurrentAcc, scrollAccBox)
-        }, 300)
+
+          const scrollWrap = document.querySelector(` [data-section-scroll-class="acc3"]`);
+          const scrollElement = document.querySelector("[data-section-scroll='acc3']");
+
+
+          setTimeout(()=>{
+              updateShadows(scrollElement, scrollWrap);
+          }, 400)
+
     });
 
     //go to slide4
@@ -451,14 +447,12 @@ $(document).ready(function () {
     requestInvoiceBtns.forEach(requestInvoiceBtn=>{
         requestInvoiceBtn.addEventListener('click', () => {
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
-            const scrollAccBox = document.querySelector(`#slide4 [data-scroll-box]`);
-            const scrollCurrentAcc = document.querySelector(`#slide4 [data-scroll-accordion]`);
 
             if(window.innerWidth<1025){
                 //setTimeout for animation of labels checkboxes
                 setTimeout(()=>{
                     buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
-                }, 400)
+                }, 500)
                 //
             } else {
                 buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
@@ -467,21 +461,27 @@ $(document).ready(function () {
 
             buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
             togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
+
+            const scrollWrap = document.querySelector(` [data-section-scroll-class="acc4"]`);
+            const scrollElement = document.querySelector("[data-section-scroll='acc4']");
+
+
             setTimeout(()=>{
-                updateShadows(scrollCurrentAcc, scrollAccBox)
-            }, 300)
+                updateShadows(scrollElement, scrollWrap);
+            }, 500)
+
+
         });
     })
 
     //go to slide5
     requestInvoiceSubscriptionBtns.forEach(requestInvoiceSubscription=>{
-        const scrollAccBox = document.querySelector(`#slide5 [data-scroll-box]`);
-        const scrollCurrentAcc = document.querySelector(`#slide5 [data-scroll-accordion]`);
         requestInvoiceSubscription.addEventListener('click', () => {
             buildSubscriptionModulesPanel()
-            setTimeout(()=>{
-                updateShadows(scrollCurrentAcc, scrollAccBox)
-            }, 300)
+/*
+            const scrollWrap = document.querySelector(` [data-section-scroll-class="acc5"]`);
+            const scrollElement = document.querySelector("[data-section-scroll='acc5']");
+            updateShadows(scrollElement, scrollWrap);*/
         });
     })
 

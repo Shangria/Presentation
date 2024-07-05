@@ -574,7 +574,6 @@ function addedBgScroll() {
             updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
         });
 
-
         updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
     });
 }
@@ -584,14 +583,11 @@ function addedBgScroll() {
 function updateShadows(scrollElement, scrollWrap) {
     if (!scrollWrap || !scrollElement) return;
 
-
     if (scrollElement.scrollTop > 1) {
         scrollWrap.classList.add('scrolled-top');
     } else {
         scrollWrap.classList.remove('scrolled-top');
     }
-
-
 
     if (scrollElement.scrollHeight > scrollElement.clientHeight) {
 
