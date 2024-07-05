@@ -98,11 +98,12 @@
 /*//*/
 
 
-.section.section-modules .presentation-menu-scroll-box.section-scroll-bg-top. {
+.section.section-modules .presentation-menu-scroll-box.section-scroll-bg-top {
     &:after {
         z-index: 10;
-        height: 255px;
-        background: linear-gradient(0.5turn, #1d1f28 79%, #1d1f2833 93%, #1d1f281a 98%, #1d1f280d)};
+        height: 200px;
+        background: linear-gradient(.5turn, #1d1f28fa 79%, #1d1f2833 93%, #1d1f281a 98%, #1d1f280d);
+    }
 }
 
 .section.section-modules .presentation-menu-scroll-box.section-scroll-bg-bottom{
@@ -128,7 +129,7 @@
     &:before {
         background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
         height: 30px;
-        bottom: 0px;
+        bottom: -1px;
     }
 }
 
@@ -150,7 +151,7 @@
     &:before {
         height: 30px;
         background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
-        bottom: 0;
+        bottom: -1px;
     }
 }
 

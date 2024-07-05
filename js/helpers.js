@@ -558,35 +558,46 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     addedBgScroll()
 });
-
-function addedBgScroll(){
+function addedBgScroll() {
     const scrollSections = document.querySelectorAll("[data-section-scroll]");
-    const scrollSectionsWraps = document.querySelectorAll("[data-section-scroll-class]");
+    const scrollWrapsMap = new Map();
 
+    // Сохраняем соответствие между элементами скролла и обертками
+    document.querySelectorAll("[data-section-scroll-class]").forEach(wrap => {
+        scrollWrapsMap.set(wrap.getAttribute("data-section-scroll-class"), wrap);
+    });
 
-    scrollSections.forEach((section, scrollSectionsIndex) => {
-        section.addEventListener("scroll", () => {
-            let scrollTop = section.scrollTop;
-            let scrollHeight = section.scrollHeight;
-            let clientHeight = section.clientHeight;
-            scrollSectionsWraps.forEach((scrollSectionsWrap, sectionsWrapIndex)=>{
-                if(section.getAttribute("data-section-scroll")===scrollSectionsWrap.getAttribute("data-section-scroll-class")){
-                    if (scrollTop > 0) {
-                        scrollSectionsWraps[sectionsWrapIndex].classList.add('scrolled-top');
-                        if (scrollTop + clientHeight >= scrollHeight - 2) {
-                            scrollSectionsWraps[sectionsWrapIndex].classList.remove("scrolled-bottom");
-                        } else {
-                            scrollSectionsWraps[sectionsWrapIndex].classList.add("scrolled-bottom");
-                        }
-                    } else {
-                        scrollSectionsWraps[sectionsWrapIndex].classList.remove('scrolled-top');
-                    }
-                }
-            })
+    scrollSections.forEach(scrollElement => {
+        // Инициализация теней при загрузке
+        updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
 
+        // Обработчик скролла
+        scrollElement.addEventListener("scroll", () => {
+            updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
         });
     });
+
+    function updateShadows(scrollElement, scrollWrap) {
+        if (!scrollWrap) return;
+
+        // Добавляем тень сверху, если scrollTop больше 1
+        if (scrollElement.scrollTop > 1) {
+            scrollWrap.classList.add('scrolled-top');
+        } else {
+            scrollWrap.classList.remove('scrolled-top');
+        }
+
+        // Добавляем тень снизу, если не доскроллено до конца
+        if (scrollElement.scrollHeight > scrollElement.clientHeight && scrollElement.scrollTop + scrollElement.clientHeight < scrollElement.scrollHeight) {
+            scrollWrap.classList.add('scrolled-bottom');
+        } else {
+            scrollWrap.classList.remove('scrolled-bottom');
+        }
+    }
 }
+
+document.addEventListener('DOMContentLoaded', addedBgScroll);
+
 
 
 export {
