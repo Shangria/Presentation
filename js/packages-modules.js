@@ -329,7 +329,9 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId
     dropdownTabs.forEach(dropdownTab => {
 
         dropdownTab.addEventListener('click', (event) => {
+            console.log("wefsf")
             if(event.isTrusted){
+
                 // Remove 'presentation-modules-item-active' class from all elements
                 const activeItems = document.querySelectorAll('.presentation-modules-item-active');
                 activeItems.forEach(item => item.classList.remove('presentation-modules-item-active'));
@@ -445,7 +447,6 @@ $(document).ready(function () {
           const scrollWrap = document.querySelector(` [data-section-scroll-class="acc3"]`);
           const scrollElement = document.querySelector("[data-section-scroll='acc3']");
 
-
           setTimeout(()=>{
               updateShadows(scrollElement, scrollWrap);
           }, 400)
@@ -462,15 +463,17 @@ $(document).ready(function () {
                 //setTimeout for animation of labels checkboxes
                 setTimeout(()=>{
                     buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
+                    togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
                 }, 500)
                 //
             } else {
                 buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
+                togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
             }
 
 
             buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
-            togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
+
 
 
             //for add bottom bg shadow
