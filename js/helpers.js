@@ -542,6 +542,9 @@ document.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const subscriptionModalInfo = document.getElementById("subscriptionModalInfo");
+    //for add bottom bg shadow
+    const scrollWrap = document.querySelector(` [data-section-scroll-class="acc5"]`);
+    const scrollElement = document.querySelector("[data-section-scroll='acc5']");
 
     subscriptionModalInfo.addEventListener("click", () => {
         const packageContainerWrap = document.querySelector(`#slide5 .subscription-step-box`);
@@ -551,6 +554,12 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("header").classList.add('header-hide')
         bgOpacityInner.classList.add('bg-opacity-inner-open');
         showModulePanel("Research Package", "", "currentBoxModules",);
+
+
+//for add bottom bg shadow
+        setTimeout(()=>{
+            updateShadows(scrollElement, scrollWrap);
+        }, 500)
 
     });
 });

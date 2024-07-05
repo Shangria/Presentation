@@ -317,15 +317,15 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
     addedBgScroll()
 }
 
-function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId ) {
+function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId, mobileShadowBox ) {
     // Add handler for items inside dropdown
 
     const iiDesktop=window.innerWidth > 1025;
 
     const numberOfAcc=String(slideId.slice(-1));
     const dropdownTabs = document.querySelectorAll(`#${slideId} [data-tab-modules-item]`);
-    const scrollWrap =iiDesktop ? document.querySelector(`[data-section-scroll-class="acc${numberOfAcc}"]`): document.querySelector(`[data-section-scroll-class="6"]`)  || document.querySelector(`[data-section-scroll-class="7"]`);
-    const scrollElement =iiDesktop ? document.querySelector(`[data-section-scroll="acc${numberOfAcc}"]`) :  document.querySelector(`[data-section-scroll="6"]`) || document.querySelector(`[data-section-scroll="7"]`);
+    const scrollWrap =iiDesktop ? document.querySelector(`[data-section-scroll-class="acc${numberOfAcc}"]`): document.querySelector(`[data-section-scroll-class="${mobileShadowBox}"]`);
+    const scrollElement =iiDesktop ? document.querySelector(`[data-section-scroll="acc${numberOfAcc}"]`) :  document.querySelector(`[data-section-scroll="${mobileShadowBox}"]`)
 
 
     dropdownTabs.forEach(dropdownTab => {
@@ -437,10 +437,11 @@ $(document).ready(function () {
 
     //go to slide3
     btnSegmentsNext.addEventListener('click', () => {
+        const mobileShadowBox="6"
         const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
         buildLeftPanel("accordionPanelSlide3", "presentationMenuSlide3", noAddedCheckboxes,"slide3");
         buildRightPanel(isDefaultSegment, "accordionPanelSlide3", "presentationMenuSlide3");
-        togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3");
+        togglePresentationMenuItem("accordionPanelSlide3", "presentationMenuSlide3", "slide3",mobileShadowBox );
 
 
         //for add bottom bg shadow
@@ -457,18 +458,19 @@ $(document).ready(function () {
 
     requestInvoiceBtns.forEach(requestInvoiceBtn=>{
         requestInvoiceBtn.addEventListener('click', () => {
+            const mobileShadowBox="7"
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
             if(window.innerWidth<1025){
                 //setTimeout for animation of labels checkboxes
                 setTimeout(()=>{
                     buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
-                    togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
+                    togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4", mobileShadowBox );
                 }, 500)
                 //
             } else {
                 buildLeftPanel("accordionPanelSlide4", "presentationMenuSlide4", addedCheckboxes, "slide4");
-                togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4" );
+                togglePresentationMenuItem("accordionPanelSlide4", "presentationMenuSlide4","slide4", mobileShadowBox );
             }
 
 

@@ -911,11 +911,12 @@ header {
         }
     }
 
-    .section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top {
+    .section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom {
         &:before {
             height: 150px;
             background:linear-gradient(0deg, #20222C 70%, rgb(36 38 50 / 6%) 92%);
             bottom: 0;
+            opacity: 1;
         }
     }
 
