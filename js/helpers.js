@@ -600,7 +600,7 @@ function updateShadows(scrollElement, scrollWrap) {
 
     if (scrollElement.scrollHeight > scrollElement.clientHeight) {
 
-        if (scrollElement.scrollTop + scrollElement.clientHeight < scrollElement.scrollHeight - 2) {
+        if (scrollElement.scrollTop + scrollElement.clientHeight < scrollElement.scrollHeight - 4) {
             scrollWrap.classList.add('scrolled-bottom');
         } else {
             scrollWrap.classList.remove('scrolled-bottom');
