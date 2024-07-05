@@ -278,8 +278,9 @@
     .subscription-box-details {
         margin-bottom: 1.5dvh;
     }
+
     .subscription-step-box {
-        padding: 15dvh 3.5vw 12dvh;
+        padding: 15dvh 3.5vw 5dvh;
     }
 
 }
