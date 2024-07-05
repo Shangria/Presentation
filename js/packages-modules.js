@@ -320,18 +320,18 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
 function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId ) {
     // Add handler for items inside dropdown
 
+    const iiDesktop=window.innerWidth > 1025;
+
     const numberOfAcc=String(slideId.slice(-1));
     const dropdownTabs = document.querySelectorAll(`#${slideId} [data-tab-modules-item]`);
-    const scrollWrap = document.querySelector(`[data-section-scroll-class="acc${numberOfAcc}"]`);
-    const scrollElement = document.querySelector(`[data-section-scroll="acc${numberOfAcc}"]`);
+    const scrollWrap =iiDesktop ? document.querySelector(`[data-section-scroll-class="acc${numberOfAcc}"]`): document.querySelector(`[data-section-scroll-class="6"]`)  || document.querySelector(`[data-section-scroll-class="7"]`);
+    const scrollElement =iiDesktop ? document.querySelector(`[data-section-scroll="acc${numberOfAcc}"]`) :  document.querySelector(`[data-section-scroll="6"]`) || document.querySelector(`[data-section-scroll="7"]`);
 
 
     dropdownTabs.forEach(dropdownTab => {
 
         dropdownTab.addEventListener('click', (event) => {
-            console.log("wefsf")
             if(event.isTrusted){
-
                 // Remove 'presentation-modules-item-active' class from all elements
                 const activeItems = document.querySelectorAll('.presentation-modules-item-active');
                 activeItems.forEach(item => item.classList.remove('presentation-modules-item-active'));
