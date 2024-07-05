@@ -955,6 +955,7 @@ header {
         }
     }
 
+
     .section.section-subscription .subscription-details-columns-wrapper.section-scroll-bg-bottom.scrolled-bottom {
         &:before {
             background: linear-gradient(0deg, #20222C 0%, rgba(36, 38, 54, 0) 77%);
