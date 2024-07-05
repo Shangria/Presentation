@@ -113,7 +113,7 @@
 
 /*//*/
 
-.section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-top {
+.section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-top.scrolled-top{
     &:after {
         height: 30px;
         background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
@@ -135,7 +135,7 @@
 
 /*//*/
 
-.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top {
+.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top.scrolled-top {
     &:after {
         height: 30px;
         background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
@@ -938,7 +938,7 @@ header {
         }
     }
 
-    .section.section-modules .package-info-wrapper.section-scroll-bg-top {
+    .section.section-modules .package-info-wrapper.section-scroll-bg-top.scrolled-top {
         &:after {
             height: 30px;
             background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
