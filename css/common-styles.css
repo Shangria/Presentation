@@ -408,6 +408,7 @@ header {
     height: calc(100% - 21px);
     overflow-x: auto;
     margin-top: 21px;
+    min-width: 325px;
 }
 
 .presentation-menu h3,
@@ -477,11 +478,12 @@ header {
     background: #1D1F28;
 }
 
+
 .section.section-modules .main,
 .calculation-container {
     flex-basis: 73%;
     padding: 6vh 3vw 6vh;
-    background: url('../images/gradient.png');
+    background: url('../images/gradient.svg');
     background-size: 140%;
     -webkit-background-size: 140%;
     background-position: right;
@@ -508,14 +510,16 @@ header {
 
 
 .package-info {
-    flex-basis: 27%;
-    -ms-flex-negative: 0;
+   /* flex-basis: 27%;
+    -ms-flex-negative: 0;*/
     flex-shrink: 0;
+    max-width: 370px;
+    width: 100%;
 }
 
-.section-calculation .package-info {
+/*.section-calculation .package-info {
     flex-basis: 44%;
-}
+}*/
 
 .package-info-wrapper{
     height: 100%;
@@ -582,12 +586,17 @@ header {
 }
 
 .package-container-width .package-list {
-    flex-basis: 45%;
+   /* flex-basis: 45%;*/
+    position: relative;
 }
 
+
+
+/*
 .section-calculation .package-container-width .package-list {
     flex-basis: 54%;
 }
+*/
 
 .accordion__item {
     margin-bottom: 12px;
@@ -709,7 +718,13 @@ header {
     }
 
     .package-info {
-        max-width: 100%;
+        max-width: 200px;
+    }
+
+    .presentation-menu {
+        /*   flex-basis: 27%;*/
+        padding: 140px 1vw 0 1vw;
+
     }
 }
 
@@ -744,12 +759,24 @@ header {
         min-width: 185px;
         max-width: 185px;
     }
+
+    .selects-box-container-bottom {
+        position: fixed;
+        bottom: 6dvh;
+        right: 3dvw;
+        width: 50%;
+    }
+
 }
 
 
 @media screen and (min-width: 1600px) {
     .section.section-subscription .title {
         text-align: left;
+    }
+
+    .selects-box-container-bottom {
+        width: 100%;
     }
 }
 
@@ -1512,7 +1539,7 @@ header {
 
     @keyframes fadeInWithWidthChange {
         0% {
-            width: 0;
+            width: 50%;
         }
 
         100% {
@@ -1522,11 +1549,11 @@ header {
 
     @keyframes fadeInWithWidthMin {
         0% {
-            flex-basis: 100%;
+            width: 150%;
         }
 
         100% {
-            flex-basis: 67%;
+            width: 100%;
         }
     }
 
@@ -1541,13 +1568,12 @@ header {
     }
 
     .animate__widthOwn{
-        animation: fadeInWithWidthChange .6s, 1s ;
+        animation: fadeInWithWidthChange .6s ease-in-out forwards ;
     }
 
     .animate__width-minOwn{
         animation: fadeInWithWidthMin .6s ease-in-out forwards ;
     }
-
 
     .animate__fadeInLeftOwn {
         animation: fadeInLeftTransform .4s, fadeInOpacity 2s ;

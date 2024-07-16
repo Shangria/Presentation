@@ -388,7 +388,7 @@
         <div class="swiper-slide" id="slide2">
             <section class="section section-select-target section-scroll-bg-top" data-section-scroll-class="2">
                 <div class="main flex flex-col">
-                    <img src="./images/gradient.png" alt="gradient" class="gradient">
+                    <img src="./images/gradient.svg" alt="gradient" class="gradient">
                     <div class="section-back z-[100]" data-section-back-btn>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_332_23416)">
@@ -908,18 +908,17 @@
                                             </div>
                                         </div>
 
-
-                                        <div class="packages-request hidden lg:flex justify-end grow items-end">
-                                            <button data-request-demo type="button"
-                                                    class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
-                                            >Request a demo
-                                            </button>
-                                            <button data-request-invoice type="button"
-                                                    class="btn btn-rounded btn-blue btn-next uppercase"
-                                            >Request invoice
-                                                <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
-                                            </button>
-                                        </div>
+                                    </div>
+                                    <div class="packages-request selects-box-container-bottom hidden lg:flex justify-end grow items-end">
+                                        <button data-request-demo type="button"
+                                                class="btn btn-rounded-plus btn-outline-blue uppercase mr-4"
+                                        >Request a demo
+                                        </button>
+                                        <button data-request-invoice type="button"
+                                                class="btn btn-rounded btn-blue btn-next uppercase"
+                                        >Request invoice
+                                            <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -984,7 +983,7 @@
                         </div>
 
                         <div data-animate-mobile class="calculation-container  order-2 lg:order-2  flex">
-                            <div data-animate-width class="main package-container-wrap  fixed lg:relative flex flex-col"
+                            <div  class="main package-container-wrap  fixed lg:relative flex flex-col"
                                  data-package-container-wrap>
                                 <h2 class="title  hidden lg:block">Packages and Modules</h2>
                                 <div class="package package-container package-container-width flex flex-col lg:flex-row flex-nowrap flex-grow">
@@ -1017,9 +1016,9 @@
                                                 <p><!-- Do not delete this block. It's being used in js --></p>
                                             </div>
                                             <div class="package-list w-full flex flex-col">
-                                                <div class="accordion-panel-scroll-gradient panel-animation  section-scroll-bg-top section-scroll-bg-bottom"
+                                                <div data-animate-width-max class="accordion-panel-scroll-gradient panel-animation  section-scroll-bg-top section-scroll-bg-bottom"
                                                       data-section-scroll-class="acc4">
-                                                    <div class="accordion-panel " data-animate-width  data-section-scroll="acc4"
+                                                    <div class="accordion-panel "  data-section-scroll="acc4"
                                                          id="accordionPanelSlide4">
                                                         <!-- Do not delete this block. It's being used in js -->
                                                     </div>
@@ -1133,15 +1132,17 @@
                                     </div>
                                 </div>
 
-
-                                <div class="total-counter hidden lg:block">
-                                    Total: $<span data-total-counter-box></span> USD
+                                <div class="selects-box-container-bottom">
+                                    <div class="total-counter hidden lg:block">
+                                        Total: $<span data-total-counter-box></span> USD
+                                    </div>
+                                    <button data-request-invoice-subscription type="button"
+                                            class="btn calculation-btn hidden lg:block btn-rounded btn-blue btn-next uppercase"
+                                    >Request invoice
+                                        <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
+                                    </button>
                                 </div>
-                                <button data-request-invoice-subscription type="button"
-                                        class="btn calculation-btn hidden lg:block btn-rounded btn-blue btn-next uppercase"
-                                >Request invoice
-                                    <img src="./images/request-invoice/arrow-right-white.svg" alt="arrow"/>
-                                </button>
+
                             </div>
                         </div>
 

@@ -76,21 +76,22 @@ function animateFirstSlide(slideDirectionMobile) {
 }
 
 function prepareAnimation(swiper) {
-    $('.panel-animation').css('width', "auto");
+    /*$('.panel-animation').css('width', "auto");*/
     $('[data-animate]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightOwn');
     $('[data-animate-fade-in-up]').removeClass('animate__animated animate__fadeInUpOwn');
     $('[data-animate-left]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
     $('[data-animate-right]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
     $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeftOwn');
     $('[data-animate-top-left]').removeClass('animate__animated animate__fadeInTopLeftOwn');
-    $('[data-animate-width]').removeClass('animate__animated animate__widthOwn animate__width-minOwn');
+    $('[data-animate-width]').removeClass('animate__animated animate__widthOwn');
+
+    $('[data-animate-width-max ]').removeClass('animate__animated animate__width-minOwn');
     $('[data-animate-mobile]').removeClass('animate__animated animate__fadeInRightOwnMobile animate__fadeInLeftOwnMobile');
 }
 
 function startAnimation(swiper) {
     let slideDirection = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRightOwn' : 'animate__fadeInLeftOwn';
     let slideDirectionMobile = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRightOwnMobile' : 'animate__fadeInLeftOwnMobile';
-
     let slideDirectionFor2SlideLeft = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRightOwn' : '';
     let slideDirectionFor2SlideRight = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInLeftOwn' : '';
     let slideDirectionFor2Width = swiper.activeIndex > swiper.previousIndex ? '' : 'animate__widthOwn';
@@ -120,7 +121,7 @@ function startAnimation(swiper) {
         $('#slide4 [data-animate-mobile]').addClass(`animate__animated ${slideDirectionMobile} `);
         $('#slide4 [data-animate-left]').addClass(`animate__animated  animate__fadeInRightOwn`);
         $('#slide4 [data-animate-right]').addClass('animate__animated animate__fadeInLeftOwn ');
-        $('#slide4 [data-animate-width]').addClass(`animate__animated  ${slideDirectionFor3Width}`);
+        $('#slide4 [data-animate-width-max]').addClass(`animate__animated  ${slideDirectionFor3Width}`);
     }
 
     else if (swiper.activeIndex === 4) {

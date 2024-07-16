@@ -350,7 +350,6 @@ function showModulePanel(currentTab, presentationMenuId, accordionId) {
 
 function calculateTotalCost(store) {
     let total = 0;
-    console.log(store);
     const licensesValue = store.currentLicencesSelected;
     const isGlobalSelected = store.regionsArr.includes("Global");
     const basePercent = 10; // Percentage for regions and licenses

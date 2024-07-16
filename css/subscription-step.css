@@ -5,7 +5,7 @@
 }
 
 .subscription-step-wrap {
-    background: url(../images/gradient.png);
+    background: url(../images/gradient.svg);
     background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
@@ -20,11 +20,12 @@
     flex-direction: column;
     flex-basis: 43%;
     padding: 15dvh 3.5vw 8dvh 3.5vw;
-    background: url(../images/gradient.png);
+    background: url(../images/gradient.svg);
     background-size: auto;
     background-position: right;
     background-repeat: no-repeat;
 }
+
 
 .subscription-step-box .subscription-modules-title {
     margin-bottom: 2dvh;

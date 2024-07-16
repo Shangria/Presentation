@@ -63,7 +63,8 @@
 
 
 .btn.btn-outline-blue,
-.btn.btn-next {
+.btn.btn-next,
+.btn.btn-request{
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -76,7 +77,8 @@
 }
 
 .section-calculation .btn.btn-outline-blue,
-.section-calculation  .btn.btn-next {
+.section-calculation  .btn.btn-next ,
+.section-calculation  .btn.btn-request{
 	margin-left: auto;
 }
 
@@ -86,14 +88,16 @@
 	}
 }
 
-.btn.btn-next img{
+.btn.btn-next img,
+.btn.btn-request img{
 	width: 15px;
 	height: 17px;
 	margin-left: 10px;
 }
 
 .btn.btn-outline-blue:hover,
-.btn.btn-next:hover {
+.btn.btn-next:hover,
+.btn.btn-request:hover {
 	font-size: clamp(18px, 1.29vw, 27px);
 }
 
@@ -102,7 +106,8 @@
 .section-modules, .section-subscription{
 	.btn.btn-size-xl:hover,
 	.btn.btn-outline-blue:hover,
-	.btn.btn-next:hover {
+	.btn.btn-next:hover,
+	.btn.btn-request:hover {
 		font-size: clamp(18px, 1.29vw, 27px);
 	}
 }
@@ -115,12 +120,14 @@
 
 @media screen and (max-width: 1024px) {
 	.btn.btn-outline-blue,
-	.btn.btn-next {
+	.btn.btn-next ,
+	.btn.btn-request {
 		font-weight: 500;
 		height: 46px;
 	}
 	.btn.btn-outline-blue:hover,
 	.btn.btn-next:hover,
+	.btn.btn-request:hover,
 	.btn.btn-size-xl:hover {
 		font-size: 16px;
 	}
@@ -150,7 +157,8 @@
 	}
 
 	.btn.btn-outline-blue,
-	.btn.btn-next {
+	.btn.btn-next,
+	.btn.btn-request {
 		margin-left: 0;
 		margin-right: 0;
 	}
