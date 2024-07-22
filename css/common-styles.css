@@ -212,12 +212,12 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3dvh;
+    margin-bottom: 4dvh;
 }
 
 
 .laptop {
-    max-width: 778px;
+    max-width: 815px;
     width: 100%;
     height: 100%;
     max-height: 465px;
@@ -287,8 +287,9 @@ header {
     font-weight: 600;
     font-size: clamp(25px, 5vw, 89px);
     color: #ffffff;
-    line-height: 1.3;
+    line-height: 5vw;
 }
+
 
 .subtitle {
     font-weight: 400;
@@ -368,6 +369,11 @@ header {
     transform: rotate(90deg);
 }
 
+.section.section-start .title{
+    margin-top: -6dvh;
+    margin-bottom: 3dvh;
+}
+
 .section.section-select-target .main {
     padding: 6dvh 60px 6dvh 60px;
 }
@@ -382,6 +388,7 @@ header {
     z-index: 55;
     margin-bottom: 5dvh;
 }
+
 
 .section.section-subscription .title {
     text-align: center;
