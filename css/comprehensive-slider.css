@@ -55,7 +55,8 @@
     -webkit-transition: height .25s ease-in-out, opacity .3s ease-in-out;
     -o-transition: height .25s ease-in-out, opacity .3s ease-in-out;
     transition: height .25s ease-in-out, opacity .3s ease-in-out;
-    bottom: -5px;
+    bottom: 17px;
+    position: fixed;
 }
 
 #comprehensive-slider .comprehensive-slide-item.swiper-slide-checked .slide-checked {
@@ -228,8 +229,8 @@
 #comprehensive-slider .comprehensive-slide-item .content {
     width: 100%;
     max-width: 300px;
-    top: calc(100% - 78px);
     left: 50%;
+    top: calc(100% - 50px);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -301,7 +302,7 @@
 #comprehensive-slider .comprehensive-slide-item:active .content.hidden-content,
 #comprehensive-slider .comprehensive-slide-item:focus .content.hidden-content,
 #comprehensive-slider .comprehensive-slide-item.swiper-slide-checked .content.hidden-content {
-    top: 30px;
+    top: 15px;
     max-width: 320px;
     opacity: 1;
 }
@@ -321,6 +322,7 @@
 
     #comprehensive-slider .comprehensive-slide-item .content {
         line-height: 1;
+        top: calc(100% - 78px);
     }
 
     #comprehensive-slider .comprehensive-slide-item:hover .swiper-slide-inner{
@@ -358,7 +360,8 @@
 
     #comprehensive-slider .comprehensive-slide-item-top-title{
         font-size: 14.3px;
-        line-height: 16.98px;
+        line-height:1;
+        display: inline-block;
     }
 
     #comprehensive-slider .comprehensive-slide-item-sub-title{
@@ -385,20 +388,27 @@
         border-radius: 10px;
     }
 
-    #comprehensive-slider .swiper-slide-inner-title{
+    #comprehensive-slider .comprehensive-slide-item:last-of-type {
+        margin-bottom: 15px;
+    }
+
+    #comprehensive-slider .swiper-slide-inner-title {
         font-size: 14.3px;
         line-height: 16.98px;
     }
 
-    #comprehensive-slider .comprehensive-slide-item .content{
+    #comprehensive-slider .comprehensive-slide-item .content {
         padding-bottom: 10px;
-       bottom: 5px;
+
     }
 
     #comprehensive-slider .comprehensive-slide-item.swiper-slide-checked .content{
         padding-bottom: 30px;
     }
 
+    #comprehensive-slider .comprehensive-slide-item .slide-checked {
+        bottom: 0px;
+    }
 
     #comprehensive-slider .comprehensive-slide-item .content.hidden-content ol{
         font-size: 10px;

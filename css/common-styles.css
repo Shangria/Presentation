@@ -386,6 +386,10 @@ header {
     line-height: 1;
     text-align: center;
     z-index: 55;
+}
+
+.section.section-modules .title,
+.section.section-subscription .title {
     margin-bottom: 5dvh;
 }
 
