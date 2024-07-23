@@ -113,67 +113,44 @@
 
 /*//*/
 
+
+.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top.scrolled-top,
 .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-top.scrolled-top{
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
     &:after {
-        height: 30px;
-        background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
-        top: 0px;
+        content: none;
     }
 }
 
+.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom,
 .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom {
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
     &:before {
-        background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
-        height: 30px;
-        bottom: -1px;
-        opacity: 1;
+      content: none;
     }
 }
 
-/*//*/
 
+.section.section-subscription .accordion-panel-scroll-gradient.scrolled-bottom.scrolled-top,
+.section.section-modules .accordion-panel-scroll-gradient.scrolled-bottom.scrolled-top{
+    mask-image:
+            linear-gradient(to top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
+    mask-composite: intersect;
 
-/*//*/
-
-.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top.scrolled-top {
     &:after {
-        height: 30px;
-        background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
-        top: 0;
+        content: none;
     }
-}
-
-
-.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom {
     &:before {
-        height: 30px;
-        background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
-        bottom: -1px;
-        opacity: 1;
+        content: none;
     }
 }
+
+
 
 /*//*/
 
 
-/*
-.section-scroll-bg-bottom.scrolled-bottom{
-    &:before {
-        opacity: 1!important;
-    }
-}
-
-.section.section-modules .section-scroll-bg-bottom.scrolled-bottom{
-    &:before {
-        opacity: 1 !important;
-    }
-}
-
-.section.section-subscription .section-scroll-bg-bottom.scrolled-bottom{
-    &:before {
-        opacity: 1;
-    }
-}*/
 
 
 .main {
@@ -559,7 +536,7 @@ header {
     position: absolute;
     bottom: 15px;
     left: 15px;
-    border: 1px solid #FFFFFF3D;
+    border: 2px solid #FFFFFF3D;
     border-radius: 25px;
     max-width: 105px;
     width: 100%;
@@ -568,6 +545,12 @@ header {
     justify-content: space-between;
     padding: 9px 15px;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.package-info--video-btn:hover {
+    border: 2px solid #fff;
+    background: #00000029;
 }
 
 .package-info--video-btn img {
@@ -794,6 +777,11 @@ header {
 
 
 @media screen and (min-width: 1024px) and (max-height: 1030px) {
+
+    .section-modules .accordion-panel {
+        max-height: 63vh!important;
+    }
+
     .swiper-slide-calculation .accordion-panel {
         max-height: 63vh!important;
     }
@@ -803,7 +791,7 @@ header {
 
 @media screen and (min-width: 1024px) and (max-height: 1000px) {
     .calculation-container, .section.section-modules .main {
-        padding: 5vh 4vw 5vh;
+        padding: 6vh 4vw 5vh;
     }
 
     .laptop {
@@ -812,6 +800,10 @@ header {
 
     .section.section-start .main{
         padding-top: 4vh;
+    }
+
+    .section-modules .accordion-panel {
+        max-height: 50vh!important;
     }
 
     .subscription-accordion-box .accordion-panel {
@@ -1236,6 +1228,10 @@ header {
         margin: 0 auto 24px;
         height: 250px;
         max-width: 393px;
+    }
+
+    .package-info  {
+        max-width: 100%;
     }
 
     .package-info p {
