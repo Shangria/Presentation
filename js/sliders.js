@@ -139,6 +139,7 @@ $(document).ready(function () {
      */
     $('#getStarted, .btn-next, [data-request-invoice]').on('click', function () {
         pageSlider.slideNext();
+        $('[data-btns-box]').addClass(`lg:fixed`);
     });
 
     $('.section-back').on('click', function () {

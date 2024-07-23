@@ -755,7 +755,6 @@ header {
     }
 
     .selects-box-container-bottom {
-        position: fixed;
         bottom: 6dvh;
         right: 3dvw;
         width: 50%;
