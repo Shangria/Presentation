@@ -1361,6 +1361,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 50%;
     position: relative;
     display: block;
+    transition: .3s ease-in-out;
 }
 
 .custom-checkbox-label .checkmark:after {
@@ -1375,6 +1376,7 @@ input[type=number]::-webkit-outer-spin-button {
     transform: translate(-50%, -50%);
     border-radius: 50%;
     opacity: 11%;
+    transition: .3s ease-in-out;
 }
 
 
@@ -1566,44 +1568,44 @@ header {
 
     @keyframes fadeInUpBottomLeft {
         0% {
-            -webkit-transform: translate3d(-30%, 40%, 0);
             transform: translate3d(-30%, 40%, 0);
         }
 
         to {
-            -webkit-transform: translateZ(0);
             transform: translateZ(0)
         }
     }
 
     @keyframes fadeInFromTopLeft {
         0% {
-            -webkit-transform: translate3d(-30%, -20%, 0);
             transform: translate3d(-30%, -20%, 0);
         }
 
         to {
-            -webkit-transform: translateZ(0);
             transform: translateZ(0)
         }
     }
 
     @keyframes fadeInWithWidthChange {
         0% {
+            opacity: 1;
             width: 50%;
         }
 
         100% {
+            opacity: 1;
             width: 100%;
         }
     }
 
     @keyframes fadeInWithWidthMin {
         0% {
+            opacity: 1;
             width: 150%;
         }
 
         100% {
+            opacity: 1;
             width: 100%;
         }
     }
