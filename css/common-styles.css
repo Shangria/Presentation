@@ -1473,18 +1473,6 @@ header {
 
 @media screen and (min-width: 1025px) {
 
-    @keyframes fadeInLeftTransform {
-        0% {
-            -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0)
-        }
-
-        100% {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0)
-        }
-    }
-
     @keyframes fadeInOpacity {
         0% {
             opacity: 0;
@@ -1494,6 +1482,27 @@ header {
             opacity: 1;
         }
     }
+
+    @keyframes fadeInLeftTransform {
+        0% {
+            transform: translate3d(-100%, 0, 0)
+        }
+
+        100% {
+            transform: translateZ(0)
+        }
+    }
+
+    @keyframes fadeInLeftSmallTransform {
+        0% {
+        }
+
+        to {
+            transform: translate3d(5%,0,0)
+        }
+    }
+
+
 
     @keyframes fadeInRightTransform {
         0% {
@@ -1507,6 +1516,16 @@ header {
         }
     }
 
+    @keyframes fadeInRightSmallTransform {
+        0% {
+            transform: translate3d(5%, 0, 0)
+        }
+
+        100% {
+            transform: translateZ(0)
+        }
+    }
+
     @keyframes fadeInGoUp {
         0% {
             -webkit-transform: translate3d(0, 100%, 0);
@@ -1516,6 +1535,32 @@ header {
         to {
             -webkit-transform: translateZ(0);
             transform: translateZ(0)
+        }
+    }
+
+
+    @keyframes fadeInGoBottom {
+        0% {
+            -webkit-transform: translate3d(0,-100%,0);
+            transform: translate3d(0,-100%,0)
+        }
+
+        to {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0)
+        }
+    }
+
+    @keyframes fadeInBackFromBottom {
+        0% {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0)
+        }
+
+        to {
+            -webkit-transform: translate3d(0,-100%,0);
+            transform: translate3d(0,-100%,0);
+            display: none;
         }
     }
 
@@ -1587,9 +1632,21 @@ header {
         animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) ;
     }
 
+    .animate__fadeInLeftSmallOwn {
+        animation: fadeInLeftSmallTransform .4s forwards, fadeInOpacity 2s ;
+        animation-duration: .5s ;
+        animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) ;
+    }
+
 
     .animate__fadeInRightOwn {
         animation: fadeInRightTransform .4s, fadeInOpacity 2s ;
+        animation-duration: .5s ;
+        animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) ;
+    }
+
+    .animate__fadeInRightSmallOwn {
+        animation: fadeInRightSmallTransform .4s forwards, fadeInOpacity 2s ;
         animation-duration: .5s ;
         animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) ;
     }
@@ -1607,6 +1664,13 @@ header {
         animation: fadeInGoUp .4s, fadeInOpacity 2s ;
     }
 
+    .animate__fadeInBottomOwn{
+        animation: fadeInGoBottom .4s, fadeInOpacity 2s ;
+    }
+
+    .animate__fadeInBackFromBottom{
+        animation: fadeInBackFromBottom .4s forwards, fadeInOpacity 2s;
+    }
 
     .animate__fadeInLeftSlowerOwn {
         animation: fadeInLeftTransform 1s, fadeInOpacity 2s;
@@ -1632,8 +1696,6 @@ header {
         animation-duration: .6s ;
         animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
-
-
 
 }
 

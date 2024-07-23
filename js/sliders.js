@@ -78,13 +78,13 @@ function animateFirstSlide(slideDirectionMobile) {
 function prepareAnimation(swiper) {
     /*$('.panel-animation').css('width', "auto");*/
     $('[data-animate]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightOwn');
-    $('[data-animate-fade-in-up]').removeClass('animate__animated animate__fadeInUpOwn');
+    $('[data-animate-fade-in-up]').removeClass('animate__animated animate__fadeInUpOwn animate__fadeOutDown animate__fadeInBottomOwn');
+    $('[data-animate-fade-in-bottom]').removeClass('animate__animated animate__fadeInLeftSmallOwn animate__fadeInBottomOwn animate__fadeInRightSmallOwn animate__fadeOutUp  animate__fadeInBackFromBottom');
     $('[data-animate-left]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
     $('[data-animate-right]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
     $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeftOwn');
     $('[data-animate-top-left]').removeClass('animate__animated animate__fadeInTopLeftOwn');
     $('[data-animate-width]').removeClass('animate__animated animate__widthOwn');
-
     $('[data-animate-width-max ]').removeClass('animate__animated animate__width-minOwn');
     $('[data-animate-mobile]').removeClass('animate__animated animate__fadeInRightOwnMobile animate__fadeInLeftOwnMobile');
 }
@@ -94,6 +94,7 @@ function startAnimation(swiper) {
     let slideDirectionMobile = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRightOwnMobile' : 'animate__fadeInLeftOwnMobile';
     let slideDirectionFor2SlideLeft = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInRightOwn' : '';
     let slideDirectionFor2SlideRight = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInLeftOwn' : '';
+    let slideDirectionFor2TitleToRight = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInBottomOwn' : 'animate__fadeInRightSmallOwn';
     let slideDirectionFor2Width = swiper.activeIndex > swiper.previousIndex ? '' : 'animate__widthOwn';
     let slideDirectionFor3Width = swiper.activeIndex > swiper.previousIndex ? 'animate__width-minOwn' : '';
 
@@ -101,6 +102,8 @@ function startAnimation(swiper) {
     if (swiper.activeIndex === 0) {
         animateFirstSlide(slideDirectionMobile)
         $('#slide1 [data-animate-mobile]').addClass(`animate__animated ${slideDirection} `);
+        $('#slide2 [data-animate-fade-in-up]').addClass(`animate__animated animate__fadeOutDown`);
+        $('#slide2 [data-animate-fade-in-bottom]').addClass(`animate__animated animate__fadeOutUp`);
     }
 
 
@@ -108,10 +111,13 @@ function startAnimation(swiper) {
         $('#slide2 [data-animate-mobile]').addClass(`animate__animated ${slideDirectionMobile} `);
         $('#slide2 [data-animate]').addClass(`animate__animated ${slideDirection} `);
         $('#slide2 [data-animate-fade-in-up]').addClass(`animate__animated animate__fadeInUpOwn `);
+        $('#slide2 [data-animate-fade-in-bottom]').addClass(`animate__animated  ${slideDirectionFor2TitleToRight} `);
     }
 
     else if (swiper.activeIndex === 2) {
         $('#slide3 [data-animate-mobile]').addClass(`animate__animated ${slideDirectionMobile}`);
+        $('#slide2 [data-animate-fade-in-up]').addClass(`animate__animated animate__fadeOutDown`);
+        $('#slide2 [data-animate-fade-in-bottom]').addClass(`animate__animated  animate__fadeInLeftSmallOwn`);
         $('#slide3 [data-animate-left]').addClass(`animate__animated  ${slideDirectionFor2SlideLeft}`);
         $('#slide3 [data-animate-right]').addClass(`animate__animated  ${slideDirectionFor2SlideRight}`);
         $('#slide3 [data-animate-width]').addClass(`animate__animated   ${slideDirectionFor2Width}`);
