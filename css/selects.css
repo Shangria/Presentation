@@ -21,7 +21,7 @@
 }
 
 .select-title-box span{
-    font-size: clamp(18px, 1.2vw, 22px);
+    font-size: clamp(14px, 1.2vw, 22px);
 }
 
 .regions-select-wrap, .package-select-wrap, .licences-select-wrap{
@@ -414,7 +414,7 @@
     .licences-select-box .choices,
     .package-select-box .choices{
         font-size: 16px;
-        height: 52px;
+        height: 40px;
     }
 
     .licences-select-box .choices__inner, .package-select-box .choices__inner,
@@ -428,7 +428,7 @@
     }
 
     .swiper-slide-calculation  .select-box {
-        margin-bottom:20px !important;
+        margin-bottom:15px !important;
     }
 
     .select-title-box img{

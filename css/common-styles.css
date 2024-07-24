@@ -58,21 +58,36 @@
 
 
 
-.section.section-select-target.section-scroll-bg-top.scrolled-top {
+.scroll-gradient.swiper-container.scrolled-top{
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
     &:after {
-        height: 100px;
-        background: linear-gradient(0.5turn, #212736 50%, rgba(34, 41, 57, 0.2) 78%, rgba(34, 41, 57, 0.1) 83%, rgba(34, 41, 57, 0));
+        content: none;
     }
-
 }
 
-.section.section-select-target.scrolled-bottom .section-scroll-bg-bottom{
-        &:before{
-            background: linear-gradient(1turn, #212736 82%, #22293933 96%, #2229391a 83%, #22293900);
-            height:90px;
-            opacity: 1;
-        }
+.scroll-gradient.swiper-container.scrolled-bottom {
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
+    &:before {
+        content: none;
+    }
 }
+
+
+
+.scroll-gradient.swiper-container.scrolled-bottom.scrolled-top{
+    mask-image:
+            linear-gradient(to top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
+    mask-composite: intersect;
+
+    &:after {
+        content: none;
+    }
+    &:before {
+        content: none;
+    }
+}
+
 
 /*//*/
 
@@ -423,7 +438,7 @@ header {
 }
 
 .presentation-modules-item {
-    min-height: 52px;
+    min-height: 40px;
     margin-bottom: 12px;
     padding: 10px 1vw;
     border-radius: 12px;
@@ -871,7 +886,7 @@ header {
         flex-basis: 100%;
         padding-left: 20px;
         padding-right: 20px;
-        padding-top: 45px !important;
+        padding-top: 40px !important;
     }
 
     .calculation-btn {
@@ -879,7 +894,6 @@ header {
     }
 
     .presentation-menu-box {
-      padding-top: 7px;
         margin-top: 0;
     }
 
@@ -1103,14 +1117,14 @@ header {
 
     .title-mobile {
         position: absolute;
-        padding-top: 30px;
+        padding-top: 25px;
         width: 100%;
         text-align: center !important;
         font-size: 22px !important;
     }
 
     .section-slide-box .title-mobile {
-        padding-top: 10px;
+        padding-top:5px;
     }
 
     .package-container-wrap {
@@ -1185,7 +1199,7 @@ header {
     }
 
     .presentation-modules-item {
-        padding: 10px;
+        padding: 5px 10px;
     }
 
     .presentation-modules:last-child {
@@ -1247,7 +1261,7 @@ header {
 
     .packages-request-mobile {
         position: absolute;
-        bottom: 20px;
+        bottom: 24px;
         left: 0;
         right: 0;
         z-index: 555;
@@ -1264,8 +1278,10 @@ header {
 
     .packages-request-mobile button {
         margin: 0;
+    }
+
+    .swiper-slide-3 .packages-request-mobile button:first-child {
         margin-bottom: 10px;
-        height: 46px !important;
     }
 
     .presentation-modules-item.presentation-modules-item-active {
@@ -1276,6 +1292,7 @@ header {
         width: 24px!important;
         height: 24px !important;
     }
+
 }
 
 .header-hide{

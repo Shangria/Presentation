@@ -82,8 +82,8 @@ function prepareAnimation(swiper) {
     $('[data-animate-fade-in-bottom]').removeClass('animate__animated animate__UpSmall animate__downSmall animate__fadeInDown animate__fadeInUp animate__fadeInLeftSmallOwn animate__fadeInBottomOwn animate__fadeInRightSmallOwn animate__fadeOutUp  animate__fadeInBackFromBottom');
     $('[data-animate-left]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
     $('[data-animate-right]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
-    $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeftOwn');
-    $('[data-animate-top-left]').removeClass('animate__animated animate__fadeInTopLeftOwn');
+    $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeftOwn animate__fadeInTopLeftOwn');
+    $('[data-animate-top-left]').removeClass('animate__animated animate__fadeInTopLeftOwn animate__fadeInBottomLeftOwn');
     $('[data-animate-width]').removeClass('animate__animated animate__widthOwn');
     $('[data-animate-width-max ]').removeClass('animate__animated animate__width-minOwn');
     $('[data-animate-mobile]').removeClass('animate__animated animate__fadeInRightOwnMobile animate__fadeInLeftOwnMobile');
@@ -133,6 +133,9 @@ function startAnimation(swiper) {
         $('#slide4 [data-animate-fade-in-bottom]').addClass(`animate__animated ${slideDirectionFor3UpDown} `);
         $('#slide5 [data-animate-small]').addClass(`animate__animated animate__fadeInLeftSmallOwn `);
         $('#slide5 [data-animate-fade-in-bottom]').addClass(`animate__animated animate__fadeInUp `);
+        $('#slide5 [data-animate-bottom-left]').addClass('animate__animated animate__fadeInTopLeftOwn ');
+        $('#slide5 [data-animate-top-left]').addClass('animate__animated animate__fadeInBottomLeftOwn ');
+        $('#slide5 [data-animate-left]').addClass('animate__animated animate__fadeInLeftOwn');
 
     }
 

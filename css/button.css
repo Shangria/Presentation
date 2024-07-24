@@ -124,7 +124,10 @@
 	.btn.btn-request {
 		font-weight: 500;
 		height: 46px;
+		padding: 0;
 	}
+
+
 	.btn.btn-outline-blue:hover,
 	.btn.btn-next:hover,
 	.btn.btn-request:hover,
@@ -134,7 +137,7 @@
 
 	.btn-slider-segments{
 		position: absolute;
-		bottom: 20px;
+		bottom: 24px;
 		width: 100%;
 		padding: 0 20px;
 	}
@@ -165,10 +168,6 @@
 }
 
 @media screen and (max-width: 1295px) {
-	.btn.btn-size-xl {
-		max-width: 340px;
-		height: 48px;
-	}
 
 	.btn-title {
 		font-size: 1.115rem;

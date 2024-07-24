@@ -132,10 +132,6 @@
     content: none;
 }
 
-.swiper-fade .swiper-slide.swiper-slide-calculation,
-.swiper-fade .swiper-slide.swiper-slide-3{
-    transition-property: auto !important;
-}
 
 
 .comprehensive-coverage-pagination.swiper-pagination-bullets .swiper-pagination-bullet {
@@ -333,6 +329,12 @@
         visibility: visible;
         transition: all .8s ease-in-out;
     }
+
+    .swiper-fade .swiper-slide.swiper-slide-calculation,
+    .swiper-fade .swiper-slide.swiper-slide-3{
+        transition-property: auto !important;
+    }
+
 }
 
 
