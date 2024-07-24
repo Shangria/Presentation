@@ -1428,7 +1428,7 @@ header {
 
     @keyframes fadeInOpacity {
         0% {
-            opacity: 0;
+            opacity: 0.5;
         }
 
         100% {
@@ -1588,24 +1588,20 @@ header {
 
     @keyframes fadeInWithWidthChange {
         0% {
-            opacity: 1;
             width: 50%;
         }
 
         100% {
-            opacity: 1;
             width: 100%;
         }
     }
 
     @keyframes fadeInWithWidthMin {
         0% {
-            opacity: 1;
             width: 150%;
         }
 
         100% {
-            opacity: 1;
             width: 100%;
         }
     }
@@ -1620,6 +1616,37 @@ header {
         }
     }
 
+    @keyframes fadeInUpSmall {
+        0% {
+            transform: translate3d(0, 100%, 0);
+        }
+
+        to {
+            transform: translateZ(0)
+        }
+    }
+
+
+    @keyframes fadeInDownSmall {
+        0% {
+            opacity: 1;
+            transform: translate3d(0,-100%,0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+    }
+    .animate__downSmall{
+        animation: fadeInDownSmall .4s ease-in-out forwards ;
+    }
+
+    .animate__UpSmall{
+        animation: fadeInUpSmall .4s ease-in-out forwards ;
+    }
+
+
     .animate__widthOwn{
         animation: fadeInWithWidthChange .6s ease-in-out forwards ;
     }
@@ -1629,28 +1656,30 @@ header {
     }
 
     .animate__fadeInLeftOwn {
-        animation: fadeInLeftTransform .4s, fadeInOpacity 2s ;
-        animation-duration: .5s ;
-        animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) ;
+        animation: fadeInLeftTransform, fadeInOpacity ;
+        animation-duration: .4s, 2s ;
+        animation-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
-
-    .animate__fadeInLeftSmallOwn {
-        animation: fadeInLeftSmallTransform .4s forwards, fadeInOpacity 2s ;
-        animation-duration: .5s ;
-        animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) ;
-    }
-
 
     .animate__fadeInRightOwn {
-        animation: fadeInRightTransform .4s, fadeInOpacity 2s ;
-        animation-duration: .5s ;
-        animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) ;
+        animation: fadeInRightTransform, fadeInOpacity;
+        animation-duration: .4s, 2s ;
+        animation-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
+
+    .animate__fadeInLeftSmallOwn {
+        animation: fadeInLeftSmallTransform forwards, fadeInOpacity;
+        animation-duration: .5s, 2s ;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
+    }
+
+
+
     .animate__fadeInRightSmallOwn {
-        animation: fadeInRightSmallTransform .4s forwards, fadeInOpacity 2s ;
-        animation-duration: .5s ;
-        animation-timing-function: cubic-bezier(0.51, 0.31, 0.38, 0.78) ;
+        animation: fadeInRightSmallTransform forwards, fadeInOpacity ;
+        animation-duration: .5s, 2s ;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
 
@@ -1671,34 +1700,34 @@ header {
     }
 
     .animate__fadeInBackFromBottom{
-        animation: fadeInBackFromBottom .4s forwards, fadeInOpacity 2s;
+        animation: fadeInBackFromBottom  forwards, fadeInOpacity;
+        animation-duration: .5s, 2s ;
     }
 
     .animate__fadeInLeftSlowerOwn {
-        animation: fadeInLeftTransform 1s, fadeInOpacity 2s;
-        animation-duration: .5s ;
+        animation: fadeInLeftTransform, fadeInOpacity;
+        animation-duration: .5s, 2s;
         animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
 
 
     .animate__fadeInRightSlowerOwn {
-        animation: fadeInRightTransform 1s, fadeInOpacity 2s ;
-        animation-duration: .5s ;
+        animation: fadeInRightTransform, fadeInOpacity;
+        animation-duration: .5s, 2s;
         animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
 
     .animate__fadeInBottomLeftOwn{
-        animation: fadeInUpBottomLeft .6s, fadeInOpacity 2s ;
-        animation-duration: .6s ;
+        animation: fadeInUpBottomLeft, fadeInOpacity;
+        animation-duration: .6s, 2s;
         animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
 
     .animate__fadeInTopLeftOwn{
-        animation: fadeInFromTopLeft .6s, fadeInOpacity 2s ;
-        animation-duration: .6s ;
+        animation: fadeInFromTopLeft, fadeInOpacity ;
+        animation-duration: .6s, 2s;
         animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
-
 }
 
 

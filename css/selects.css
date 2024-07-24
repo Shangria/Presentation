@@ -369,8 +369,15 @@
     font-weight: 600;
     line-height: 48px;
     color:  var(--color-white);
-    margin-bottom: 3dvh;
     text-align: right;
+}
+
+.section-calculation .total-counter{
+    margin-bottom: 4dvh;
+}
+
+.section-subscription .total-counter{
+    margin-bottom: 2dvh;
 }
 
 .additional-text-options{

@@ -832,7 +832,7 @@
         </div>
 
         <!-- slide3 -->
-        <div class="swiper-slide" id="slide3" >
+        <div class="swiper-slide swiper-slide-3" id="slide3" >
             <section class="section section-modules">
                 <div class="flex flex-nowrap h-full">
 
@@ -1133,7 +1133,7 @@
                                 </div>
 
                                 <div data-btns-box class="selects-box-container-bottom">
-                                    <div class="total-counter hidden lg:block">
+                                    <div data-animate-fade-in-bottom class="total-counter hidden lg:block">
                                         Total: $<span data-total-counter-box></span> USD
                                     </div>
                                     <button data-request-invoice-subscription type="button"
@@ -1221,7 +1221,7 @@
                                 </defs>
                             </svg>
                         </div>
-                        <h2 class="title">Subscription</h2>
+                        <h2 data-animate-small class="title">Subscription</h2>
                         <div data-animate-mobile class="subscription-details-columns-wrapper section-scroll-bg-top section-scroll-bg-bottom"
                              data-section-scroll-class="5">
                             <div class="subscription-details-columns " data-section-scroll="5">
@@ -1412,8 +1412,8 @@
                                 </svg>
                             </div>
                             <h3 class="subscription-modules-title" id="subscriptionModulesTitle"></h3>
-                            <div class="h-full" data-animate-left>
-                                <div class="accordion-panel-container accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
+                            <div class="h-full">
+                                <div data-animate-left class="accordion-panel-container accordion-panel-scroll-gradient section-scroll-bg-top section-scroll-bg-bottom"
                                      data-section-scroll-class="acc5">
                                     <div class="accordion-panel" data-section-scroll="acc5"
                                          id="currentBoxModules">
@@ -1425,7 +1425,7 @@
                         </div>
 
                         <div  class="subscription-step-bottom-box">
-                            <div class="total-counter">
+                            <div data-animate-fade-in-bottom class="total-counter">
                                 Total: $<span data-total-counter-box></span> USD
                             </div>
                             <button type="button" class="btn btn-rounded btn-blue btn-next uppercase"

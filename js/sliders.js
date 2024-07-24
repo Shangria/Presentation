@@ -8,8 +8,8 @@ window.addEventListener("load", () => {
     let activePageIndex = 0;
     pageSlider = new Swiper('#page-slider', {
         slidesPerView: 1,
-        direction: 'vertical',
-        speed: 800,
+       /* direction: 'vertical',*/
+        speed: 500,
         mousewheel: false,
         allowTouchMove: false,
         allowSlideNext: true,
@@ -79,7 +79,7 @@ function prepareAnimation(swiper) {
     /*$('.panel-animation').css('width', "auto");*/
     $('[data-animate]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightOwn');
     $('[data-animate-fade-in-up]').removeClass('animate__animated animate__fadeInUpOwn animate__fadeOutDown animate__fadeInBottomOwn');
-    $('[data-animate-fade-in-bottom]').removeClass('animate__animated animate__fadeInLeftSmallOwn animate__fadeInBottomOwn animate__fadeInRightSmallOwn animate__fadeOutUp  animate__fadeInBackFromBottom');
+    $('[data-animate-fade-in-bottom]').removeClass('animate__animated animate__UpSmall animate__downSmall animate__fadeInDown animate__fadeInUp animate__fadeInLeftSmallOwn animate__fadeInBottomOwn animate__fadeInRightSmallOwn animate__fadeOutUp  animate__fadeInBackFromBottom');
     $('[data-animate-left]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
     $('[data-animate-right]').removeClass('animate__animated animate__fadeInLeftOwn animate__fadeInRightSlowerOwn animate__fadeInLeftSlowerOwn animate__fadeInRightOwn ');
     $('[data-animate-bottom-left]').removeClass('animate__animated animate__fadeInBottomLeftOwn');
@@ -87,6 +87,7 @@ function prepareAnimation(swiper) {
     $('[data-animate-width]').removeClass('animate__animated animate__widthOwn');
     $('[data-animate-width-max ]').removeClass('animate__animated animate__width-minOwn');
     $('[data-animate-mobile]').removeClass('animate__animated animate__fadeInRightOwnMobile animate__fadeInLeftOwnMobile');
+    $('[data-animate-small]').removeClass('animate__animated animate__fadeInRightSmallOwn animate__fadeInLeftSmallOwn');
 }
 
 function startAnimation(swiper) {
@@ -97,6 +98,7 @@ function startAnimation(swiper) {
     let slideDirectionFor2TitleToRight = swiper.activeIndex > swiper.previousIndex ? 'animate__fadeInBottomOwn' : 'animate__fadeInRightSmallOwn';
     let slideDirectionFor2Width = swiper.activeIndex > swiper.previousIndex ? '' : 'animate__widthOwn';
     let slideDirectionFor3Width = swiper.activeIndex > swiper.previousIndex ? 'animate__width-minOwn' : '';
+    let slideDirectionFor3UpDown = swiper.activeIndex > swiper.previousIndex ? '' : 'animate__UpSmall';
 
 
     if (swiper.activeIndex === 0) {
@@ -128,6 +130,10 @@ function startAnimation(swiper) {
         $('#slide4 [data-animate-left]').addClass(`animate__animated  animate__fadeInRightOwn`);
         $('#slide4 [data-animate-right]').addClass('animate__animated animate__fadeInLeftOwn ');
         $('#slide4 [data-animate-width-max]').addClass(`animate__animated  ${slideDirectionFor3Width}`);
+        $('#slide4 [data-animate-fade-in-bottom]').addClass(`animate__animated ${slideDirectionFor3UpDown} `);
+        $('#slide5 [data-animate-small]').addClass(`animate__animated animate__fadeInLeftSmallOwn `);
+        $('#slide5 [data-animate-fade-in-bottom]').addClass(`animate__animated animate__fadeInUp `);
+
     }
 
     else if (swiper.activeIndex === 4) {
@@ -135,6 +141,8 @@ function startAnimation(swiper) {
         $('#slide5 [data-animate-left]').addClass('animate__animated animate__fadeInRightOwn');
         $('#slide5 [data-animate-bottom-left]').addClass('animate__animated animate__fadeInBottomLeftOwn ');
         $('#slide5 [data-animate-top-left]').addClass('animate__animated animate__fadeInTopLeftOwn ');
+        $('#slide5 [data-animate-small]').addClass(`animate__animated animate__fadeInRightSmallOwn `);
+        $('#slide5 [data-animate-fade-in-bottom]').addClass(`animate__animated animate__downSmall `);
     }
 
 }
