@@ -762,17 +762,20 @@ header {
 
 }
 
-
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1300px) {
     .section.section-subscription .title {
         text-align: left;
     }
 
+}
+
+
+
+@media screen and (min-width: 1600px) {
     .selects-box-container-bottom {
         width: 100%;
     }
 }
-
 
 
 @media screen and (min-width: 1024px) and (max-height: 1030px) {
@@ -1639,11 +1642,11 @@ header {
         }
     }
     .animate__downSmall{
-        animation: fadeInDownSmall .4s ease-in-out forwards ;
+        animation: fadeInDownSmall .4s ease forwards ;
     }
 
     .animate__UpSmall{
-        animation: fadeInUpSmall .4s ease-in-out forwards ;
+        animation: fadeInUpSmall .4s ease forwards ;
     }
 
 

@@ -132,13 +132,11 @@
     content: none;
 }
 
-.swiper-fade .swiper-slide.swiper-slide-calculation{
-    transition-property: auto !important;
-}
-
+.swiper-fade .swiper-slide.swiper-slide-calculation,
 .swiper-fade .swiper-slide.swiper-slide-3{
     transition-property: auto !important;
 }
+
 
 .comprehensive-coverage-pagination.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0;
