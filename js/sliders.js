@@ -88,6 +88,7 @@ function prepareAnimation(swiper) {
     $('[data-animate-width-max ]').removeClass('animate__animated animate__width-minOwn');
     $('[data-animate-mobile]').removeClass('animate__animated animate__fadeInRightOwnMobile animate__fadeInLeftOwnMobile');
     $('[data-animate-small]').removeClass('animate__animated animate__fadeInRightSmallOwn animate__fadeInLeftSmallOwn');
+    $('[data-animate-selects]').removeClass('animate__animated animate__fadeInShowOwn animate__fadeOutDisappear');
 }
 
 function startAnimation(swiper) {
@@ -123,6 +124,7 @@ function startAnimation(swiper) {
         $('#slide3 [data-animate-left]').addClass(`animate__animated  ${slideDirectionFor2SlideLeft}`);
         $('#slide3 [data-animate-right]').addClass(`animate__animated  ${slideDirectionFor2SlideRight}`);
         $('#slide3 [data-animate-width]').addClass(`animate__animated   ${slideDirectionFor2Width}`);
+        $('#slide4 [data-animate-selects]').addClass(`animate__animated animate__fadeOutDisappear`);
     }
 
     else if (swiper.activeIndex === 3) {
@@ -131,6 +133,7 @@ function startAnimation(swiper) {
         $('#slide4 [data-animate-right]').addClass('animate__animated animate__fadeInLeftOwn ');
         $('#slide4 [data-animate-width-max]').addClass(`animate__animated  ${slideDirectionFor3Width}`);
         $('#slide4 [data-animate-fade-in-bottom]').addClass(`animate__animated ${slideDirectionFor3UpDown} `);
+        $('#slide4 [data-animate-selects]').addClass(`animate__animated animate__fadeInShowOwn `);
         $('#slide5 [data-animate-small]').addClass(`animate__animated animate__fadeInLeftSmallOwn `);
         $('#slide5 [data-animate-fade-in-bottom]').addClass(`animate__animated animate__fadeInUp `);
         $('#slide5 [data-animate-bottom-left]').addClass('animate__animated animate__fadeInTopLeftOwn ');

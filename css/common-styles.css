@@ -438,7 +438,7 @@ header {
 }
 
 .presentation-modules-item {
-    min-height: 40px;
+    min-height: 52px;
     margin-bottom: 12px;
     padding: 10px 1vw;
     border-radius: 12px;
@@ -1199,6 +1199,7 @@ header {
     }
 
     .presentation-modules-item {
+        min-height: 40px;
         padding: 5px 10px;
     }
 
@@ -1704,11 +1705,11 @@ header {
 
 
     .animate__fadeOutDisappear{
-        animation:fadeOutDisappear .7s
+        animation:fadeOutDisappear 1s
     }
 
     .animate__fadeInShowOwn{
-        animation: fadeInOpacity .5s ;
+        animation: fadeInOpacity 1s ;
     }
 
     .animate__fadeInUpOwn{
