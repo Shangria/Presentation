@@ -768,7 +768,13 @@ header {
         display: inline-block;
     }
 
-    .module-info{
+    .module-info {
+        width: 100%;
+    }
+
+
+    .module-info span {
+        display: inline-block;
         min-width: 185px;
         max-width: 185px;
     }
@@ -792,7 +798,7 @@ header {
 
 @media screen and (min-width: 1600px) {
     .selects-box-container-bottom {
-        width: 100%;
+        width: 50%;
     }
 }
 
@@ -1262,6 +1268,7 @@ header {
     .packages-request {
         position: fixed;
         bottom: 0;
+        width: 50%;
     }
 
     .packages-request-mobile {

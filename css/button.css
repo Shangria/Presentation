@@ -44,7 +44,7 @@
 .btn.btn-size-xl {
 	width: 100%;
 	max-width: 477px;
-	height: 96px;
+	height: 72px;
 }
 
 .btn-title {
@@ -74,6 +74,7 @@
 	font-weight: 600;
 	font-size: clamp(16px, 1.2vw, 22px);
 	line-height: 20px;
+	height: 72px;
 }
 
 .section-calculation .btn.btn-outline-blue,
