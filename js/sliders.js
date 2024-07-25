@@ -88,7 +88,7 @@ function prepareAnimation(swiper) {
     $('[data-animate-width-max ]').removeClass('animate__animated animate__width-minOwn');
     $('[data-animate-mobile]').removeClass('animate__animated animate__fadeInRightOwnMobile animate__fadeInLeftOwnMobile');
     $('[data-animate-small]').removeClass('animate__animated animate__fadeInRightSmallOwn animate__fadeInLeftSmallOwn');
-    $('[data-animate-selects]').removeClass('animate__animated animate__fadeInShowOwn animate__fadeOutDisappear');
+    $('[data-animate-selects]').removeClass('animate__animated animate__fadeInShowOwn ');
 }
 
 function startAnimation(swiper) {

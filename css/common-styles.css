@@ -204,7 +204,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 4dvh;
+    margin-bottom: 10dvh;
 }
 
 
@@ -758,6 +758,10 @@ header {
 }
 @media screen and (min-width: 1025px) {
 
+    .laptop-images-box {
+        margin-bottom: 4dvh;
+    }
+
     .presentation-modules-item  .presentation-modules-item-text {
         min-width: 160px;
         max-width: 160px;
@@ -947,7 +951,7 @@ header {
     .section.section-modules.section-calculation .section-scroll-bg-top.scrolled-top.scrolled-top {
         &:after {
             height: 35px;
-            background: linear-gradient(.5turn, #1d1f28ab 60%, #1d1f2833 92%, #1d1f281a 0, #1d1f280d);
+            background: linear-gradient(180deg, #20222c96, #24263600 77%);
         }
     }
 
