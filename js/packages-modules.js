@@ -77,16 +77,10 @@ function buildSubscriptionModulesPanel(){
                                                             </label>
                                                 </button>
                                                 <div class="dropdown-toggle-arrow">
-                                                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g clip-path="url(#clip0_332_23416)">
-                                                          <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                        </g>
-                                                        <defs>
-                                                          <clipPath id="clip0_332_23416">
-                                                            <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"></rect>
-                                                          </clipPath>
-                                                        </defs>
+                                                     <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M13 1L7 7L1 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                                       </svg>
+
                                                 </div>
                                           </div>
                                           <ul class="dropdown-menu">
@@ -282,16 +276,10 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
                                           <div class="toggle-container">
                                                 <button class="dropdown-toggle">${item.title}</button>
                                                 <div class="dropdown-toggle-arrow">
-                                                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g clip-path="url(#clip0_332_23416)">
-                                                          <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                        </g>
-                                                        <defs>
-                                                          <clipPath id="clip0_332_23416">
-                                                            <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0 16)"></rect>
-                                                          </clipPath>
-                                                        </defs>
-                                                      </svg>
+                                                     <svg width="6" height="12" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M13 1L7 7L1 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+
                                                 </div>
                                           </div>
                                            ${item.info}

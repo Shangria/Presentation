@@ -50,11 +50,14 @@
 .dropdown-toggle-arrow {
     transform-origin: center center;
     transition: .2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dropdown-toggle-arrow svg {
-    min-width: 32px;
-    height: 32px;
+    min-width: 24px;
+    height: 10px;
 }
 
 .dropdown-menu {

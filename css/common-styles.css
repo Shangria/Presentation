@@ -785,6 +785,10 @@ header {
         width: 50%;
     }
 
+    .section-calculation  .selects-box-container-bottom {
+        width: 416px;
+    }
+
 }
 
 @media screen and (min-width: 1300px) {
@@ -800,18 +804,19 @@ header {
     .selects-box-container-bottom {
         width: 50%;
     }
+
+    .section-calculation  .selects-box-container-bottom {
+        width: 416px;
+    }
 }
 
 
 @media screen and (min-width: 1024px) and (max-height: 1030px) {
 
     .section-modules .accordion-panel {
-        max-height: 63vh!important;
+        max-height: 58vh!important;
     }
 
-    .swiper-slide-calculation .accordion-panel {
-        max-height: 63vh!important;
-    }
 }
 
 
