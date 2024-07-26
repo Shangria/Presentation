@@ -286,6 +286,13 @@ function dropdownTogglePanel(accordionPanelId) {
     dropdownToggleList.forEach(dropdownToggle => {
 
         dropdownToggle.addEventListener('click', (event) => {
+            const allContainers=document.querySelectorAll('.dropdown-menu-container')
+
+            allContainers.forEach(container=>{
+                if(container.classList.contains("dropdown-menu-container")){
+                    container.classList.remove("dropdown-menu-container")
+                }
+            })
 
             const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container') || event.target.closest('.dropdown-toggle-arrow') || event.target.closest('.presentation-modules-item');
             const dropdownBox = dropDownButton.closest('.dropdown-box');
@@ -333,7 +340,6 @@ function showModulePanel(currentTab, presentationMenuId, accordionId) {
     const currentAccordion = document.getElementById(`${accordionId}`);
 
     if (currentItemForOpenById) {
-
         const defaultElement = currentAccordion.querySelector(`[data-tab-item="${currentItemForOpenById}"]`);
         const tabModulesItem = boxPanel && boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
         if (defaultElement) {

@@ -440,7 +440,7 @@ header {
 .presentation-modules-item {
     min-height: 52px;
     margin-bottom: 12px;
-    padding: 10px 1vw;
+    padding: 0 1vw;
     border-radius: 12px;
     font-size: 16px;
     font-weight: 600;

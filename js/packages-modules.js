@@ -225,7 +225,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
 }
 
 
-function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
+function buildRightPanel(currentService, accordionPanelId, presentationMenuId, isFirstDefaultOpen) {
     let commonInfoServiceHtml = '';
     let videoInfoServiceHtml = '';
     for (const availableService of store.allServices) {
@@ -266,12 +266,43 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
 
     let suggestedModuleItemsHtml = '';
     for (const module of store.allServices) {
-
+        console.log(accordionPanelId)
+        console.log(isFirstDefaultOpen)
         if (module.name === currentService) {
 
             module.serviceTabs.forEach((item,index) => {
-                if(item.info){
-                    suggestedModuleItemsHtml += `
+                if( isFirstDefaultOpen){
+
+                    if(item.info){
+                        suggestedModuleItemsHtml += `
+                                     <div class="dropdown-box" data-tab-item="${module.name}">
+                                          <div class="toggle-container">
+                                                <button class="dropdown-toggle">${item.title}</button>
+                                                <div class="dropdown-toggle-arrow">
+                                                     <svg width="6" height="12" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M13 1L7 7L1 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                </div>
+                                          </div>
+                                          <div class="${index===0  ? 'dropdown-menu-container' : ''}" >
+                                            ${item.info}
+                                            </div>
+                                         
+                                    </div> `;
+                    } else {
+                        suggestedModuleItemsHtml += `
+                                     <div class="dropdown-box" data-tab-item="${module.name}">
+                                          <div class="toggle-container cursor-default">
+                                                <button class="dropdown-toggle">${item.title}</button>
+                                          </div>
+                                         
+                                    </div> `;
+                    }
+
+
+                } else {
+                    if(item.info){
+                        suggestedModuleItemsHtml += `
                                      <div class="dropdown-box closing" data-tab-item="${module.name}">
                                           <div class="toggle-container">
                                                 <button class="dropdown-toggle">${item.title}</button>
@@ -284,15 +315,17 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId) {
                                           </div>
                                            ${item.info}
                                     </div> `;
-                } else {
-                    suggestedModuleItemsHtml += `
+                    } else {
+                        suggestedModuleItemsHtml += `
                                      <div class="dropdown-box closing" data-tab-item="${module.name}">
                                           <div class="toggle-container cursor-default">
                                                 <button class="dropdown-toggle">${item.title}</button>
                                           </div>
                                          
                                     </div> `;
+                    }
                 }
+
 
             });
 
@@ -382,6 +415,7 @@ $(document).ready(function () {
     const addedCheckboxes = true;
     const noAddedCheckboxes = false;
     const sectionBackBtns = document.querySelectorAll('[data-section-back-btn]');
+    const isFirstDefaultOpen=true;
 
     sectionBackBtns.forEach((sectionBackBtn, index) => {
         const adjustedIndex = index + 1;
@@ -408,7 +442,7 @@ $(document).ready(function () {
                 }
 
                 togglePresentationMenuItem(`accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`,`slide${adjustedIndex}`);
-                buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`);
+                buildRightPanel(isDefaultSegment, `accordionPanelSlide${adjustedIndex}`, `presentationMenuSlide${adjustedIndex}`, isFirstDefaultOpen);
 
             }
 
@@ -446,7 +480,7 @@ $(document).ready(function () {
 
     requestInvoiceBtns.forEach(requestInvoiceBtn=>{
         requestInvoiceBtn.addEventListener('click', () => {
-            const mobileShadowBox="7"
+            const mobileShadowBox="7";
             const isDefaultSegment = determineDefaultState(store.targetSegments, store.allServices, stepFormState.selectedSegmentNames);
 
             if(window.innerWidth<1025){
@@ -462,7 +496,7 @@ $(document).ready(function () {
             }
 
 
-            buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4");
+            buildRightPanel(isDefaultSegment, "accordionPanelSlide4", "presentationMenuSlide4", isFirstDefaultOpen);
 
 
 

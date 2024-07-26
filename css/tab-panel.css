@@ -60,6 +60,7 @@
     height: 10px;
 }
 
+
 .dropdown-menu {
     list-style: disc;
     padding-left: 50px;
@@ -73,6 +74,11 @@
     transition-duration: 0.2s;
     transition-timing-function: linear;
 }
+
+.dropdown-menu-container .dropdown-menu{
+    max-height: 100%;
+}
+
 
 .dropdown-item {
     font-size: 18px;
