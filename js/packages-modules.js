@@ -266,10 +266,7 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId, i
 
     let suggestedModuleItemsHtml = '';
     for (const module of store.allServices) {
-        console.log(accordionPanelId)
-        console.log(isFirstDefaultOpen)
         if (module.name === currentService) {
-
             module.serviceTabs.forEach((item,index) => {
                 if( isFirstDefaultOpen){
 
