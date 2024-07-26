@@ -776,8 +776,8 @@ header {
 
     .module-info span {
         display: inline-block;
-        min-width: 185px;
-        max-width: 185px;
+        min-width: 160px;
+        max-width: 160px;
     }
 
     .selects-box-container-bottom {
