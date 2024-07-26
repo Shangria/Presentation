@@ -411,7 +411,7 @@ header {
     height: calc(100% - 21px);
     overflow-x: auto;
     margin-top: 21px;
-    min-width: 325px;
+    min-width: 390px;
 }
 
 .presentation-menu h3,
@@ -504,7 +504,7 @@ header {
 }
 
 .calculation-container {
-    gap: 3vw;
+    gap: 1vw;
 }
 
 .package {
@@ -520,9 +520,6 @@ header {
     width: 100%;
 }
 
-/*.section-calculation .package-info {
-    flex-basis: 44%;
-}*/
 
 .package-info-wrapper{
     height: 100%;
@@ -531,7 +528,7 @@ header {
 .package-info-inner-wrapper{
     display: flex;
     height: 100%;
-    gap: 25px;
+    gap: 10px;
 }
 
 .package-info--img {
@@ -798,6 +795,14 @@ header {
 @media screen and (min-width: 1300px) {
     .section.section-subscription .title {
         text-align: left;
+    }
+
+    .package-info-inner-wrapper{
+        gap: 25px;
+    }
+
+    .calculation-container {
+        gap: 3vw;
     }
 
 }
