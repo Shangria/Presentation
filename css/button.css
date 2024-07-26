@@ -43,9 +43,11 @@
 
 .btn.btn-size-xl {
 	width: 100%;
-	max-width: 477px;
+	max-width: 415px;
 	height: 72px;
+	font-size: 22px;
 }
+
 
 .btn-title {
 	font-weight: 600;
@@ -141,6 +143,7 @@
 		bottom: 24px;
 		width: 100%;
 		padding: 0 20px;
+		max-width: 445px;
 	}
 
 	.btn.btn-blue.btn-single  {

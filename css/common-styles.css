@@ -1273,7 +1273,7 @@ header {
     .packages-request {
         position: fixed;
         bottom: 0;
-        width: 50%;
+        width: 100%;
     }
 
     .packages-request-mobile {
