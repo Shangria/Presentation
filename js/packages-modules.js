@@ -349,6 +349,7 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId,slideId
     dropdownTabs.forEach(dropdownTab => {
 
         dropdownTab.addEventListener('click', (event) => {
+
             if(event.isTrusted){
                 // Remove 'presentation-modules-item-active' class from all elements
                 const activeItems = document.querySelectorAll('.presentation-modules-item-active');

@@ -768,6 +768,10 @@ header {
         display: inline-block;
     }
 
+    .presentation-menu-box  .module-info {
+        min-height: 52px;
+    }
+
     .module-info {
         width: 100%;
     }
