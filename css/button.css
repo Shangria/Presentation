@@ -130,12 +130,16 @@
 		padding: 0;
 	}
 
+	.btn.btn-size-xl {
+		font-size: 16px;
+	}
+
 
 	.btn.btn-outline-blue:hover,
 	.btn.btn-next:hover,
 	.btn.btn-request:hover,
 	.btn.btn-size-xl:hover {
-		font-size: 16px;
+		font-size:unset!important;
 	}
 
 	.btn-slider-segments{

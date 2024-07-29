@@ -319,6 +319,11 @@
         top: calc(100% - 78px);
     }
 
+
+    #comprehensive-slider .content br{
+       display: none;
+    }
+
     #comprehensive-slider .comprehensive-slide-item:hover .swiper-slide-inner{
         border: 5px solid #02A1D3;
     }
@@ -408,6 +413,11 @@
 
     #comprehensive-slider .comprehensive-slide-item .slide-checked {
         bottom: 0px;
+    }
+
+
+    #comprehensive-slider .comprehensive-slide-item .content.comprehensive-slide-item-top-title-space{
+        top: calc(100% - 65px);
     }
 
     #comprehensive-slider .comprehensive-slide-item .content.hidden-content ol{
