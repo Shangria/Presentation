@@ -516,7 +516,7 @@ header {
    /* flex-basis: 27%;
     -ms-flex-negative: 0;*/
     flex-shrink: 0;
-    max-width: 370px;
+    max-width: 340px;
     width: 100%;
 }
 
