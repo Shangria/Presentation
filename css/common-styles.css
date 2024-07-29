@@ -411,7 +411,6 @@ header {
     height: calc(100% - 21px);
     overflow-x: auto;
     margin-top: 21px;
-    min-width: 390px;
 }
 
 .presentation-menu h3,
@@ -763,6 +762,10 @@ header {
         min-width: 160px;
         max-width: 160px;
         display: inline-block;
+    }
+
+    .presentation-menu-box {
+        min-width: 390px;
     }
 
     .presentation-menu-box  .module-info {
