@@ -246,6 +246,10 @@
     padding-bottom: 20px;
 }
 
+#comprehensive-slider .comprehensive-slide-item .content.comprehensive-slide-item-top-title-space{
+    top: calc(100% - 128px);
+}
+
 #comprehensive-slider .comprehensive-slide-item .content.hidden-content {
     top: 100%;
     color: #ffffff;
@@ -319,10 +323,6 @@
         top: calc(100% - 78px);
     }
 
-
-    #comprehensive-slider .content br{
-       display: none;
-    }
 
     #comprehensive-slider .comprehensive-slide-item:hover .swiper-slide-inner{
         border: 5px solid #02A1D3;
