@@ -283,6 +283,7 @@ function addCustomClassToChoice(value) {
 
 function dropdownTogglePanel(accordionPanelId) {
     const dropdownToggleList = document.querySelectorAll(".toggle-container");
+    const isModulesSlide=accordionPanelId==="#currentBoxModules"
     dropdownToggleList.forEach(dropdownToggle => {
 
         dropdownToggle.addEventListener('click', (event) => {
@@ -298,7 +299,8 @@ function dropdownTogglePanel(accordionPanelId) {
             const dropdownBox = dropDownButton.closest('.dropdown-box');
             if (dropdownBox) {
 
-                const root = document.getElementById(`${accordionPanelId}`);
+                const root = document.querySelector(`${accordionPanelId}`);
+                const headerHeight = document.querySelector('.package-info').clientHeight;
 
                 document.querySelectorAll('.dropdown-box').forEach(box => {
                     const drop = box.querySelector('.dropdown-menu');
@@ -312,9 +314,9 @@ function dropdownTogglePanel(accordionPanelId) {
                         }
 
                         setTimeout(() => {
-                            if (root.scrollTop > box.offsetTop - 90) { // if the drop is outside of overflow
-                                const scrollVal = root.scrollTop - (root.scrollTop - box.offsetTop);
+                            if (root.scrollTop > box.offsetTop - 30) { // if the drop is outside of overflow
 
+                                const scrollVal =  !isModulesSlide?  root.scrollTop - (root.scrollTop - box.offsetTop  - headerHeight) : root.scrollTop - (root.scrollTop - box.offsetTop) ;
                                 root.scrollTo({top: scrollVal, behavior: "smooth"});
                             }
                         }, 400);

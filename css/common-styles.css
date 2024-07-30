@@ -974,7 +974,7 @@ header {
     .section.section-modules.section-calculation .section-scroll-bg-top.scrolled-top.scrolled-top {
         &:after {
             height: 35px;
-            background: linear-gradient(180deg, #20222c96, #24263600 77%);
+            background: linear-gradient(0.5turn, #191b2675 55%, #1d1f2866 80%, #1d1f281a 0, #1d1f280d);
         }
     }
 
@@ -1290,13 +1290,11 @@ header {
          color: white;
     }
 
-    .package-info-wrapper{
-        height: calc(100% - 100px);
-    }
 
     .package-info-inner-wrapper{
         flex-direction: column;
         overflow: auto;
+       /* height: calc(100% - 105px);*/
     }
 
     .package-info--img {
