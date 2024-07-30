@@ -768,9 +768,11 @@ header {
         min-width: 390px;
     }
 
-    .presentation-menu-box  .module-info {
+    .presentation-menu-box  .module-info ,
+    .presentation-menu-box  .custom-checkbox-label {
         min-height: 52px;
     }
+
 
     .module-info {
         width: 100%;
