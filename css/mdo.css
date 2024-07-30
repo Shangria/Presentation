@@ -309,14 +309,18 @@ ui-menu ui-widget ui-widget-content ui-autocomplete custom-autocomplete custom-s
   transition: all 0.2s ease-in-out;
 }
 
+/*
 .btn:hover span {
   transform: scale(1.05);
 }
+*/
 
+/*
 .btn:active span {
   transition: all .1s ease-in-out;
   transform: scale(1);
 }
+*/
 
 body .ui-widget-overlay {
   opacity: 0;

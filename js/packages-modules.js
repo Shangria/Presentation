@@ -232,10 +232,12 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
 function buildRightPanel(currentService, accordionPanelId, presentationMenuId, isFirstDefaultOpen) {
     let commonInfoServiceHtml = '';
     let videoInfoServiceHtml = '';
+    let titleMobile = '';
+
     for (const availableService of store.allServices) {
         if (availableService.name === currentService) {
+            titleMobile=`${availableService.name}`
             commonInfoServiceHtml += `
-                                        <h3 class="package-info-mobile-title lg:hidden">${availableService.name}</h3>
                                         <div class="package-info--img relative">
                                             <img src=${availableService.img} alt=${availableService.name}>
                                             <button data-video-btn id="videoBtn" type="button" class="package-info--video-btn">
@@ -258,6 +260,7 @@ function buildRightPanel(currentService, accordionPanelId, presentationMenuId, i
         }
     }
 
+    $('.package-info-mobile-title').text(titleMobile);
     $('.package-info').html(commonInfoServiceHtml);
     $('#modalVideoContent').html(videoInfoServiceHtml);
 

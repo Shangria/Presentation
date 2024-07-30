@@ -140,6 +140,7 @@
 	.btn.btn-request:hover,
 	.btn.btn-size-xl:hover {
 		font-size:unset!important;
+		background:#02a1d3!important;
 	}
 
 	.btn-slider-segments{

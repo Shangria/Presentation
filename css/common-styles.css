@@ -1011,7 +1011,41 @@ header {
         }
     }
 
-    .section.section-modules .package-info-wrapper.section-scroll-bg-top.scrolled-top {
+
+
+    .section.section-modules .package-info-inner-wrapper.scrolled-top{
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
+        &:after {
+            content: none;
+        }
+    }
+
+    .section.section-modules .package-info-inner-wrapper.scrolled-bottom {
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
+        &:before {
+            content: none;
+        }
+    }
+
+
+    .section.section-modules   .package-info-inner-wrapper.scrolled-bottom.scrolled-top{
+        mask-image:
+                linear-gradient(to top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
+        mask-composite: intersect;
+
+        &:after {
+            content: none;
+        }
+        &:before {
+            content: none;
+        }
+    }
+
+
+
+
+   /* .section.section-modules .package-info-inner-wrapper.section-scroll-bg-top.scrolled-top {
         &:after {
             height: 30px;
             background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
@@ -1019,14 +1053,14 @@ header {
         }
     }
 
-    .section.section-modules .package-info-wrapper.section-scroll-bg-bottom.scrolled-bottom {
+    .section.section-modules .package-info-inner-wrapper.section-scroll-bg-bottom.scrolled-bottom {
         &:before {
             background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
             height: 30px;
             bottom: 0;
             opacity: 1;
         }
-    }
+    }*/
 
 
     .section.section-subscription .subscription-details-columns-wrapper.section-scroll-bg-bottom.scrolled-bottom {
@@ -1245,22 +1279,19 @@ header {
     }
 
 
-    .package-info .package-info-mobile-title {
+     .package-info-mobile-title {
         padding: 14px 34px 20px 0;
-        position: fixed;
-        top: 0;
         width: 100%;
         font-size: 22px;
         font-weight: 400;
         line-height: 33px;
         text-align: center;
         z-index: 4;
-
+         color: white;
     }
 
     .package-info-wrapper{
-        height: calc(100% - 60px);
-        padding-top: 60px;
+        height: calc(100% - 100px);
     }
 
     .package-info-inner-wrapper{
