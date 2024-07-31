@@ -287,17 +287,19 @@ function dropdownTogglePanel(accordionPanelId) {
     dropdownToggleList.forEach(dropdownToggle => {
 
         dropdownToggle.addEventListener('click', (event) => {
-            const allContainers=document.querySelectorAll('.dropdown-menu-container')
-
-            allContainers.forEach(container=>{
-                if(container.classList.contains("dropdown-menu-container")){
-                    container.classList.remove("dropdown-menu-container")
-                }
-            })
 
             const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container') || event.target.closest('.dropdown-toggle-arrow') || event.target.closest('.presentation-modules-item');
             const dropdownBox = dropDownButton.closest('.dropdown-box');
+            const allContainers=document.querySelectorAll('.dropdown-menu-container')
+
             if (dropdownBox) {
+
+                allContainers.forEach(container=>{
+                    if(container.classList.contains("dropdown-menu-container")){
+                        container.classList.remove("dropdown-menu-container")
+                    }
+                })
+
 
                 const root = document.querySelector(`${accordionPanelId}`);
                 const headerHeight = document.querySelector('.package-info').clientHeight;
@@ -620,10 +622,13 @@ function updateShadows(scrollElement, scrollWrap) {
 
 document.addEventListener('DOMContentLoaded', addedBgScroll);
 
-document.addEventListener("click", (e)=>{
-    console.log(e.target)
-})
-
+/*document.addEventListener("click", (e) => {
+    if (e && e.target) {
+        console.log(e.target);
+    } else {
+        console.warn("Event target is not defined");
+    }
+});*/
 export {
     showModulePanel,
     findSegmentById,
