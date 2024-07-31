@@ -23,6 +23,20 @@
     width: 90%;
 }
 
+.modal-demo-content-close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 30;
+    cursor: pointer;
+}
+
+.modal-demo-content-close svg{
+    color: white;
+}
+
+
+
 .modal-demo-content-title,
 .modal-demo-content-sub-title {
     font-family: Poppins, sans-serif;

@@ -620,6 +620,9 @@ function updateShadows(scrollElement, scrollWrap) {
 
 document.addEventListener('DOMContentLoaded', addedBgScroll);
 
+document.addEventListener("click", (e)=>{
+    console.log(e.target)
+})
 
 export {
     showModulePanel,
