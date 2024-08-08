@@ -172,14 +172,14 @@ $(document).ready(function () {
         });
         $("#bgOpacityInner").removeClass("bg-opacity-inner-open backdrop-blur-sm");
 
-        
+
         let $videoIframe = $('#modalVideo iframe');
         let iframeSrc = $videoIframe.attr('src');
 
-        setTimeout(()=>{
+        setTimeout(() => {
             $videoIframe.attr('src', '');
             $videoIframe.attr('src', iframeSrc);
-        }, 500)
+        }, 500);
 
     }
 
@@ -283,22 +283,22 @@ function addCustomClassToChoice(value) {
 
 function dropdownTogglePanel(accordionPanelId) {
     const dropdownToggleList = document.querySelectorAll(".toggle-container");
-    const isModulesSlide=accordionPanelId==="#currentBoxModules"
+    const isModulesSlide = accordionPanelId === "#currentBoxModules";
     dropdownToggleList.forEach(dropdownToggle => {
 
         dropdownToggle.addEventListener('click', (event) => {
 
             const dropDownButton = event.target.closest('.dropdown-toggle') || event.target.closest('.toggle-container') || event.target.closest('.dropdown-toggle-arrow') || event.target.closest('.presentation-modules-item');
             const dropdownBox = dropDownButton.closest('.dropdown-box');
-            const allContainers=document.querySelectorAll('.dropdown-menu-container')
+            const allContainers = document.querySelectorAll('.dropdown-menu-container');
 
             if (dropdownBox) {
 
-                allContainers.forEach(container=>{
-                    if(container.classList.contains("dropdown-menu-container")){
-                        container.classList.remove("dropdown-menu-container")
+                allContainers.forEach(container => {
+                    if (container.classList.contains("dropdown-menu-container")) {
+                        container.classList.remove("dropdown-menu-container");
                     }
-                })
+                });
 
 
                 const root = document.querySelector(`${accordionPanelId}`);
@@ -318,7 +318,7 @@ function dropdownTogglePanel(accordionPanelId) {
                         setTimeout(() => {
                             if (root.scrollTop > box.offsetTop - 30) { // if the drop is outside of overflow
 
-                                const scrollVal =  !isModulesSlide?  root.scrollTop - (root.scrollTop - box.offsetTop  - headerHeight) : root.scrollTop - (root.scrollTop - box.offsetTop) ;
+                                const scrollVal = !isModulesSlide ? root.scrollTop - (root.scrollTop - box.offsetTop - headerHeight) : root.scrollTop - (root.scrollTop - box.offsetTop);
                                 root.scrollTo({top: scrollVal, behavior: "smooth"});
                             }
                         }, 400);
@@ -352,7 +352,7 @@ function showModulePanel(currentTab, presentationMenuId, accordionId) {
             const drop = defaultElement.querySelector('.dropdown-menu');
             if (drop) {
                 const dropHeight = drop.scrollHeight;
-                    drop.style.maxHeight = `${dropHeight}px`;
+                drop.style.maxHeight = `${dropHeight}px`;
             }
         }
     }
@@ -506,7 +506,7 @@ function openModalModule(slideId) {
                 let screenWidth = $(window).width();
                 if (screenWidth <= 1024) {
                     bgOpacityInner.classList.add('bg-opacity-inner-open');
-                    document.querySelector("header").classList.add('header-hide')
+                    document.querySelector("header").classList.add('header-hide');
                 }
             }
 
@@ -537,12 +537,12 @@ document.addEventListener("click", () => {
 
             packageContainerWraps.forEach(packageContainerWrap => {
                 packageContainerWrap.classList.remove('package-container-wrap-open');
-                document.querySelector("header").classList.remove('header-hide')
+                document.querySelector("header").classList.remove('header-hide');
                 packageContainerWrap.classList.remove('subscription-step-box-open');
             });
 
             bgOpacityInner.classList.remove('bg-opacity-inner-open');
-            document.querySelector("header").classList.remove('header-hide')
+            document.querySelector("header").classList.remove('header-hide');
         });
     });
 
@@ -560,21 +560,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const bgOpacityInner = document.getElementById('bgOpacityInner');
 
         packageContainerWrap.classList.add('subscription-step-box-open');
-        document.querySelector("header").classList.add('header-hide')
+        document.querySelector("header").classList.add('header-hide');
         bgOpacityInner.classList.add('bg-opacity-inner-open');
         showModulePanel("Research Package", "", "currentBoxModules",);
 
 
 //for add bottom bg shadow
-        setTimeout(()=>{
+        setTimeout(() => {
             updateShadows(scrollElement, scrollWrap);
-        }, 500)
+        }, 500);
 
     });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    addedBgScroll()
+    addedBgScroll();
 });
 
 
@@ -595,7 +595,6 @@ function addedBgScroll() {
         updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
     });
 }
-
 
 
 function updateShadows(scrollElement, scrollWrap) {
@@ -621,6 +620,68 @@ function updateShadows(scrollElement, scrollWrap) {
 
 
 document.addEventListener('DOMContentLoaded', addedBgScroll);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const comprehensiveSlideItems = document.querySelectorAll('.comprehensive-slide-item');
+    const spaceAfterTitle=30;
+
+    comprehensiveSlideItems.forEach((comprehensiveSlideItem, index) => {
+        const titleSegment = comprehensiveSlideItem.querySelector('.comprehensive-slide-item-top-title');
+        const titleSegmentHeight = titleSegment.getBoundingClientRect().height + spaceAfterTitle;
+        const hiddenContentBox = comprehensiveSlideItem.querySelector('.hidden-content');
+        let isFixed = false;
+        let isOnElement=false;
+        const isMobile=window.innerWidth<1024
+
+        const showHiddenContent = () => {
+            hiddenContentBox.style.top = `${titleSegmentHeight}px`;
+            hiddenContentBox.style.opacity = '1';
+        };
+
+        const hideHiddenContent = () => {
+            hiddenContentBox.style.top = `100%`;
+            hiddenContentBox.style.opacity = '0';
+        };
+
+
+        comprehensiveSlideItem.addEventListener("mouseover", (e) => {
+
+            if(!isFixed){
+                showHiddenContent()
+            }
+
+            isOnElement=true
+
+        });
+
+        comprehensiveSlideItem.addEventListener("mouseleave", (e) => {
+            if(!isFixed){
+                hideHiddenContent()
+            }
+
+            isOnElement=false
+
+        });
+
+        comprehensiveSlideItem.addEventListener("click", () => {
+            if(!isMobile){
+                if (isFixed && !isOnElement ) {
+                    hideHiddenContent()
+                } else {
+                    showHiddenContent()
+                }
+            } else {
+                if (isFixed ) {
+                    hideHiddenContent()
+                } else {
+                    showHiddenContent()
+                }
+            }
+
+            isFixed = !isFixed;
+        });
+    });
+});
 
 /*document.addEventListener("click", (e) => {
     if (e && e.target) {
