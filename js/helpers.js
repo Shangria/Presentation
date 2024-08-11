@@ -348,7 +348,13 @@ function showModulePanel(currentTab, presentationMenuId, accordionId) {
         const tabModulesItem = boxPanel && boxPanel.querySelector(`[data-tab-modules-item="${currentItemForOpenById}"]`);
         if (defaultElement) {
             defaultElement.classList.add('drop-down-item-open');
-            tabModulesItem && tabModulesItem.classList.add('presentation-modules-item-active');
+
+            if(accordionId==="accordionPanelSlide4"){
+                tabModulesItem && tabModulesItem.parentNode.classList.add('presentation-modules-item-active');
+            } else {
+                tabModulesItem && tabModulesItem.classList.add('presentation-modules-item-active');
+            }
+
             const drop = defaultElement.querySelector('.dropdown-menu');
             if (drop) {
                 const dropHeight = drop.scrollHeight;
@@ -519,6 +525,7 @@ document.addEventListener("click", () => {
     const packageModalCloseBtns = document.querySelectorAll("[data-package-modal-close]");
     const bgOpacityInner = document.getElementById("bgOpacityInner");
     const packageContainerWraps = document.querySelectorAll('[data-package-container-wrap]');
+    const subscriptionModalInfo = document.getElementById("subscriptionModalInfo");
 
 
     packageModalCloseBtns.forEach(packageModalClose => {
@@ -539,6 +546,7 @@ document.addEventListener("click", () => {
                 packageContainerWrap.classList.remove('package-container-wrap-open');
                 document.querySelector("header").classList.remove('header-hide');
                 packageContainerWrap.classList.remove('subscription-step-box-open');
+                subscriptionModalInfo.classList.remove('subscription-modal-open');
             });
 
             bgOpacityInner.classList.remove('bg-opacity-inner-open');
@@ -559,10 +567,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const packageContainerWrap = document.querySelector(`#slide5 .subscription-step-box`);
         const bgOpacityInner = document.getElementById('bgOpacityInner');
 
-        packageContainerWrap.classList.add('subscription-step-box-open');
-        document.querySelector("header").classList.add('header-hide');
-        bgOpacityInner.classList.add('bg-opacity-inner-open');
-        showModulePanel("Research Package", "", "currentBoxModules",);
+        subscriptionModalInfo.classList.add('subscription-modal-open');
+        setTimeout(()=>{
+            packageContainerWrap.classList.add('subscription-step-box-open');
+            document.querySelector("header").classList.add('header-hide');
+            bgOpacityInner.classList.add('bg-opacity-inner-open');
+            showModulePanel("Research Package", "", "currentBoxModules",);
+        }, 200)
 
 
 //for add bottom bg shadow
@@ -623,65 +634,96 @@ document.addEventListener('DOMContentLoaded', addedBgScroll);
 
 document.addEventListener('DOMContentLoaded', () => {
     const comprehensiveSlideItems = document.querySelectorAll('.comprehensive-slide-item');
-    const spaceAfterTitle=30;
+    const spaceAfterTitle = 10;
 
-    comprehensiveSlideItems.forEach((comprehensiveSlideItem, index) => {
-        const titleSegment = comprehensiveSlideItem.querySelector('.comprehensive-slide-item-top-title');
+    comprehensiveSlideItems.forEach((comprehensiveSlideItem) => {
+        const titleSegment = comprehensiveSlideItem.querySelector('.comprehensive-slide-item-top-title-box');
         const titleSegmentHeight = titleSegment.getBoundingClientRect().height + spaceAfterTitle;
         const hiddenContentBox = comprehensiveSlideItem.querySelector('.hidden-content');
         let isFixed = false;
-        let isOnElement=false;
-        const isMobile=window.innerWidth<1024
+        let isOnElement = false;
+        let isClickOnMobile = false;
+        let isMobile = false;
+
+
+            isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+
+        console.log(isMobile)
 
         const showHiddenContent = () => {
+            hiddenContentBox.classList.remove("animate__bounceInDownOwn")
+            titleSegment.classList.remove("animate__bounceInDownTitleOwn")
+
+            hiddenContentBox.classList.add("animate__bounceInUpOwn")
+            titleSegment.classList.add("animate__bounceInUpTitleOwn")
             hiddenContentBox.style.top = `${titleSegmentHeight}px`;
-            hiddenContentBox.style.opacity = '1';
+
+            if(!isMobile){
+                hiddenContentBox.style.opacity = '1';
+            }
+
         };
 
         const hideHiddenContent = () => {
+            hiddenContentBox.classList.remove("animate__bounceInUpOwn")
+            titleSegment.classList.remove("animate__bounceInUpTitleOwn")
+
+            hiddenContentBox.classList.add("animate__bounceInDownOwn")
+            titleSegment.classList.add("animate__bounceInDownTitleOwn")
+
             hiddenContentBox.style.top = `100%`;
-            hiddenContentBox.style.opacity = '0';
+
+            if(!isMobile){
+                hiddenContentBox.style.opacity = '0';
+            }
         };
 
+        if(!isMobile){
+            comprehensiveSlideItem.addEventListener("mouseover", () => {
+                isOnElement = true;
+                if (!isFixed) {
+                    showHiddenContent();
+                }
+            });
 
-        comprehensiveSlideItem.addEventListener("mouseover", (e) => {
+            comprehensiveSlideItem.addEventListener("mouseleave", () => {
+                isOnElement = false;
+                if (!isFixed) {
+                    hideHiddenContent();
+                }
+            });
+        }
 
-            if(!isFixed){
-                showHiddenContent()
-            }
 
-            isOnElement=true
-
-        });
-
-        comprehensiveSlideItem.addEventListener("mouseleave", (e) => {
-            if(!isFixed){
-                hideHiddenContent()
-            }
-
-            isOnElement=false
-
-        });
 
         comprehensiveSlideItem.addEventListener("click", () => {
-            if(!isMobile){
-                if (isFixed && !isOnElement ) {
-                    hideHiddenContent()
+
+            if(isMobile){
+                if (!isFixed) {
+                    showHiddenContent();
                 } else {
-                    showHiddenContent()
+                    hideHiddenContent();
                 }
+                isFixed = !isFixed;
             } else {
-                if (isFixed ) {
-                    hideHiddenContent()
+                if (isFixed) {
+                    if (!isOnElement) {
+                        hideHiddenContent();
+                    }
                 } else {
-                    showHiddenContent()
+                    showHiddenContent();
                 }
+
+                isFixed = !isFixed;
             }
 
-            isFixed = !isFixed;
         });
     });
 });
+
+
+
 
 /*document.addEventListener("click", (e) => {
     if (e && e.target) {

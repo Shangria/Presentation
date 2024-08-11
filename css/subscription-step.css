@@ -230,6 +230,10 @@
     line-height: 1;
 }
 
+.subscription-total-mobile-info.subscription-modal-open {
+    background: #FFFFFF30;
+}
+
 .subscription-total-mobile-sum{
     font-size: 18px;
 }

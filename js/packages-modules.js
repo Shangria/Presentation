@@ -225,6 +225,7 @@ function buildLeftPanel(accordionPanelId, presentationMenuId, isAddedCheckboxes,
 
 
     calculateTotalCost(stepFormState);
+    showModulePanel(stepFormState.defaultService, presentationMenuId, accordionPanelId);
     addedBgScroll();
 }
 
