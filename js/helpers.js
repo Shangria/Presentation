@@ -349,7 +349,7 @@ function showModulePanel(currentTab, presentationMenuId, accordionId) {
         if (defaultElement) {
             defaultElement.classList.add('drop-down-item-open');
 
-            if(accordionId==="accordionPanelSlide4"){
+            if (accordionId === "accordionPanelSlide4") {
                 tabModulesItem && tabModulesItem.parentNode.classList.add('presentation-modules-item-active');
             } else {
                 tabModulesItem && tabModulesItem.classList.add('presentation-modules-item-active');
@@ -568,12 +568,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const bgOpacityInner = document.getElementById('bgOpacityInner');
 
         subscriptionModalInfo.classList.add('subscription-modal-open');
-        setTimeout(()=>{
+        setTimeout(() => {
             packageContainerWrap.classList.add('subscription-step-box-open');
             document.querySelector("header").classList.add('header-hide');
             bgOpacityInner.classList.add('bg-opacity-inner-open');
             showModulePanel("Research Package", "", "currentBoxModules",);
-        }, 200)
+        }, 200);
 
 
 //for add bottom bg shadow
@@ -632,54 +632,61 @@ function updateShadows(scrollElement, scrollWrap) {
 
 document.addEventListener('DOMContentLoaded', addedBgScroll);
 
+
 document.addEventListener('DOMContentLoaded', () => {
+    determinePositionForAnimationSegments();
+});
+
+
+window.addEventListener('resize', () => {
+    determinePositionForAnimationSegments();
+});
+
+
+function determinePositionForAnimationSegments() {
     const comprehensiveSlideItems = document.querySelectorAll('.comprehensive-slide-item');
-    const spaceAfterTitle = 10;
+    let isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const mobileTitleSpace=isMobile ? 15:0
 
     comprehensiveSlideItems.forEach((comprehensiveSlideItem) => {
         const titleSegment = comprehensiveSlideItem.querySelector('.comprehensive-slide-item-top-title-box');
-        const titleSegmentHeight = titleSegment.getBoundingClientRect().height + spaceAfterTitle;
+        const titleSegmentHeight = titleSegment.getBoundingClientRect().height;
         const hiddenContentBox = comprehensiveSlideItem.querySelector('.hidden-content');
         let isFixed = false;
         let isOnElement = false;
-        let isClickOnMobile = false;
-        let isMobile = false;
 
-
-            isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
-
-        console.log(isMobile)
+        console.log(isMobile);
+        console.log(titleSegmentHeight);
 
         const showHiddenContent = () => {
-            hiddenContentBox.classList.remove("animate__bounceInDownOwn")
-            titleSegment.classList.remove("animate__bounceInDownTitleOwn")
+            hiddenContentBox.classList.remove("animate__bounceInDownOwn");
+            titleSegment.classList.remove("animate__bounceInDownTitleOwn");
 
-            hiddenContentBox.classList.add("animate__bounceInUpOwn")
-            titleSegment.classList.add("animate__bounceInUpTitleOwn")
+            hiddenContentBox.classList.add("animate__bounceInUpOwn");
+            titleSegment.classList.add("animate__bounceInUpTitleOwn");
             hiddenContentBox.style.top = `${titleSegmentHeight}px`;
 
-            if(!isMobile){
+            if (!isMobile) {
                 hiddenContentBox.style.opacity = '1';
             }
 
         };
 
         const hideHiddenContent = () => {
-            hiddenContentBox.classList.remove("animate__bounceInUpOwn")
-            titleSegment.classList.remove("animate__bounceInUpTitleOwn")
+            hiddenContentBox.classList.remove("animate__bounceInUpOwn");
+            titleSegment.classList.remove("animate__bounceInUpTitleOwn");
 
-            hiddenContentBox.classList.add("animate__bounceInDownOwn")
-            titleSegment.classList.add("animate__bounceInDownTitleOwn")
+            hiddenContentBox.classList.add("animate__bounceInDownOwn");
+            titleSegment.classList.add("animate__bounceInDownTitleOwn");
 
             hiddenContentBox.style.top = `100%`;
 
-            if(!isMobile){
+            if (!isMobile) {
                 hiddenContentBox.style.opacity = '0';
             }
         };
 
-        if(!isMobile){
+        if (!isMobile) {
             comprehensiveSlideItem.addEventListener("mouseover", () => {
                 isOnElement = true;
                 if (!isFixed) {
@@ -696,10 +703,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
-
         comprehensiveSlideItem.addEventListener("click", () => {
 
-            if(isMobile){
+            if (isMobile) {
                 if (!isFixed) {
                     showHiddenContent();
                 } else {
@@ -720,9 +726,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
     });
-});
-
-
+}
 
 
 /*document.addEventListener("click", (e) => {
