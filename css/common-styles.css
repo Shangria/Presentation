@@ -758,6 +758,10 @@ header {
         margin-bottom: 4dvh;
     }
 
+    .presentation-modules-item  {
+        user-select: none;
+    }
+
     .presentation-modules-item  .presentation-modules-item-text {
         min-width: 160px;
         max-width: 160px;
