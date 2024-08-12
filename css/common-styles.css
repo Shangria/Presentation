@@ -1431,7 +1431,6 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: center;
     justify-content: flex-end;
     cursor: pointer;
-    margin-left: 10px;
 }
 
 .custom-checkbox-label .checkmark {
@@ -1678,7 +1677,7 @@ header {
 
     @keyframes fadeInWithWidthMin {
         0% {
-            width: 150%;
+            width: 200%;
         }
 
         100% {
@@ -1728,11 +1727,11 @@ header {
 
 
     .animate__widthOwn{
-        animation: fadeInWithWidthChange .6s ease-in-out forwards ;
+        animation: fadeInWithWidthChange .6s ease forwards ;
     }
 
     .animate__width-minOwn{
-        animation: fadeInWithWidthMin .6s ease-in-out forwards ;
+        animation: fadeInWithWidthMin .6s ease forwards ;
     }
 
     .animate__fadeInLeftOwn {
@@ -1809,6 +1808,18 @@ header {
         animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
 }
+
+@media screen and (min-width: 1600px) {
+
+}    @keyframes fadeInWithWidthMin {
+         0% {
+             width: 190%;
+         }
+
+         100% {
+             width: 100%;
+         }
+     }
 
 
 
