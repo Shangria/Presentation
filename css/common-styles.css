@@ -1740,13 +1740,13 @@ header {
 
     .animate__fadeInLeftOwn {
         animation: fadeInLeftTransform, fadeInOpacity ;
-        animation-duration: .4s, 2s ;
+        animation-duration: .6s, 2s ;
         animation-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     }
 
     .animate__fadeInRightOwn {
         animation: fadeInRightTransform, fadeInOpacity;
-        animation-duration: .4s, 2s ;
+        animation-duration: .6s, 2s ;
         animation-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 

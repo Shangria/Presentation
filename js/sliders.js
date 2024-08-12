@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
     pageSlider = new Swiper('#page-slider', {
         slidesPerView: 1,
        /* direction: 'vertical',*/
-        speed: 500,
+        speed: 1000,
         mousewheel: false,
         allowTouchMove: false,
         allowSlideNext: true,
