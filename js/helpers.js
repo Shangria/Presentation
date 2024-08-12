@@ -642,21 +642,18 @@ window.addEventListener('resize', () => {
     determinePositionForAnimationSegments();
 });
 
-
 function determinePositionForAnimationSegments() {
     const comprehensiveSlideItems = document.querySelectorAll('.comprehensive-slide-item');
     let isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    const mobileTitleSpace=isMobile ? 15:0
+    const mobileTitleSpace = isMobile ? 15 : 0;
 
     comprehensiveSlideItems.forEach((comprehensiveSlideItem) => {
         const titleSegment = comprehensiveSlideItem.querySelector('.comprehensive-slide-item-top-title-box');
         const titleSegmentHeight = titleSegment.getBoundingClientRect().height;
         const hiddenContentBox = comprehensiveSlideItem.querySelector('.hidden-content');
-        let isFixed = false;
-        let isOnElement = false;
 
-        console.log(isMobile);
-        console.log(titleSegmentHeight);
+        let isFixed = comprehensiveSlideItem.getAttribute('data-is-fixed') === 'true';
+        let isOnElement = false;
 
         const showHiddenContent = () => {
             hiddenContentBox.classList.remove("animate__bounceInDownOwn");
@@ -702,9 +699,7 @@ function determinePositionForAnimationSegments() {
             });
         }
 
-
         comprehensiveSlideItem.addEventListener("click", () => {
-
             if (isMobile) {
                 if (!isFixed) {
                     showHiddenContent();
@@ -712,6 +707,7 @@ function determinePositionForAnimationSegments() {
                     hideHiddenContent();
                 }
                 isFixed = !isFixed;
+                comprehensiveSlideItem.setAttribute('data-is-fixed', isFixed);
             } else {
                 if (isFixed) {
                     if (!isOnElement) {
@@ -722,11 +718,12 @@ function determinePositionForAnimationSegments() {
                 }
 
                 isFixed = !isFixed;
+                comprehensiveSlideItem.setAttribute('data-is-fixed', isFixed);
             }
-
         });
     });
 }
+
 
 
 /*document.addEventListener("click", (e) => {
