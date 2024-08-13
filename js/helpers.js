@@ -430,7 +430,21 @@ function resetRegions() {
 
 function resetForm() {
     const additionalTextOptionsSelect = document.getElementById("additionalTextOptionsSelect");
+
+    const comprehensiveSlideItems = document.querySelectorAll('.comprehensive-slide-item');
     // Reset form and formData for demonstration purposes
+
+    //remove all styles & logic of segments oj 2 slide
+
+    comprehensiveSlideItems.forEach(contentSegment => {
+        const hiddenContentBox = contentSegment.querySelector(".hidden-content");
+        const titleSegment = contentSegment.querySelector('.comprehensive-slide-item-top-title-box');
+        hiddenContentBox.style.top = "";
+        contentSegment.setAttribute('data-is-fixed', "false");
+
+        hiddenContentBox.classList.remove("animate__bounceInUpOwn", "animate__bounceInDownOwn");
+        titleSegment.classList.remove("animate__bounceInUpTitleOwn", "animate__bounceInDownTitleOwn");
+    });
 
     clearObject(stepFormState);
     optionsPackageSelect.setChoiceByValue('Custom Package');
@@ -642,7 +656,7 @@ window.addEventListener('resize', () => {
     determinePositionForAnimationSegments();
 });
 
-function determinePositionForAnimationSegments() {
+ function determinePositionForAnimationSegments() {
     const comprehensiveSlideItems = document.querySelectorAll('.comprehensive-slide-item');
     let isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
@@ -656,6 +670,7 @@ function determinePositionForAnimationSegments() {
         let isOnElement = false;
 
         const showHiddenContent = () => {
+
             hiddenContentBox.classList.remove("animate__bounceInDownOwn");
             titleSegment.classList.remove("animate__bounceInDownTitleOwn");
 
@@ -670,6 +685,7 @@ function determinePositionForAnimationSegments() {
         };
 
         const hideHiddenContent = () => {
+
             hiddenContentBox.classList.remove("animate__bounceInUpOwn");
             titleSegment.classList.remove("animate__bounceInUpTitleOwn");
 
@@ -686,6 +702,8 @@ function determinePositionForAnimationSegments() {
         if (!isMobile) {
             comprehensiveSlideItem.addEventListener("mouseover", () => {
                 isOnElement = true;
+                 isFixed = comprehensiveSlideItem.getAttribute('data-is-fixed') === 'true';
+                console.log(isFixed)
                 if (!isFixed) {
                     showHiddenContent();
                 }
@@ -693,6 +711,7 @@ function determinePositionForAnimationSegments() {
 
             comprehensiveSlideItem.addEventListener("mouseleave", () => {
                 isOnElement = false;
+
                 if (!isFixed) {
                     hideHiddenContent();
                 }
@@ -711,9 +730,11 @@ function determinePositionForAnimationSegments() {
             } else {
                 if (isFixed) {
                     if (!isOnElement) {
+
                         hideHiddenContent();
                     }
                 } else {
+
                     showHiddenContent();
                 }
 
@@ -747,5 +768,6 @@ export {
     clearSegmentsList,
     openModalModule,
     addedBgScroll,
-    updateShadows
+    updateShadows,
+    determinePositionForAnimationSegments
 };

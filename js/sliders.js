@@ -1,4 +1,4 @@
-import {resetForm} from "./helpers.js";
+import {resetForm, determinePositionForAnimationSegments} from "./helpers.js";
 
 let pageSlider;
 window.addEventListener("load", () => {
@@ -157,6 +157,10 @@ $(document).ready(function () {
     /**
      * Navigate between page slides
      */
+
+    $('#getStarted').on('click', function () {
+        determinePositionForAnimationSegments()
+    });
     $('#getStarted, .btn-next, [data-request-invoice]').on('click', function () {
         pageSlider.slideNext();
         $('[data-btns-box]').addClass(`lg:fixed`);
