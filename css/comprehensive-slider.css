@@ -587,6 +587,7 @@
         animation-delay: 0s;
         transition-timing-function: ease;
         border-radius: 20px;
+        z-index: -1;
     }
 
     #comprehensive-slider .comprehensive-slide-item .animated-image {
