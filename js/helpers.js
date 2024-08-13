@@ -646,7 +646,6 @@ function determinePositionForAnimationSegments() {
     const comprehensiveSlideItems = document.querySelectorAll('.comprehensive-slide-item');
     let isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-    console.log(isMobile)
 
     comprehensiveSlideItems.forEach((comprehensiveSlideItem) => {
         const titleSegment = comprehensiveSlideItem.querySelector('.comprehensive-slide-item-top-title-box');
