@@ -395,12 +395,6 @@
         }
     }
 
-    #comprehensive-slider .comprehensive-slide-item:hover .comprehensive-slide-item-top-title,
-    #comprehensive-slider .comprehensive-slide-item.swiper-slide-checked .comprehensive-slide-item-top-title{
-        font-size: 16px;
-    }
-
-
 
     #comprehensive-slider .comprehensive-slide-item-top-title {
         font-size: 14.3px;
