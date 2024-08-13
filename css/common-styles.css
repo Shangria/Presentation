@@ -1349,7 +1349,7 @@ header {
     }
 
     .presentation-modules-item.presentation-modules-item-active {
-        background-color: #ffffff0d;
+        background: #FFFFFF30;
     }
 
     .custom-checkbox-label .checkmark {
