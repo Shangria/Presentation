@@ -288,7 +288,7 @@
     pointer-events: none;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
     #comprehensive-slider .comprehensive-slide-item:hover .swiper-slide-inner:after {
         background: linear-gradient(180deg, rgba(33, 33, 33, 0.45) -32.37%, #212121 100%);
     }

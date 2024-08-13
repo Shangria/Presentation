@@ -645,7 +645,8 @@ window.addEventListener('resize', () => {
 function determinePositionForAnimationSegments() {
     const comprehensiveSlideItems = document.querySelectorAll('.comprehensive-slide-item');
     let isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    const mobileTitleSpace = isMobile ? 15 : 0;
+
+    console.log(isMobile)
 
     comprehensiveSlideItems.forEach((comprehensiveSlideItem) => {
         const titleSegment = comprehensiveSlideItem.querySelector('.comprehensive-slide-item-top-title-box');
