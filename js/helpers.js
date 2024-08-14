@@ -636,12 +636,6 @@ function updateShadows(scrollElement, scrollWrap, isLastElement=false) {
         scrollWrap.classList.remove('scrolled-top');
     }
 
-    if (scrollElement.scrollTop + scrollElement.clientHeight +4 >= scrollElement.scrollHeight) {
-        console.log("Scrolled to bottom of div");
-        scrollWrap.classList.remove('scrolled-bottom');
-    }
-
-
 
     if (scrollElement.scrollHeight > scrollElement.clientHeight) {
 
