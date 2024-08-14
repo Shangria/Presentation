@@ -1737,11 +1737,11 @@ header {
 
 
     .animate__widthOwn{
-        animation: fadeInWithWidthChange 2s ease forwards ;
+        animation: fadeInWithWidthChange 1s ease forwards ;
     }
 
     .animate__width-minOwn{
-        animation: fadeInWithWidthMin .6s ease forwards ;
+        animation: fadeInWithWidthMin 1s ease forwards ;
     }
 
     .animate__fadeInLeftOwn {
