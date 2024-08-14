@@ -106,6 +106,12 @@
         opacity: 1;
     }
 }
+
+.section.section-modules .presentation-menu-scroll.section-scroll-bg-bottom.scrolled-bottom.scrolled-bottom-remove{
+    &:before {
+        content: none!important;
+    }
+}
 /*//*/
 
 

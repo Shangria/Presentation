@@ -323,12 +323,12 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId, slideI
     const iiDesktop = window.innerWidth > 1025;
 
     const numberOfAcc = String(slideId.slice(-1));
-    const dropdownTabs = document.querySelectorAll(`#${slideId} [data-tab-modules-item]`);
+    const dropdownTabs =Array.from(document.querySelectorAll(`#${slideId} [data-tab-modules-item]`));
     const scrollWrap = iiDesktop ? document.querySelector(`[data-section-scroll-class="acc${numberOfAcc}"]`) : document.querySelector(`[data-section-scroll-class="${mobileShadowBox}"]`);
     const scrollElement = iiDesktop ? document.querySelector(`[data-section-scroll="acc${numberOfAcc}"]`) : document.querySelector(`[data-section-scroll="${mobileShadowBox}"]`);
 
 
-    dropdownTabs.forEach(dropdownTab => {
+    dropdownTabs.forEach((dropdownTab, index) => {
         dropdownTab.addEventListener('click', (event) => {
             if (event.isTrusted) {
                 // Remove 'presentation-modules-item-active' class from all elements
@@ -342,8 +342,18 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId, slideI
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId, slideId);
                 showModulePanel(currentItem, presentationMenuId, accordionPanelId);
 
+                //for add down shadow
+                const isLastElement = index === dropdownTabs.length - 1 || index === dropdownTabs.length - 2;
+
+                if (isLastElement) {
+                    const wrap = document.getElementById('presentationMenuSlide3');
+                    wrap.classList.add('scrolled-bottom-remove');
+                }
+//
+
+
                 setTimeout(() => {
-                    updateShadows(scrollElement, scrollWrap);
+                    updateShadows(scrollElement, scrollWrap, isLastElement);
                 }, 500);
             }
 

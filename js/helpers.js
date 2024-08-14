@@ -606,6 +606,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function addedBgScroll() {
     const scrollSections = document.querySelectorAll("[data-section-scroll]");
     const scrollWrapsMap = new Map();
+    //for remove down shadow
+    const  wrap=document.getElementById('presentationMenuSlide3')
 
     document.querySelectorAll("[data-section-scroll-class]").forEach(wrap => {
         scrollWrapsMap.set(wrap.getAttribute("data-section-scroll-class"), wrap);
@@ -615,6 +617,9 @@ function addedBgScroll() {
 
         scrollElement.addEventListener("scroll", () => {
             updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
+
+            //for remove down shadow
+            wrap.classList.remove('scrolled-bottom-remove');
         });
 
         updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
@@ -622,7 +627,7 @@ function addedBgScroll() {
 }
 
 
-function updateShadows(scrollElement, scrollWrap) {
+function updateShadows(scrollElement, scrollWrap, isLastElement=false) {
     if (!scrollWrap || !scrollElement) return;
 
     if (scrollElement.scrollTop > 1) {
@@ -631,15 +636,27 @@ function updateShadows(scrollElement, scrollWrap) {
         scrollWrap.classList.remove('scrolled-top');
     }
 
+    if (scrollElement.scrollTop + scrollElement.clientHeight +4 >= scrollElement.scrollHeight) {
+        console.log("Scrolled to bottom of div");
+        scrollWrap.classList.remove('scrolled-bottom');
+    }
+
+
+
     if (scrollElement.scrollHeight > scrollElement.clientHeight) {
 
         if (scrollElement.scrollTop + scrollElement.clientHeight < scrollElement.scrollHeight - 4) {
+
             scrollWrap.classList.add('scrolled-bottom');
         } else {
             scrollWrap.classList.remove('scrolled-bottom');
         }
     } else {
         scrollWrap.classList.remove('scrolled-bottom');
+    }
+
+    if(isLastElement){
+
     }
 }
 
@@ -703,7 +720,6 @@ window.addEventListener('resize', () => {
             comprehensiveSlideItem.addEventListener("mouseover", () => {
                 isOnElement = true;
                  isFixed = comprehensiveSlideItem.getAttribute('data-is-fixed') === 'true';
-                console.log(isFixed)
                 if (!isFixed) {
                     showHiddenContent();
                 }
