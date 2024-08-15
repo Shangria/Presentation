@@ -134,30 +134,342 @@
 
 /*//*/
 
+@keyframes maskAnimationToBottomUpOne {
+    0.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%);
+    }
+    20.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.4) 100%)
+    }
+    40.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.3) 100%)
+
+    }
+    60.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.2) 100%)
+
+    }
+    80.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.1) 100%)
+
+    }
+    100.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%)
+
+    }
+}
+
+@keyframes maskAnimationToBottomUp {
+    0.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%);
+    }
+    20.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.4) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%);;
+    }
+    40.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.3) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.7) 100%);;
+    }
+    60.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.2) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.8) 100%);;
+    }
+    80.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.1) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.9) 100%);;
+    }
+    100.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 1) 100%);;
+    }
+}
+
+@keyframes maskAnimationToBottomDown {
+    0.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%);
+    }
+    20.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95.5%, rgba(1, 1, 1, 0.6) 100%);
+    }
+    40.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 96%, rgba(1, 1, 1, 0.7) 100%);
+    }
+    60.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 96.5%, rgba(1, 1, 1, 0.8) 100%);
+    }
+    80.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 97%, rgba(1, 1, 1, 0.9) 100%);
+    }
+    100.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 97.5%, rgba(1, 1, 1, 1) 100%);
+    }
+}
+
+@keyframes maskAnimationToTopUp {
+    0.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 1) 100%),
+        linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%);
+    }
+    20.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.9) 100%),
+        linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.2) 100%);
+    }
+    40.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.8) 100%),
+        linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.4) 100%);
+    }
+    60.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.7) 100%),
+        linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.6) 100%);
+    }
+    80.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.6) 100%),
+        linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.8) 100%);
+    }
+    100.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%),
+        linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 1) 100%);
+    }
+}
+
+@keyframes maskAnimationToTopBottom {
+    0.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%);
+    }
+    20.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.1) 100%);
+    }
+    40.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.2) 100%);
+    }
+    60.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.3) 100%);
+    }
+    80.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.4) 100%);
+    }
+    100.00% {
+        mask-image: linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%);
+    }
+
+}
+
+@keyframes maskAnimationToBottomUpCommon {
+    0.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 1) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 1) 100%);
+
+    }
+    10.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.9) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 1) 100%);
+    }
+    20.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.8) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.9) 100%);
+    }
+    30.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.7) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.9) 100%);
+    }
+    40.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.6) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.8) 100%);
+    }
+    50.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.8) 100%);
+    }
+    60.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.4) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.7) 100%);
+    }
+    70.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.3) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.7) 100%);
+    }
+    80.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.2) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.6) 100%);
+    }
+    90.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.1) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.6) 100%);
+    }
+    100.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%);
+    }
+}
+
+@keyframes maskAnimationToBottomDownCommon {
+    0.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%);
+
+    }
+    10.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.1) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%);
+    }
+    20.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.2) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.1) 100%);
+    }
+    30.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.3) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.1) 100%);
+    }
+    40.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.4) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.2) 100%);
+    }
+    50.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.2) 100%);
+    }
+    60.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.6) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.3) 100%);
+    }
+    70.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.7) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.3) 100%);
+    }
+    80.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.8) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.4) 100%);
+    }
+    90.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.9) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.4) 100%);
+    }
+    100.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 1) 100%),
+        linear-gradient(to top, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0.5) 100%);
+    }
+}
+
+
+
+/*@keyframes maskAnimationToBottom {
+    0.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%);
+    }
+    5.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 5%, rgba(1, 1, 1, 0) 100%);
+    }
+    10.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 10%, rgba(1, 1, 1, 0) 100%);
+    }
+    15.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 15%, rgba(1, 1, 1, 0) 100%);
+    }
+    20.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 20%, rgba(1, 1, 1, 0) 100%);
+    }
+    25.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 25%, rgba(1, 1, 1, 0) 100%);
+    }
+    30.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 30%, rgba(1, 1, 1, 0) 100%);
+    }
+    35.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 35%, rgba(1, 1, 1, 0) 100%);
+    }
+    40.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 40%, rgba(1, 1, 1, 0) 100%);
+    }
+    45.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 45%, rgba(1, 1, 1, 0) 100%);
+    }
+    50.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 50%, rgba(1, 1, 1, 0) 100%);
+    }
+    55.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 55%, rgba(1, 1, 1, 0) 100%);
+    }
+    60.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 60%, rgba(1, 1, 1, 0) 100%);
+    }
+    65.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 65%, rgba(1, 1, 1, 0) 100%);
+    }
+    70.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 70%, rgba(1, 1, 1, 0) 100%);
+    }
+    75.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 75%, rgba(1, 1, 1, 0) 100%);
+    }
+    80.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 80%, rgba(1, 1, 1, 0) 100%);
+    }
+    85.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 85%, rgba(1, 1, 1, 0) 100%);
+    }
+    90.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 90%, rgba(1, 1, 1, 0) 100%);
+    }
+    95.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 95%, rgba(1, 1, 1, 0) 100%);
+    }
+    100.00% {
+        mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1) 100%, rgba(1, 1, 1, 0) 100%);
+    }
+}*/
+
+.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top,
+.section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-top{
+    mask-composite: intersect;
+    &:after {
+        content: none;
+    }
+}
 
 .section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-top.scrolled-top,
 .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-top.scrolled-top{
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
+    animation: maskAnimationToTopUp .5s ease forwards;
+    mask-composite: intersect;
     &:after {
+        content: none;
+    }
+}
+
+.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-bottom,
+.section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-bottom {
+    animation: maskAnimationToBottomDown .5s ease forwards ;
+
+    &:before {
         content: none;
     }
 }
 
 .section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom,
 .section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom {
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
+    animation:maskAnimationToBottomUpOne .5s ease forwards ;
+
+
     &:before {
       content: none;
     }
 }
 
+.section.section-subscription .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom.scrolled,
+.section.section-modules .accordion-panel-scroll-gradient.section-scroll-bg-bottom.scrolled-bottom.scrolled {
+    animation:maskAnimationToBottomUp .5s ease forwards;
 
-.section.section-subscription .accordion-panel-scroll-gradient.scrolled-bottom.scrolled-top,
-.section.section-modules .accordion-panel-scroll-gradient.scrolled-bottom.scrolled-top{
-    mask-image:
-            linear-gradient(to top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px),
-            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 30px);
-    mask-composite: intersect;
+
+    &:before {
+        content: none;
+    }
+}
+
+
+.section.section-subscription .accordion-panel-scroll-gradient.scrolled-bottom.scrolled-top.scrolled,
+.section.section-modules .accordion-panel-scroll-gradient.scrolled-bottom.scrolled-top.scrolled{
+    animation: maskAnimationToBottomUpCommon .5s ease forwards;
 
     &:after {
         content: none;

@@ -632,8 +632,10 @@ function updateShadows(scrollElement, scrollWrap, isLastElement=false) {
 
     if (scrollElement.scrollTop > 1) {
         scrollWrap.classList.add('scrolled-top');
+        scrollWrap.classList.add('scrolled');
     } else {
         scrollWrap.classList.remove('scrolled-top');
+
     }
 
 
@@ -644,6 +646,7 @@ function updateShadows(scrollElement, scrollWrap, isLastElement=false) {
             scrollWrap.classList.add('scrolled-bottom');
         } else {
             scrollWrap.classList.remove('scrolled-bottom');
+            scrollWrap.classList.remove('scrolled');
         }
     } else {
         scrollWrap.classList.remove('scrolled-bottom');
