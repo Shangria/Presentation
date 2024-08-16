@@ -2008,7 +2008,7 @@ header {
     }
 
     .animate__width-minOwn{
-        animation: fadeInWithWidthMin 1s ease forwards ;
+        animation: fadeInWithWidthMin 1s ease forwards !important; ;
     }
 
     .animate__fadeInLeftOwn {

@@ -610,6 +610,7 @@ function addedBgScroll() {
     //for remove down shadow
     const  wrap=document.getElementById('presentationMenuSlide3')
 
+
     document.querySelectorAll("[data-section-scroll-class]").forEach(wrap => {
         scrollWrapsMap.set(wrap.getAttribute("data-section-scroll-class"), wrap);
     });

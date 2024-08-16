@@ -140,6 +140,10 @@ function startAnimation(swiper) {
         $('#slide5 [data-animate-top-left]').addClass('animate__animated animate__fadeInBottomLeftOwn ');
         $('#slide5 [data-animate-left]').addClass('animate__animated animate__fadeInLeftOwn');
 
+        setTimeout(()=>{
+            $('[data-animate-width-max ]').removeClass('animate__width-minOwn');
+        }, 1500)
+
     }
 
     else if (swiper.activeIndex === 4) {
