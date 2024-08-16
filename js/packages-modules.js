@@ -31,7 +31,7 @@ let stepFormState = {
     isChangedDefaultState: false,
     currentPackageSelected: '',
     currentLicencesSelected: '',
-    regionsArr: [],
+    regionsArr: ["Global"],
     totalCost: 0,
 
 
