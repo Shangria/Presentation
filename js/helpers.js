@@ -630,7 +630,6 @@ function addedBgScroll() {
 */
 
         scrollElement.addEventListener(currentEvent, () => {
-            console.log("wheel event triggered");
             updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
             wrap.classList.remove('scrolled-bottom-remove');
         });
