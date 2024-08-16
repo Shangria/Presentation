@@ -640,7 +640,7 @@ function addedBgScroll() {
 }
 
 
-function updateShadows(scrollElement, scrollWrap, isLastElement=false) {
+function updateShadows(scrollElement, scrollWrap) {
     if (!scrollWrap || !scrollElement) return;
 
     if (scrollElement.scrollTop > 1) {
@@ -649,24 +649,27 @@ function updateShadows(scrollElement, scrollWrap, isLastElement=false) {
     } else {
         scrollWrap.classList.remove('scrolled-top');
     }
-    console.log(scrollElement.scrollTop + scrollElement.clientHeight)
-    console.log(scrollElement.scrollHeight)
 
-    if (scrollElement.scrollHeight > scrollElement.clientHeight) {
+    // Use setTimeout to give the browser time to finish updating the DOM
+    setTimeout(() => {
+        const scrollBottomPosition = Math.ceil(scrollElement.scrollTop + scrollElement.clientHeight);
+        const scrollHeight = Math.floor(scrollElement.scrollHeight);
+        const isScrolledToBottom = scrollBottomPosition >= scrollHeight;
 
-        if (scrollElement.scrollTop + scrollElement.clientHeight < scrollElement.scrollHeight - 4) {
-            scrollWrap.classList.add('scrolled-bottom');
+        console.log(scrollBottomPosition + " scrollBottomPosition");
+        console.log(isScrolledToBottom + " isBottom");
+
+        if (scrollElement.scrollHeight > scrollElement.clientHeight) {
+            if (!isScrolledToBottom) {
+                scrollWrap.classList.add('scrolled-bottom');
+            } else {
+                scrollWrap.classList.remove('scrolled-bottom');
+                scrollWrap.classList.remove('scrolled');
+            }
         } else {
             scrollWrap.classList.remove('scrolled-bottom');
-            scrollWrap.classList.remove('scrolled');
         }
-    } else {
-        scrollWrap.classList.remove('scrolled-bottom');
-    }
-
-    if(isLastElement){
-
-    }
+    }, 150);
 }
 
 
