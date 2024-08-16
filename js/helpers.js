@@ -656,8 +656,6 @@ function updateShadows(scrollElement, scrollWrap) {
         const scrollHeight = Math.floor(scrollElement.scrollHeight);
         const isScrolledToBottom = scrollBottomPosition >= scrollHeight;
 
-        console.log(scrollBottomPosition + " scrollBottomPosition");
-        console.log(isScrolledToBottom + " isBottom");
 
         if (scrollElement.scrollHeight > scrollElement.clientHeight) {
             if (!isScrolledToBottom) {
