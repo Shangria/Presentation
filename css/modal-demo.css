@@ -13,9 +13,10 @@
 }
 
 
+
 .modal-demo-content {
     position: relative;
-    -webkit-backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(50px);
     backdrop-filter: blur(4px);
     background: rgba(49, 51, 58, 0.8);
     padding: 40px 20px 24px;
