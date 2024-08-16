@@ -332,8 +332,10 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId, slideI
         dropdownTab.addEventListener('click', (event) => {
             if (event.isTrusted) {
                 // Remove 'presentation-modules-item-active' class from all elements
+                const scrolls = document.querySelectorAll('.scrolled');
                 const activeItems = document.querySelectorAll('.presentation-modules-item-active');
                 activeItems.forEach(item => item.classList.remove('presentation-modules-item-active'));
+                scrolls.forEach(item => item.classList.remove('scrolled'));
 
                 // Add the 'presentation-modules-item-active' class to the clicked item
                 const currentItem = dropdownTab.getAttribute("data-tab-modules-item");
