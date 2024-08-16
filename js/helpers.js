@@ -606,6 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function addedBgScroll() {
     const scrollSections = document.querySelectorAll("[data-section-scroll]");
     const scrollWrapsMap = new Map();
+    let isMobile = /Mobi|Android/i.test(navigator.userAgent);
     //for remove down shadow
     const  wrap=document.getElementById('presentationMenuSlide3')
 
@@ -613,14 +614,26 @@ function addedBgScroll() {
         scrollWrapsMap.set(wrap.getAttribute("data-section-scroll-class"), wrap);
     });
 
-    scrollSections.forEach(scrollElement => {
 
+
+    scrollSections.forEach(scrollElement => {
+        const currentEvent=isMobile? "scroll":"wheel"
+
+/*
         scrollElement.addEventListener("scroll", () => {
+            console.log("scroll")
             updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
 
             //for remove down shadow
             wrap.classList.remove('scrolled-bottom-remove');
         });
+*/
+        scrollElement.addEventListener(currentEvent, () => {  // Здесь исправлено
+            console.log("wheel event triggered");
+            updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
+            wrap.classList.remove('scrolled-bottom-remove');
+        });
+
 
         updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
     });
