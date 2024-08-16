@@ -648,14 +648,13 @@ function updateShadows(scrollElement, scrollWrap, isLastElement=false) {
         scrollWrap.classList.add('scrolled');
     } else {
         scrollWrap.classList.remove('scrolled-top');
-
     }
-
+    console.log(scrollElement.scrollTop + scrollElement.clientHeight)
+    console.log(scrollElement.scrollHeight)
 
     if (scrollElement.scrollHeight > scrollElement.clientHeight) {
 
         if (scrollElement.scrollTop + scrollElement.clientHeight < scrollElement.scrollHeight - 4) {
-
             scrollWrap.classList.add('scrolled-bottom');
         } else {
             scrollWrap.classList.remove('scrolled-bottom');
