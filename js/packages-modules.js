@@ -351,11 +351,8 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId, slideI
                     const wrap = document.getElementById('presentationMenuSlide3');
                     wrap.classList.add('scrolled-bottom-remove');
                 }
-//
-
-
                 setTimeout(() => {
-                    updateShadows(scrollElement, scrollWrap, isLastElement);
+                    updateShadows(scrollElement, scrollWrap);
                 }, 500);
             }
 
@@ -366,7 +363,8 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId, slideI
 
 $(document).ready(function () {
 
-//get selected segment or segments
+
+    const getStarted = document.getElementById("getStarted");
     const segmentItemsList = document.querySelectorAll("[data-segment-item]");
     const btnSegmentsNext = document.getElementById("btnSegmentsNext");
     const requestInvoiceBtns = document.querySelectorAll("[data-request-invoice]");
@@ -447,6 +445,16 @@ $(document).ready(function () {
     });
 
 
+    //go yo slide 2
+
+    getStarted.addEventListener("click", ()=>{
+        //for add bottom bg shadow
+        const scrollWrapSegments = document.querySelector(` [data-section-scroll-class="2"]`);
+        const scrollElementSegments = document.querySelector("[data-section-scroll='2']");
+
+        updateShadows(scrollElementSegments,scrollWrapSegments )
+    })
+
     //go to slide3
     btnSegmentsNext.addEventListener('click', () => {
         const mobileShadowBox = "6";
@@ -507,15 +515,16 @@ $(document).ready(function () {
         requestInvoiceSubscription.addEventListener('click', () => {
             buildSubscriptionModulesPanel();
 
-
             //for add bottom bg shadow
-            const scrollWrap = document.querySelector(` [data-section-scroll-class="acc5"]`);
-            const scrollElement = document.querySelector("[data-section-scroll='acc5']");
+            const scrollWraps = document.querySelectorAll(`#slide5 [data-section-scroll-class]`);
+            const scrollElements = document.querySelectorAll("#slide5 [data-section-scroll]");
 
+            scrollWraps.forEach((scrollWrap, index)=>{
+                setTimeout(() => {
+                    updateShadows(scrollElements[index], scrollWrap);
+                }, 500);
+            })
 
-            setTimeout(() => {
-                updateShadows(scrollElement, scrollWrap);
-            }, 500);
         });
     });
 

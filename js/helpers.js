@@ -610,7 +610,6 @@ function addedBgScroll() {
     //for remove down shadow
     const  wrap=document.getElementById('presentationMenuSlide3')
 
-
     document.querySelectorAll("[data-section-scroll-class]").forEach(wrap => {
         scrollWrapsMap.set(wrap.getAttribute("data-section-scroll-class"), wrap);
     });
@@ -620,35 +619,27 @@ function addedBgScroll() {
     scrollSections.forEach(scrollElement => {
         const currentEvent=isMobile? "scroll":"wheel"
 
-/*
-        scrollElement.addEventListener("scroll", () => {
-            console.log("scroll")
-            updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
-
-            //for remove down shadow
-            wrap.classList.remove('scrolled-bottom-remove');
-        });
-*/
 
         scrollElement.addEventListener(currentEvent, () => {
             updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
             wrap.classList.remove('scrolled-bottom-remove');
         });
 
-
-        updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
+     /*   updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));*/
     });
 }
 
 
 function updateShadows(scrollElement, scrollWrap) {
-    if (!scrollWrap || !scrollElement) return;
+    if (!scrollWrap || !scrollElement ) return;
 
     if (scrollElement.scrollTop > 1) {
         scrollWrap.classList.add('scrolled-top');
         scrollWrap.classList.add('scrolled');
     } else {
-        scrollWrap.classList.remove('scrolled-top');
+        if (scrollWrap.classList.contains('scrolled-top')) {
+            scrollWrap.classList.remove('scrolled-top');
+        }
     }
 
     // Use setTimeout to give the browser time to finish updating the DOM
@@ -666,11 +657,10 @@ function updateShadows(scrollElement, scrollWrap) {
                 scrollWrap.classList.remove('scrolled');
             }
         } else {
-            scrollWrap.classList.remove('scrolled-bottom');
+            if(scrollWrap.classList.contains('scrolled-bottom')) scrollWrap.classList.remove('scrolled-bottom');
         }
     }, 150);
 }
-
 
 document.addEventListener('DOMContentLoaded', addedBgScroll);
 
@@ -796,5 +786,5 @@ export {
     openModalModule,
     addedBgScroll,
     updateShadows,
-    determinePositionForAnimationSegments
+    determinePositionForAnimationSegments,
 };
