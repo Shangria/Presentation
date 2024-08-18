@@ -344,13 +344,7 @@ function togglePresentationMenuItem(accordionPanelId, presentationMenuId, slideI
                 buildRightPanel(currentItem, accordionPanelId, presentationMenuId, slideId);
                 showModulePanel(currentItem, presentationMenuId, accordionPanelId);
 
-                //for add down shadow
-                const isLastElement = index === dropdownTabs.length - 1 || index === dropdownTabs.length - 2;
 
-                if (isLastElement) {
-                    const wrap = document.getElementById('presentationMenuSlide3');
-                    wrap.classList.add('scrolled-bottom-remove');
-                }
                 setTimeout(() => {
                     updateShadows(scrollElement, scrollWrap);
                 }, 500);
