@@ -1721,7 +1721,7 @@ input[type=number]::-webkit-outer-spin-button {
     content: "";
     width: 13px;
     height: 18px;
-    background: url("../../MDO/src/images/icons/checkbox-arrow.svg") no-repeat center center;
+    background: url("../images/icons/checkbox-arrow.svg") no-repeat center center;
     display: block;
     position: absolute;
     top: 50%;
