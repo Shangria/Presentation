@@ -603,6 +603,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
 function addedBgScroll() {
     const scrollSections = document.querySelectorAll("[data-section-scroll]");
     const scrollWrapsMap = new Map();
@@ -617,23 +618,15 @@ function addedBgScroll() {
 
 
     scrollSections.forEach(scrollElement => {
-        const currentEvent=isMobile? "scroll":"wheel"
 
-
-        scrollElement.addEventListener(currentEvent, (event) => {
-            if (!isMobile) {
-                event.preventDefault();
-                const delta = Math.sign(event.deltaY);
-                scrollElement.scrollTop += delta * 3;
-            }
-
+        scrollElement.addEventListener("scroll", (event) => {
             updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
             wrap.classList.remove('scrolled-bottom-remove');
         });
 
-        /*   updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));*/
     });
 }
+
 
 
 
