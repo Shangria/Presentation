@@ -653,10 +653,7 @@ header {
 .presentation-menu {
  /*   flex-basis: 27%;*/
     padding: 140px 30px 0 3vw;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
     background-color: #1d1f28;
-    height: 100%;
 }
 
 .presentation-menu-box {
