@@ -1,4 +1,4 @@
-import {resetForm, determinePositionForAnimationSegments} from "./helpers.js";
+import {resetForm, determinePositionForAnimationSegments} from "./helpers-presentation.js";
 
 let pageSlider;
 window.addEventListener("load", () => {

@@ -12,9 +12,9 @@ import {
     resetForm,
     showModulePanel,
     updateShadows,
-} from "./helpers.js";
+} from "./helpers-presentation.js";
 import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
-import {validateForm} from "./validation-form.js";
+import {validateForm} from "./validation-form-presentation.js";
 
 
 let stepFormState = {

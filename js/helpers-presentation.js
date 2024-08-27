@@ -1,6 +1,6 @@
 import {stepFormState} from "./packages-modules.js";
 import {licencesSelect, optionsPackageSelect} from "./request-invoice.js";
-import {clearContactInputs, resetFormElements, validateContactForm, validateEmailContact} from "./validation-form.js";
+import {clearContactInputs, resetFormElements, validateContactForm, validateEmailContact} from "./validation-form-presentation.js";
 import {pageSlider} from "./sliders.js";
 
 //determine segments and modules
@@ -620,14 +620,21 @@ function addedBgScroll() {
         const currentEvent=isMobile? "scroll":"wheel"
 
 
-        scrollElement.addEventListener(currentEvent, () => {
+        scrollElement.addEventListener(currentEvent, (event) => {
+            if (!isMobile) {
+                event.preventDefault();
+                const delta = Math.sign(event.deltaY);
+                scrollElement.scrollTop += delta * 3;
+            }
+
             updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));
             wrap.classList.remove('scrolled-bottom-remove');
         });
 
-     /*   updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));*/
+        /*   updateShadows(scrollElement, scrollWrapsMap.get(scrollElement.getAttribute("data-section-scroll")));*/
     });
 }
+
 
 
 function updateShadows(scrollElement, scrollWrap) {

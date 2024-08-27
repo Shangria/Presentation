@@ -1,5 +1,5 @@
 import {buildLeftPanel, stepFormState} from "./packages-modules.js";
-import {calculateTotalCost} from "./helpers.js";
+import {calculateTotalCost} from "./helpers-presentation.js";
 
 
 export const optionalSelectContent = {
