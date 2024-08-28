@@ -1732,7 +1732,6 @@ input[type=number]::-webkit-outer-spin-button {
     transition: .3s ease-in-out;
 }
 
-
 .checkbox-label-toggle .checkmark {
     background-color: var(--color-blue);
     opacity: 1;
