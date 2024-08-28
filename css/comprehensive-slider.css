@@ -335,6 +335,7 @@
         transform: scale(1.04);
     }
 
+
     #comprehensive-slider .comprehensive-slide-item:hover .comprehensive-slide-item-top-title,
     #comprehensive-slider .comprehensive-slide-item.swiper-slide-checked .comprehensive-slide-item-top-title{
         font-size: 31px;
