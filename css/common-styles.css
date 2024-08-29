@@ -1210,7 +1210,7 @@ header {
     .section.section-modules .presentation-menu-scroll.section-scroll-bg-bottom.scrolled-bottom {
         &:before {
             height: 70px;
-            background: linear-gradient(1turn, #1d1f28cc 55%, #1d1f2833 80%, #1d1f281a 40%, #1d1f280d);
+            background: linear-gradient(0deg, #1d1f28, rgb(29 31 41) 50%, rgb(29 31 40 / 0%));
         }
     }
 
@@ -1318,25 +1318,6 @@ header {
         }
     }
 
-
-
-
-   /* .section.section-modules .package-info-inner-wrapper.section-scroll-bg-top.scrolled-top {
-        &:after {
-            height: 30px;
-            background: linear-gradient(180deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
-            top: 60px;
-        }
-    }
-
-    .section.section-modules .package-info-inner-wrapper.section-scroll-bg-bottom.scrolled-bottom {
-        &:before {
-            background: linear-gradient(0deg, rgba(32, 34, 44, 0.59) 0%, rgba(36, 38, 54, 0) 77%);
-            height: 30px;
-            bottom: 0;
-            opacity: 1;
-        }
-    }*/
 
 
     .section.section-subscription .subscription-details-columns-wrapper.section-scroll-bg-bottom.scrolled-bottom {
